@@ -127,35 +127,35 @@ pub mod saved_search {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: category_binding.get_id(),
+                    value: &category_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAlias".into(),
-                    value: function_alias_binding.get_id(),
+                    value: &function_alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionParameters".into(),
-                    value: function_parameters_binding.get_id(),
+                    value: &function_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: query_binding.get_id(),
+                    value: &query_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

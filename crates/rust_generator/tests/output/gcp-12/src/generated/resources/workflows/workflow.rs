@@ -219,51 +219,51 @@ pub mod workflow {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callLogLevel".into(),
-                    value: call_log_level_binding.get_id(),
+                    value: &call_log_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyName".into(),
-                    value: crypto_key_name_binding.get_id(),
+                    value: &crypto_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: service_account_binding.get_id(),
+                    value: &service_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceContents".into(),
-                    value: source_contents_binding.get_id(),
+                    value: &source_contents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEnvVars".into(),
-                    value: user_env_vars_binding.get_id(),
+                    value: &user_env_vars_binding.drop_type(),
                 },
             ],
         };

@@ -124,27 +124,27 @@ pub mod table_replica {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: deletion_protection_enabled_binding.get_id(),
+                    value: &deletion_protection_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalTableArn".into(),
-                    value: global_table_arn_binding.get_id(),
+                    value: &global_table_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecovery".into(),
-                    value: point_in_time_recovery_binding.get_id(),
+                    value: &point_in_time_recovery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableClassOverride".into(),
-                    value: table_class_override_binding.get_id(),
+                    value: &table_class_override_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

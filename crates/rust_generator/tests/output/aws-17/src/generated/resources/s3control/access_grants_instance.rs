@@ -98,15 +98,15 @@ pub mod access_grants_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityCenterArn".into(),
-                    value: identity_center_arn_binding.get_id(),
+                    value: &identity_center_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

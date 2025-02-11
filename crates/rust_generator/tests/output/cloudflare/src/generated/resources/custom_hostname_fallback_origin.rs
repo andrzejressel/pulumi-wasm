@@ -66,11 +66,11 @@ pub mod custom_hostname_fallback_origin {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origin".into(),
-                    value: origin_binding.get_id(),
+                    value: &origin_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

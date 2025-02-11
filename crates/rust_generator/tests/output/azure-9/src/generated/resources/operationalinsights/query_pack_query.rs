@@ -138,43 +138,43 @@ pub mod query_pack_query {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalSettingsJson".into(),
-                    value: additional_settings_json_binding.get_id(),
+                    value: &additional_settings_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: body_binding.get_id(),
+                    value: &body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "categories".into(),
-                    value: categories_binding.get_id(),
+                    value: &categories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryPackId".into(),
-                    value: query_pack_id_binding.get_id(),
+                    value: &query_pack_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: resource_types_binding.get_id(),
+                    value: &resource_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutions".into(),
-                    value: solutions_binding.get_id(),
+                    value: &solutions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

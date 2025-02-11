@@ -135,27 +135,27 @@ pub mod bucket_logging_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetBucket".into(),
-                    value: target_bucket_binding.get_id(),
+                    value: &target_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGrants".into(),
-                    value: target_grants_binding.get_id(),
+                    value: &target_grants_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetObjectKeyFormat".into(),
-                    value: target_object_key_format_binding.get_id(),
+                    value: &target_object_key_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetPrefix".into(),
-                    value: target_prefix_binding.get_id(),
+                    value: &target_prefix_binding.drop_type(),
                 },
             ],
         };

@@ -315,47 +315,47 @@ pub mod stream_processor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSharingPreference".into(),
-                    value: data_sharing_preference_binding.get_id(),
+                    value: &data_sharing_preference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: input_binding.get_id(),
+                    value: &input_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationChannel".into(),
-                    value: notification_channel_binding.get_id(),
+                    value: &notification_channel_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "output".into(),
-                    value: output_binding.get_id(),
+                    value: &output_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionsOfInterests".into(),
-                    value: regions_of_interests_binding.get_id(),
+                    value: &regions_of_interests_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

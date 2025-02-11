@@ -125,35 +125,35 @@ pub mod virtual_wan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowBranchToBranchTraffic".into(),
-                    value: allow_branch_to_branch_traffic_binding.get_id(),
+                    value: &allow_branch_to_branch_traffic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableVpnEncryption".into(),
-                    value: disable_vpn_encryption_binding.get_id(),
+                    value: &disable_vpn_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "office365LocalBreakoutCategory".into(),
-                    value: office365_local_breakout_category_binding.get_id(),
+                    value: &office365_local_breakout_category_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

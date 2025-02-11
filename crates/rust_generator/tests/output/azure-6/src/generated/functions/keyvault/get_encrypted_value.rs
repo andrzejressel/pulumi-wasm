@@ -50,19 +50,19 @@ pub mod get_encrypted_value {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "algorithm".into(),
-                    value: algorithm_binding.get_id(),
+                    value: &algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptedData".into(),
-                    value: encrypted_data_binding.get_id(),
+                    value: &encrypted_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plainTextValue".into(),
-                    value: plain_text_value_binding.get_id(),
+                    value: &plain_text_value_binding.drop_type(),
                 },
             ],
         };

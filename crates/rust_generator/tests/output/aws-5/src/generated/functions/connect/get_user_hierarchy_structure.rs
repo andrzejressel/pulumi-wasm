@@ -38,7 +38,7 @@ pub mod get_user_hierarchy_structure {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
             ],
         };

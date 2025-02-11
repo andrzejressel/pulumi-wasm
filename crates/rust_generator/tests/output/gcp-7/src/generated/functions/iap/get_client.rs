@@ -38,11 +38,11 @@ pub mod get_client {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "brand".into(),
-                    value: brand_binding.get_id(),
+                    value: &brand_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
             ],
         };

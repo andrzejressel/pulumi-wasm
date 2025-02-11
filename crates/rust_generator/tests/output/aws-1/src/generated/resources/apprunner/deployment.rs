@@ -61,11 +61,11 @@ pub mod deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceArn".into(),
-                    value: service_arn_binding.get_id(),
+                    value: &service_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

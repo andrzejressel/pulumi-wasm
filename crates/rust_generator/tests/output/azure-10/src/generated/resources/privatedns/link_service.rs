@@ -208,43 +208,44 @@ pub mod link_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoApprovalSubscriptionIds".into(),
-                    value: auto_approval_subscription_ids_binding.get_id(),
+                    value: &auto_approval_subscription_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableProxyProtocol".into(),
-                    value: enable_proxy_protocol_binding.get_id(),
+                    value: &enable_proxy_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdns".into(),
-                    value: fqdns_binding.get_id(),
+                    value: &fqdns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerFrontendIpConfigurationIds".into(),
-                    value: load_balancer_frontend_ip_configuration_ids_binding.get_id(),
+                    value: &load_balancer_frontend_ip_configuration_ids_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIpConfigurations".into(),
-                    value: nat_ip_configurations_binding.get_id(),
+                    value: &nat_ip_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilitySubscriptionIds".into(),
-                    value: visibility_subscription_ids_binding.get_id(),
+                    value: &visibility_subscription_ids_binding.drop_type(),
                 },
             ],
         };

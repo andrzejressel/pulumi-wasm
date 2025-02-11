@@ -227,39 +227,39 @@ pub mod flow {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFlowConfigs".into(),
-                    value: destination_flow_configs_binding.get_id(),
+                    value: &destination_flow_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsArn".into(),
-                    value: kms_arn_binding.get_id(),
+                    value: &kms_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataCatalogConfig".into(),
-                    value: metadata_catalog_config_binding.get_id(),
+                    value: &metadata_catalog_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceFlowConfig".into(),
-                    value: source_flow_config_binding.get_id(),
+                    value: &source_flow_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tasks".into(),
-                    value: tasks_binding.get_id(),
+                    value: &tasks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerConfig".into(),
-                    value: trigger_config_binding.get_id(),
+                    value: &trigger_config_binding.drop_type(),
                 },
             ],
         };

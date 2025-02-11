@@ -69,11 +69,11 @@ pub mod target_group_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: target_binding.get_id(),
+                    value: &target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupIdentifier".into(),
-                    value: target_group_identifier_binding.get_id(),
+                    value: &target_group_identifier_binding.drop_type(),
                 },
             ],
         };

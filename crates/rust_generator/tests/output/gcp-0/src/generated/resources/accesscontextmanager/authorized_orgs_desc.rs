@@ -179,27 +179,27 @@ pub mod authorized_orgs_desc {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetType".into(),
-                    value: asset_type_binding.get_id(),
+                    value: &asset_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationDirection".into(),
-                    value: authorization_direction_binding.get_id(),
+                    value: &authorization_direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationType".into(),
-                    value: authorization_type_binding.get_id(),
+                    value: &authorization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgs".into(),
-                    value: orgs_binding.get_id(),
+                    value: &orgs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

@@ -201,31 +201,31 @@ pub mod router {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgp".into(),
-                    value: bgp_binding.get_id(),
+                    value: &bgp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptedInterconnectRouter".into(),
-                    value: encrypted_interconnect_router_binding.get_id(),
+                    value: &encrypted_interconnect_router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
             ],
         };

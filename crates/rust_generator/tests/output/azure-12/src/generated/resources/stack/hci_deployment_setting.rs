@@ -68,19 +68,19 @@ pub mod hci_deployment_setting {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcResourceIds".into(),
-                    value: arc_resource_ids_binding.get_id(),
+                    value: &arc_resource_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleUnits".into(),
-                    value: scale_units_binding.get_id(),
+                    value: &scale_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackHciClusterId".into(),
-                    value: stack_hci_cluster_id_binding.get_id(),
+                    value: &stack_hci_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

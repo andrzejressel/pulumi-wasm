@@ -198,51 +198,51 @@ pub mod source_representation_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificate".into(),
-                    value: ca_certificate_binding.get_id(),
+                    value: &ca_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificate".into(),
-                    value: client_certificate_binding.get_id(),
+                    value: &client_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientKey".into(),
-                    value: client_key_binding.get_id(),
+                    value: &client_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseVersion".into(),
-                    value: database_version_binding.get_id(),
+                    value: &database_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpFilePath".into(),
-                    value: dump_file_path_binding.get_id(),
+                    value: &dump_file_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

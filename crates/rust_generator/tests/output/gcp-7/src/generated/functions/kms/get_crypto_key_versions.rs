@@ -51,11 +51,11 @@ pub mod get_crypto_key_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: crypto_key_binding.get_id(),
+                    value: &crypto_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
             ],
         };

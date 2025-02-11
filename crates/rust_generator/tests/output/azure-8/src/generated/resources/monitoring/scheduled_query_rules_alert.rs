@@ -161,71 +161,71 @@ pub mod scheduled_query_rules_alert {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedResourceIds".into(),
-                    value: authorized_resource_ids_binding.get_id(),
+                    value: &authorized_resource_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMitigationEnabled".into(),
-                    value: auto_mitigation_enabled_binding.get_id(),
+                    value: &auto_mitigation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceId".into(),
-                    value: data_source_id_binding.get_id(),
+                    value: &data_source_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: frequency_binding.get_id(),
+                    value: &frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: query_binding.get_id(),
+                    value: &query_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryType".into(),
-                    value: query_type_binding.get_id(),
+                    value: &query_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: severity_binding.get_id(),
+                    value: &severity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throttling".into(),
-                    value: throttling_binding.get_id(),
+                    value: &throttling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeWindow".into(),
-                    value: time_window_binding.get_id(),
+                    value: &time_window_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trigger".into(),
-                    value: trigger_binding.get_id(),
+                    value: &trigger_binding.drop_type(),
                 },
             ],
         };

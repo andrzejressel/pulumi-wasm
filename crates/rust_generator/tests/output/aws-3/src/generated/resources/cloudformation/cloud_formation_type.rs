@@ -97,23 +97,23 @@ pub mod cloud_formation_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: execution_role_arn_binding.get_id(),
+                    value: &execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: logging_config_binding.get_id(),
+                    value: &logging_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaHandlerPackage".into(),
-                    value: schema_handler_package_binding.get_id(),
+                    value: &schema_handler_package_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeName".into(),
-                    value: type_name_binding.get_id(),
+                    value: &type_name_binding.drop_type(),
                 },
             ],
         };

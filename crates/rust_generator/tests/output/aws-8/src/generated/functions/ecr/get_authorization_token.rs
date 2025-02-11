@@ -41,7 +41,7 @@ pub mod get_authorization_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryId".into(),
-                    value: registry_id_binding.get_id(),
+                    value: &registry_id_binding.drop_type(),
                 },
             ],
         };

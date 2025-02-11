@@ -139,43 +139,43 @@ pub mod snapshot_copy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "completionDurationMinutes".into(),
-                    value: completion_duration_minutes_binding.get_id(),
+                    value: &completion_duration_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: encrypted_binding.get_id(),
+                    value: &encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permanentRestore".into(),
-                    value: permanent_restore_binding.get_id(),
+                    value: &permanent_restore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRegion".into(),
-                    value: source_region_binding.get_id(),
+                    value: &source_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSnapshotId".into(),
-                    value: source_snapshot_id_binding.get_id(),
+                    value: &source_snapshot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTier".into(),
-                    value: storage_tier_binding.get_id(),
+                    value: &storage_tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "temporaryRestoreDays".into(),
-                    value: temporary_restore_days_binding.get_id(),
+                    value: &temporary_restore_days_binding.drop_type(),
                 },
             ],
         };

@@ -309,83 +309,83 @@ pub mod hadoop_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: cluster_version_binding.get_id(),
+                    value: &cluster_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "componentVersion".into(),
-                    value: component_version_binding.get_id(),
+                    value: &component_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeIsolation".into(),
-                    value: compute_isolation_binding.get_id(),
+                    value: &compute_isolation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptions".into(),
-                    value: disk_encryptions_binding.get_id(),
+                    value: &disk_encryptions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extension".into(),
-                    value: extension_binding.get_id(),
+                    value: &extension_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gateway".into(),
-                    value: gateway_binding.get_id(),
+                    value: &gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metastores".into(),
-                    value: metastores_binding.get_id(),
+                    value: &metastores_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitor".into(),
-                    value: monitor_binding.get_id(),
+                    value: &monitor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkConfiguration".into(),
-                    value: private_link_configuration_binding.get_id(),
+                    value: &private_link_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: roles_binding.get_id(),
+                    value: &roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityProfile".into(),
-                    value: security_profile_binding.get_id(),
+                    value: &security_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountGen2".into(),
-                    value: storage_account_gen2_binding.get_id(),
+                    value: &storage_account_gen2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccounts".into(),
-                    value: storage_accounts_binding.get_id(),
+                    value: &storage_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsMinVersion".into(),
-                    value: tls_min_version_binding.get_id(),
+                    value: &tls_min_version_binding.drop_type(),
                 },
             ],
         };

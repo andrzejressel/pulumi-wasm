@@ -95,19 +95,19 @@ pub mod access_grants_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationScope".into(),
-                    value: location_scope_binding.get_id(),
+                    value: &location_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

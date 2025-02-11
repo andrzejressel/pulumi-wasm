@@ -52,11 +52,11 @@ pub mod get_managed_hardware_security_module_role_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmId".into(),
-                    value: managed_hsm_id_binding.get_id(),
+                    value: &managed_hsm_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

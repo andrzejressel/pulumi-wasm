@@ -106,27 +106,27 @@ pub mod integration_response {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentHandlingStrategy".into(),
-                    value: content_handling_strategy_binding.get_id(),
+                    value: &content_handling_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationId".into(),
-                    value: integration_id_binding.get_id(),
+                    value: &integration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationResponseKey".into(),
-                    value: integration_response_key_binding.get_id(),
+                    value: &integration_response_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseTemplates".into(),
-                    value: response_templates_binding.get_id(),
+                    value: &response_templates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateSelectionExpression".into(),
-                    value: template_selection_expression_binding.get_id(),
+                    value: &template_selection_expression_binding.drop_type(),
                 },
             ],
         };

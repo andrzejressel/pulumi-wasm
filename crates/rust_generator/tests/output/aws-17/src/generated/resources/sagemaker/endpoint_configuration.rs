@@ -148,35 +148,35 @@ pub mod endpoint_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asyncInferenceConfig".into(),
-                    value: async_inference_config_binding.get_id(),
+                    value: &async_inference_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCaptureConfig".into(),
-                    value: data_capture_config_binding.get_id(),
+                    value: &data_capture_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productionVariants".into(),
-                    value: production_variants_binding.get_id(),
+                    value: &production_variants_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shadowProductionVariants".into(),
-                    value: shadow_production_variants_binding.get_id(),
+                    value: &shadow_production_variants_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

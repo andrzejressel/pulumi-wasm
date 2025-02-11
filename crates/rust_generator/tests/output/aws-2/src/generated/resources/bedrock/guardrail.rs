@@ -246,51 +246,51 @@ pub mod guardrail {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockedInputMessaging".into(),
-                    value: blocked_input_messaging_binding.get_id(),
+                    value: &blocked_input_messaging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockedOutputsMessaging".into(),
-                    value: blocked_outputs_messaging_binding.get_id(),
+                    value: &blocked_outputs_messaging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentPolicyConfig".into(),
-                    value: content_policy_config_binding.get_id(),
+                    value: &content_policy_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contextualGroundingPolicyConfig".into(),
-                    value: contextual_grounding_policy_config_binding.get_id(),
+                    value: &contextual_grounding_policy_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveInformationPolicyConfig".into(),
-                    value: sensitive_information_policy_config_binding.get_id(),
+                    value: &sensitive_information_policy_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicPolicyConfig".into(),
-                    value: topic_policy_config_binding.get_id(),
+                    value: &topic_policy_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wordPolicyConfig".into(),
-                    value: word_policy_config_binding.get_id(),
+                    value: &word_policy_config_binding.drop_type(),
                 },
             ],
         };

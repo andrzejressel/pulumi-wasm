@@ -235,115 +235,115 @@ pub mod cloud_vm_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupSubnetCidr".into(),
-                    value: backup_subnet_cidr_binding.get_id(),
+                    value: &backup_subnet_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudExadataInfrastructureId".into(),
-                    value: cloud_exadata_infrastructure_id_binding.get_id(),
+                    value: &cloud_exadata_infrastructure_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuCoreCount".into(),
-                    value: cpu_core_count_binding.get_id(),
+                    value: &cpu_core_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionOptions".into(),
-                    value: data_collection_options_binding.get_id(),
+                    value: &data_collection_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoragePercentage".into(),
-                    value: data_storage_percentage_binding.get_id(),
+                    value: &data_storage_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStorageSizeInTbs".into(),
-                    value: data_storage_size_in_tbs_binding.get_id(),
+                    value: &data_storage_size_in_tbs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbNodeStorageSizeInGbs".into(),
-                    value: db_node_storage_size_in_gbs_binding.get_id(),
+                    value: &db_node_storage_size_in_gbs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbServers".into(),
-                    value: db_servers_binding.get_id(),
+                    value: &db_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "giVersion".into(),
-                    value: gi_version_binding.get_id(),
+                    value: &gi_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: hostname_binding.get_id(),
+                    value: &hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: license_model_binding.get_id(),
+                    value: &license_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localBackupEnabled".into(),
-                    value: local_backup_enabled_binding.get_id(),
+                    value: &local_backup_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySizeInGbs".into(),
-                    value: memory_size_in_gbs_binding.get_id(),
+                    value: &memory_size_in_gbs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanListenerPortTcp".into(),
-                    value: scan_listener_port_tcp_binding.get_id(),
+                    value: &scan_listener_port_tcp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanListenerPortTcpSsl".into(),
-                    value: scan_listener_port_tcp_ssl_binding.get_id(),
+                    value: &scan_listener_port_tcp_ssl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparseDiskgroupEnabled".into(),
-                    value: sparse_diskgroup_enabled_binding.get_id(),
+                    value: &sparse_diskgroup_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicKeys".into(),
-                    value: ssh_public_keys_binding.get_id(),
+                    value: &ssh_public_keys_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

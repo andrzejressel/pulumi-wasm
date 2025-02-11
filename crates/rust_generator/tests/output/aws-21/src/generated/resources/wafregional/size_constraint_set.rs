@@ -73,11 +73,11 @@ pub mod size_constraint_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeConstraints".into(),
-                    value: size_constraints_binding.get_id(),
+                    value: &size_constraints_binding.drop_type(),
                 },
             ],
         };

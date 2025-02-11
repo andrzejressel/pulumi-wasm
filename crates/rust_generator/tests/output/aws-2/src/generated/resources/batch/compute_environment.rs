@@ -289,39 +289,39 @@ pub mod compute_environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentName".into(),
-                    value: compute_environment_name_binding.get_id(),
+                    value: &compute_environment_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentNamePrefix".into(),
-                    value: compute_environment_name_prefix_binding.get_id(),
+                    value: &compute_environment_name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeResources".into(),
-                    value: compute_resources_binding.get_id(),
+                    value: &compute_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eksConfiguration".into(),
-                    value: eks_configuration_binding.get_id(),
+                    value: &eks_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: service_role_binding.get_id(),
+                    value: &service_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatePolicy".into(),
-                    value: update_policy_binding.get_id(),
+                    value: &update_policy_binding.drop_type(),
                 },
             ],
         };

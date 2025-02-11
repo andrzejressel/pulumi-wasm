@@ -158,39 +158,39 @@ pub mod environment_dapr_component {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "componentType".into(),
-                    value: component_type_binding.get_id(),
+                    value: &component_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: container_app_environment_id_binding.get_id(),
+                    value: &container_app_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreErrors".into(),
-                    value: ignore_errors_binding.get_id(),
+                    value: &ignore_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initTimeout".into(),
-                    value: init_timeout_binding.get_id(),
+                    value: &init_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadatas".into(),
-                    value: metadatas_binding.get_id(),
+                    value: &metadatas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: scopes_binding.get_id(),
+                    value: &scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: secrets_binding.get_id(),
+                    value: &secrets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

@@ -53,15 +53,15 @@ pub mod get_script {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagEdges".into(),
-                    value: dag_edges_binding.get_id(),
+                    value: &dag_edges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagNodes".into(),
-                    value: dag_nodes_binding.get_id(),
+                    value: &dag_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: language_binding.get_id(),
+                    value: &language_binding.drop_type(),
                 },
             ],
         };

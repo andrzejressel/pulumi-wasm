@@ -278,59 +278,59 @@ pub mod domain_name {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBody".into(),
-                    value: certificate_body_binding.get_id(),
+                    value: &certificate_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateChain".into(),
-                    value: certificate_chain_binding.get_id(),
+                    value: &certificate_chain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: certificate_name_binding.get_id(),
+                    value: &certificate_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePrivateKey".into(),
-                    value: certificate_private_key_binding.get_id(),
+                    value: &certificate_private_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfiguration".into(),
-                    value: endpoint_configuration_binding.get_id(),
+                    value: &endpoint_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualTlsAuthentication".into(),
-                    value: mutual_tls_authentication_binding.get_id(),
+                    value: &mutual_tls_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipVerificationCertificateArn".into(),
-                    value: ownership_verification_certificate_arn_binding.get_id(),
+                    value: &ownership_verification_certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalCertificateArn".into(),
-                    value: regional_certificate_arn_binding.get_id(),
+                    value: &regional_certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalCertificateName".into(),
-                    value: regional_certificate_name_binding.get_id(),
+                    value: &regional_certificate_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: security_policy_binding.get_id(),
+                    value: &security_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

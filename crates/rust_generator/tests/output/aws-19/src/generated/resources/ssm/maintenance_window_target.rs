@@ -148,27 +148,27 @@ pub mod maintenance_window_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerInformation".into(),
-                    value: owner_information_binding.get_id(),
+                    value: &owner_information_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: targets_binding.get_id(),
+                    value: &targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowId".into(),
-                    value: window_id_binding.get_id(),
+                    value: &window_id_binding.drop_type(),
                 },
             ],
         };

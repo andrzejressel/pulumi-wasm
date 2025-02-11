@@ -63,11 +63,11 @@ pub mod patch_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baselineId".into(),
-                    value: baseline_id_binding.get_id(),
+                    value: &baseline_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchGroup".into(),
-                    value: patch_group_binding.get_id(),
+                    value: &patch_group_binding.drop_type(),
                 },
             ],
         };

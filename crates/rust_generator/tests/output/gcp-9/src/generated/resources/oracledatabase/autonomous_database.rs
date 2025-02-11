@@ -245,47 +245,47 @@ pub mod autonomous_database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPassword".into(),
-                    value: admin_password_binding.get_id(),
+                    value: &admin_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autonomousDatabaseId".into(),
-                    value: autonomous_database_id_binding.get_id(),
+                    value: &autonomous_database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: cidr_binding.get_id(),
+                    value: &cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: database_binding.get_id(),
+                    value: &database_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
             ],
         };

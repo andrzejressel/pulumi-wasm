@@ -95,23 +95,24 @@ pub mod domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowExecutionRetentionPeriodInDays".into(),
-                    value: workflow_execution_retention_period_in_days_binding.get_id(),
+                    value: &workflow_execution_retention_period_in_days_binding
+                        .drop_type(),
                 },
             ],
         };

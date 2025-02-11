@@ -101,27 +101,27 @@ pub mod device_dex_test {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "data".into(),
-                    value: data_binding.get_id(),
+                    value: &data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: interval_binding.get_id(),
+                    value: &interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

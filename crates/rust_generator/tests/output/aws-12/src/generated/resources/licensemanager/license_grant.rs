@@ -88,19 +88,19 @@ pub mod license_grant {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOperations".into(),
-                    value: allowed_operations_binding.get_id(),
+                    value: &allowed_operations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseArn".into(),
-                    value: license_arn_binding.get_id(),
+                    value: &license_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
             ],
         };

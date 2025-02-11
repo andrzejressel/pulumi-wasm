@@ -114,31 +114,31 @@ pub mod dedicated_host_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticPlacementEnabled".into(),
-                    value: automatic_placement_enabled_binding.get_id(),
+                    value: &automatic_placement_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformFaultDomainCount".into(),
-                    value: platform_fault_domain_count_binding.get_id(),
+                    value: &platform_fault_domain_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

@@ -105,31 +105,31 @@ pub mod keystores_aliases_pkcs_12 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: alias_binding.get_id(),
+                    value: &alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: environment_binding.get_id(),
+                    value: &environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "file".into(),
-                    value: file_binding.get_id(),
+                    value: &file_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filehash".into(),
-                    value: filehash_binding.get_id(),
+                    value: &filehash_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keystore".into(),
-                    value: keystore_binding.get_id(),
+                    value: &keystore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
             ],
         };

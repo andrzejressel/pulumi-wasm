@@ -213,43 +213,43 @@ pub mod time_series_database_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: digital_twins_id_binding.get_id(),
+                    value: &digital_twins_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: eventhub_consumer_group_name_binding.get_id(),
+                    value: &eventhub_consumer_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: eventhub_name_binding.get_id(),
+                    value: &eventhub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceEndpointUri".into(),
-                    value: eventhub_namespace_endpoint_uri_binding.get_id(),
+                    value: &eventhub_namespace_endpoint_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceId".into(),
-                    value: eventhub_namespace_id_binding.get_id(),
+                    value: &eventhub_namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoClusterId".into(),
-                    value: kusto_cluster_id_binding.get_id(),
+                    value: &kusto_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoClusterUri".into(),
-                    value: kusto_cluster_uri_binding.get_id(),
+                    value: &kusto_cluster_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoDatabaseName".into(),
-                    value: kusto_database_name_binding.get_id(),
+                    value: &kusto_database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoTableName".into(),
-                    value: kusto_table_name_binding.get_id(),
+                    value: &kusto_table_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

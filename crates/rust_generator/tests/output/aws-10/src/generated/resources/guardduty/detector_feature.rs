@@ -95,19 +95,19 @@ pub mod detector_feature {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalConfigurations".into(),
-                    value: additional_configurations_binding.get_id(),
+                    value: &additional_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: detector_id_binding.get_id(),
+                    value: &detector_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
             ],
         };

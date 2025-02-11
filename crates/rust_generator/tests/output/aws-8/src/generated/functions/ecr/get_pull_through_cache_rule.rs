@@ -39,7 +39,7 @@ pub mod get_pull_through_cache_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecrRepositoryPrefix".into(),
-                    value: ecr_repository_prefix_binding.get_id(),
+                    value: &ecr_repository_prefix_binding.drop_type(),
                 },
             ],
         };

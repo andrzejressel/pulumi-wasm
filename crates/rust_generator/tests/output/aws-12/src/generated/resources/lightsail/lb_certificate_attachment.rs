@@ -75,11 +75,11 @@ pub mod lb_certificate_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: certificate_name_binding.get_id(),
+                    value: &certificate_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: lb_name_binding.get_id(),
+                    value: &lb_name_binding.drop_type(),
                 },
             ],
         };

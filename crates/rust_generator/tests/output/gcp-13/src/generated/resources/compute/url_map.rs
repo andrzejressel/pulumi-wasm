@@ -909,47 +909,47 @@ pub mod url_map {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCustomErrorResponsePolicy".into(),
-                    value: default_custom_error_response_policy_binding.get_id(),
+                    value: &default_custom_error_response_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteAction".into(),
-                    value: default_route_action_binding.get_id(),
+                    value: &default_route_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultService".into(),
-                    value: default_service_binding.get_id(),
+                    value: &default_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultUrlRedirect".into(),
-                    value: default_url_redirect_binding.get_id(),
+                    value: &default_url_redirect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headerAction".into(),
-                    value: header_action_binding.get_id(),
+                    value: &header_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostRules".into(),
-                    value: host_rules_binding.get_id(),
+                    value: &host_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathMatchers".into(),
-                    value: path_matchers_binding.get_id(),
+                    value: &path_matchers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tests".into(),
-                    value: tests_binding.get_id(),
+                    value: &tests_binding.drop_type(),
                 },
             ],
         };

@@ -260,51 +260,51 @@ pub mod intent {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conclusionStatement".into(),
-                    value: conclusion_statement_binding.get_id(),
+                    value: &conclusion_statement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationPrompt".into(),
-                    value: confirmation_prompt_binding.get_id(),
+                    value: &confirmation_prompt_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: create_version_binding.get_id(),
+                    value: &create_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dialogCodeHook".into(),
-                    value: dialog_code_hook_binding.get_id(),
+                    value: &dialog_code_hook_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "followUpPrompt".into(),
-                    value: follow_up_prompt_binding.get_id(),
+                    value: &follow_up_prompt_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfillmentActivity".into(),
-                    value: fulfillment_activity_binding.get_id(),
+                    value: &fulfillment_activity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentIntentSignature".into(),
-                    value: parent_intent_signature_binding.get_id(),
+                    value: &parent_intent_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectionStatement".into(),
-                    value: rejection_statement_binding.get_id(),
+                    value: &rejection_statement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sampleUtterances".into(),
-                    value: sample_utterances_binding.get_id(),
+                    value: &sample_utterances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slots".into(),
-                    value: slots_binding.get_id(),
+                    value: &slots_binding.drop_type(),
                 },
             ],
         };

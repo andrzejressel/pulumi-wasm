@@ -269,103 +269,103 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchSettings".into(),
-                    value: elasticsearch_settings_binding.get_id(),
+                    value: &elasticsearch_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: endpoint_id_binding.get_id(),
+                    value: &endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: endpoint_type_binding.get_id(),
+                    value: &endpoint_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineName".into(),
-                    value: engine_name_binding.get_id(),
+                    value: &engine_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraConnectionAttributes".into(),
-                    value: extra_connection_attributes_binding.get_id(),
+                    value: &extra_connection_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaSettings".into(),
-                    value: kafka_settings_binding.get_id(),
+                    value: &kafka_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisSettings".into(),
-                    value: kinesis_settings_binding.get_id(),
+                    value: &kinesis_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mongodbSettings".into(),
-                    value: mongodb_settings_binding.get_id(),
+                    value: &mongodb_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pauseReplicationTasks".into(),
-                    value: pause_replication_tasks_binding.get_id(),
+                    value: &pause_replication_tasks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postgresSettings".into(),
-                    value: postgres_settings_binding.get_id(),
+                    value: &postgres_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisSettings".into(),
-                    value: redis_settings_binding.get_id(),
+                    value: &redis_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftSettings".into(),
-                    value: redshift_settings_binding.get_id(),
+                    value: &redshift_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Settings".into(),
-                    value: s3_settings_binding.get_id(),
+                    value: &s3_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretsManagerAccessRoleArn".into(),
-                    value: secrets_manager_access_role_arn_binding.get_id(),
+                    value: &secrets_manager_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretsManagerArn".into(),
-                    value: secrets_manager_arn_binding.get_id(),
+                    value: &secrets_manager_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: server_name_binding.get_id(),
+                    value: &server_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccessRole".into(),
-                    value: service_access_role_binding.get_id(),
+                    value: &service_access_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslMode".into(),
-                    value: ssl_mode_binding.get_id(),
+                    value: &ssl_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

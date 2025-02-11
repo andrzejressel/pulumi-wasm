@@ -170,27 +170,27 @@ pub mod account_network_rules {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypasses".into(),
-                    value: bypasses_binding.get_id(),
+                    value: &bypasses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: default_action_binding.get_id(),
+                    value: &default_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRules".into(),
-                    value: ip_rules_binding.get_id(),
+                    value: &ip_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkAccessRules".into(),
-                    value: private_link_access_rules_binding.get_id(),
+                    value: &private_link_access_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkSubnetIds".into(),
-                    value: virtual_network_subnet_ids_binding.get_id(),
+                    value: &virtual_network_subnet_ids_binding.drop_type(),
                 },
             ],
         };

@@ -161,23 +161,23 @@ pub mod link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labelTemplate".into(),
-                    value: label_template_binding.get_id(),
+                    value: &label_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkConfiguration".into(),
-                    value: link_configuration_binding.get_id(),
+                    value: &link_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: resource_types_binding.get_id(),
+                    value: &resource_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sinkIdentifier".into(),
-                    value: sink_identifier_binding.get_id(),
+                    value: &sink_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

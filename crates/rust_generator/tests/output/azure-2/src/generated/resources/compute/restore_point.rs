@@ -149,19 +149,20 @@ pub mod restore_point {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crashConsistencyModeEnabled".into(),
-                    value: crash_consistency_mode_enabled_binding.get_id(),
+                    value: &crash_consistency_mode_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedDisks".into(),
-                    value: excluded_disks_binding.get_id(),
+                    value: &excluded_disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineRestorePointCollectionId".into(),
-                    value: virtual_machine_restore_point_collection_id_binding.get_id(),
+                    value: &virtual_machine_restore_point_collection_id_binding
+                        .drop_type(),
                 },
             ],
         };

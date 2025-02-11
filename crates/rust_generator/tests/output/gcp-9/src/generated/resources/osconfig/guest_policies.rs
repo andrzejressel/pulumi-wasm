@@ -278,35 +278,35 @@ pub mod guest_policies {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignment".into(),
-                    value: assignment_binding.get_id(),
+                    value: &assignment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: etag_binding.get_id(),
+                    value: &etag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestPolicyId".into(),
-                    value: guest_policy_id_binding.get_id(),
+                    value: &guest_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageRepositories".into(),
-                    value: package_repositories_binding.get_id(),
+                    value: &package_repositories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packages".into(),
-                    value: packages_binding.get_id(),
+                    value: &packages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recipes".into(),
-                    value: recipes_binding.get_id(),
+                    value: &recipes_binding.drop_type(),
                 },
             ],
         };

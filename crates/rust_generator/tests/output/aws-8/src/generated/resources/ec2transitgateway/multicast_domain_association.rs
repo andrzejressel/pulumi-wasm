@@ -86,15 +86,15 @@ pub mod multicast_domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayMulticastDomainId".into(),
-                    value: transit_gateway_multicast_domain_id_binding.get_id(),
+                    value: &transit_gateway_multicast_domain_id_binding.drop_type(),
                 },
             ],
         };

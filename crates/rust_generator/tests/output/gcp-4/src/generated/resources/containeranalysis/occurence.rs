@@ -191,23 +191,23 @@ pub mod occurence {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attestation".into(),
-                    value: attestation_binding.get_id(),
+                    value: &attestation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noteName".into(),
-                    value: note_name_binding.get_id(),
+                    value: &note_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remediation".into(),
-                    value: remediation_binding.get_id(),
+                    value: &remediation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceUri".into(),
-                    value: resource_uri_binding.get_id(),
+                    value: &resource_uri_binding.drop_type(),
                 },
             ],
         };

@@ -156,19 +156,19 @@ pub mod virtual_hub_route_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: routes_binding.get_id(),
+                    value: &routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: virtual_hub_id_binding.get_id(),
+                    value: &virtual_hub_id_binding.drop_type(),
                 },
             ],
         };

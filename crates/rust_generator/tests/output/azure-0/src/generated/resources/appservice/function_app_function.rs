@@ -240,31 +240,31 @@ pub mod function_app_function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configJson".into(),
-                    value: config_json_binding.get_id(),
+                    value: &config_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "files".into(),
-                    value: files_binding.get_id(),
+                    value: &files_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAppId".into(),
-                    value: function_app_id_binding.get_id(),
+                    value: &function_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: language_binding.get_id(),
+                    value: &language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testData".into(),
-                    value: test_data_binding.get_id(),
+                    value: &test_data_binding.drop_type(),
                 },
             ],
         };

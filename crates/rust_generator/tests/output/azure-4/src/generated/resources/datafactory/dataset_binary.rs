@@ -195,51 +195,51 @@ pub mod dataset_binary {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: additional_properties_binding.get_id(),
+                    value: &additional_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobStorageLocation".into(),
-                    value: azure_blob_storage_location_binding.get_id(),
+                    value: &azure_blob_storage_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compression".into(),
-                    value: compression_binding.get_id(),
+                    value: &compression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpServerLocation".into(),
-                    value: http_server_location_binding.get_id(),
+                    value: &http_server_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedServiceName".into(),
-                    value: linked_service_name_binding.get_id(),
+                    value: &linked_service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpServerLocation".into(),
-                    value: sftp_server_location_binding.get_id(),
+                    value: &sftp_server_location_binding.drop_type(),
                 },
             ],
         };

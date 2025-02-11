@@ -117,31 +117,31 @@ pub mod schema {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibility".into(),
-                    value: compatibility_binding.get_id(),
+                    value: &compatibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: data_format_binding.get_id(),
+                    value: &data_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryArn".into(),
-                    value: registry_arn_binding.get_id(),
+                    value: &registry_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaDefinition".into(),
-                    value: schema_definition_binding.get_id(),
+                    value: &schema_definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaName".into(),
-                    value: schema_name_binding.get_id(),
+                    value: &schema_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

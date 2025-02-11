@@ -205,35 +205,35 @@ pub mod cache_nfs_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheName".into(),
-                    value: cache_name_binding.get_id(),
+                    value: &cache_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceJunctions".into(),
-                    value: namespace_junctions_binding.get_id(),
+                    value: &namespace_junctions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetHostName".into(),
-                    value: target_host_name_binding.get_id(),
+                    value: &target_host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageModel".into(),
-                    value: usage_model_binding.get_id(),
+                    value: &usage_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationTimerInSeconds".into(),
-                    value: verification_timer_in_seconds_binding.get_id(),
+                    value: &verification_timer_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeBackTimerInSeconds".into(),
-                    value: write_back_timer_in_seconds_binding.get_id(),
+                    value: &write_back_timer_in_seconds_binding.drop_type(),
                 },
             ],
         };

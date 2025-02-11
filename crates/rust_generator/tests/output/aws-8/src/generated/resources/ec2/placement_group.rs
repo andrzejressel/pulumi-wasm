@@ -101,23 +101,23 @@ pub mod placement_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionCount".into(),
-                    value: partition_count_binding.get_id(),
+                    value: &partition_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spreadLevel".into(),
-                    value: spread_level_binding.get_id(),
+                    value: &spread_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "strategy".into(),
-                    value: strategy_binding.get_id(),
+                    value: &strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

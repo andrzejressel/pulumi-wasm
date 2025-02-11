@@ -95,23 +95,23 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessType".into(),
-                    value: access_type_binding.get_id(),
+                    value: &access_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: customer_owned_ipv4_pool_binding.get_id(),
+                    value: &customer_owned_ipv4_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostId".into(),
-                    value: outpost_id_binding.get_id(),
+                    value: &outpost_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: security_group_id_binding.get_id(),
+                    value: &security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

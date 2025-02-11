@@ -149,55 +149,55 @@ pub mod sampling_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fixedRate".into(),
-                    value: fixed_rate_binding.get_id(),
+                    value: &fixed_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: http_method_binding.get_id(),
+                    value: &http_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservoirSize".into(),
-                    value: reservoir_size_binding.get_id(),
+                    value: &reservoir_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: rule_name_binding.get_id(),
+                    value: &rule_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceType".into(),
-                    value: service_type_binding.get_id(),
+                    value: &service_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlPath".into(),
-                    value: url_path_binding.get_id(),
+                    value: &url_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

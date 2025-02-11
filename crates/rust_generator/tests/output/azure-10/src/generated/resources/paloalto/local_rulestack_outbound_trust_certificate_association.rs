@@ -73,7 +73,7 @@ pub mod local_rulestack_outbound_trust_certificate_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: certificate_id_binding.get_id(),
+                    value: &certificate_id_binding.drop_type(),
                 },
             ],
         };

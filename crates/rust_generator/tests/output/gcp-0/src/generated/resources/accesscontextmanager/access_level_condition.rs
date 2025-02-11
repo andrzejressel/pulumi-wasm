@@ -239,35 +239,35 @@ pub mod access_level_condition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevel".into(),
-                    value: access_level_binding.get_id(),
+                    value: &access_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devicePolicy".into(),
-                    value: device_policy_binding.get_id(),
+                    value: &device_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipSubnetworks".into(),
-                    value: ip_subnetworks_binding.get_id(),
+                    value: &ip_subnetworks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: members_binding.get_id(),
+                    value: &members_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "negate".into(),
-                    value: negate_binding.get_id(),
+                    value: &negate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: regions_binding.get_id(),
+                    value: &regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiredAccessLevels".into(),
-                    value: required_access_levels_binding.get_id(),
+                    value: &required_access_levels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcNetworkSources".into(),
-                    value: vpc_network_sources_binding.get_id(),
+                    value: &vpc_network_sources_binding.drop_type(),
                 },
             ],
         };

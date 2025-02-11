@@ -135,19 +135,19 @@ pub mod database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalog".into(),
-                    value: catalog_binding.get_id(),
+                    value: &catalog_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hiveOptions".into(),
-                    value: hive_options_binding.get_id(),
+                    value: &hive_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

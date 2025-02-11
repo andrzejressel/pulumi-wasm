@@ -201,27 +201,27 @@ pub mod database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "charset".into(),
-                    value: charset_binding.get_id(),
+                    value: &charset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: collation_binding.get_id(),
+                    value: &collation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

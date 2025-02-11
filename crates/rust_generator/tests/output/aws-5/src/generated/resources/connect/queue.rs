@@ -163,39 +163,39 @@ pub mod queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hoursOfOperationId".into(),
-                    value: hours_of_operation_id_binding.get_id(),
+                    value: &hours_of_operation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxContacts".into(),
-                    value: max_contacts_binding.get_id(),
+                    value: &max_contacts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outboundCallerConfig".into(),
-                    value: outbound_caller_config_binding.get_id(),
+                    value: &outbound_caller_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quickConnectIds".into(),
-                    value: quick_connect_ids_binding.get_id(),
+                    value: &quick_connect_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

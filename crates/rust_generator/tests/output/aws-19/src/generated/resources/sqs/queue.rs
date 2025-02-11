@@ -294,75 +294,75 @@ pub mod queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentBasedDeduplication".into(),
-                    value: content_based_deduplication_binding.get_id(),
+                    value: &content_based_deduplication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deduplicationScope".into(),
-                    value: deduplication_scope_binding.get_id(),
+                    value: &deduplication_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delaySeconds".into(),
-                    value: delay_seconds_binding.get_id(),
+                    value: &delay_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoQueue".into(),
-                    value: fifo_queue_binding.get_id(),
+                    value: &fifo_queue_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoThroughputLimit".into(),
-                    value: fifo_throughput_limit_binding.get_id(),
+                    value: &fifo_throughput_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsDataKeyReusePeriodSeconds".into(),
-                    value: kms_data_key_reuse_period_seconds_binding.get_id(),
+                    value: &kms_data_key_reuse_period_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsMasterKeyId".into(),
-                    value: kms_master_key_id_binding.get_id(),
+                    value: &kms_master_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxMessageSize".into(),
-                    value: max_message_size_binding.get_id(),
+                    value: &max_message_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetentionSeconds".into(),
-                    value: message_retention_seconds_binding.get_id(),
+                    value: &message_retention_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "receiveWaitTimeSeconds".into(),
-                    value: receive_wait_time_seconds_binding.get_id(),
+                    value: &receive_wait_time_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redriveAllowPolicy".into(),
-                    value: redrive_allow_policy_binding.get_id(),
+                    value: &redrive_allow_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redrivePolicy".into(),
-                    value: redrive_policy_binding.get_id(),
+                    value: &redrive_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsManagedSseEnabled".into(),
-                    value: sqs_managed_sse_enabled_binding.get_id(),
+                    value: &sqs_managed_sse_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilityTimeoutSeconds".into(),
-                    value: visibility_timeout_seconds_binding.get_id(),
+                    value: &visibility_timeout_seconds_binding.drop_type(),
                 },
             ],
         };

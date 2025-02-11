@@ -161,39 +161,39 @@ pub mod managed_hardware_security_module_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "curve".into(),
-                    value: curve_binding.get_id(),
+                    value: &curve_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationDate".into(),
-                    value: expiration_date_binding.get_id(),
+                    value: &expiration_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyOpts".into(),
-                    value: key_opts_binding.get_id(),
+                    value: &key_opts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySize".into(),
-                    value: key_size_binding.get_id(),
+                    value: &key_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyType".into(),
-                    value: key_type_binding.get_id(),
+                    value: &key_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmId".into(),
-                    value: managed_hsm_id_binding.get_id(),
+                    value: &managed_hsm_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notBeforeDate".into(),
-                    value: not_before_date_binding.get_id(),
+                    value: &not_before_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

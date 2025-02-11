@@ -470,31 +470,31 @@ pub mod log_view_iam_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: members_binding.get_id(),
+                    value: &members_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
             ],
         };

@@ -62,7 +62,7 @@ pub mod default_kms_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyArn".into(),
-                    value: key_arn_binding.get_id(),
+                    value: &key_arn_binding.drop_type(),
                 },
             ],
         };

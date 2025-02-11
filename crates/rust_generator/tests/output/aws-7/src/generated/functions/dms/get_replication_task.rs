@@ -64,11 +64,11 @@ pub mod get_replication_task {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskId".into(),
-                    value: replication_task_id_binding.get_id(),
+                    value: &replication_task_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

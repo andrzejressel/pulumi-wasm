@@ -115,19 +115,20 @@ pub mod data_connector_microsoft_threat_intelligence {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftEmergingThreatFeedLookbackDate".into(),
-                    value: microsoft_emerging_threat_feed_lookback_date_binding.get_id(),
+                    value: &microsoft_emerging_threat_feed_lookback_date_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

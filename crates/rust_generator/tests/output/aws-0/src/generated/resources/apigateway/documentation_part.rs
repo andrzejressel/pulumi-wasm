@@ -79,15 +79,15 @@ pub mod documentation_part {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: rest_api_id_binding.get_id(),
+                    value: &rest_api_id_binding.drop_type(),
                 },
             ],
         };

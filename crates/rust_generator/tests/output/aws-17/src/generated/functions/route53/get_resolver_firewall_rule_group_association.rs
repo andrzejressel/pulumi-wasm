@@ -50,7 +50,7 @@ pub mod get_resolver_firewall_rule_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupAssociationId".into(),
-                    value: firewall_rule_group_association_id_binding.get_id(),
+                    value: &firewall_rule_group_association_id_binding.drop_type(),
                 },
             ],
         };

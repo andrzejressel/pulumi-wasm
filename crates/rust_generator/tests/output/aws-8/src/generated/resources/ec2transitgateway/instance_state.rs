@@ -93,15 +93,15 @@ pub mod instance_state {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "force".into(),
-                    value: force_binding.get_id(),
+                    value: &force_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
             ],
         };

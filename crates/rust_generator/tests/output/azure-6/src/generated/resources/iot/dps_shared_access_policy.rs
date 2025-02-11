@@ -138,35 +138,35 @@ pub mod dps_shared_access_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentRead".into(),
-                    value: enrollment_read_binding.get_id(),
+                    value: &enrollment_read_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentWrite".into(),
-                    value: enrollment_write_binding.get_id(),
+                    value: &enrollment_write_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubDpsName".into(),
-                    value: iothub_dps_name_binding.get_id(),
+                    value: &iothub_dps_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationRead".into(),
-                    value: registration_read_binding.get_id(),
+                    value: &registration_read_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationWrite".into(),
-                    value: registration_write_binding.get_id(),
+                    value: &registration_write_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceConfig".into(),
-                    value: service_config_binding.get_id(),
+                    value: &service_config_binding.drop_type(),
                 },
             ],
         };

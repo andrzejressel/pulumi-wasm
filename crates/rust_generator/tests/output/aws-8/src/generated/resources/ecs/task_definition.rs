@@ -399,79 +399,79 @@ pub mod task_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerDefinitions".into(),
-                    value: container_definitions_binding.get_id(),
+                    value: &container_definitions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpu".into(),
-                    value: cpu_binding.get_id(),
+                    value: &cpu_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralStorage".into(),
-                    value: ephemeral_storage_binding.get_id(),
+                    value: &ephemeral_storage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: execution_role_arn_binding.get_id(),
+                    value: &execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "family".into(),
-                    value: family_binding.get_id(),
+                    value: &family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferenceAccelerators".into(),
-                    value: inference_accelerators_binding.get_id(),
+                    value: &inference_accelerators_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipcMode".into(),
-                    value: ipc_mode_binding.get_id(),
+                    value: &ipc_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memory".into(),
-                    value: memory_binding.get_id(),
+                    value: &memory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkMode".into(),
-                    value: network_mode_binding.get_id(),
+                    value: &network_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pidMode".into(),
-                    value: pid_mode_binding.get_id(),
+                    value: &pid_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementConstraints".into(),
-                    value: placement_constraints_binding.get_id(),
+                    value: &placement_constraints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyConfiguration".into(),
-                    value: proxy_configuration_binding.get_id(),
+                    value: &proxy_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresCompatibilities".into(),
-                    value: requires_compatibilities_binding.get_id(),
+                    value: &requires_compatibilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimePlatform".into(),
-                    value: runtime_platform_binding.get_id(),
+                    value: &runtime_platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskRoleArn".into(),
-                    value: task_role_arn_binding.get_id(),
+                    value: &task_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackLatest".into(),
-                    value: track_latest_binding.get_id(),
+                    value: &track_latest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumes".into(),
-                    value: volumes_binding.get_id(),
+                    value: &volumes_binding.drop_type(),
                 },
             ],
         };

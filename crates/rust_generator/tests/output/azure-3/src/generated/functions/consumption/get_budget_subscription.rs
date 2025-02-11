@@ -56,11 +56,11 @@ pub mod get_budget_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: subscription_id_binding.get_id(),
+                    value: &subscription_id_binding.drop_type(),
                 },
             ],
         };

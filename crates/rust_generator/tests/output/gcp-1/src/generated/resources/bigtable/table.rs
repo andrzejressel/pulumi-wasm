@@ -173,35 +173,35 @@ pub mod table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatedBackupPolicy".into(),
-                    value: automated_backup_policy_binding.get_id(),
+                    value: &automated_backup_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changeStreamRetention".into(),
-                    value: change_stream_retention_binding.get_id(),
+                    value: &change_stream_retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnFamilies".into(),
-                    value: column_families_binding.get_id(),
+                    value: &column_families_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitKeys".into(),
-                    value: split_keys_binding.get_id(),
+                    value: &split_keys_binding.drop_type(),
                 },
             ],
         };

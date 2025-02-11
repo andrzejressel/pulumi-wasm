@@ -166,19 +166,19 @@ pub mod method_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "methodPath".into(),
-                    value: method_path_binding.get_id(),
+                    value: &method_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: stage_name_binding.get_id(),
+                    value: &stage_name_binding.drop_type(),
                 },
             ],
         };

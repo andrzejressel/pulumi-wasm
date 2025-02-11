@@ -220,39 +220,39 @@ pub mod workstation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "env".into(),
-                    value: env_binding.get_id(),
+                    value: &env_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: workstation_cluster_id_binding.get_id(),
+                    value: &workstation_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationConfigId".into(),
-                    value: workstation_config_id_binding.get_id(),
+                    value: &workstation_config_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationId".into(),
-                    value: workstation_id_binding.get_id(),
+                    value: &workstation_id_binding.drop_type(),
                 },
             ],
         };

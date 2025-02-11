@@ -123,51 +123,51 @@ pub mod get_vpc_peering_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: cidr_block_binding.get_id(),
+                    value: &cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: owner_id_binding.get_id(),
+                    value: &owner_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerCidrBlock".into(),
-                    value: peer_cidr_block_binding.get_id(),
+                    value: &peer_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerOwnerId".into(),
-                    value: peer_owner_id_binding.get_id(),
+                    value: &peer_owner_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerRegion".into(),
-                    value: peer_region_binding.get_id(),
+                    value: &peer_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerVpcId".into(),
-                    value: peer_vpc_id_binding.get_id(),
+                    value: &peer_vpc_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

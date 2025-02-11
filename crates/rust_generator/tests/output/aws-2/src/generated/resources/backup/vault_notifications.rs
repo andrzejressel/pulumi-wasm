@@ -98,15 +98,15 @@ pub mod vault_notifications {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultEvents".into(),
-                    value: backup_vault_events_binding.get_id(),
+                    value: &backup_vault_events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultName".into(),
-                    value: backup_vault_name_binding.get_id(),
+                    value: &backup_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: sns_topic_arn_binding.get_id(),
+                    value: &sns_topic_arn_binding.drop_type(),
                 },
             ],
         };

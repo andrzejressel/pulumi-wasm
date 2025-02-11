@@ -133,31 +133,31 @@ pub mod container {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAccessType".into(),
-                    value: container_access_type_binding.get_id(),
+                    value: &container_access_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionScope".into(),
-                    value: default_encryption_scope_binding.get_id(),
+                    value: &default_encryption_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionScopeOverrideEnabled".into(),
-                    value: encryption_scope_override_enabled_binding.get_id(),
+                    value: &encryption_scope_override_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: storage_account_name_binding.get_id(),
+                    value: &storage_account_name_binding.drop_type(),
                 },
             ],
         };

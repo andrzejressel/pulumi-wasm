@@ -125,19 +125,19 @@ pub mod network_insights_analysis {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterInArns".into(),
-                    value: filter_in_arns_binding.get_id(),
+                    value: &filter_in_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInsightsPathId".into(),
-                    value: network_insights_path_id_binding.get_id(),
+                    value: &network_insights_path_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForCompletion".into(),
-                    value: wait_for_completion_binding.get_id(),
+                    value: &wait_for_completion_binding.drop_type(),
                 },
             ],
         };

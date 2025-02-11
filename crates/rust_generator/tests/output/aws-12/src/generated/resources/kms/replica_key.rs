@@ -137,31 +137,31 @@ pub mod replica_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: bypass_policy_lockout_safety_check_binding.get_id(),
+                    value: &bypass_policy_lockout_safety_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: deletion_window_in_days_binding.get_id(),
+                    value: &deletion_window_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryKeyArn".into(),
-                    value: primary_key_arn_binding.get_id(),
+                    value: &primary_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

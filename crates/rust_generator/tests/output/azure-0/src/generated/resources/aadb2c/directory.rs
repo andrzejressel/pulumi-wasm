@@ -111,31 +111,31 @@ pub mod directory {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryCode".into(),
-                    value: country_code_binding.get_id(),
+                    value: &country_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataResidencyLocation".into(),
-                    value: data_residency_location_binding.get_id(),
+                    value: &data_residency_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

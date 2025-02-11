@@ -263,35 +263,35 @@ pub mod enterprise_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "androidSettings".into(),
-                    value: android_settings_binding.get_id(),
+                    value: &android_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iosSettings".into(),
-                    value: ios_settings_binding.get_id(),
+                    value: &ios_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testingOptions".into(),
-                    value: testing_options_binding.get_id(),
+                    value: &testing_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wafSettings".into(),
-                    value: waf_settings_binding.get_id(),
+                    value: &waf_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webSettings".into(),
-                    value: web_settings_binding.get_id(),
+                    value: &web_settings_binding.drop_type(),
                 },
             ],
         };

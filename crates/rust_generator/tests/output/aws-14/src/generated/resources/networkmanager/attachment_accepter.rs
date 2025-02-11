@@ -93,11 +93,11 @@ pub mod attachment_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentId".into(),
-                    value: attachment_id_binding.get_id(),
+                    value: &attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentType".into(),
-                    value: attachment_type_binding.get_id(),
+                    value: &attachment_type_binding.drop_type(),
                 },
             ],
         };

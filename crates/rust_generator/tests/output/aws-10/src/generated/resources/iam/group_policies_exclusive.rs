@@ -47,11 +47,11 @@ pub mod group_policies_exclusive {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyNames".into(),
-                    value: policy_names_binding.get_id(),
+                    value: &policy_names_binding.drop_type(),
                 },
             ],
         };

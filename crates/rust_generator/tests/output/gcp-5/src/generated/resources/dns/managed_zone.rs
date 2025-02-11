@@ -446,59 +446,59 @@ pub mod managed_zone {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudLoggingConfig".into(),
-                    value: cloud_logging_config_binding.get_id(),
+                    value: &cloud_logging_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: dns_name_binding.get_id(),
+                    value: &dns_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnssecConfig".into(),
-                    value: dnssec_config_binding.get_id(),
+                    value: &dnssec_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardingConfig".into(),
-                    value: forwarding_config_binding.get_id(),
+                    value: &forwarding_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringConfig".into(),
-                    value: peering_config_binding.get_id(),
+                    value: &peering_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateVisibilityConfig".into(),
-                    value: private_visibility_config_binding.get_id(),
+                    value: &private_visibility_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseLookup".into(),
-                    value: reverse_lookup_binding.get_id(),
+                    value: &reverse_lookup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDirectoryConfig".into(),
-                    value: service_directory_config_binding.get_id(),
+                    value: &service_directory_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: visibility_binding.get_id(),
+                    value: &visibility_binding.drop_type(),
                 },
             ],
         };

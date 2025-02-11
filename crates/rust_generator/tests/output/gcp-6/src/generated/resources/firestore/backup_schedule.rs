@@ -169,23 +169,23 @@ pub mod backup_schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyRecurrence".into(),
-                    value: daily_recurrence_binding.get_id(),
+                    value: &daily_recurrence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: database_binding.get_id(),
+                    value: &database_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: retention_binding.get_id(),
+                    value: &retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyRecurrence".into(),
-                    value: weekly_recurrence_binding.get_id(),
+                    value: &weekly_recurrence_binding.drop_type(),
                 },
             ],
         };

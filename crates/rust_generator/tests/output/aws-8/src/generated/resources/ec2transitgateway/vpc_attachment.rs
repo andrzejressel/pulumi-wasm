@@ -141,45 +141,45 @@ pub mod vpc_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applianceModeSupport".into(),
-                    value: appliance_mode_support_binding.get_id(),
+                    value: &appliance_mode_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSupport".into(),
-                    value: dns_support_binding.get_id(),
+                    value: &dns_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Support".into(),
-                    value: ipv6_support_binding.get_id(),
+                    value: &ipv6_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupReferencingSupport".into(),
-                    value: security_group_referencing_support_binding.get_id(),
+                    value: &security_group_referencing_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTableAssociation".into(),
-                    value: transit_gateway_default_route_table_association_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_association_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTablePropagation".into(),
-                    value: transit_gateway_default_route_table_propagation_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_propagation_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

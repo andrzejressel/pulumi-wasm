@@ -50,15 +50,15 @@ pub mod get_resolver_firewall_rules {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupId".into(),
-                    value: firewall_rule_group_id_binding.get_id(),
+                    value: &firewall_rule_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
             ],
         };

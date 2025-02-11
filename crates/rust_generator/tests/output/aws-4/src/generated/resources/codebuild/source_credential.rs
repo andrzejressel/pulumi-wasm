@@ -100,19 +100,19 @@ pub mod source_credential {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authType".into(),
-                    value: auth_type_binding.get_id(),
+                    value: &auth_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverType".into(),
-                    value: server_type_binding.get_id(),
+                    value: &server_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "token".into(),
-                    value: token_binding.get_id(),
+                    value: &token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: user_name_binding.get_id(),
+                    value: &user_name_binding.drop_type(),
                 },
             ],
         };

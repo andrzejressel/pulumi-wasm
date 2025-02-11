@@ -106,19 +106,19 @@ pub mod mount_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

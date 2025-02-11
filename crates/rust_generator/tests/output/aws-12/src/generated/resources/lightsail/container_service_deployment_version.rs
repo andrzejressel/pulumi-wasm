@@ -110,15 +110,15 @@ pub mod container_service_deployment_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containers".into(),
-                    value: containers_binding.get_id(),
+                    value: &containers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicEndpoint".into(),
-                    value: public_endpoint_binding.get_id(),
+                    value: &public_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
             ],
         };

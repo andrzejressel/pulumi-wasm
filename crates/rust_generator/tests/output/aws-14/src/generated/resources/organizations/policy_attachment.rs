@@ -108,15 +108,15 @@ pub mod policy_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: policy_id_binding.get_id(),
+                    value: &policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: target_id_binding.get_id(),
+                    value: &target_id_binding.drop_type(),
                 },
             ],
         };

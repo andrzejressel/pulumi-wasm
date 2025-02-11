@@ -223,63 +223,63 @@ pub mod insights {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationType".into(),
-                    value: application_type_binding.get_id(),
+                    value: &application_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyDataCapInGb".into(),
-                    value: daily_data_cap_in_gb_binding.get_id(),
+                    value: &daily_data_cap_in_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyDataCapNotificationsDisabled".into(),
-                    value: daily_data_cap_notifications_disabled_binding.get_id(),
+                    value: &daily_data_cap_notifications_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableIpMasking".into(),
-                    value: disable_ip_masking_binding.get_id(),
+                    value: &disable_ip_masking_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceCustomerStorageForProfiler".into(),
-                    value: force_customer_storage_for_profiler_binding.get_id(),
+                    value: &force_customer_storage_for_profiler_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetIngestionEnabled".into(),
-                    value: internet_ingestion_enabled_binding.get_id(),
+                    value: &internet_ingestion_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetQueryEnabled".into(),
-                    value: internet_query_enabled_binding.get_id(),
+                    value: &internet_query_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationDisabled".into(),
-                    value: local_authentication_disabled_binding.get_id(),
+                    value: &local_authentication_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: retention_in_days_binding.get_id(),
+                    value: &retention_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: sampling_percentage_binding.get_id(),
+                    value: &sampling_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

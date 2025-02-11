@@ -36,7 +36,7 @@ pub mod get_email_identity_mail_from_attributes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: email_identity_binding.get_id(),
+                    value: &email_identity_binding.drop_type(),
                 },
             ],
         };

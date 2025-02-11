@@ -73,7 +73,7 @@ pub mod aws_log_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
             ],
         };

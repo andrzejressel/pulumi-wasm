@@ -261,47 +261,47 @@ pub mod eip {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: address_binding.get_id(),
+                    value: &address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateWithPrivateIp".into(),
-                    value: associate_with_private_ip_binding.get_id(),
+                    value: &associate_with_private_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: customer_owned_ipv4_pool_binding.get_id(),
+                    value: &customer_owned_ipv4_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: ipam_pool_id_binding.get_id(),
+                    value: &ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkBorderGroup".into(),
-                    value: network_border_group_binding.get_id(),
+                    value: &network_border_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterface".into(),
-                    value: network_interface_binding.get_id(),
+                    value: &network_interface_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpv4Pool".into(),
-                    value: public_ipv4_pool_binding.get_id(),
+                    value: &public_ipv4_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: vpc_binding.get_id(),
+                    value: &vpc_binding.drop_type(),
                 },
             ],
         };

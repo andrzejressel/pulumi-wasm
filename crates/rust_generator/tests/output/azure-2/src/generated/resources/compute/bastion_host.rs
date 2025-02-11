@@ -240,67 +240,67 @@ pub mod bastion_host {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyPasteEnabled".into(),
-                    value: copy_paste_enabled_binding.get_id(),
+                    value: &copy_paste_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCopyEnabled".into(),
-                    value: file_copy_enabled_binding.get_id(),
+                    value: &file_copy_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfiguration".into(),
-                    value: ip_configuration_binding.get_id(),
+                    value: &ip_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConnectEnabled".into(),
-                    value: ip_connect_enabled_binding.get_id(),
+                    value: &ip_connect_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosEnabled".into(),
-                    value: kerberos_enabled_binding.get_id(),
+                    value: &kerberos_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleUnits".into(),
-                    value: scale_units_binding.get_id(),
+                    value: &scale_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionRecordingEnabled".into(),
-                    value: session_recording_enabled_binding.get_id(),
+                    value: &session_recording_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareableLinkEnabled".into(),
-                    value: shareable_link_enabled_binding.get_id(),
+                    value: &shareable_link_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelingEnabled".into(),
-                    value: tunneling_enabled_binding.get_id(),
+                    value: &tunneling_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: zones_binding.get_id(),
+                    value: &zones_binding.drop_type(),
                 },
             ],
         };

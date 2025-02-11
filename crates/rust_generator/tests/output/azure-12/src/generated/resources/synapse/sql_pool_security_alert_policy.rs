@@ -168,35 +168,35 @@ pub mod sql_pool_security_alert_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledAlerts".into(),
-                    value: disabled_alerts_binding.get_id(),
+                    value: &disabled_alerts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAccountAdminsEnabled".into(),
-                    value: email_account_admins_enabled_binding.get_id(),
+                    value: &email_account_admins_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddresses".into(),
-                    value: email_addresses_binding.get_id(),
+                    value: &email_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyState".into(),
-                    value: policy_state_binding.get_id(),
+                    value: &policy_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDays".into(),
-                    value: retention_days_binding.get_id(),
+                    value: &retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlPoolId".into(),
-                    value: sql_pool_id_binding.get_id(),
+                    value: &sql_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: storage_account_access_key_binding.get_id(),
+                    value: &storage_account_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEndpoint".into(),
-                    value: storage_endpoint_binding.get_id(),
+                    value: &storage_endpoint_binding.drop_type(),
                 },
             ],
         };

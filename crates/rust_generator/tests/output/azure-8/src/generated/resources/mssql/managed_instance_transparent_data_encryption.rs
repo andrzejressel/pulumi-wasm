@@ -231,15 +231,15 @@ pub mod managed_instance_transparent_data_encryption {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRotationEnabled".into(),
-                    value: auto_rotation_enabled_binding.get_id(),
+                    value: &auto_rotation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: managed_instance_id_binding.get_id(),
+                    value: &managed_instance_id_binding.drop_type(),
                 },
             ],
         };

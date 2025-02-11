@@ -127,15 +127,15 @@ pub mod get_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offPeakWindowOptions".into(),
-                    value: off_peak_window_options_binding.get_id(),
+                    value: &off_peak_window_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

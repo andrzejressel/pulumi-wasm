@@ -119,23 +119,23 @@ pub mod vpc_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkId".into(),
-                    value: core_network_id_binding.get_id(),
+                    value: &core_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: options_binding.get_id(),
+                    value: &options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetArns".into(),
-                    value: subnet_arns_binding.get_id(),
+                    value: &subnet_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcArn".into(),
-                    value: vpc_arn_binding.get_id(),
+                    value: &vpc_arn_binding.drop_type(),
                 },
             ],
         };

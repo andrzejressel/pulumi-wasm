@@ -167,27 +167,27 @@ pub mod contact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactProfileId".into(),
-                    value: contact_profile_id_binding.get_id(),
+                    value: &contact_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groundStationName".into(),
-                    value: ground_station_name_binding.get_id(),
+                    value: &ground_station_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationEndTime".into(),
-                    value: reservation_end_time_binding.get_id(),
+                    value: &reservation_end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationStartTime".into(),
-                    value: reservation_start_time_binding.get_id(),
+                    value: &reservation_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spacecraftId".into(),
-                    value: spacecraft_id_binding.get_id(),
+                    value: &spacecraft_id_binding.drop_type(),
                 },
             ],
         };

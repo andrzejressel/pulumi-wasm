@@ -158,35 +158,35 @@ pub mod experiment_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: actions_binding.get_id(),
+                    value: &actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "experimentOptions".into(),
-                    value: experiment_options_binding.get_id(),
+                    value: &experiment_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfiguration".into(),
-                    value: log_configuration_binding.get_id(),
+                    value: &log_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopConditions".into(),
-                    value: stop_conditions_binding.get_id(),
+                    value: &stop_conditions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: targets_binding.get_id(),
+                    value: &targets_binding.drop_type(),
                 },
             ],
         };

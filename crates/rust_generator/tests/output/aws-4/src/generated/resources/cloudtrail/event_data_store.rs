@@ -169,39 +169,39 @@ pub mod event_data_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedEventSelectors".into(),
-                    value: advanced_event_selectors_binding.get_id(),
+                    value: &advanced_event_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingMode".into(),
-                    value: billing_mode_binding.get_id(),
+                    value: &billing_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionEnabled".into(),
-                    value: multi_region_enabled_binding.get_id(),
+                    value: &multi_region_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationEnabled".into(),
-                    value: organization_enabled_binding.get_id(),
+                    value: &organization_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: retention_period_binding.get_id(),
+                    value: &retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationProtectionEnabled".into(),
-                    value: termination_protection_enabled_binding.get_id(),
+                    value: &termination_protection_enabled_binding.drop_type(),
                 },
             ],
         };

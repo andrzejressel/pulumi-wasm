@@ -157,35 +157,35 @@ pub mod source_control_slot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branch".into(),
-                    value: branch_binding.get_id(),
+                    value: &branch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubActionConfiguration".into(),
-                    value: github_action_configuration_binding.get_id(),
+                    value: &github_action_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repoUrl".into(),
-                    value: repo_url_binding.get_id(),
+                    value: &repo_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollbackEnabled".into(),
-                    value: rollback_enabled_binding.get_id(),
+                    value: &rollback_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotId".into(),
-                    value: slot_id_binding.get_id(),
+                    value: &slot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useLocalGit".into(),
-                    value: use_local_git_binding.get_id(),
+                    value: &use_local_git_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useManualIntegration".into(),
-                    value: use_manual_integration_binding.get_id(),
+                    value: &use_manual_integration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useMercurial".into(),
-                    value: use_mercurial_binding.get_id(),
+                    value: &use_mercurial_binding.drop_type(),
                 },
             ],
         };

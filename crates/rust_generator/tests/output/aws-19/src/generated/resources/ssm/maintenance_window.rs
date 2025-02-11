@@ -136,51 +136,51 @@ pub mod maintenance_window {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUnassociatedTargets".into(),
-                    value: allow_unassociated_targets_binding.get_id(),
+                    value: &allow_unassociated_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cutoff".into(),
-                    value: cutoff_binding.get_id(),
+                    value: &cutoff_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: end_date_binding.get_id(),
+                    value: &end_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleOffset".into(),
-                    value: schedule_offset_binding.get_id(),
+                    value: &schedule_offset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleTimezone".into(),
-                    value: schedule_timezone_binding.get_id(),
+                    value: &schedule_timezone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDate".into(),
-                    value: start_date_binding.get_id(),
+                    value: &start_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

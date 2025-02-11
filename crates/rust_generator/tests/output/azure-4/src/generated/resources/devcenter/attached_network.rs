@@ -110,15 +110,15 @@ pub mod attached_network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterId".into(),
-                    value: dev_center_id_binding.get_id(),
+                    value: &dev_center_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConnectionId".into(),
-                    value: network_connection_id_binding.get_id(),
+                    value: &network_connection_id_binding.drop_type(),
                 },
             ],
         };

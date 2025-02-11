@@ -130,39 +130,39 @@ pub mod virtual_machine_manager_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLocationId".into(),
-                    value: custom_location_id_binding.get_id(),
+                    value: &custom_location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdn".into(),
-                    value: fqdn_binding.get_id(),
+                    value: &fqdn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

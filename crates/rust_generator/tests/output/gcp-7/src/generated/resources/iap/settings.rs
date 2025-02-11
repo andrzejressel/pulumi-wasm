@@ -184,15 +184,15 @@ pub mod settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessSettings".into(),
-                    value: access_settings_binding.get_id(),
+                    value: &access_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSettings".into(),
-                    value: application_settings_binding.get_id(),
+                    value: &application_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

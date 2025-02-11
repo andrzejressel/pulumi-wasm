@@ -60,27 +60,27 @@ pub mod get_cluster_credentials {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreate".into(),
-                    value: auto_create_binding.get_id(),
+                    value: &auto_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbGroups".into(),
-                    value: db_groups_binding.get_id(),
+                    value: &db_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: db_name_binding.get_id(),
+                    value: &db_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbUser".into(),
-                    value: db_user_binding.get_id(),
+                    value: &db_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: duration_seconds_binding.get_id(),
+                    value: &duration_seconds_binding.drop_type(),
                 },
             ],
         };

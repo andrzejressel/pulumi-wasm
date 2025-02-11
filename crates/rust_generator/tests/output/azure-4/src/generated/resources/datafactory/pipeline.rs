@@ -167,43 +167,43 @@ pub mod pipeline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activitiesJson".into(),
-                    value: activities_json_binding.get_id(),
+                    value: &activities_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrency".into(),
-                    value: concurrency_binding.get_id(),
+                    value: &concurrency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "moniterMetricsAfterDuration".into(),
-                    value: moniter_metrics_after_duration_binding.get_id(),
+                    value: &moniter_metrics_after_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variables".into(),
-                    value: variables_binding.get_id(),
+                    value: &variables_binding.drop_type(),
                 },
             ],
         };

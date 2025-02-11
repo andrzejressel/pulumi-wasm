@@ -135,35 +135,35 @@ pub mod traffic_mirror_session {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packetLength".into(),
-                    value: packet_length_binding.get_id(),
+                    value: &packet_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionNumber".into(),
-                    value: session_number_binding.get_id(),
+                    value: &session_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorFilterId".into(),
-                    value: traffic_mirror_filter_id_binding.get_id(),
+                    value: &traffic_mirror_filter_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorTargetId".into(),
-                    value: traffic_mirror_target_id_binding.get_id(),
+                    value: &traffic_mirror_target_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
             ],
         };

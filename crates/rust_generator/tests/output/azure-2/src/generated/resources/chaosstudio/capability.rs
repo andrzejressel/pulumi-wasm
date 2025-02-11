@@ -96,11 +96,11 @@ pub mod capability {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilityType".into(),
-                    value: capability_type_binding.get_id(),
+                    value: &capability_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chaosStudioTargetId".into(),
-                    value: chaos_studio_target_id_binding.get_id(),
+                    value: &chaos_studio_target_id_binding.drop_type(),
                 },
             ],
         };

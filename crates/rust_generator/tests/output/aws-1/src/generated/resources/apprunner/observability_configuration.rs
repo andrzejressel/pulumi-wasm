@@ -94,15 +94,15 @@ pub mod observability_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "observabilityConfigurationName".into(),
-                    value: observability_configuration_name_binding.get_id(),
+                    value: &observability_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "traceConfiguration".into(),
-                    value: trace_configuration_binding.get_id(),
+                    value: &trace_configuration_binding.drop_type(),
                 },
             ],
         };

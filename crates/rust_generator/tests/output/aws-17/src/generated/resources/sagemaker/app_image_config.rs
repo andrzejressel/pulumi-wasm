@@ -132,23 +132,23 @@ pub mod app_image_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appImageConfigName".into(),
-                    value: app_image_config_name_binding.get_id(),
+                    value: &app_image_config_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeEditorAppImageConfig".into(),
-                    value: code_editor_app_image_config_binding.get_id(),
+                    value: &code_editor_app_image_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jupyterLabImageConfig".into(),
-                    value: jupyter_lab_image_config_binding.get_id(),
+                    value: &jupyter_lab_image_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kernelGatewayImageConfig".into(),
-                    value: kernel_gateway_image_config_binding.get_id(),
+                    value: &kernel_gateway_image_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

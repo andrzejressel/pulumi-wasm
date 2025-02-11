@@ -84,15 +84,15 @@ pub mod human_task_ui {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanTaskUiName".into(),
-                    value: human_task_ui_name_binding.get_id(),
+                    value: &human_task_ui_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uiTemplate".into(),
-                    value: ui_template_binding.get_id(),
+                    value: &ui_template_binding.drop_type(),
                 },
             ],
         };

@@ -121,15 +121,15 @@ pub mod service_network_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSettings".into(),
-                    value: network_settings_binding.get_id(),
+                    value: &network_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

@@ -74,15 +74,15 @@ pub mod security_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceDefaultAssociation".into(),
-                    value: replace_default_association_binding.get_id(),
+                    value: &replace_default_association_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: security_group_id_binding.get_id(),
+                    value: &security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: vpc_endpoint_id_binding.get_id(),
+                    value: &vpc_endpoint_id_binding.drop_type(),
                 },
             ],
         };

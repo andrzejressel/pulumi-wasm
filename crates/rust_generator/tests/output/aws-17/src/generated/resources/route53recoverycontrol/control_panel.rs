@@ -74,11 +74,11 @@ pub mod control_panel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: cluster_arn_binding.get_id(),
+                    value: &cluster_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

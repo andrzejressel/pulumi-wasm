@@ -54,11 +54,11 @@ pub mod get_access_point {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointId".into(),
-                    value: access_point_id_binding.get_id(),
+                    value: &access_point_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

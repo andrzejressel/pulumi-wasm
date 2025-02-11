@@ -72,15 +72,15 @@ pub mod get_entitlement {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitlementId".into(),
-                    value: entitlement_id_binding.get_id(),
+                    value: &entitlement_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

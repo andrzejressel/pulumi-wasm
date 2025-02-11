@@ -174,43 +174,43 @@ pub mod snapshot_copy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTags".into(),
-                    value: copy_tags_binding.get_id(),
+                    value: &copy_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: destination_region_binding.get_id(),
+                    value: &destination_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionGroupName".into(),
-                    value: option_group_name_binding.get_id(),
+                    value: &option_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "presignedUrl".into(),
-                    value: presigned_url_binding.get_id(),
+                    value: &presigned_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccounts".into(),
-                    value: shared_accounts_binding.get_id(),
+                    value: &shared_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDbSnapshotIdentifier".into(),
-                    value: source_db_snapshot_identifier_binding.get_id(),
+                    value: &source_db_snapshot_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCustomAvailabilityZone".into(),
-                    value: target_custom_availability_zone_binding.get_id(),
+                    value: &target_custom_availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDbSnapshotIdentifier".into(),
-                    value: target_db_snapshot_identifier_binding.get_id(),
+                    value: &target_db_snapshot_identifier_binding.drop_type(),
                 },
             ],
         };

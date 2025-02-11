@@ -186,31 +186,31 @@ pub mod repository {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: domain_owner_binding.get_id(),
+                    value: &domain_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalConnections".into(),
-                    value: external_connections_binding.get_id(),
+                    value: &external_connections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upstreams".into(),
-                    value: upstreams_binding.get_id(),
+                    value: &upstreams_binding.drop_type(),
                 },
             ],
         };

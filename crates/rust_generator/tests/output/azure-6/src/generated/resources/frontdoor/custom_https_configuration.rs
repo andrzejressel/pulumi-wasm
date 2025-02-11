@@ -145,15 +145,15 @@ pub mod custom_https_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHttpsConfiguration".into(),
-                    value: custom_https_configuration_binding.get_id(),
+                    value: &custom_https_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHttpsProvisioningEnabled".into(),
-                    value: custom_https_provisioning_enabled_binding.get_id(),
+                    value: &custom_https_provisioning_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendEndpointId".into(),
-                    value: frontend_endpoint_id_binding.get_id(),
+                    value: &frontend_endpoint_id_binding.drop_type(),
                 },
             ],
         };

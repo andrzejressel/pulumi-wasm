@@ -189,51 +189,51 @@ pub mod endpoint_cosmosdb_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointUri".into(),
-                    value: endpoint_uri_binding.get_id(),
+                    value: &endpoint_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: identity_id_binding.get_id(),
+                    value: &identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyName".into(),
-                    value: partition_key_name_binding.get_id(),
+                    value: &partition_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyTemplate".into(),
-                    value: partition_key_template_binding.get_id(),
+                    value: &partition_key_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryKey".into(),
-                    value: primary_key_binding.get_id(),
+                    value: &primary_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryKey".into(),
-                    value: secondary_key_binding.get_id(),
+                    value: &secondary_key_binding.drop_type(),
                 },
             ],
         };

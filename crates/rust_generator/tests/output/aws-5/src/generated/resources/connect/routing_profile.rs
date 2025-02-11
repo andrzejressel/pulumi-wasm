@@ -125,31 +125,31 @@ pub mod routing_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOutboundQueueId".into(),
-                    value: default_outbound_queue_id_binding.get_id(),
+                    value: &default_outbound_queue_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaConcurrencies".into(),
-                    value: media_concurrencies_binding.get_id(),
+                    value: &media_concurrencies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueConfigs".into(),
-                    value: queue_configs_binding.get_id(),
+                    value: &queue_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -164,51 +164,51 @@ pub mod backend {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: credentials_binding.get_id(),
+                    value: &credentials_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: proxy_binding.get_id(),
+                    value: &proxy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceFabricCluster".into(),
-                    value: service_fabric_cluster_binding.get_id(),
+                    value: &service_fabric_cluster_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: title_binding.get_id(),
+                    value: &title_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: tls_binding.get_id(),
+                    value: &tls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: url_binding.get_id(),
+                    value: &url_binding.drop_type(),
                 },
             ],
         };

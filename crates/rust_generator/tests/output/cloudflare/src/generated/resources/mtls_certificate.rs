@@ -98,23 +98,23 @@ pub mod mtls_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ca".into(),
-                    value: ca_binding.get_id(),
+                    value: &ca_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificates".into(),
-                    value: certificates_binding.get_id(),
+                    value: &certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKey".into(),
-                    value: private_key_binding.get_id(),
+                    value: &private_key_binding.drop_type(),
                 },
             ],
         };

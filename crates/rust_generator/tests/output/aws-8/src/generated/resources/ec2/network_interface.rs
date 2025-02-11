@@ -229,87 +229,87 @@ pub mod network_interface {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachments".into(),
-                    value: attachments_binding.get_id(),
+                    value: &attachments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePrimaryIpv6".into(),
-                    value: enable_primary_ipv6_binding.get_id(),
+                    value: &enable_primary_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceType".into(),
-                    value: interface_type_binding.get_id(),
+                    value: &interface_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4PrefixCount".into(),
-                    value: ipv4_prefix_count_binding.get_id(),
+                    value: &ipv4_prefix_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4Prefixes".into(),
-                    value: ipv4_prefixes_binding.get_id(),
+                    value: &ipv4_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressCount".into(),
-                    value: ipv6_address_count_binding.get_id(),
+                    value: &ipv6_address_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressListEnabled".into(),
-                    value: ipv6_address_list_enabled_binding.get_id(),
+                    value: &ipv6_address_list_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressLists".into(),
-                    value: ipv6_address_lists_binding.get_id(),
+                    value: &ipv6_address_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Addresses".into(),
-                    value: ipv6_addresses_binding.get_id(),
+                    value: &ipv6_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6PrefixCount".into(),
-                    value: ipv6_prefix_count_binding.get_id(),
+                    value: &ipv6_prefix_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Prefixes".into(),
-                    value: ipv6_prefixes_binding.get_id(),
+                    value: &ipv6_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIp".into(),
-                    value: private_ip_binding.get_id(),
+                    value: &private_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpListEnabled".into(),
-                    value: private_ip_list_enabled_binding.get_id(),
+                    value: &private_ip_list_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpLists".into(),
-                    value: private_ip_lists_binding.get_id(),
+                    value: &private_ip_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIps".into(),
-                    value: private_ips_binding.get_id(),
+                    value: &private_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpsCount".into(),
-                    value: private_ips_count_binding.get_id(),
+                    value: &private_ips_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDestCheck".into(),
-                    value: source_dest_check_binding.get_id(),
+                    value: &source_dest_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -125,23 +125,23 @@ pub mod policy_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groups".into(),
-                    value: groups_binding.get_id(),
+                    value: &groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: policy_arn_binding.get_id(),
+                    value: &policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: roles_binding.get_id(),
+                    value: &roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "users".into(),
-                    value: users_binding.get_id(),
+                    value: &users_binding.drop_type(),
                 },
             ],
         };

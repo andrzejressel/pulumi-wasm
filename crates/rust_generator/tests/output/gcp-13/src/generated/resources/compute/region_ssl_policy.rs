@@ -171,31 +171,31 @@ pub mod region_ssl_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customFeatures".into(),
-                    value: custom_features_binding.get_id(),
+                    value: &custom_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: min_tls_version_binding.get_id(),
+                    value: &min_tls_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profile".into(),
-                    value: profile_binding.get_id(),
+                    value: &profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
             ],
         };

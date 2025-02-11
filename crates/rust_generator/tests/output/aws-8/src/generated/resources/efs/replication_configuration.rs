@@ -144,11 +144,11 @@ pub mod replication_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceFileSystemId".into(),
-                    value: source_file_system_id_binding.get_id(),
+                    value: &source_file_system_id_binding.drop_type(),
                 },
             ],
         };

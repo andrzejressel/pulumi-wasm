@@ -252,51 +252,51 @@ pub mod plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceEnvironmentId".into(),
-                    value: app_service_environment_id_binding.get_id(),
+                    value: &app_service_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isXenon".into(),
-                    value: is_xenon_binding.get_id(),
+                    value: &is_xenon_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: kind_binding.get_id(),
+                    value: &kind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumElasticWorkerCount".into(),
-                    value: maximum_elastic_worker_count_binding.get_id(),
+                    value: &maximum_elastic_worker_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perSiteScaling".into(),
-                    value: per_site_scaling_binding.get_id(),
+                    value: &per_site_scaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reserved".into(),
-                    value: reserved_binding.get_id(),
+                    value: &reserved_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: zone_redundant_binding.get_id(),
+                    value: &zone_redundant_binding.drop_type(),
                 },
             ],
         };

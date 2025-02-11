@@ -340,55 +340,55 @@ pub mod ai_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedEndpointEnabled".into(),
-                    value: dedicated_endpoint_enabled_binding.get_id(),
+                    value: &dedicated_endpoint_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionSpec".into(),
-                    value: encryption_spec_binding.get_id(),
+                    value: &encryption_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predictRequestResponseLoggingConfig".into(),
-                    value: predict_request_response_logging_config_binding.get_id(),
+                    value: &predict_request_response_logging_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateServiceConnectConfig".into(),
-                    value: private_service_connect_config_binding.get_id(),
+                    value: &private_service_connect_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSplit".into(),
-                    value: traffic_split_binding.get_id(),
+                    value: &traffic_split_binding.drop_type(),
                 },
             ],
         };

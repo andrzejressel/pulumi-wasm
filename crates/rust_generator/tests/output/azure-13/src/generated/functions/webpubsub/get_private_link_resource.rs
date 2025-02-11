@@ -38,7 +38,7 @@ pub mod get_private_link_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webPubsubId".into(),
-                    value: web_pubsub_id_binding.get_id(),
+                    value: &web_pubsub_id_binding.drop_type(),
                 },
             ],
         };

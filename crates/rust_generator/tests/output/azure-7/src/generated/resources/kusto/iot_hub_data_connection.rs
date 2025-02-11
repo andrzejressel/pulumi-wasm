@@ -198,55 +198,55 @@ pub mod iot_hub_data_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerGroup".into(),
-                    value: consumer_group_binding.get_id(),
+                    value: &consumer_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: data_format_binding.get_id(),
+                    value: &data_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseRoutingType".into(),
-                    value: database_routing_type_binding.get_id(),
+                    value: &database_routing_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSystemProperties".into(),
-                    value: event_system_properties_binding.get_id(),
+                    value: &event_system_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingRuleName".into(),
-                    value: mapping_rule_name_binding.get_id(),
+                    value: &mapping_rule_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyName".into(),
-                    value: shared_access_policy_name_binding.get_id(),
+                    value: &shared_access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

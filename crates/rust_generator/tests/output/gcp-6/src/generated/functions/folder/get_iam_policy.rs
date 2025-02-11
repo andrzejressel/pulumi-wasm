@@ -35,7 +35,7 @@ pub mod get_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
             ],
         };

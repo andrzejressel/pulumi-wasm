@@ -84,15 +84,15 @@ pub mod readiness_check {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readinessCheckName".into(),
-                    value: readiness_check_name_binding.get_id(),
+                    value: &readiness_check_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSetName".into(),
-                    value: resource_set_name_binding.get_id(),
+                    value: &resource_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

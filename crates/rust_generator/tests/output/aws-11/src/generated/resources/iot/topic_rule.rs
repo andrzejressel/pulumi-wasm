@@ -309,107 +309,107 @@ pub mod topic_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarms".into(),
-                    value: cloudwatch_alarms_binding.get_id(),
+                    value: &cloudwatch_alarms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogs".into(),
-                    value: cloudwatch_logs_binding.get_id(),
+                    value: &cloudwatch_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchMetrics".into(),
-                    value: cloudwatch_metrics_binding.get_id(),
+                    value: &cloudwatch_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbs".into(),
-                    value: dynamodbs_binding.get_id(),
+                    value: &dynamodbs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbv2s".into(),
-                    value: dynamodbv2s_binding.get_id(),
+                    value: &dynamodbv2s_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearch".into(),
-                    value: elasticsearch_binding.get_id(),
+                    value: &elasticsearch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorAction".into(),
-                    value: error_action_binding.get_id(),
+                    value: &error_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoses".into(),
-                    value: firehoses_binding.get_id(),
+                    value: &firehoses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "https".into(),
-                    value: https_binding.get_id(),
+                    value: &https_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotAnalytics".into(),
-                    value: iot_analytics_binding.get_id(),
+                    value: &iot_analytics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotEvents".into(),
-                    value: iot_events_binding.get_id(),
+                    value: &iot_events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkas".into(),
-                    value: kafkas_binding.get_id(),
+                    value: &kafkas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kineses".into(),
-                    value: kineses_binding.get_id(),
+                    value: &kineses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdas".into(),
-                    value: lambdas_binding.get_id(),
+                    value: &lambdas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "republishes".into(),
-                    value: republishes_binding.get_id(),
+                    value: &republishes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3".into(),
-                    value: s3_binding.get_id(),
+                    value: &s3_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sns".into(),
-                    value: sns_binding.get_id(),
+                    value: &sns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sql".into(),
-                    value: sql_binding.get_id(),
+                    value: &sql_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVersion".into(),
-                    value: sql_version_binding.get_id(),
+                    value: &sql_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqs".into(),
-                    value: sqs_binding.get_id(),
+                    value: &sqs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepFunctions".into(),
-                    value: step_functions_binding.get_id(),
+                    value: &step_functions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestreams".into(),
-                    value: timestreams_binding.get_id(),
+                    value: &timestreams_binding.drop_type(),
                 },
             ],
         };

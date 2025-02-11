@@ -904,163 +904,163 @@ pub mod group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneDistribution".into(),
-                    value: availability_zone_distribution_binding.get_id(),
+                    value: &availability_zone_distribution_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: availability_zones_binding.get_id(),
+                    value: &availability_zones_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityRebalance".into(),
-                    value: capacity_rebalance_binding.get_id(),
+                    value: &capacity_rebalance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: context_binding.get_id(),
+                    value: &context_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCooldown".into(),
-                    value: default_cooldown_binding.get_id(),
+                    value: &default_cooldown_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultInstanceWarmup".into(),
-                    value: default_instance_warmup_binding.get_id(),
+                    value: &default_instance_warmup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCapacity".into(),
-                    value: desired_capacity_binding.get_id(),
+                    value: &desired_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCapacityType".into(),
-                    value: desired_capacity_type_binding.get_id(),
+                    value: &desired_capacity_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledMetrics".into(),
-                    value: enabled_metrics_binding.get_id(),
+                    value: &enabled_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: force_delete_binding.get_id(),
+                    value: &force_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDeleteWarmPool".into(),
-                    value: force_delete_warm_pool_binding.get_id(),
+                    value: &force_delete_warm_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckGracePeriod".into(),
-                    value: health_check_grace_period_binding.get_id(),
+                    value: &health_check_grace_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: health_check_type_binding.get_id(),
+                    value: &health_check_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreFailedScalingActivities".into(),
-                    value: ignore_failed_scaling_activities_binding.get_id(),
+                    value: &ignore_failed_scaling_activities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialLifecycleHooks".into(),
-                    value: initial_lifecycle_hooks_binding.get_id(),
+                    value: &initial_lifecycle_hooks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMaintenancePolicy".into(),
-                    value: instance_maintenance_policy_binding.get_id(),
+                    value: &instance_maintenance_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceRefresh".into(),
-                    value: instance_refresh_binding.get_id(),
+                    value: &instance_refresh_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchConfiguration".into(),
-                    value: launch_configuration_binding.get_id(),
+                    value: &launch_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: launch_template_binding.get_id(),
+                    value: &launch_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancers".into(),
-                    value: load_balancers_binding.get_id(),
+                    value: &load_balancers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstanceLifetime".into(),
-                    value: max_instance_lifetime_binding.get_id(),
+                    value: &max_instance_lifetime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: max_size_binding.get_id(),
+                    value: &max_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricsGranularity".into(),
-                    value: metrics_granularity_binding.get_id(),
+                    value: &metrics_granularity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minElbCapacity".into(),
-                    value: min_elb_capacity_binding.get_id(),
+                    value: &min_elb_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: min_size_binding.get_id(),
+                    value: &min_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mixedInstancesPolicy".into(),
-                    value: mixed_instances_policy_binding.get_id(),
+                    value: &mixed_instances_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroup".into(),
-                    value: placement_group_binding.get_id(),
+                    value: &placement_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectFromScaleIn".into(),
-                    value: protect_from_scale_in_binding.get_id(),
+                    value: &protect_from_scale_in_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceLinkedRoleArn".into(),
-                    value: service_linked_role_arn_binding.get_id(),
+                    value: &service_linked_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspendedProcesses".into(),
-                    value: suspended_processes_binding.get_id(),
+                    value: &suspended_processes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupArns".into(),
-                    value: target_group_arns_binding.get_id(),
+                    value: &target_group_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationPolicies".into(),
-                    value: termination_policies_binding.get_id(),
+                    value: &termination_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSources".into(),
-                    value: traffic_sources_binding.get_id(),
+                    value: &traffic_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcZoneIdentifiers".into(),
-                    value: vpc_zone_identifiers_binding.get_id(),
+                    value: &vpc_zone_identifiers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForCapacityTimeout".into(),
-                    value: wait_for_capacity_timeout_binding.get_id(),
+                    value: &wait_for_capacity_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForElbCapacity".into(),
-                    value: wait_for_elb_capacity_binding.get_id(),
+                    value: &wait_for_elb_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "warmPool".into(),
-                    value: warm_pool_binding.get_id(),
+                    value: &warm_pool_binding.drop_type(),
                 },
             ],
         };

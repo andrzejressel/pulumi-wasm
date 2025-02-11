@@ -73,15 +73,15 @@ pub mod link_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceId".into(),
-                    value: device_id_binding.get_id(),
+                    value: &device_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: global_network_id_binding.get_id(),
+                    value: &global_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkId".into(),
-                    value: link_id_binding.get_id(),
+                    value: &link_id_binding.drop_type(),
                 },
             ],
         };

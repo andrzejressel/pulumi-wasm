@@ -305,71 +305,71 @@ pub mod branch {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: app_id_binding.get_id(),
+                    value: &app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendEnvironmentArn".into(),
-                    value: backend_environment_arn_binding.get_id(),
+                    value: &backend_environment_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAuthCredentials".into(),
-                    value: basic_auth_credentials_binding.get_id(),
+                    value: &basic_auth_credentials_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchName".into(),
-                    value: branch_name_binding.get_id(),
+                    value: &branch_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoBuild".into(),
-                    value: enable_auto_build_binding.get_id(),
+                    value: &enable_auto_build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBasicAuth".into(),
-                    value: enable_basic_auth_binding.get_id(),
+                    value: &enable_basic_auth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNotification".into(),
-                    value: enable_notification_binding.get_id(),
+                    value: &enable_notification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePerformanceMode".into(),
-                    value: enable_performance_mode_binding.get_id(),
+                    value: &enable_performance_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePullRequestPreview".into(),
-                    value: enable_pull_request_preview_binding.get_id(),
+                    value: &enable_pull_request_preview_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: environment_variables_binding.get_id(),
+                    value: &environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "framework".into(),
-                    value: framework_binding.get_id(),
+                    value: &framework_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pullRequestEnvironmentName".into(),
-                    value: pull_request_environment_name_binding.get_id(),
+                    value: &pull_request_environment_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: stage_binding.get_id(),
+                    value: &stage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
             ],
         };

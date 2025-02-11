@@ -34,7 +34,7 @@ pub mod get_broker_nodes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: cluster_arn_binding.get_id(),
+                    value: &cluster_arn_binding.drop_type(),
                 },
             ],
         };

@@ -82,15 +82,15 @@ pub mod keyvaluestore_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValueStoreArn".into(),
-                    value: key_value_store_arn_binding.get_id(),
+                    value: &key_value_store_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: value_binding.get_id(),
+                    value: &value_binding.drop_type(),
                 },
             ],
         };

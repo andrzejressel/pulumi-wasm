@@ -172,55 +172,55 @@ pub mod linked_service_azure_file_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: additional_properties_binding.get_id(),
+                    value: &additional_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: connection_string_binding.get_id(),
+                    value: &connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileShare".into(),
-                    value: file_share_binding.get_id(),
+                    value: &file_share_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: integration_runtime_name_binding.get_id(),
+                    value: &integration_runtime_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultPassword".into(),
-                    value: key_vault_password_binding.get_id(),
+                    value: &key_vault_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: user_id_binding.get_id(),
+                    value: &user_id_binding.drop_type(),
                 },
             ],
         };

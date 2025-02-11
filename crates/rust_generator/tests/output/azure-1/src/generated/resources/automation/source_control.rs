@@ -147,43 +147,43 @@ pub mod source_control {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticSync".into(),
-                    value: automatic_sync_binding.get_id(),
+                    value: &automatic_sync_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: automation_account_id_binding.get_id(),
+                    value: &automation_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branch".into(),
-                    value: branch_binding.get_id(),
+                    value: &branch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderPath".into(),
-                    value: folder_path_binding.get_id(),
+                    value: &folder_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publishRunbookEnabled".into(),
-                    value: publish_runbook_enabled_binding.get_id(),
+                    value: &publish_runbook_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryUrl".into(),
-                    value: repository_url_binding.get_id(),
+                    value: &repository_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "security".into(),
-                    value: security_binding.get_id(),
+                    value: &security_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceControlType".into(),
-                    value: source_control_type_binding.get_id(),
+                    value: &source_control_type_binding.drop_type(),
                 },
             ],
         };

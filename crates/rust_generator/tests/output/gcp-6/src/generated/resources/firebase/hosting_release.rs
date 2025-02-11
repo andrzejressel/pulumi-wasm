@@ -236,23 +236,23 @@ pub mod hosting_release {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: channel_id_binding.get_id(),
+                    value: &channel_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: message_binding.get_id(),
+                    value: &message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionName".into(),
-                    value: version_name_binding.get_id(),
+                    value: &version_name_binding.drop_type(),
                 },
             ],
         };

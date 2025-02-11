@@ -56,15 +56,15 @@ pub mod get_discovered_workload {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadUri".into(),
-                    value: workload_uri_binding.get_id(),
+                    value: &workload_uri_binding.drop_type(),
                 },
             ],
         };

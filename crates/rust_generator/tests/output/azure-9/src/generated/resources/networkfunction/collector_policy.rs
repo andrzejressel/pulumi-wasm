@@ -155,27 +155,27 @@ pub mod collector_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipfxEmission".into(),
-                    value: ipfx_emission_binding.get_id(),
+                    value: &ipfx_emission_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipfxIngestion".into(),
-                    value: ipfx_ingestion_binding.get_id(),
+                    value: &ipfx_ingestion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficCollectorId".into(),
-                    value: traffic_collector_id_binding.get_id(),
+                    value: &traffic_collector_id_binding.drop_type(),
                 },
             ],
         };

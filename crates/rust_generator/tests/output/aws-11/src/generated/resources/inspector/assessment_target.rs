@@ -66,11 +66,11 @@ pub mod assessment_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupArn".into(),
-                    value: resource_group_arn_binding.get_id(),
+                    value: &resource_group_arn_binding.drop_type(),
                 },
             ],
         };

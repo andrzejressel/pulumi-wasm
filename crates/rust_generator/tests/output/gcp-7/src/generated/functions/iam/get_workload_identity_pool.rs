@@ -47,11 +47,11 @@ pub mod get_workload_identity_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityPoolId".into(),
-                    value: workload_identity_pool_id_binding.get_id(),
+                    value: &workload_identity_pool_id_binding.drop_type(),
                 },
             ],
         };

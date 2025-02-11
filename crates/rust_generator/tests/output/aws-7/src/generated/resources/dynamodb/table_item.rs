@@ -94,19 +94,19 @@ pub mod table_item {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hashKey".into(),
-                    value: hash_key_binding.get_id(),
+                    value: &hash_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "item".into(),
-                    value: item_binding.get_id(),
+                    value: &item_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangeKey".into(),
-                    value: range_key_binding.get_id(),
+                    value: &range_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

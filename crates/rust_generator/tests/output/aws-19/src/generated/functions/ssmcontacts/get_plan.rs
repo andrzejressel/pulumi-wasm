@@ -35,7 +35,7 @@ pub mod get_plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactId".into(),
-                    value: contact_id_binding.get_id(),
+                    value: &contact_id_binding.drop_type(),
                 },
             ],
         };

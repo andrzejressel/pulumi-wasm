@@ -267,59 +267,60 @@ pub mod backup_vault {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRestriction".into(),
-                    value: access_restriction_binding.get_id(),
+                    value: &access_restriction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowMissing".into(),
-                    value: allow_missing_binding.get_id(),
+                    value: &allow_missing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupMinimumEnforcedRetentionDuration".into(),
-                    value: backup_minimum_enforced_retention_duration_binding.get_id(),
+                    value: &backup_minimum_enforced_retention_duration_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultId".into(),
-                    value: backup_vault_id_binding.get_id(),
+                    value: &backup_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "effectiveTime".into(),
-                    value: effective_time_binding.get_id(),
+                    value: &effective_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: force_delete_binding.get_id(),
+                    value: &force_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdate".into(),
-                    value: force_update_binding.get_id(),
+                    value: &force_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreBackupPlanReferences".into(),
-                    value: ignore_backup_plan_references_binding.get_id(),
+                    value: &ignore_backup_plan_references_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreInactiveDatasources".into(),
-                    value: ignore_inactive_datasources_binding.get_id(),
+                    value: &ignore_inactive_datasources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

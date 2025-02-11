@@ -556,55 +556,55 @@ pub mod target_https_proxy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateManagerCertificates".into(),
-                    value: certificate_manager_certificates_binding.get_id(),
+                    value: &certificate_manager_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateMap".into(),
-                    value: certificate_map_binding.get_id(),
+                    value: &certificate_map_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpKeepAliveTimeoutSec".into(),
-                    value: http_keep_alive_timeout_sec_binding.get_id(),
+                    value: &http_keep_alive_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyBind".into(),
-                    value: proxy_bind_binding.get_id(),
+                    value: &proxy_bind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quicOverride".into(),
-                    value: quic_override_binding.get_id(),
+                    value: &quic_override_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTlsPolicy".into(),
-                    value: server_tls_policy_binding.get_id(),
+                    value: &server_tls_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslCertificates".into(),
-                    value: ssl_certificates_binding.get_id(),
+                    value: &ssl_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: ssl_policy_binding.get_id(),
+                    value: &ssl_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEarlyData".into(),
-                    value: tls_early_data_binding.get_id(),
+                    value: &tls_early_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlMap".into(),
-                    value: url_map_binding.get_id(),
+                    value: &url_map_binding.drop_type(),
                 },
             ],
         };

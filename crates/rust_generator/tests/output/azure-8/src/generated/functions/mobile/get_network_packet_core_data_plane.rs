@@ -55,11 +55,12 @@ pub mod get_network_packet_core_data_plane {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreControlPlaneId".into(),
-                    value: mobile_network_packet_core_control_plane_id_binding.get_id(),
+                    value: &mobile_network_packet_core_control_plane_id_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

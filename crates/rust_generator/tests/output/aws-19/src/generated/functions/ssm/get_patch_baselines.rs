@@ -44,11 +44,11 @@ pub mod get_patch_baselines {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBaselines".into(),
-                    value: default_baselines_binding.get_id(),
+                    value: &default_baselines_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
             ],
         };

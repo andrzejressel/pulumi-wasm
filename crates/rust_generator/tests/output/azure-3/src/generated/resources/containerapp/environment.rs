@@ -208,51 +208,52 @@ pub mod environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "daprApplicationInsightsConnectionString".into(),
-                    value: dapr_application_insights_connection_string_binding.get_id(),
+                    value: &dapr_application_insights_connection_string_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureResourceGroupName".into(),
-                    value: infrastructure_resource_group_name_binding.get_id(),
+                    value: &infrastructure_resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureSubnetId".into(),
-                    value: infrastructure_subnet_id_binding.get_id(),
+                    value: &infrastructure_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalLoadBalancerEnabled".into(),
-                    value: internal_load_balancer_enabled_binding.get_id(),
+                    value: &internal_load_balancer_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualTlsEnabled".into(),
-                    value: mutual_tls_enabled_binding.get_id(),
+                    value: &mutual_tls_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadProfiles".into(),
-                    value: workload_profiles_binding.get_id(),
+                    value: &workload_profiles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundancyEnabled".into(),
-                    value: zone_redundancy_enabled_binding.get_id(),
+                    value: &zone_redundancy_enabled_binding.drop_type(),
                 },
             ],
         };

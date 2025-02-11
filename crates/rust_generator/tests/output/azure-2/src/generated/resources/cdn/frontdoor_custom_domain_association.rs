@@ -172,11 +172,11 @@ pub mod frontdoor_custom_domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorCustomDomainId".into(),
-                    value: cdn_frontdoor_custom_domain_id_binding.get_id(),
+                    value: &cdn_frontdoor_custom_domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRouteIds".into(),
-                    value: cdn_frontdoor_route_ids_binding.get_id(),
+                    value: &cdn_frontdoor_route_ids_binding.drop_type(),
                 },
             ],
         };

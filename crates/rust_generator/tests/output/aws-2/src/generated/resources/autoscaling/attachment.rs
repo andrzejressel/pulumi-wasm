@@ -81,15 +81,15 @@ pub mod attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: autoscaling_group_name_binding.get_id(),
+                    value: &autoscaling_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elb".into(),
-                    value: elb_binding.get_id(),
+                    value: &elb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbTargetGroupArn".into(),
-                    value: lb_target_group_arn_binding.get_id(),
+                    value: &lb_target_group_arn_binding.drop_type(),
                 },
             ],
         };

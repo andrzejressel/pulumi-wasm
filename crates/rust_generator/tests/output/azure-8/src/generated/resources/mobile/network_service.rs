@@ -151,31 +151,31 @@ pub mod network_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: mobile_network_id_binding.get_id(),
+                    value: &mobile_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pccRules".into(),
-                    value: pcc_rules_binding.get_id(),
+                    value: &pcc_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrecedence".into(),
-                    value: service_precedence_binding.get_id(),
+                    value: &service_precedence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceQosPolicy".into(),
-                    value: service_qos_policy_binding.get_id(),
+                    value: &service_qos_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

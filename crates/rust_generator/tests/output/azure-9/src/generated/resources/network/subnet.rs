@@ -195,43 +195,44 @@ pub mod subnet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixes".into(),
-                    value: address_prefixes_binding.get_id(),
+                    value: &address_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOutboundAccessEnabled".into(),
-                    value: default_outbound_access_enabled_binding.get_id(),
+                    value: &default_outbound_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegations".into(),
-                    value: delegations_binding.get_id(),
+                    value: &delegations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpointNetworkPolicies".into(),
-                    value: private_endpoint_network_policies_binding.get_id(),
+                    value: &private_endpoint_network_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkServiceNetworkPoliciesEnabled".into(),
-                    value: private_link_service_network_policies_enabled_binding.get_id(),
+                    value: &private_link_service_network_policies_enabled_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceEndpointPolicyIds".into(),
-                    value: service_endpoint_policy_ids_binding.get_id(),
+                    value: &service_endpoint_policy_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceEndpoints".into(),
-                    value: service_endpoints_binding.get_id(),
+                    value: &service_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkName".into(),
-                    value: virtual_network_name_binding.get_id(),
+                    value: &virtual_network_name_binding.drop_type(),
                 },
             ],
         };

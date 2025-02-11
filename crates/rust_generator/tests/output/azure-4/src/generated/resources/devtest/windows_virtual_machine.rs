@@ -216,67 +216,67 @@ pub mod windows_virtual_machine {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowClaim".into(),
-                    value: allow_claim_binding.get_id(),
+                    value: &allow_claim_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disallowPublicIpAddress".into(),
-                    value: disallow_public_ip_address_binding.get_id(),
+                    value: &disallow_public_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryImageReference".into(),
-                    value: gallery_image_reference_binding.get_id(),
+                    value: &gallery_image_reference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundNatRules".into(),
-                    value: inbound_nat_rules_binding.get_id(),
+                    value: &inbound_nat_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labName".into(),
-                    value: lab_name_binding.get_id(),
+                    value: &lab_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labSubnetName".into(),
-                    value: lab_subnet_name_binding.get_id(),
+                    value: &lab_subnet_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labVirtualNetworkId".into(),
-                    value: lab_virtual_network_id_binding.get_id(),
+                    value: &lab_virtual_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: notes_binding.get_id(),
+                    value: &notes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: size_binding.get_id(),
+                    value: &size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: storage_type_binding.get_id(),
+                    value: &storage_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

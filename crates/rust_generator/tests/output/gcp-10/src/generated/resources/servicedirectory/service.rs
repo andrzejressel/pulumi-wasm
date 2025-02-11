@@ -120,15 +120,15 @@ pub mod service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: service_id_binding.get_id(),
+                    value: &service_id_binding.drop_type(),
                 },
             ],
         };

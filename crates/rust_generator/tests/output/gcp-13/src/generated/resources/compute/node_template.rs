@@ -277,47 +277,47 @@ pub mod node_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accelerators".into(),
-                    value: accelerators_binding.get_id(),
+                    value: &accelerators_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuOvercommitType".into(),
-                    value: cpu_overcommit_type_binding.get_id(),
+                    value: &cpu_overcommit_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disks".into(),
-                    value: disks_binding.get_id(),
+                    value: &disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeAffinityLabels".into(),
-                    value: node_affinity_labels_binding.get_id(),
+                    value: &node_affinity_labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: node_type_binding.get_id(),
+                    value: &node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypeFlexibility".into(),
-                    value: node_type_flexibility_binding.get_id(),
+                    value: &node_type_flexibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverBinding".into(),
-                    value: server_binding_binding.get_id(),
+                    value: &server_binding_binding.drop_type(),
                 },
             ],
         };

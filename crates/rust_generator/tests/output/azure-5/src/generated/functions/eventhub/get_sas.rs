@@ -38,11 +38,11 @@ pub mod get_sas {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: connection_string_binding.get_id(),
+                    value: &connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiry".into(),
-                    value: expiry_binding.get_id(),
+                    value: &expiry_binding.drop_type(),
                 },
             ],
         };

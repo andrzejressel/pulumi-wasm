@@ -128,23 +128,23 @@ pub mod bucket_object_lock_configuration_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockEnabled".into(),
-                    value: object_lock_enabled_binding.get_id(),
+                    value: &object_lock_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rule".into(),
-                    value: rule_binding.get_id(),
+                    value: &rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "token".into(),
-                    value: token_binding.get_id(),
+                    value: &token_binding.drop_type(),
                 },
             ],
         };

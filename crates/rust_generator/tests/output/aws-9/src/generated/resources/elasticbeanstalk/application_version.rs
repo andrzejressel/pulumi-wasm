@@ -132,35 +132,35 @@ pub mod application_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "application".into(),
-                    value: application_binding.get_id(),
+                    value: &application_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: force_delete_binding.get_id(),
+                    value: &force_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "process".into(),
-                    value: process_binding.get_id(),
+                    value: &process_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

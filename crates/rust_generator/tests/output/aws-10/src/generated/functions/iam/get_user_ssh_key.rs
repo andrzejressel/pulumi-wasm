@@ -47,15 +47,15 @@ pub mod get_user_ssh_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: encoding_binding.get_id(),
+                    value: &encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicKeyId".into(),
-                    value: ssh_public_key_id_binding.get_id(),
+                    value: &ssh_public_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

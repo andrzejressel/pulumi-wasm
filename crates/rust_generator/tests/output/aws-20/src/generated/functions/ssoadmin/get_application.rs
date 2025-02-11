@@ -53,11 +53,11 @@ pub mod get_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: application_arn_binding.get_id(),
+                    value: &application_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portalOptions".into(),
-                    value: portal_options_binding.get_id(),
+                    value: &portal_options_binding.drop_type(),
                 },
             ],
         };

@@ -106,15 +106,15 @@ pub mod bucket_server_side_encryption_configuration_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
             ],
         };

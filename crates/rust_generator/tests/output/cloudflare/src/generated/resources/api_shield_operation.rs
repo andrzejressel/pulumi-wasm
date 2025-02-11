@@ -70,19 +70,19 @@ pub mod api_shield_operation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: method_binding.get_id(),
+                    value: &method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

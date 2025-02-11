@@ -117,31 +117,31 @@ pub mod firewall_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterId".into(),
-                    value: filter_id_binding.get_id(),
+                    value: &filter_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: paused_binding.get_id(),
+                    value: &paused_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "products".into(),
-                    value: products_binding.get_id(),
+                    value: &products_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

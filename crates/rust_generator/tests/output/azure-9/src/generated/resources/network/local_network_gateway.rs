@@ -123,35 +123,35 @@ pub mod local_network_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressSpaces".into(),
-                    value: address_spaces_binding.get_id(),
+                    value: &address_spaces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpSettings".into(),
-                    value: bgp_settings_binding.get_id(),
+                    value: &bgp_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayAddress".into(),
-                    value: gateway_address_binding.get_id(),
+                    value: &gateway_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayFqdn".into(),
-                    value: gateway_fqdn_binding.get_id(),
+                    value: &gateway_fqdn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

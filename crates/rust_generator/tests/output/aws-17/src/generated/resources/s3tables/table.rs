@@ -140,23 +140,23 @@ pub mod table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: format_binding.get_id(),
+                    value: &format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfiguration".into(),
-                    value: maintenance_configuration_binding.get_id(),
+                    value: &maintenance_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableBucketArn".into(),
-                    value: table_bucket_arn_binding.get_id(),
+                    value: &table_bucket_arn_binding.drop_type(),
                 },
             ],
         };

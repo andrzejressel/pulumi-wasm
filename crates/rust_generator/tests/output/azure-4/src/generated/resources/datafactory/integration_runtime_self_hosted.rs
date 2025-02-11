@@ -121,23 +121,24 @@ pub mod integration_runtime_self_hosted {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rbacAuthorizations".into(),
-                    value: rbac_authorizations_binding.get_id(),
+                    value: &rbac_authorizations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfContainedInteractiveAuthoringEnabled".into(),
-                    value: self_contained_interactive_authoring_enabled_binding.get_id(),
+                    value: &self_contained_interactive_authoring_enabled_binding
+                        .drop_type(),
                 },
             ],
         };

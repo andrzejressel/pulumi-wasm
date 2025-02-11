@@ -106,11 +106,11 @@ pub mod finding_aggregator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkingMode".into(),
-                    value: linking_mode_binding.get_id(),
+                    value: &linking_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specifiedRegions".into(),
-                    value: specified_regions_binding.get_id(),
+                    value: &specified_regions_binding.drop_type(),
                 },
             ],
         };

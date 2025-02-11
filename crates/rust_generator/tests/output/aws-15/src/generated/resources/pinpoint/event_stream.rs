@@ -111,15 +111,15 @@ pub mod event_stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationStreamArn".into(),
-                    value: destination_stream_arn_binding.get_id(),
+                    value: &destination_stream_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
             ],
         };

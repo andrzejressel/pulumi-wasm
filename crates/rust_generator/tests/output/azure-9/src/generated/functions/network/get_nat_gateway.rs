@@ -66,19 +66,19 @@ pub mod get_nat_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressIds".into(),
-                    value: public_ip_address_ids_binding.get_id(),
+                    value: &public_ip_address_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpPrefixIds".into(),
-                    value: public_ip_prefix_ids_binding.get_id(),
+                    value: &public_ip_prefix_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

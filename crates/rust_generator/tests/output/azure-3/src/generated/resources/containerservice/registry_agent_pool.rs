@@ -129,35 +129,35 @@ pub mod registry_agent_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryName".into(),
-                    value: container_registry_name_binding.get_id(),
+                    value: &container_registry_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkSubnetId".into(),
-                    value: virtual_network_subnet_id_binding.get_id(),
+                    value: &virtual_network_subnet_id_binding.drop_type(),
                 },
             ],
         };

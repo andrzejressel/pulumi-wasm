@@ -57,7 +57,7 @@ pub mod certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateIdentifier".into(),
-                    value: certificate_identifier_binding.get_id(),
+                    value: &certificate_identifier_binding.drop_type(),
                 },
             ],
         };

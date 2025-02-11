@@ -214,39 +214,39 @@ pub mod inference_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterPurpose".into(),
-                    value: cluster_purpose_binding.get_id(),
+                    value: &cluster_purpose_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: kubernetes_cluster_id_binding.get_id(),
+                    value: &kubernetes_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineLearningWorkspaceId".into(),
-                    value: machine_learning_workspace_id_binding.get_id(),
+                    value: &machine_learning_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssl".into(),
-                    value: ssl_binding.get_id(),
+                    value: &ssl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

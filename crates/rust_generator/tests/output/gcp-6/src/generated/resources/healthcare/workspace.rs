@@ -120,19 +120,19 @@ pub mod workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
             ],
         };

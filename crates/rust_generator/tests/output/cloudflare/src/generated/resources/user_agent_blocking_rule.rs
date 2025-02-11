@@ -108,23 +108,23 @@ pub mod user_agent_blocking_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: paused_binding.get_id(),
+                    value: &paused_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

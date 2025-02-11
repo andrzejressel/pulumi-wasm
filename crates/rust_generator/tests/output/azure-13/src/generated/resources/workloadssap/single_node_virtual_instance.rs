@@ -123,47 +123,47 @@ pub mod single_node_virtual_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appLocation".into(),
-                    value: app_location_binding.get_id(),
+                    value: &app_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: environment_binding.get_id(),
+                    value: &environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroupName".into(),
-                    value: managed_resource_group_name_binding.get_id(),
+                    value: &managed_resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sapFqdn".into(),
-                    value: sap_fqdn_binding.get_id(),
+                    value: &sap_fqdn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sapProduct".into(),
-                    value: sap_product_binding.get_id(),
+                    value: &sap_product_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleServerConfiguration".into(),
-                    value: single_server_configuration_binding.get_id(),
+                    value: &single_server_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

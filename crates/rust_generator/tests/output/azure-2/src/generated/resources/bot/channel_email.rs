@@ -108,27 +108,27 @@ pub mod channel_email {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: bot_name_binding.get_id(),
+                    value: &bot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: email_address_binding.get_id(),
+                    value: &email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailPassword".into(),
-                    value: email_password_binding.get_id(),
+                    value: &email_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "magicCode".into(),
-                    value: magic_code_binding.get_id(),
+                    value: &magic_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

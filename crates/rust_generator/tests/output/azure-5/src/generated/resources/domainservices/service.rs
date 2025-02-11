@@ -273,51 +273,51 @@ pub mod service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainConfigurationType".into(),
-                    value: domain_configuration_type_binding.get_id(),
+                    value: &domain_configuration_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filteredSyncEnabled".into(),
-                    value: filtered_sync_enabled_binding.get_id(),
+                    value: &filtered_sync_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialReplicaSet".into(),
-                    value: initial_replica_set_binding.get_id(),
+                    value: &initial_replica_set_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: notifications_binding.get_id(),
+                    value: &notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secureLdap".into(),
-                    value: secure_ldap_binding.get_id(),
+                    value: &secure_ldap_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "security".into(),
-                    value: security_binding.get_id(),
+                    value: &security_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

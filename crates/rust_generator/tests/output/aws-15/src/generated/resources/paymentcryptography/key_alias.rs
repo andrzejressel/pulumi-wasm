@@ -78,11 +78,11 @@ pub mod key_alias {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasName".into(),
-                    value: alias_name_binding.get_id(),
+                    value: &alias_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyArn".into(),
-                    value: key_arn_binding.get_id(),
+                    value: &key_arn_binding.drop_type(),
                 },
             ],
         };

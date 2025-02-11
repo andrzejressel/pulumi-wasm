@@ -66,11 +66,11 @@ pub mod lambda_function_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionArn".into(),
-                    value: function_arn_binding.get_id(),
+                    value: &function_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
             ],
         };

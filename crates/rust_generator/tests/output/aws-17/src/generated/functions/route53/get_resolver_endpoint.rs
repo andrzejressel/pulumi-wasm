@@ -52,11 +52,11 @@ pub mod get_resolver_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointId".into(),
-                    value: resolver_endpoint_id_binding.get_id(),
+                    value: &resolver_endpoint_id_binding.drop_type(),
                 },
             ],
         };

@@ -153,43 +153,43 @@ pub mod endpoint_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfigurations".into(),
-                    value: endpoint_configurations_binding.get_id(),
+                    value: &endpoint_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointGroupRegion".into(),
-                    value: endpoint_group_region_binding.get_id(),
+                    value: &endpoint_group_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckIntervalSeconds".into(),
-                    value: health_check_interval_seconds_binding.get_id(),
+                    value: &health_check_interval_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckPath".into(),
-                    value: health_check_path_binding.get_id(),
+                    value: &health_check_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckPort".into(),
-                    value: health_check_port_binding.get_id(),
+                    value: &health_check_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckProtocol".into(),
-                    value: health_check_protocol_binding.get_id(),
+                    value: &health_check_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: listener_arn_binding.get_id(),
+                    value: &listener_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portOverrides".into(),
-                    value: port_overrides_binding.get_id(),
+                    value: &port_overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdCount".into(),
-                    value: threshold_count_binding.get_id(),
+                    value: &threshold_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficDialPercentage".into(),
-                    value: traffic_dial_percentage_binding.get_id(),
+                    value: &traffic_dial_percentage_binding.drop_type(),
                 },
             ],
         };

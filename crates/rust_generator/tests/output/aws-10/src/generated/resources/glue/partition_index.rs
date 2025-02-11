@@ -135,19 +135,19 @@ pub mod partition_index {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionIndex".into(),
-                    value: partition_index_binding.get_id(),
+                    value: &partition_index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

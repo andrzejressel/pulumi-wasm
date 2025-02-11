@@ -491,63 +491,63 @@ pub mod routine {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arguments".into(),
-                    value: arguments_binding.get_id(),
+                    value: &arguments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataGovernanceType".into(),
-                    value: data_governance_type_binding.get_id(),
+                    value: &data_governance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: dataset_id_binding.get_id(),
+                    value: &dataset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definitionBody".into(),
-                    value: definition_body_binding.get_id(),
+                    value: &definition_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "determinismLevel".into(),
-                    value: determinism_level_binding.get_id(),
+                    value: &determinism_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importedLibraries".into(),
-                    value: imported_libraries_binding.get_id(),
+                    value: &imported_libraries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: language_binding.get_id(),
+                    value: &language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteFunctionOptions".into(),
-                    value: remote_function_options_binding.get_id(),
+                    value: &remote_function_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "returnTableType".into(),
-                    value: return_table_type_binding.get_id(),
+                    value: &return_table_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "returnType".into(),
-                    value: return_type_binding.get_id(),
+                    value: &return_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routineId".into(),
-                    value: routine_id_binding.get_id(),
+                    value: &routine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routineType".into(),
-                    value: routine_type_binding.get_id(),
+                    value: &routine_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkOptions".into(),
-                    value: spark_options_binding.get_id(),
+                    value: &spark_options_binding.drop_type(),
                 },
             ],
         };

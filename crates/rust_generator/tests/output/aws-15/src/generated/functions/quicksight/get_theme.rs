@@ -70,15 +70,15 @@ pub mod get_theme {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "themeId".into(),
-                    value: theme_id_binding.get_id(),
+                    value: &theme_id_binding.drop_type(),
                 },
             ],
         };

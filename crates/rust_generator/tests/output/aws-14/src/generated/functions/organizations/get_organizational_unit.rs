@@ -39,11 +39,11 @@ pub mod get_organizational_unit {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: parent_id_binding.get_id(),
+                    value: &parent_id_binding.drop_type(),
                 },
             ],
         };

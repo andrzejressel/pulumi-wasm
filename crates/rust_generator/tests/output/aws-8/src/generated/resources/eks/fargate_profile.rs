@@ -119,27 +119,27 @@ pub mod fargate_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fargateProfileName".into(),
-                    value: fargate_profile_name_binding.get_id(),
+                    value: &fargate_profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podExecutionRoleArn".into(),
-                    value: pod_execution_role_arn_binding.get_id(),
+                    value: &pod_execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectors".into(),
-                    value: selectors_binding.get_id(),
+                    value: &selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

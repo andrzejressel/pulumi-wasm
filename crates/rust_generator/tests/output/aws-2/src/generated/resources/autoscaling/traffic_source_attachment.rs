@@ -67,11 +67,11 @@ pub mod traffic_source_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: autoscaling_group_name_binding.get_id(),
+                    value: &autoscaling_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSource".into(),
-                    value: traffic_source_binding.get_id(),
+                    value: &traffic_source_binding.drop_type(),
                 },
             ],
         };

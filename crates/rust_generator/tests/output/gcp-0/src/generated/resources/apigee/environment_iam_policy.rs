@@ -237,15 +237,15 @@ pub mod environment_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envId".into(),
-                    value: env_id_binding.get_id(),
+                    value: &env_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
             ],
         };

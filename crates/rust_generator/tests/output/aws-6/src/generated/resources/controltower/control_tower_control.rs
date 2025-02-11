@@ -67,15 +67,15 @@ pub mod control_tower_control {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlIdentifier".into(),
-                    value: control_identifier_binding.get_id(),
+                    value: &control_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetIdentifier".into(),
-                    value: target_identifier_binding.get_id(),
+                    value: &target_identifier_binding.drop_type(),
                 },
             ],
         };

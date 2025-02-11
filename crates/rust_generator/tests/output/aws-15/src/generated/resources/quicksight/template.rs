@@ -182,31 +182,31 @@ pub mod template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEntity".into(),
-                    value: source_entity_binding.get_id(),
+                    value: &source_entity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateId".into(),
-                    value: template_id_binding.get_id(),
+                    value: &template_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionDescription".into(),
-                    value: version_description_binding.get_id(),
+                    value: &version_description_binding.drop_type(),
                 },
             ],
         };

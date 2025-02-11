@@ -130,23 +130,23 @@ pub mod linked_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRedisCacheId".into(),
-                    value: linked_redis_cache_id_binding.get_id(),
+                    value: &linked_redis_cache_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRedisCacheLocation".into(),
-                    value: linked_redis_cache_location_binding.get_id(),
+                    value: &linked_redis_cache_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverRole".into(),
-                    value: server_role_binding.get_id(),
+                    value: &server_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRedisCacheName".into(),
-                    value: target_redis_cache_name_binding.get_id(),
+                    value: &target_redis_cache_name_binding.drop_type(),
                 },
             ],
         };

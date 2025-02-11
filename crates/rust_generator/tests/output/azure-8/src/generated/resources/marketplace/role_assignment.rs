@@ -73,39 +73,39 @@ pub mod role_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionVersion".into(),
-                    value: condition_version_binding.get_id(),
+                    value: &condition_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagedIdentityResourceId".into(),
-                    value: delegated_managed_identity_resource_id_binding.get_id(),
+                    value: &delegated_managed_identity_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: role_definition_id_binding.get_id(),
+                    value: &role_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionName".into(),
-                    value: role_definition_name_binding.get_id(),
+                    value: &role_definition_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipServicePrincipalAadCheck".into(),
-                    value: skip_service_principal_aad_check_binding.get_id(),
+                    value: &skip_service_principal_aad_check_binding.drop_type(),
                 },
             ],
         };

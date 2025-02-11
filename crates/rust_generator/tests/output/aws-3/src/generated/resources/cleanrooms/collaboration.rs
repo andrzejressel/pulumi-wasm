@@ -163,35 +163,35 @@ pub mod collaboration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorDisplayName".into(),
-                    value: creator_display_name_binding.get_id(),
+                    value: &creator_display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorMemberAbilities".into(),
-                    value: creator_member_abilities_binding.get_id(),
+                    value: &creator_member_abilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataEncryptionMetadata".into(),
-                    value: data_encryption_metadata_binding.get_id(),
+                    value: &data_encryption_metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: members_binding.get_id(),
+                    value: &members_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryLogStatus".into(),
-                    value: query_log_status_binding.get_id(),
+                    value: &query_log_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

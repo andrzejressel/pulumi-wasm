@@ -41,11 +41,11 @@ pub mod get_service_principal {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
             ],
         };

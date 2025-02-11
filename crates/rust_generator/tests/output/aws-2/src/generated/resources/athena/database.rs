@@ -122,35 +122,35 @@ pub mod database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aclConfiguration".into(),
-                    value: acl_configuration_binding.get_id(),
+                    value: &acl_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: encryption_configuration_binding.get_id(),
+                    value: &encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
             ],
         };

@@ -112,19 +112,19 @@ pub mod custom_log_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventClasses".into(),
-                    value: event_classes_binding.get_id(),
+                    value: &event_classes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceName".into(),
-                    value: source_name_binding.get_id(),
+                    value: &source_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVersion".into(),
-                    value: source_version_binding.get_id(),
+                    value: &source_version_binding.drop_type(),
                 },
             ],
         };

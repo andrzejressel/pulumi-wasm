@@ -113,31 +113,31 @@ pub mod network_insights_path {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIp".into(),
-                    value: destination_ip_binding.get_id(),
+                    value: &destination_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPort".into(),
-                    value: destination_port_binding.get_id(),
+                    value: &destination_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIp".into(),
-                    value: source_ip_binding.get_id(),
+                    value: &source_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

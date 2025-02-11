@@ -70,19 +70,19 @@ pub mod rds_db_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbPassword".into(),
-                    value: db_password_binding.get_id(),
+                    value: &db_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbUser".into(),
-                    value: db_user_binding.get_id(),
+                    value: &db_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rdsDbInstanceArn".into(),
-                    value: rds_db_instance_arn_binding.get_id(),
+                    value: &rds_db_instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: stack_id_binding.get_id(),
+                    value: &stack_id_binding.drop_type(),
                 },
             ],
         };

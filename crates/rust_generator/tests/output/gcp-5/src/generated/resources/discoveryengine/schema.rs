@@ -141,23 +141,23 @@ pub mod schema {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoreId".into(),
-                    value: data_store_id_binding.get_id(),
+                    value: &data_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jsonSchema".into(),
-                    value: json_schema_binding.get_id(),
+                    value: &json_schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaId".into(),
-                    value: schema_id_binding.get_id(),
+                    value: &schema_id_binding.drop_type(),
                 },
             ],
         };

@@ -35,11 +35,11 @@ pub mod function_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonType".into(),
-                    value: common_type_binding.get_id(),
+                    value: &common_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type2".into(),
-                    value: type2_binding.get_id(),
+                    value: &type2_binding.drop_type(),
                 },
             ],
         };

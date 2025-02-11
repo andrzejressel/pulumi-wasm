@@ -85,19 +85,19 @@ pub mod project {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpdate".into(),
-                    value: auto_update_binding.get_id(),
+                    value: &auto_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feature".into(),
-                    value: feature_binding.get_id(),
+                    value: &feature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

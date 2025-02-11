@@ -148,15 +148,15 @@ pub mod extensions_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: config_binding.get_id(),
+                    value: &config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

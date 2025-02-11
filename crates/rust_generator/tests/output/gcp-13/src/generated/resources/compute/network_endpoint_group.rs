@@ -230,35 +230,35 @@ pub mod network_endpoint_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPort".into(),
-                    value: default_port_binding.get_id(),
+                    value: &default_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointType".into(),
-                    value: network_endpoint_type_binding.get_id(),
+                    value: &network_endpoint_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: subnetwork_binding.get_id(),
+                    value: &subnetwork_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

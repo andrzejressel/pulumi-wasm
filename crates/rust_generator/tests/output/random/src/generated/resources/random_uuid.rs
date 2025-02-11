@@ -63,7 +63,7 @@ pub mod random_uuid {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
             ],
         };

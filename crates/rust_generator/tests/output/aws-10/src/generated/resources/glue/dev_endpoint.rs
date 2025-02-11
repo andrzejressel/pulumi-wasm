@@ -198,63 +198,63 @@ pub mod dev_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arguments".into(),
-                    value: arguments_binding.get_id(),
+                    value: &arguments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraJarsS3Path".into(),
-                    value: extra_jars_s3_path_binding.get_id(),
+                    value: &extra_jars_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraPythonLibsS3Path".into(),
-                    value: extra_python_libs_s3_path_binding.get_id(),
+                    value: &extra_python_libs_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueVersion".into(),
-                    value: glue_version_binding.get_id(),
+                    value: &glue_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: number_of_nodes_binding.get_id(),
+                    value: &number_of_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfWorkers".into(),
-                    value: number_of_workers_binding.get_id(),
+                    value: &number_of_workers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKey".into(),
-                    value: public_key_binding.get_id(),
+                    value: &public_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeys".into(),
-                    value: public_keys_binding.get_id(),
+                    value: &public_keys_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: security_configuration_binding.get_id(),
+                    value: &security_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerType".into(),
-                    value: worker_type_binding.get_id(),
+                    value: &worker_type_binding.drop_type(),
                 },
             ],
         };

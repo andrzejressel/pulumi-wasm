@@ -226,79 +226,79 @@ pub mod authorization_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationEndpoint".into(),
-                    value: authorization_endpoint_binding.get_id(),
+                    value: &authorization_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationMethods".into(),
-                    value: authorization_methods_binding.get_id(),
+                    value: &authorization_methods_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bearerTokenSendingMethods".into(),
-                    value: bearer_token_sending_methods_binding.get_id(),
+                    value: &bearer_token_sending_methods_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthenticationMethods".into(),
-                    value: client_authentication_methods_binding.get_id(),
+                    value: &client_authentication_methods_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRegistrationEndpoint".into(),
-                    value: client_registration_endpoint_binding.get_id(),
+                    value: &client_registration_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: client_secret_binding.get_id(),
+                    value: &client_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultScope".into(),
-                    value: default_scope_binding.get_id(),
+                    value: &default_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantTypes".into(),
-                    value: grant_types_binding.get_id(),
+                    value: &grant_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerPassword".into(),
-                    value: resource_owner_password_binding.get_id(),
+                    value: &resource_owner_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerUsername".into(),
-                    value: resource_owner_username_binding.get_id(),
+                    value: &resource_owner_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportState".into(),
-                    value: support_state_binding.get_id(),
+                    value: &support_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenBodyParameters".into(),
-                    value: token_body_parameters_binding.get_id(),
+                    value: &token_body_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenEndpoint".into(),
-                    value: token_endpoint_binding.get_id(),
+                    value: &token_endpoint_binding.drop_type(),
                 },
             ],
         };

@@ -192,71 +192,71 @@ pub mod graph_ql_api {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalAuthenticationProviders".into(),
-                    value: additional_authentication_providers_binding.get_id(),
+                    value: &additional_authentication_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiType".into(),
-                    value: api_type_binding.get_id(),
+                    value: &api_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedMetricsConfig".into(),
-                    value: enhanced_metrics_config_binding.get_id(),
+                    value: &enhanced_metrics_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "introspectionConfig".into(),
-                    value: introspection_config_binding.get_id(),
+                    value: &introspection_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaAuthorizerConfig".into(),
-                    value: lambda_authorizer_config_binding.get_id(),
+                    value: &lambda_authorizer_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: log_config_binding.get_id(),
+                    value: &log_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiExecutionRoleArn".into(),
-                    value: merged_api_execution_role_arn_binding.get_id(),
+                    value: &merged_api_execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openidConnectConfig".into(),
-                    value: openid_connect_config_binding.get_id(),
+                    value: &openid_connect_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryDepthLimit".into(),
-                    value: query_depth_limit_binding.get_id(),
+                    value: &query_depth_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverCountLimit".into(),
-                    value: resolver_count_limit_binding.get_id(),
+                    value: &resolver_count_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: schema_binding.get_id(),
+                    value: &schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolConfig".into(),
-                    value: user_pool_config_binding.get_id(),
+                    value: &user_pool_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: visibility_binding.get_id(),
+                    value: &visibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xrayEnabled".into(),
-                    value: xray_enabled_binding.get_id(),
+                    value: &xray_enabled_binding.drop_type(),
                 },
             ],
         };

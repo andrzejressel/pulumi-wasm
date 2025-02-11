@@ -135,27 +135,27 @@ pub mod role_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignableScopes".into(),
-                    value: assignable_scopes_binding.get_id(),
+                    value: &assignable_scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: role_definition_id_binding.get_id(),
+                    value: &role_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

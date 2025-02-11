@@ -102,19 +102,19 @@ pub mod code_signing_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPublishers".into(),
-                    value: allowed_publishers_binding.get_id(),
+                    value: &allowed_publishers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: policies_binding.get_id(),
+                    value: &policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

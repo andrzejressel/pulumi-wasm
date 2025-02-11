@@ -159,35 +159,35 @@ pub mod access_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePermissions".into(),
-                    value: certificate_permissions_binding.get_id(),
+                    value: &certificate_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyPermissions".into(),
-                    value: key_permissions_binding.get_id(),
+                    value: &key_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: object_id_binding.get_id(),
+                    value: &object_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretPermissions".into(),
-                    value: secret_permissions_binding.get_id(),
+                    value: &secret_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storagePermissions".into(),
-                    value: storage_permissions_binding.get_id(),
+                    value: &storage_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

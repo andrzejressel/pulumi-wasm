@@ -347,31 +347,32 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: policy_type_binding.get_id(),
+                    value: &policy_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableDimension".into(),
-                    value: scalable_dimension_binding.get_id(),
+                    value: &scalable_dimension_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: service_namespace_binding.get_id(),
+                    value: &service_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepScalingPolicyConfiguration".into(),
-                    value: step_scaling_policy_configuration_binding.get_id(),
+                    value: &step_scaling_policy_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTrackingScalingPolicyConfiguration".into(),
-                    value: target_tracking_scaling_policy_configuration_binding.get_id(),
+                    value: &target_tracking_scaling_policy_configuration_binding
+                        .drop_type(),
                 },
             ],
         };

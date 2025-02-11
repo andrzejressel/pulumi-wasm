@@ -83,15 +83,15 @@ pub mod recovery_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cells".into(),
-                    value: cells_binding.get_id(),
+                    value: &cells_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryGroupName".into(),
-                    value: recovery_group_name_binding.get_id(),
+                    value: &recovery_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

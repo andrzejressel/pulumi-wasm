@@ -58,27 +58,27 @@ pub mod get_export {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportVersion".into(),
-                    value: export_version_binding.get_id(),
+                    value: &export_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeExtensions".into(),
-                    value: include_extensions_binding.get_id(),
+                    value: &include_extensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputType".into(),
-                    value: output_type_binding.get_id(),
+                    value: &output_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specification".into(),
-                    value: specification_binding.get_id(),
+                    value: &specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: stage_name_binding.get_id(),
+                    value: &stage_name_binding.drop_type(),
                 },
             ],
         };

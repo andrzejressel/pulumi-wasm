@@ -35,11 +35,11 @@ pub mod func_with_all_optional_inputs {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "a".into(),
-                    value: a_binding.get_id(),
+                    value: &a_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "b".into(),
-                    value: b_binding.get_id(),
+                    value: &b_binding.drop_type(),
                 },
             ],
         };

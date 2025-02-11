@@ -166,19 +166,19 @@ pub mod refresh_schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: data_set_id_binding.get_id(),
+                    value: &data_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleId".into(),
-                    value: schedule_id_binding.get_id(),
+                    value: &schedule_id_binding.drop_type(),
                 },
             ],
         };

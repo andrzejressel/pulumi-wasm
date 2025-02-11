@@ -71,7 +71,7 @@ pub mod invite_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterId".into(),
-                    value: master_id_binding.get_id(),
+                    value: &master_id_binding.drop_type(),
                 },
             ],
         };

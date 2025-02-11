@@ -130,23 +130,23 @@ pub mod ssl_negotiation_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbPort".into(),
-                    value: lb_port_binding.get_id(),
+                    value: &lb_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: load_balancer_binding.get_id(),
+                    value: &load_balancer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: triggers_binding.get_id(),
+                    value: &triggers_binding.drop_type(),
                 },
             ],
         };

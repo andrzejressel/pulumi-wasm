@@ -258,55 +258,55 @@ pub mod instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: authorized_network_binding.get_id(),
+                    value: &authorized_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: maintenance_policy_binding.get_id(),
+                    value: &maintenance_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memcacheParameters".into(),
-                    value: memcache_parameters_binding.get_id(),
+                    value: &memcache_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memcacheVersion".into(),
-                    value: memcache_version_binding.get_id(),
+                    value: &memcache_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: node_config_binding.get_id(),
+                    value: &node_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: node_count_binding.get_id(),
+                    value: &node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRangeIds".into(),
-                    value: reserved_ip_range_ids_binding.get_id(),
+                    value: &reserved_ip_range_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: zones_binding.get_id(),
+                    value: &zones_binding.drop_type(),
                 },
             ],
         };

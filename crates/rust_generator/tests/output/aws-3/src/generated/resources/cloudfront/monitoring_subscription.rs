@@ -78,11 +78,11 @@ pub mod monitoring_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributionId".into(),
-                    value: distribution_id_binding.get_id(),
+                    value: &distribution_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringSubscription".into(),
-                    value: monitoring_subscription_binding.get_id(),
+                    value: &monitoring_subscription_binding.drop_type(),
                 },
             ],
         };

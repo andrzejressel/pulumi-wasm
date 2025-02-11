@@ -113,19 +113,19 @@ pub mod vault_lock {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "completeLock".into(),
-                    value: complete_lock_binding.get_id(),
+                    value: &complete_lock_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreDeletionError".into(),
-                    value: ignore_deletion_error_binding.get_id(),
+                    value: &ignore_deletion_error_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultName".into(),
-                    value: vault_name_binding.get_id(),
+                    value: &vault_name_binding.drop_type(),
                 },
             ],
         };

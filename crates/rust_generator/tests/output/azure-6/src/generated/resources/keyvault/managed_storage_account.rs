@@ -224,31 +224,31 @@ pub mod managed_storage_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regenerateKeyAutomatically".into(),
-                    value: regenerate_key_automatically_binding.get_id(),
+                    value: &regenerate_key_automatically_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regenerationPeriod".into(),
-                    value: regeneration_period_binding.get_id(),
+                    value: &regeneration_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: storage_account_key_binding.get_id(),
+                    value: &storage_account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

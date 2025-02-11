@@ -104,23 +104,23 @@ pub mod flexible_database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "charset".into(),
-                    value: charset_binding.get_id(),
+                    value: &charset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: collation_binding.get_id(),
+                    value: &collation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: server_name_binding.get_id(),
+                    value: &server_name_binding.drop_type(),
                 },
             ],
         };

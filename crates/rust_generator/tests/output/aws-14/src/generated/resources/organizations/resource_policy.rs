@@ -75,11 +75,11 @@ pub mod resource_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: content_binding.get_id(),
+                    value: &content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -223,43 +223,43 @@ pub mod network_peering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportCustomRoutes".into(),
-                    value: export_custom_routes_binding.get_id(),
+                    value: &export_custom_routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportCustomRoutesWithPublicIp".into(),
-                    value: export_custom_routes_with_public_ip_binding.get_id(),
+                    value: &export_custom_routes_with_public_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importCustomRoutes".into(),
-                    value: import_custom_routes_binding.get_id(),
+                    value: &import_custom_routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importCustomRoutesWithPublicIp".into(),
-                    value: import_custom_routes_with_public_ip_binding.get_id(),
+                    value: &import_custom_routes_with_public_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerNetwork".into(),
-                    value: peer_network_binding.get_id(),
+                    value: &peer_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerNetworkType".into(),
-                    value: peer_network_type_binding.get_id(),
+                    value: &peer_network_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmwareEngineNetwork".into(),
-                    value: vmware_engine_network_binding.get_id(),
+                    value: &vmware_engine_network_binding.drop_type(),
                 },
             ],
         };

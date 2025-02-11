@@ -84,19 +84,19 @@ pub mod public_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodedKey".into(),
-                    value: encoded_key_binding.get_id(),
+                    value: &encoded_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
             ],
         };

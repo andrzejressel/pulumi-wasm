@@ -155,55 +155,55 @@ pub mod rest_api {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeySource".into(),
-                    value: api_key_source_binding.get_id(),
+                    value: &api_key_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryMediaTypes".into(),
-                    value: binary_media_types_binding.get_id(),
+                    value: &binary_media_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: body_binding.get_id(),
+                    value: &body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableExecuteApiEndpoint".into(),
-                    value: disable_execute_api_endpoint_binding.get_id(),
+                    value: &disable_execute_api_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfiguration".into(),
-                    value: endpoint_configuration_binding.get_id(),
+                    value: &endpoint_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failOnWarnings".into(),
-                    value: fail_on_warnings_binding.get_id(),
+                    value: &fail_on_warnings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumCompressionSize".into(),
-                    value: minimum_compression_size_binding.get_id(),
+                    value: &minimum_compression_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "putRestApiMode".into(),
-                    value: put_rest_api_mode_binding.get_id(),
+                    value: &put_rest_api_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

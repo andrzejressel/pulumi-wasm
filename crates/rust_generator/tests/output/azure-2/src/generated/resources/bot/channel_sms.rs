@@ -113,27 +113,27 @@ pub mod channel_sms {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: bot_name_binding.get_id(),
+                    value: &bot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: phone_number_binding.get_id(),
+                    value: &phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsChannelAccountSecurityId".into(),
-                    value: sms_channel_account_security_id_binding.get_id(),
+                    value: &sms_channel_account_security_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsChannelAuthToken".into(),
-                    value: sms_channel_auth_token_binding.get_id(),
+                    value: &sms_channel_auth_token_binding.drop_type(),
                 },
             ],
         };

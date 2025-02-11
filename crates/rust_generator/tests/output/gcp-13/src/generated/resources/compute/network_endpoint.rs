@@ -187,27 +187,27 @@ pub mod network_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointGroup".into(),
-                    value: network_endpoint_group_binding.get_id(),
+                    value: &network_endpoint_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

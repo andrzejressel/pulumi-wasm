@@ -218,27 +218,27 @@ pub mod data_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataMaskingPolicy".into(),
-                    value: data_masking_policy_binding.get_id(),
+                    value: &data_masking_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPolicyId".into(),
-                    value: data_policy_id_binding.get_id(),
+                    value: &data_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPolicyType".into(),
-                    value: data_policy_type_binding.get_id(),
+                    value: &data_policy_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyTag".into(),
-                    value: policy_tag_binding.get_id(),
+                    value: &policy_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

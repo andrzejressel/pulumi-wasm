@@ -303,83 +303,83 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalExperiments".into(),
-                    value: additional_experiments_binding.get_id(),
+                    value: &additional_experiments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStreamingEngine".into(),
-                    value: enable_streaming_engine_binding.get_id(),
+                    value: &enable_streaming_engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfiguration".into(),
-                    value: ip_configuration_binding.get_id(),
+                    value: &ip_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineType".into(),
-                    value: machine_type_binding.get_id(),
+                    value: &machine_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWorkers".into(),
-                    value: max_workers_binding.get_id(),
+                    value: &max_workers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDelete".into(),
-                    value: on_delete_binding.get_id(),
+                    value: &on_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountEmail".into(),
-                    value: service_account_email_binding.get_id(),
+                    value: &service_account_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipWaitOnJobTermination".into(),
-                    value: skip_wait_on_job_termination_binding.get_id(),
+                    value: &skip_wait_on_job_termination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: subnetwork_binding.get_id(),
+                    value: &subnetwork_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tempGcsLocation".into(),
-                    value: temp_gcs_location_binding.get_id(),
+                    value: &temp_gcs_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateGcsPath".into(),
-                    value: template_gcs_path_binding.get_id(),
+                    value: &template_gcs_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transformNameMapping".into(),
-                    value: transform_name_mapping_binding.get_id(),
+                    value: &transform_name_mapping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

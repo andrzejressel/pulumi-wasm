@@ -160,55 +160,55 @@ pub mod studio {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authMode".into(),
-                    value: auth_mode_binding.get_id(),
+                    value: &auth_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultS3Location".into(),
-                    value: default_s3_location_binding.get_id(),
+                    value: &default_s3_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineSecurityGroupId".into(),
-                    value: engine_security_group_id_binding.get_id(),
+                    value: &engine_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpAuthUrl".into(),
-                    value: idp_auth_url_binding.get_id(),
+                    value: &idp_auth_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpRelayStateParameterName".into(),
-                    value: idp_relay_state_parameter_name_binding.get_id(),
+                    value: &idp_relay_state_parameter_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: service_role_binding.get_id(),
+                    value: &service_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userRole".into(),
-                    value: user_role_binding.get_id(),
+                    value: &user_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceSecurityGroupId".into(),
-                    value: workspace_security_group_id_binding.get_id(),
+                    value: &workspace_security_group_id_binding.drop_type(),
                 },
             ],
         };

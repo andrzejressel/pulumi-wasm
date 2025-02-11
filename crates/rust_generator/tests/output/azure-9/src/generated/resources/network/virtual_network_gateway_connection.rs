@@ -488,103 +488,103 @@ pub mod virtual_network_gateway_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: authorization_key_binding.get_id(),
+                    value: &authorization_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionMode".into(),
-                    value: connection_mode_binding.get_id(),
+                    value: &connection_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProtocol".into(),
-                    value: connection_protocol_binding.get_id(),
+                    value: &connection_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customBgpAddresses".into(),
-                    value: custom_bgp_addresses_binding.get_id(),
+                    value: &custom_bgp_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dpdTimeoutSeconds".into(),
-                    value: dpd_timeout_seconds_binding.get_id(),
+                    value: &dpd_timeout_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egressNatRuleIds".into(),
-                    value: egress_nat_rule_ids_binding.get_id(),
+                    value: &egress_nat_rule_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBgp".into(),
-                    value: enable_bgp_binding.get_id(),
+                    value: &enable_bgp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteCircuitId".into(),
-                    value: express_route_circuit_id_binding.get_id(),
+                    value: &express_route_circuit_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteGatewayBypass".into(),
-                    value: express_route_gateway_bypass_binding.get_id(),
+                    value: &express_route_gateway_bypass_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressNatRuleIds".into(),
-                    value: ingress_nat_rule_ids_binding.get_id(),
+                    value: &ingress_nat_rule_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipsecPolicy".into(),
-                    value: ipsec_policy_binding.get_id(),
+                    value: &ipsec_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAzureIpAddressEnabled".into(),
-                    value: local_azure_ip_address_enabled_binding.get_id(),
+                    value: &local_azure_ip_address_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localNetworkGatewayId".into(),
-                    value: local_network_gateway_id_binding.get_id(),
+                    value: &local_network_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerVirtualNetworkGatewayId".into(),
-                    value: peer_virtual_network_gateway_id_binding.get_id(),
+                    value: &peer_virtual_network_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkFastPathEnabled".into(),
-                    value: private_link_fast_path_enabled_binding.get_id(),
+                    value: &private_link_fast_path_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingWeight".into(),
-                    value: routing_weight_binding.get_id(),
+                    value: &routing_weight_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedKey".into(),
-                    value: shared_key_binding.get_id(),
+                    value: &shared_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSelectorPolicy".into(),
-                    value: traffic_selector_policy_binding.get_id(),
+                    value: &traffic_selector_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usePolicyBasedTrafficSelectors".into(),
-                    value: use_policy_based_traffic_selectors_binding.get_id(),
+                    value: &use_policy_based_traffic_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkGatewayId".into(),
-                    value: virtual_network_gateway_id_binding.get_id(),
+                    value: &virtual_network_gateway_id_binding.drop_type(),
                 },
             ],
         };

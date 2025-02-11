@@ -366,59 +366,59 @@ pub mod edge_cache_origin {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsV4Authentication".into(),
-                    value: aws_v4_authentication_binding.get_id(),
+                    value: &aws_v4_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverOrigin".into(),
-                    value: failover_origin_binding.get_id(),
+                    value: &failover_origin_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAttempts".into(),
-                    value: max_attempts_binding.get_id(),
+                    value: &max_attempts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originAddress".into(),
-                    value: origin_address_binding.get_id(),
+                    value: &origin_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originOverrideAction".into(),
-                    value: origin_override_action_binding.get_id(),
+                    value: &origin_override_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originRedirect".into(),
-                    value: origin_redirect_binding.get_id(),
+                    value: &origin_redirect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConditions".into(),
-                    value: retry_conditions_binding.get_id(),
+                    value: &retry_conditions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: timeout_binding.get_id(),
+                    value: &timeout_binding.drop_type(),
                 },
             ],
         };

@@ -55,11 +55,11 @@ pub mod tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: autoscaling_group_name_binding.get_id(),
+                    value: &autoscaling_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tag".into(),
-                    value: tag_binding.get_id(),
+                    value: &tag_binding.drop_type(),
                 },
             ],
         };

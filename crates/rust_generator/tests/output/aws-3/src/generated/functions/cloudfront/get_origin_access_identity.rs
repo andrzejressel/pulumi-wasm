@@ -49,7 +49,7 @@ pub mod get_origin_access_identity {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
             ],
         };

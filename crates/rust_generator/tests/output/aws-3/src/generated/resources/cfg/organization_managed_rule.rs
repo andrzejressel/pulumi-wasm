@@ -135,43 +135,43 @@ pub mod organization_managed_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedAccounts".into(),
-                    value: excluded_accounts_binding.get_id(),
+                    value: &excluded_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputParameters".into(),
-                    value: input_parameters_binding.get_id(),
+                    value: &input_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumExecutionFrequency".into(),
-                    value: maximum_execution_frequency_binding.get_id(),
+                    value: &maximum_execution_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdScope".into(),
-                    value: resource_id_scope_binding.get_id(),
+                    value: &resource_id_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypesScopes".into(),
-                    value: resource_types_scopes_binding.get_id(),
+                    value: &resource_types_scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleIdentifier".into(),
-                    value: rule_identifier_binding.get_id(),
+                    value: &rule_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagKeyScope".into(),
-                    value: tag_key_scope_binding.get_id(),
+                    value: &tag_key_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagValueScope".into(),
-                    value: tag_value_scope_binding.get_id(),
+                    value: &tag_value_scope_binding.drop_type(),
                 },
             ],
         };

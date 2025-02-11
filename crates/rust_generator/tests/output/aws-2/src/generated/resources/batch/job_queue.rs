@@ -194,39 +194,39 @@ pub mod job_queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentOrders".into(),
-                    value: compute_environment_orders_binding.get_id(),
+                    value: &compute_environment_orders_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironments".into(),
-                    value: compute_environments_binding.get_id(),
+                    value: &compute_environments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobStateTimeLimitActions".into(),
-                    value: job_state_time_limit_actions_binding.get_id(),
+                    value: &job_state_time_limit_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulingPolicyArn".into(),
-                    value: scheduling_policy_arn_binding.get_id(),
+                    value: &scheduling_policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

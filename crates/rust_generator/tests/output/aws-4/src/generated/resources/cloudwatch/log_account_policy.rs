@@ -130,23 +130,23 @@ pub mod log_account_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: policy_name_binding.get_id(),
+                    value: &policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: policy_type_binding.get_id(),
+                    value: &policy_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionCriteria".into(),
-                    value: selection_criteria_binding.get_id(),
+                    value: &selection_criteria_binding.drop_type(),
                 },
             ],
         };

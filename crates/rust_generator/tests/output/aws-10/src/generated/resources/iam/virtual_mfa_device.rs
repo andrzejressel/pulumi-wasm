@@ -94,15 +94,15 @@ pub mod virtual_mfa_device {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMfaDeviceName".into(),
-                    value: virtual_mfa_device_name_binding.get_id(),
+                    value: &virtual_mfa_device_name_binding.drop_type(),
                 },
             ],
         };

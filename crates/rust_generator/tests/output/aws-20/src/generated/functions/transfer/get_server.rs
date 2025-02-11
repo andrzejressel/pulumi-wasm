@@ -63,11 +63,11 @@ pub mod get_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

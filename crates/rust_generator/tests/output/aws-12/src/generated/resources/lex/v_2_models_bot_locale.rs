@@ -141,35 +141,35 @@ pub mod v_2_models_bot_locale {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: bot_id_binding.get_id(),
+                    value: &bot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: bot_version_binding.get_id(),
+                    value: &bot_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: locale_id_binding.get_id(),
+                    value: &locale_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nLuIntentConfidenceThreshold".into(),
-                    value: n_lu_intent_confidence_threshold_binding.get_id(),
+                    value: &n_lu_intent_confidence_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceSettings".into(),
-                    value: voice_settings_binding.get_id(),
+                    value: &voice_settings_binding.drop_type(),
                 },
             ],
         };

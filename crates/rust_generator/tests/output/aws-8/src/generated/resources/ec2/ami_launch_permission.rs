@@ -119,23 +119,23 @@ pub mod ami_launch_permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: image_id_binding.get_id(),
+                    value: &image_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationArn".into(),
-                    value: organization_arn_binding.get_id(),
+                    value: &organization_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnitArn".into(),
-                    value: organizational_unit_arn_binding.get_id(),
+                    value: &organizational_unit_arn_binding.drop_type(),
                 },
             ],
         };

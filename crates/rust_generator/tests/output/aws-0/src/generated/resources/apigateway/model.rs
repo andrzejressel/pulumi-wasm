@@ -88,23 +88,23 @@ pub mod model {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: content_type_binding.get_id(),
+                    value: &content_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: schema_binding.get_id(),
+                    value: &schema_binding.drop_type(),
                 },
             ],
         };

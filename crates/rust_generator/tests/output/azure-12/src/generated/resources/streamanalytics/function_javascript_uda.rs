@@ -119,23 +119,23 @@ pub mod function_javascript_uda {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: inputs_binding.get_id(),
+                    value: &inputs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "output".into(),
-                    value: output_binding.get_id(),
+                    value: &output_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "script".into(),
-                    value: script_binding.get_id(),
+                    value: &script_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: stream_analytics_job_id_binding.get_id(),
+                    value: &stream_analytics_job_id_binding.drop_type(),
                 },
             ],
         };

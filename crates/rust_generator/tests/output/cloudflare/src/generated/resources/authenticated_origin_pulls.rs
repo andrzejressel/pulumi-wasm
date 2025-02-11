@@ -133,19 +133,19 @@ pub mod authenticated_origin_pulls {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticatedOriginPullsCertificate".into(),
-                    value: authenticated_origin_pulls_certificate_binding.get_id(),
+                    value: &authenticated_origin_pulls_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: hostname_binding.get_id(),
+                    value: &hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

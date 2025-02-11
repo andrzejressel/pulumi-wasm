@@ -100,23 +100,23 @@ pub mod sdkvoice_sip_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetApplications".into(),
-                    value: target_applications_binding.get_id(),
+                    value: &target_applications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerType".into(),
-                    value: trigger_type_binding.get_id(),
+                    value: &trigger_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerValue".into(),
-                    value: trigger_value_binding.get_id(),
+                    value: &trigger_value_binding.drop_type(),
                 },
             ],
         };

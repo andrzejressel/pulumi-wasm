@@ -203,59 +203,59 @@ pub mod container_recipe {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "components".into(),
-                    value: components_binding.get_id(),
+                    value: &components_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerType".into(),
-                    value: container_type_binding.get_id(),
+                    value: &container_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerfileTemplateData".into(),
-                    value: dockerfile_template_data_binding.get_id(),
+                    value: &dockerfile_template_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerfileTemplateUri".into(),
-                    value: dockerfile_template_uri_binding.get_id(),
+                    value: &dockerfile_template_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceConfiguration".into(),
-                    value: instance_configuration_binding.get_id(),
+                    value: &instance_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentImage".into(),
-                    value: parent_image_binding.get_id(),
+                    value: &parent_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformOverride".into(),
-                    value: platform_override_binding.get_id(),
+                    value: &platform_override_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRepository".into(),
-                    value: target_repository_binding.get_id(),
+                    value: &target_repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workingDirectory".into(),
-                    value: working_directory_binding.get_id(),
+                    value: &working_directory_binding.drop_type(),
                 },
             ],
         };

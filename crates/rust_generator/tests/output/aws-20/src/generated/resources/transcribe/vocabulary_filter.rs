@@ -105,23 +105,23 @@ pub mod vocabulary_filter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyFilterFileUri".into(),
-                    value: vocabulary_filter_file_uri_binding.get_id(),
+                    value: &vocabulary_filter_file_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyFilterName".into(),
-                    value: vocabulary_filter_name_binding.get_id(),
+                    value: &vocabulary_filter_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "words".into(),
-                    value: words_binding.get_id(),
+                    value: &words_binding.drop_type(),
                 },
             ],
         };

@@ -154,31 +154,31 @@ pub mod application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authDomain".into(),
-                    value: auth_domain_binding.get_id(),
+                    value: &auth_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseType".into(),
-                    value: database_type_binding.get_id(),
+                    value: &database_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureSettings".into(),
-                    value: feature_settings_binding.get_id(),
+                    value: &feature_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iap".into(),
-                    value: iap_binding.get_id(),
+                    value: &iap_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: location_id_binding.get_id(),
+                    value: &location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servingStatus".into(),
-                    value: serving_status_binding.get_id(),
+                    value: &serving_status_binding.drop_type(),
                 },
             ],
         };

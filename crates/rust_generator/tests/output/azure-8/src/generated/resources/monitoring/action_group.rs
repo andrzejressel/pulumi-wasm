@@ -290,71 +290,71 @@ pub mod action_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "armRoleReceivers".into(),
-                    value: arm_role_receivers_binding.get_id(),
+                    value: &arm_role_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationRunbookReceivers".into(),
-                    value: automation_runbook_receivers_binding.get_id(),
+                    value: &automation_runbook_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureAppPushReceivers".into(),
-                    value: azure_app_push_receivers_binding.get_id(),
+                    value: &azure_app_push_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureFunctionReceivers".into(),
-                    value: azure_function_receivers_binding.get_id(),
+                    value: &azure_function_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailReceivers".into(),
-                    value: email_receivers_binding.get_id(),
+                    value: &email_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHubReceivers".into(),
-                    value: event_hub_receivers_binding.get_id(),
+                    value: &event_hub_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "itsmReceivers".into(),
-                    value: itsm_receivers_binding.get_id(),
+                    value: &itsm_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppReceivers".into(),
-                    value: logic_app_receivers_binding.get_id(),
+                    value: &logic_app_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: short_name_binding.get_id(),
+                    value: &short_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsReceivers".into(),
-                    value: sms_receivers_binding.get_id(),
+                    value: &sms_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceReceivers".into(),
-                    value: voice_receivers_binding.get_id(),
+                    value: &voice_receivers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookReceivers".into(),
-                    value: webhook_receivers_binding.get_id(),
+                    value: &webhook_receivers_binding.drop_type(),
                 },
             ],
         };

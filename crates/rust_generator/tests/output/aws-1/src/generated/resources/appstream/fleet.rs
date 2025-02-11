@@ -216,75 +216,75 @@ pub mod fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeCapacity".into(),
-                    value: compute_capacity_binding.get_id(),
+                    value: &compute_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disconnectTimeoutInSeconds".into(),
-                    value: disconnect_timeout_in_seconds_binding.get_id(),
+                    value: &disconnect_timeout_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainJoinInfo".into(),
-                    value: domain_join_info_binding.get_id(),
+                    value: &domain_join_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDefaultInternetAccess".into(),
-                    value: enable_default_internet_access_binding.get_id(),
+                    value: &enable_default_internet_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetType".into(),
-                    value: fleet_type_binding.get_id(),
+                    value: &fleet_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleDisconnectTimeoutInSeconds".into(),
-                    value: idle_disconnect_timeout_in_seconds_binding.get_id(),
+                    value: &idle_disconnect_timeout_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageArn".into(),
-                    value: image_arn_binding.get_id(),
+                    value: &image_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: image_name_binding.get_id(),
+                    value: &image_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSessionsPerInstance".into(),
-                    value: max_sessions_per_instance_binding.get_id(),
+                    value: &max_sessions_per_instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUserDurationInSeconds".into(),
-                    value: max_user_duration_in_seconds_binding.get_id(),
+                    value: &max_user_duration_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamView".into(),
-                    value: stream_view_binding.get_id(),
+                    value: &stream_view_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: vpc_config_binding.get_id(),
+                    value: &vpc_config_binding.drop_type(),
                 },
             ],
         };

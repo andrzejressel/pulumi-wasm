@@ -163,51 +163,51 @@ pub mod spring_cloud_app {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonJson".into(),
-                    value: addon_json_binding.get_id(),
+                    value: &addon_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPersistentDisks".into(),
-                    value: custom_persistent_disks_binding.get_id(),
+                    value: &custom_persistent_disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: https_only_binding.get_id(),
+                    value: &https_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressSettings".into(),
-                    value: ingress_settings_binding.get_id(),
+                    value: &ingress_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isPublic".into(),
-                    value: is_public_binding.get_id(),
+                    value: &is_public_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentDisk".into(),
-                    value: persistent_disk_binding.get_id(),
+                    value: &persistent_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicEndpointEnabled".into(),
-                    value: public_endpoint_enabled_binding.get_id(),
+                    value: &public_endpoint_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEnabled".into(),
-                    value: tls_enabled_binding.get_id(),
+                    value: &tls_enabled_binding.drop_type(),
                 },
             ],
         };

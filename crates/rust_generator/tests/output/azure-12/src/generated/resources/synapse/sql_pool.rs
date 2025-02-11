@@ -160,47 +160,47 @@ pub mod sql_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: collation_binding.get_id(),
+                    value: &collation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: create_mode_binding.get_id(),
+                    value: &create_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataEncrypted".into(),
-                    value: data_encrypted_binding.get_id(),
+                    value: &data_encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoBackupPolicyEnabled".into(),
-                    value: geo_backup_policy_enabled_binding.get_id(),
+                    value: &geo_backup_policy_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryDatabaseId".into(),
-                    value: recovery_database_id_binding.get_id(),
+                    value: &recovery_database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restore".into(),
-                    value: restore_binding.get_id(),
+                    value: &restore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountType".into(),
-                    value: storage_account_type_binding.get_id(),
+                    value: &storage_account_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: synapse_workspace_id_binding.get_id(),
+                    value: &synapse_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

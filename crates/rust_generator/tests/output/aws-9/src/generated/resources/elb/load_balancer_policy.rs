@@ -132,19 +132,19 @@ pub mod load_balancer_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerName".into(),
-                    value: load_balancer_name_binding.get_id(),
+                    value: &load_balancer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAttributes".into(),
-                    value: policy_attributes_binding.get_id(),
+                    value: &policy_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: policy_name_binding.get_id(),
+                    value: &policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyTypeName".into(),
-                    value: policy_type_name_binding.get_id(),
+                    value: &policy_type_name_binding.drop_type(),
                 },
             ],
         };

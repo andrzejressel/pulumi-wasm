@@ -127,35 +127,35 @@ pub mod profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: duration_seconds_binding.get_id(),
+                    value: &duration_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedPolicyArns".into(),
-                    value: managed_policy_arns_binding.get_id(),
+                    value: &managed_policy_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireInstanceProperties".into(),
-                    value: require_instance_properties_binding.get_id(),
+                    value: &require_instance_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArns".into(),
-                    value: role_arns_binding.get_id(),
+                    value: &role_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionPolicy".into(),
-                    value: session_policy_binding.get_id(),
+                    value: &session_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -74,15 +74,15 @@ pub mod worker_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: pattern_binding.get_id(),
+                    value: &pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptName".into(),
-                    value: script_name_binding.get_id(),
+                    value: &script_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

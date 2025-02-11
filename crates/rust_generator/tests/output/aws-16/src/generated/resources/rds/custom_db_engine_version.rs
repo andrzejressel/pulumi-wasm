@@ -241,51 +241,52 @@ pub mod custom_db_engine_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseInstallationFilesS3BucketName".into(),
-                    value: database_installation_files_s3_bucket_name_binding.get_id(),
+                    value: &database_installation_files_s3_bucket_name_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseInstallationFilesS3Prefix".into(),
-                    value: database_installation_files_s3_prefix_binding.get_id(),
+                    value: &database_installation_files_s3_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: engine_version_binding.get_id(),
+                    value: &engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filename".into(),
-                    value: filename_binding.get_id(),
+                    value: &filename_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manifest".into(),
-                    value: manifest_binding.get_id(),
+                    value: &manifest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manifestHash".into(),
-                    value: manifest_hash_binding.get_id(),
+                    value: &manifest_hash_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImageId".into(),
-                    value: source_image_id_binding.get_id(),
+                    value: &source_image_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

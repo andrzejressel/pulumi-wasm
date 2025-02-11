@@ -274,59 +274,59 @@ pub mod network_firewall_policy_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: direction_binding.get_id(),
+                    value: &direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: enable_logging_binding.get_id(),
+                    value: &enable_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicy".into(),
-                    value: firewall_policy_binding.get_id(),
+                    value: &firewall_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: match__binding.get_id(),
+                    value: &match__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: rule_name_binding.get_id(),
+                    value: &rule_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityProfileGroup".into(),
-                    value: security_profile_group_binding.get_id(),
+                    value: &security_profile_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSecureTags".into(),
-                    value: target_secure_tags_binding.get_id(),
+                    value: &target_secure_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccounts".into(),
-                    value: target_service_accounts_binding.get_id(),
+                    value: &target_service_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsInspect".into(),
-                    value: tls_inspect_binding.get_id(),
+                    value: &tls_inspect_binding.drop_type(),
                 },
             ],
         };

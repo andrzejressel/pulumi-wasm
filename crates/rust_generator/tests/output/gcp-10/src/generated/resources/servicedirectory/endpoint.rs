@@ -187,27 +187,27 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: address_binding.get_id(),
+                    value: &address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: endpoint_id_binding.get_id(),
+                    value: &endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

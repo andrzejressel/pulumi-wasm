@@ -103,35 +103,35 @@ pub mod user {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamArn".into(),
-                    value: iam_arn_binding.get_id(),
+                    value: &iam_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityType".into(),
-                    value: identity_type_binding.get_id(),
+                    value: &identity_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionName".into(),
-                    value: session_name_binding.get_id(),
+                    value: &session_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: user_name_binding.get_id(),
+                    value: &user_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userRole".into(),
-                    value: user_role_binding.get_id(),
+                    value: &user_role_binding.drop_type(),
                 },
             ],
         };

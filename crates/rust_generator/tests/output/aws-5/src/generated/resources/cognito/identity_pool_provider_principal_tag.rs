@@ -66,19 +66,19 @@ pub mod identity_pool_provider_principal_tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolId".into(),
-                    value: identity_pool_id_binding.get_id(),
+                    value: &identity_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityProviderName".into(),
-                    value: identity_provider_name_binding.get_id(),
+                    value: &identity_provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalTags".into(),
-                    value: principal_tags_binding.get_id(),
+                    value: &principal_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useDefaults".into(),
-                    value: use_defaults_binding.get_id(),
+                    value: &use_defaults_binding.drop_type(),
                 },
             ],
         };

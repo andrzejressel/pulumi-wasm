@@ -35,7 +35,7 @@ pub mod get_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
             ],
         };

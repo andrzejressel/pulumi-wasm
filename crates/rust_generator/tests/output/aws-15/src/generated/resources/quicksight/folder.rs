@@ -167,31 +167,31 @@ pub mod folder {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderId".into(),
-                    value: folder_id_binding.get_id(),
+                    value: &folder_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderType".into(),
-                    value: folder_type_binding.get_id(),
+                    value: &folder_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentFolderArn".into(),
-                    value: parent_folder_arn_binding.get_id(),
+                    value: &parent_folder_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

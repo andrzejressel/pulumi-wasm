@@ -80,11 +80,11 @@ pub mod namespace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableBucketArn".into(),
-                    value: table_bucket_arn_binding.get_id(),
+                    value: &table_bucket_arn_binding.drop_type(),
                 },
             ],
         };

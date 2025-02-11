@@ -238,27 +238,27 @@ pub mod kx_environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDnsConfigurations".into(),
-                    value: custom_dns_configurations_binding.get_id(),
+                    value: &custom_dns_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayConfiguration".into(),
-                    value: transit_gateway_configuration_binding.get_id(),
+                    value: &transit_gateway_configuration_binding.drop_type(),
                 },
             ],
         };

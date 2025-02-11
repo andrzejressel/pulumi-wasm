@@ -132,31 +132,31 @@ pub mod deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: cognitive_account_id_binding.get_id(),
+                    value: &cognitive_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicThrottlingEnabled".into(),
-                    value: dynamic_throttling_enabled_binding.get_id(),
+                    value: &dynamic_throttling_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "model".into(),
-                    value: model_binding.get_id(),
+                    value: &model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "raiPolicyName".into(),
-                    value: rai_policy_name_binding.get_id(),
+                    value: &rai_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionUpgradeOption".into(),
-                    value: version_upgrade_option_binding.get_id(),
+                    value: &version_upgrade_option_binding.drop_type(),
                 },
             ],
         };

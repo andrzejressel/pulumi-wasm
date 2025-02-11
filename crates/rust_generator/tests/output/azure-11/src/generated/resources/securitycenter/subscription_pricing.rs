@@ -107,19 +107,19 @@ pub mod subscription_pricing {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensions".into(),
-                    value: extensions_binding.get_id(),
+                    value: &extensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subplan".into(),
-                    value: subplan_binding.get_id(),
+                    value: &subplan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
             ],
         };

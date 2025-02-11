@@ -184,51 +184,51 @@ pub mod configuration_feature {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationStoreId".into(),
-                    value: configuration_store_id_binding.get_id(),
+                    value: &configuration_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: etag_binding.get_id(),
+                    value: &etag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: label_binding.get_id(),
+                    value: &label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locked".into(),
-                    value: locked_binding.get_id(),
+                    value: &locked_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "percentageFilterValue".into(),
-                    value: percentage_filter_value_binding.get_id(),
+                    value: &percentage_filter_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetingFilters".into(),
-                    value: targeting_filters_binding.get_id(),
+                    value: &targeting_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timewindowFilters".into(),
-                    value: timewindow_filters_binding.get_id(),
+                    value: &timewindow_filters_binding.drop_type(),
                 },
             ],
         };

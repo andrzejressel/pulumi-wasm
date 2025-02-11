@@ -196,39 +196,39 @@ pub mod cx_entity_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoExpansionMode".into(),
-                    value: auto_expansion_mode_binding.get_id(),
+                    value: &auto_expansion_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableFuzzyExtraction".into(),
-                    value: enable_fuzzy_extraction_binding.get_id(),
+                    value: &enable_fuzzy_extraction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entities".into(),
-                    value: entities_binding.get_id(),
+                    value: &entities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedPhrases".into(),
-                    value: excluded_phrases_binding.get_id(),
+                    value: &excluded_phrases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: kind_binding.get_id(),
+                    value: &kind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redact".into(),
-                    value: redact_binding.get_id(),
+                    value: &redact_binding.drop_type(),
                 },
             ],
         };

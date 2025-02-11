@@ -45,11 +45,11 @@ pub mod get_workspace_private_endpoint_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpointId".into(),
-                    value: private_endpoint_id_binding.get_id(),
+                    value: &private_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

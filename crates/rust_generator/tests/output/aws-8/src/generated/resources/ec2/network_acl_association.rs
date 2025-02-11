@@ -68,11 +68,11 @@ pub mod network_acl_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAclId".into(),
-                    value: network_acl_id_binding.get_id(),
+                    value: &network_acl_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

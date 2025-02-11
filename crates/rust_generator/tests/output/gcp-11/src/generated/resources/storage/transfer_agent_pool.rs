@@ -145,19 +145,19 @@ pub mod transfer_agent_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthLimit".into(),
-                    value: bandwidth_limit_binding.get_id(),
+                    value: &bandwidth_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

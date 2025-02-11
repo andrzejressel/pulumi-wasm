@@ -69,27 +69,27 @@ pub mod get_local_gateway_route_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayId".into(),
-                    value: local_gateway_id_binding.get_id(),
+                    value: &local_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayRouteTableId".into(),
-                    value: local_gateway_route_table_id_binding.get_id(),
+                    value: &local_gateway_route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: outpost_arn_binding.get_id(),
+                    value: &outpost_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -137,31 +137,31 @@ pub mod cost_category {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultValue".into(),
-                    value: default_value_binding.get_id(),
+                    value: &default_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "effectiveStart".into(),
-                    value: effective_start_binding.get_id(),
+                    value: &effective_start_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleVersion".into(),
-                    value: rule_version_binding.get_id(),
+                    value: &rule_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitChargeRules".into(),
-                    value: split_charge_rules_binding.get_id(),
+                    value: &split_charge_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

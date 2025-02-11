@@ -114,19 +114,19 @@ pub mod key_ring_import_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importJobId".into(),
-                    value: import_job_id_binding.get_id(),
+                    value: &import_job_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importMethod".into(),
-                    value: import_method_binding.get_id(),
+                    value: &import_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: key_ring_binding.get_id(),
+                    value: &key_ring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionLevel".into(),
-                    value: protection_level_binding.get_id(),
+                    value: &protection_level_binding.drop_type(),
                 },
             ],
         };

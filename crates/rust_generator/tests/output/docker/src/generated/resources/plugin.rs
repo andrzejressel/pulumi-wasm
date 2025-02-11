@@ -116,39 +116,39 @@ pub mod plugin {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: alias_binding.get_id(),
+                    value: &alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTimeout".into(),
-                    value: enable_timeout_binding.get_id(),
+                    value: &enable_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envs".into(),
-                    value: envs_binding.get_id(),
+                    value: &envs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDisable".into(),
-                    value: force_disable_binding.get_id(),
+                    value: &force_disable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantAllPermissions".into(),
-                    value: grant_all_permissions_binding.get_id(),
+                    value: &grant_all_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantPermissions".into(),
-                    value: grant_permissions_binding.get_id(),
+                    value: &grant_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

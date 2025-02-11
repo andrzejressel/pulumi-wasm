@@ -96,19 +96,19 @@ pub mod log_metric_filter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupName".into(),
-                    value: log_group_name_binding.get_id(),
+                    value: &log_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricTransformation".into(),
-                    value: metric_transformation_binding.get_id(),
+                    value: &metric_transformation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: pattern_binding.get_id(),
+                    value: &pattern_binding.drop_type(),
                 },
             ],
         };

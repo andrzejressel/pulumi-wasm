@@ -71,15 +71,15 @@ pub mod argo {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smartRouting".into(),
-                    value: smart_routing_binding.get_id(),
+                    value: &smart_routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieredCaching".into(),
-                    value: tiered_caching_binding.get_id(),
+                    value: &tiered_caching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

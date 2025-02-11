@@ -160,27 +160,27 @@ pub mod membership_rbac_role_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipId".into(),
-                    value: membership_id_binding.get_id(),
+                    value: &membership_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipRbacRoleBindingId".into(),
-                    value: membership_rbac_role_binding_id_binding.get_id(),
+                    value: &membership_rbac_role_binding_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

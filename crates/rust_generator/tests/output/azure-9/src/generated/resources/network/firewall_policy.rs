@@ -213,71 +213,71 @@ pub mod firewall_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoLearnPrivateRangesEnabled".into(),
-                    value: auto_learn_private_ranges_enabled_binding.get_id(),
+                    value: &auto_learn_private_ranges_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyId".into(),
-                    value: base_policy_id_binding.get_id(),
+                    value: &base_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: dns_binding.get_id(),
+                    value: &dns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "explicitProxy".into(),
-                    value: explicit_proxy_binding.get_id(),
+                    value: &explicit_proxy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insights".into(),
-                    value: insights_binding.get_id(),
+                    value: &insights_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intrusionDetection".into(),
-                    value: intrusion_detection_binding.get_id(),
+                    value: &intrusion_detection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpRanges".into(),
-                    value: private_ip_ranges_binding.get_id(),
+                    value: &private_ip_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlRedirectAllowed".into(),
-                    value: sql_redirect_allowed_binding.get_id(),
+                    value: &sql_redirect_allowed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatIntelligenceAllowlist".into(),
-                    value: threat_intelligence_allowlist_binding.get_id(),
+                    value: &threat_intelligence_allowlist_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatIntelligenceMode".into(),
-                    value: threat_intelligence_mode_binding.get_id(),
+                    value: &threat_intelligence_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsCertificate".into(),
-                    value: tls_certificate_binding.get_id(),
+                    value: &tls_certificate_binding.drop_type(),
                 },
             ],
         };

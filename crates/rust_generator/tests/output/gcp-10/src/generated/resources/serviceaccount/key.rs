@@ -178,27 +178,27 @@ pub mod key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAlgorithm".into(),
-                    value: key_algorithm_binding.get_id(),
+                    value: &key_algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKeyType".into(),
-                    value: private_key_type_binding.get_id(),
+                    value: &private_key_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeyData".into(),
-                    value: public_key_data_binding.get_id(),
+                    value: &public_key_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeyType".into(),
-                    value: public_key_type_binding.get_id(),
+                    value: &public_key_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountId".into(),
-                    value: service_account_id_binding.get_id(),
+                    value: &service_account_id_binding.drop_type(),
                 },
             ],
         };

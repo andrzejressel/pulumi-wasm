@@ -198,35 +198,35 @@ pub mod feature {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultVariation".into(),
-                    value: default_variation_binding.get_id(),
+                    value: &default_variation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entityOverrides".into(),
-                    value: entity_overrides_binding.get_id(),
+                    value: &entity_overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationStrategy".into(),
-                    value: evaluation_strategy_binding.get_id(),
+                    value: &evaluation_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variations".into(),
-                    value: variations_binding.get_id(),
+                    value: &variations_binding.drop_type(),
                 },
             ],
         };

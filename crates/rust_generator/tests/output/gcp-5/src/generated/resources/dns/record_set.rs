@@ -399,31 +399,31 @@ pub mod record_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedZone".into(),
-                    value: managed_zone_binding.get_id(),
+                    value: &managed_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingPolicy".into(),
-                    value: routing_policy_binding.get_id(),
+                    value: &routing_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rrdatas".into(),
-                    value: rrdatas_binding.get_id(),
+                    value: &rrdatas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

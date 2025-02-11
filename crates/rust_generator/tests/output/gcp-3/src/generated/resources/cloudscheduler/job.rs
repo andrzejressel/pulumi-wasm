@@ -379,51 +379,51 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineHttpTarget".into(),
-                    value: app_engine_http_target_binding.get_id(),
+                    value: &app_engine_http_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attemptDeadline".into(),
-                    value: attempt_deadline_binding.get_id(),
+                    value: &attempt_deadline_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: http_target_binding.get_id(),
+                    value: &http_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: paused_binding.get_id(),
+                    value: &paused_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubTarget".into(),
-                    value: pubsub_target_binding.get_id(),
+                    value: &pubsub_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConfig".into(),
-                    value: retry_config_binding.get_id(),
+                    value: &retry_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
             ],
         };

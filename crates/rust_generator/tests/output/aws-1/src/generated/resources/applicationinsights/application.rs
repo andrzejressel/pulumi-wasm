@@ -123,35 +123,35 @@ pub mod application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoConfigEnabled".into(),
-                    value: auto_config_enabled_binding.get_id(),
+                    value: &auto_config_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreate".into(),
-                    value: auto_create_binding.get_id(),
+                    value: &auto_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cweMonitorEnabled".into(),
-                    value: cwe_monitor_enabled_binding.get_id(),
+                    value: &cwe_monitor_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupingType".into(),
-                    value: grouping_type_binding.get_id(),
+                    value: &grouping_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsCenterEnabled".into(),
-                    value: ops_center_enabled_binding.get_id(),
+                    value: &ops_center_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsItemSnsTopicArn".into(),
-                    value: ops_item_sns_topic_arn_binding.get_id(),
+                    value: &ops_item_sns_topic_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -51,19 +51,19 @@ pub mod get_account_access_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: delegates_binding.get_id(),
+                    value: &delegates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: lifetime_binding.get_id(),
+                    value: &lifetime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: scopes_binding.get_id(),
+                    value: &scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: target_service_account_binding.get_id(),
+                    value: &target_service_account_binding.drop_type(),
                 },
             ],
         };

@@ -77,23 +77,23 @@ pub mod api_shield_schema {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: kind_binding.get_id(),
+                    value: &kind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationEnabled".into(),
-                    value: validation_enabled_binding.get_id(),
+                    value: &validation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

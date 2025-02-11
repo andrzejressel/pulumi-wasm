@@ -4,23 +4,21 @@ use serde::Serialize;
 pub trait GestaltContext {
     type Output<T>;
     type CompositeOutput;
-    type OutputId;
 
     fn new_output<T: Serialize>(&self, value: &T) -> Self::Output<T>;
     fn new_secret<T: Serialize>(&self, value: &T) -> Self::Output<T>;
     fn register_resource(
         &self,
-        request: RegisterResourceRequest<Self::OutputId>,
+        request: RegisterResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput;
     fn invoke_resource(
         &self,
-        request: InvokeResourceRequest<Self::OutputId>,
+        request: InvokeResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput;
 }
 
 pub trait GestaltOutput<T>: Clone {
     type Me<A>;
-    type OutputId;
 
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
@@ -30,11 +28,13 @@ pub trait GestaltOutput<T>: Clone {
 
     fn add_to_export(&self, key: &str);
 
-    fn combine<RESULT>(&self, others: &[&Self::OutputId]) -> Self::Me<RESULT>;
+    fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT>;
 
     /// Forcefully changes the visible type of underlying Output
     ///
     /// Can be used to work around Pulumi provider incorrect types
+    ///
+    /// MUST NOT change the underlying value - only the projected type
     ///
     /// # Safety
     ///
@@ -42,7 +42,9 @@ pub trait GestaltOutput<T>: Clone {
     unsafe fn transmute<F>(self) -> Self::Me<F>;
 
     #[doc(hidden)]
-    fn get_id(&self) -> &Self::OutputId;
+    fn drop_type(self) -> Self::Me<()> {
+        unsafe { self.transmute::<()>() }
+    }
 }
 
 pub trait GestaltCompositeOutput {

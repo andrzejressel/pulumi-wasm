@@ -104,19 +104,19 @@ pub mod key_pair {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: key_name_binding.get_id(),
+                    value: &key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyNamePrefix".into(),
-                    value: key_name_prefix_binding.get_id(),
+                    value: &key_name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKey".into(),
-                    value: public_key_binding.get_id(),
+                    value: &public_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -94,23 +94,23 @@ pub mod assessment_delegation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessmentId".into(),
-                    value: assessment_id_binding.get_id(),
+                    value: &assessment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlSetId".into(),
-                    value: control_set_id_binding.get_id(),
+                    value: &control_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleType".into(),
-                    value: role_type_binding.get_id(),
+                    value: &role_type_binding.drop_type(),
                 },
             ],
         };

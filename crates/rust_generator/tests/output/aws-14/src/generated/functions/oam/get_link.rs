@@ -53,11 +53,11 @@ pub mod get_link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkIdentifier".into(),
-                    value: link_identifier_binding.get_id(),
+                    value: &link_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

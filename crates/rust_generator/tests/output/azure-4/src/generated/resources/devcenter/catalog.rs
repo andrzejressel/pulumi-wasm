@@ -54,23 +54,23 @@ pub mod catalog {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogAdogit".into(),
-                    value: catalog_adogit_binding.get_id(),
+                    value: &catalog_adogit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogGithub".into(),
-                    value: catalog_github_binding.get_id(),
+                    value: &catalog_github_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterId".into(),
-                    value: dev_center_id_binding.get_id(),
+                    value: &dev_center_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

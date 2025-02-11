@@ -79,11 +79,11 @@ pub mod delegated_administrator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: service_principal_binding.get_id(),
+                    value: &service_principal_binding.drop_type(),
                 },
             ],
         };

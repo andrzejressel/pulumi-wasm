@@ -44,11 +44,11 @@ pub mod get_alias {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -115,15 +115,15 @@ pub mod extension_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensionArn".into(),
-                    value: extension_arn_binding.get_id(),
+                    value: &extension_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

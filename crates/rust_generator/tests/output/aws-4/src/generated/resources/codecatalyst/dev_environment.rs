@@ -126,35 +126,35 @@ pub mod dev_environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: alias_binding.get_id(),
+                    value: &alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ides".into(),
-                    value: ides_binding.get_id(),
+                    value: &ides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inactivityTimeoutMinutes".into(),
-                    value: inactivity_timeout_minutes_binding.get_id(),
+                    value: &inactivity_timeout_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentStorage".into(),
-                    value: persistent_storage_binding.get_id(),
+                    value: &persistent_storage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: project_name_binding.get_id(),
+                    value: &project_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositories".into(),
-                    value: repositories_binding.get_id(),
+                    value: &repositories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: space_name_binding.get_id(),
+                    value: &space_name_binding.drop_type(),
                 },
             ],
         };

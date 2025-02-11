@@ -232,59 +232,59 @@ pub mod agent_agent {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentCollaboration".into(),
-                    value: agent_collaboration_binding.get_id(),
+                    value: &agent_collaboration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentName".into(),
-                    value: agent_name_binding.get_id(),
+                    value: &agent_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentResourceRoleArn".into(),
-                    value: agent_resource_role_arn_binding.get_id(),
+                    value: &agent_resource_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerEncryptionKeyArn".into(),
-                    value: customer_encryption_key_arn_binding.get_id(),
+                    value: &customer_encryption_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "foundationModel".into(),
-                    value: foundation_model_binding.get_id(),
+                    value: &foundation_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardrailConfigurations".into(),
-                    value: guardrail_configurations_binding.get_id(),
+                    value: &guardrail_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleSessionTtlInSeconds".into(),
-                    value: idle_session_ttl_in_seconds_binding.get_id(),
+                    value: &idle_session_ttl_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instruction".into(),
-                    value: instruction_binding.get_id(),
+                    value: &instruction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prepareAgent".into(),
-                    value: prepare_agent_binding.get_id(),
+                    value: &prepare_agent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "promptOverrideConfigurations".into(),
-                    value: prompt_override_configurations_binding.get_id(),
+                    value: &prompt_override_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipResourceInUseCheck".into(),
-                    value: skip_resource_in_use_check_binding.get_id(),
+                    value: &skip_resource_in_use_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

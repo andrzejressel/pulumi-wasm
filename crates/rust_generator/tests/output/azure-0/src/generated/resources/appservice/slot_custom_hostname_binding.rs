@@ -123,19 +123,19 @@ pub mod slot_custom_hostname_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceSlotId".into(),
-                    value: app_service_slot_id_binding.get_id(),
+                    value: &app_service_slot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: hostname_binding.get_id(),
+                    value: &hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslState".into(),
-                    value: ssl_state_binding.get_id(),
+                    value: &ssl_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: thumbprint_binding.get_id(),
+                    value: &thumbprint_binding.drop_type(),
                 },
             ],
         };

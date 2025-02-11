@@ -72,11 +72,11 @@ pub mod table_bucket_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicy".into(),
-                    value: resource_policy_binding.get_id(),
+                    value: &resource_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableBucketArn".into(),
-                    value: table_bucket_arn_binding.get_id(),
+                    value: &table_bucket_arn_binding.drop_type(),
                 },
             ],
         };

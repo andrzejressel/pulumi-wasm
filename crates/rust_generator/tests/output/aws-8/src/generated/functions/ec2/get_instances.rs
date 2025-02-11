@@ -62,15 +62,15 @@ pub mod get_instances {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceStateNames".into(),
-                    value: instance_state_names_binding.get_id(),
+                    value: &instance_state_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTags".into(),
-                    value: instance_tags_binding.get_id(),
+                    value: &instance_tags_binding.drop_type(),
                 },
             ],
         };

@@ -53,15 +53,15 @@ pub mod secret {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "data".into(),
-                    value: data_binding.get_id(),
+                    value: &data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

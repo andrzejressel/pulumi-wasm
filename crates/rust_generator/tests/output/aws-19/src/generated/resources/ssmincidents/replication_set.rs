@@ -144,11 +144,11 @@ pub mod replication_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: regions_binding.get_id(),
+                    value: &regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -61,15 +61,15 @@ pub mod get_mount_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointId".into(),
-                    value: access_point_id_binding.get_id(),
+                    value: &access_point_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mountTargetId".into(),
-                    value: mount_target_id_binding.get_id(),
+                    value: &mount_target_id_binding.drop_type(),
                 },
             ],
         };

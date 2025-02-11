@@ -116,19 +116,19 @@ pub mod bi_reservation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredTables".into(),
-                    value: preferred_tables_binding.get_id(),
+                    value: &preferred_tables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: size_binding.get_id(),
+                    value: &size_binding.drop_type(),
                 },
             ],
         };

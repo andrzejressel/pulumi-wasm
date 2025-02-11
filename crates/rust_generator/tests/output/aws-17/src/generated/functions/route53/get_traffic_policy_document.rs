@@ -79,27 +79,27 @@ pub mod get_traffic_policy_document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: endpoints_binding.get_id(),
+                    value: &endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordType".into(),
-                    value: record_type_binding.get_id(),
+                    value: &record_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startEndpoint".into(),
-                    value: start_endpoint_binding.get_id(),
+                    value: &start_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startRule".into(),
-                    value: start_rule_binding.get_id(),
+                    value: &start_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

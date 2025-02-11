@@ -65,7 +65,7 @@ pub mod invitation_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "graphArn".into(),
-                    value: graph_arn_binding.get_id(),
+                    value: &graph_arn_binding.drop_type(),
                 },
             ],
         };

@@ -49,15 +49,15 @@ pub mod get_parameters_by_path {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recursive".into(),
-                    value: recursive_binding.get_id(),
+                    value: &recursive_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "withDecryption".into(),
-                    value: with_decryption_binding.get_id(),
+                    value: &with_decryption_binding.drop_type(),
                 },
             ],
         };

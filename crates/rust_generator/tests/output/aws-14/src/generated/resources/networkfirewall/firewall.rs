@@ -144,43 +144,43 @@ pub mod firewall {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteProtection".into(),
-                    value: delete_protection_binding.get_id(),
+                    value: &delete_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: encryption_configuration_binding.get_id(),
+                    value: &encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyArn".into(),
-                    value: firewall_policy_arn_binding.get_id(),
+                    value: &firewall_policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyChangeProtection".into(),
-                    value: firewall_policy_change_protection_binding.get_id(),
+                    value: &firewall_policy_change_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetChangeProtection".into(),
-                    value: subnet_change_protection_binding.get_id(),
+                    value: &subnet_change_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetMappings".into(),
-                    value: subnet_mappings_binding.get_id(),
+                    value: &subnet_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

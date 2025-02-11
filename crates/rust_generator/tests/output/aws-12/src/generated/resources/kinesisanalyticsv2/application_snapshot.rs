@@ -70,11 +70,11 @@ pub mod application_snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationName".into(),
-                    value: application_name_binding.get_id(),
+                    value: &application_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotName".into(),
-                    value: snapshot_name_binding.get_id(),
+                    value: &snapshot_name_binding.drop_type(),
                 },
             ],
         };

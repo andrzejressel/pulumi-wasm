@@ -48,11 +48,11 @@ pub mod get_organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
             ],
         };

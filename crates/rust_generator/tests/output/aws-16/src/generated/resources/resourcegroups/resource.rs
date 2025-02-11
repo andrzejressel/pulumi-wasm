@@ -81,11 +81,11 @@ pub mod resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupArn".into(),
-                    value: group_arn_binding.get_id(),
+                    value: &group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

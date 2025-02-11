@@ -364,91 +364,91 @@ pub mod metric_alarm {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsEnabled".into(),
-                    value: actions_enabled_binding.get_id(),
+                    value: &actions_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmActions".into(),
-                    value: alarm_actions_binding.get_id(),
+                    value: &alarm_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmDescription".into(),
-                    value: alarm_description_binding.get_id(),
+                    value: &alarm_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comparisonOperator".into(),
-                    value: comparison_operator_binding.get_id(),
+                    value: &comparison_operator_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datapointsToAlarm".into(),
-                    value: datapoints_to_alarm_binding.get_id(),
+                    value: &datapoints_to_alarm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: dimensions_binding.get_id(),
+                    value: &dimensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluateLowSampleCountPercentiles".into(),
-                    value: evaluate_low_sample_count_percentiles_binding.get_id(),
+                    value: &evaluate_low_sample_count_percentiles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationPeriods".into(),
-                    value: evaluation_periods_binding.get_id(),
+                    value: &evaluation_periods_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedStatistic".into(),
-                    value: extended_statistic_binding.get_id(),
+                    value: &extended_statistic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataActions".into(),
-                    value: insufficient_data_actions_binding.get_id(),
+                    value: &insufficient_data_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricName".into(),
-                    value: metric_name_binding.get_id(),
+                    value: &metric_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricQueries".into(),
-                    value: metric_queries_binding.get_id(),
+                    value: &metric_queries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "okActions".into(),
-                    value: ok_actions_binding.get_id(),
+                    value: &ok_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: period_binding.get_id(),
+                    value: &period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statistic".into(),
-                    value: statistic_binding.get_id(),
+                    value: &statistic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threshold".into(),
-                    value: threshold_binding.get_id(),
+                    value: &threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdMetricId".into(),
-                    value: threshold_metric_id_binding.get_id(),
+                    value: &threshold_metric_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "treatMissingData".into(),
-                    value: treat_missing_data_binding.get_id(),
+                    value: &treat_missing_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unit".into(),
-                    value: unit_binding.get_id(),
+                    value: &unit_binding.drop_type(),
                 },
             ],
         };

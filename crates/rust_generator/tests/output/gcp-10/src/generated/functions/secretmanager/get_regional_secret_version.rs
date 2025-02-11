@@ -76,23 +76,23 @@ pub mod get_regional_secret_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSecretDataBase64".into(),
-                    value: is_secret_data_base64_binding.get_id(),
+                    value: &is_secret_data_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: secret_binding.get_id(),
+                    value: &secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

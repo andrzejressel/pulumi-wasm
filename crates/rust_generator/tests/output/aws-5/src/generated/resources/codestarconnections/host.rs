@@ -87,19 +87,19 @@ pub mod host {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerEndpoint".into(),
-                    value: provider_endpoint_binding.get_id(),
+                    value: &provider_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerType".into(),
-                    value: provider_type_binding.get_id(),
+                    value: &provider_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: vpc_configuration_binding.get_id(),
+                    value: &vpc_configuration_binding.drop_type(),
                 },
             ],
         };

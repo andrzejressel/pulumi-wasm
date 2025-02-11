@@ -181,43 +181,43 @@ pub mod file_cache {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToDataRepositoryAssociations".into(),
-                    value: copy_tags_to_data_repository_associations_binding.get_id(),
+                    value: &copy_tags_to_data_repository_associations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRepositoryAssociations".into(),
-                    value: data_repository_associations_binding.get_id(),
+                    value: &data_repository_associations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCacheType".into(),
-                    value: file_cache_type_binding.get_id(),
+                    value: &file_cache_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCacheTypeVersion".into(),
-                    value: file_cache_type_version_binding.get_id(),
+                    value: &file_cache_type_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lustreConfigurations".into(),
-                    value: lustre_configurations_binding.get_id(),
+                    value: &lustre_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacity".into(),
-                    value: storage_capacity_binding.get_id(),
+                    value: &storage_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

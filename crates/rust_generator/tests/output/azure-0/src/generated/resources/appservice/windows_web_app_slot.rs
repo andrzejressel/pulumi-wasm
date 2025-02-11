@@ -339,104 +339,104 @@ pub mod windows_web_app_slot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceId".into(),
-                    value: app_service_id_binding.get_id(),
+                    value: &app_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSettings".into(),
-                    value: app_settings_binding.get_id(),
+                    value: &app_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSettings".into(),
-                    value: auth_settings_binding.get_id(),
+                    value: &auth_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSettingsV2".into(),
-                    value: auth_settings_v2_binding.get_id(),
+                    value: &auth_settings_v2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: backup_binding.get_id(),
+                    value: &backup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAffinityEnabled".into(),
-                    value: client_affinity_enabled_binding.get_id(),
+                    value: &client_affinity_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateEnabled".into(),
-                    value: client_certificate_enabled_binding.get_id(),
+                    value: &client_certificate_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateExclusionPaths".into(),
-                    value: client_certificate_exclusion_paths_binding.get_id(),
+                    value: &client_certificate_exclusion_paths_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateMode".into(),
-                    value: client_certificate_mode_binding.get_id(),
+                    value: &client_certificate_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionStrings".into(),
-                    value: connection_strings_binding.get_id(),
+                    value: &connection_strings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ftpPublishBasicAuthenticationEnabled".into(),
-                    value: ftp_publish_basic_authentication_enabled_binding.get_id(),
+                    value: &ftp_publish_basic_authentication_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: https_only_binding.get_id(),
+                    value: &https_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultReferenceIdentityId".into(),
-                    value: key_vault_reference_identity_id_binding.get_id(),
+                    value: &key_vault_reference_identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: logs_binding.get_id(),
+                    value: &logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePlanId".into(),
-                    value: service_plan_id_binding.get_id(),
+                    value: &service_plan_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteConfig".into(),
-                    value: site_config_binding.get_id(),
+                    value: &site_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccounts".into(),
-                    value: storage_accounts_binding.get_id(),
+                    value: &storage_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkSubnetId".into(),
-                    value: virtual_network_subnet_id_binding.get_id(),
+                    value: &virtual_network_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webdeployPublishBasicAuthenticationEnabled".into(),
-                    value: webdeploy_publish_basic_authentication_enabled_binding
-                        .get_id(),
+                    value: &webdeploy_publish_basic_authentication_enabled_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zipDeployFile".into(),
-                    value: zip_deploy_file_binding.get_id(),
+                    value: &zip_deploy_file_binding.drop_type(),
                 },
             ],
         };

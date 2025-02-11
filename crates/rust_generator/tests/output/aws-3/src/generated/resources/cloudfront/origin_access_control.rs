@@ -95,23 +95,23 @@ pub mod origin_access_control {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originAccessControlOriginType".into(),
-                    value: origin_access_control_origin_type_binding.get_id(),
+                    value: &origin_access_control_origin_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingBehavior".into(),
-                    value: signing_behavior_binding.get_id(),
+                    value: &signing_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingProtocol".into(),
-                    value: signing_protocol_binding.get_id(),
+                    value: &signing_protocol_binding.drop_type(),
                 },
             ],
         };

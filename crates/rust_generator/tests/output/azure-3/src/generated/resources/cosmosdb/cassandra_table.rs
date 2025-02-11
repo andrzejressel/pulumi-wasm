@@ -166,31 +166,31 @@ pub mod cassandra_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageTtl".into(),
-                    value: analytical_storage_ttl_binding.get_id(),
+                    value: &analytical_storage_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: autoscale_settings_binding.get_id(),
+                    value: &autoscale_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cassandraKeyspaceId".into(),
-                    value: cassandra_keyspace_id_binding.get_id(),
+                    value: &cassandra_keyspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: default_ttl_binding.get_id(),
+                    value: &default_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: schema_binding.get_id(),
+                    value: &schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: throughput_binding.get_id(),
+                    value: &throughput_binding.drop_type(),
                 },
             ],
         };

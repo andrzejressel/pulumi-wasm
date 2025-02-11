@@ -261,15 +261,15 @@ pub mod nat_address {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activate".into(),
-                    value: activate_binding.get_id(),
+                    value: &activate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

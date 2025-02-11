@@ -85,15 +85,15 @@ pub mod ai_feature_store_entity_type_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitytype".into(),
-                    value: entitytype_binding.get_id(),
+                    value: &entitytype_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featurestore".into(),
-                    value: featurestore_binding.get_id(),
+                    value: &featurestore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
             ],
         };

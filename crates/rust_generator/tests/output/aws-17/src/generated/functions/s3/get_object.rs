@@ -111,27 +111,27 @@ pub mod get_object {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checksumMode".into(),
-                    value: checksum_mode_binding.get_id(),
+                    value: &checksum_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "range".into(),
-                    value: range_binding.get_id(),
+                    value: &range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: version_id_binding.get_id(),
+                    value: &version_id_binding.drop_type(),
                 },
             ],
         };

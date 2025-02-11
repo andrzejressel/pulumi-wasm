@@ -78,11 +78,11 @@ pub mod registry_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryName".into(),
-                    value: registry_name_binding.get_id(),
+                    value: &registry_name_binding.drop_type(),
                 },
             ],
         };

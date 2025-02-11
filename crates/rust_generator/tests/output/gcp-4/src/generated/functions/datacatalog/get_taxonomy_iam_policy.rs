@@ -46,15 +46,15 @@ pub mod get_taxonomy_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taxonomy".into(),
-                    value: taxonomy_binding.get_id(),
+                    value: &taxonomy_binding.drop_type(),
                 },
             ],
         };

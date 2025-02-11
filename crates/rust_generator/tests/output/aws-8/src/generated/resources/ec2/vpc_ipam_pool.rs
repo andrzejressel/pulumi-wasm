@@ -226,63 +226,63 @@ pub mod vpc_ipam_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: address_family_binding.get_id(),
+                    value: &address_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationDefaultNetmaskLength".into(),
-                    value: allocation_default_netmask_length_binding.get_id(),
+                    value: &allocation_default_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationMaxNetmaskLength".into(),
-                    value: allocation_max_netmask_length_binding.get_id(),
+                    value: &allocation_max_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationMinNetmaskLength".into(),
-                    value: allocation_min_netmask_length_binding.get_id(),
+                    value: &allocation_min_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationResourceTags".into(),
-                    value: allocation_resource_tags_binding.get_id(),
+                    value: &allocation_resource_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoImport".into(),
-                    value: auto_import_binding.get_id(),
+                    value: &auto_import_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsService".into(),
-                    value: aws_service_binding.get_id(),
+                    value: &aws_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cascade".into(),
-                    value: cascade_binding.get_id(),
+                    value: &cascade_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamScopeId".into(),
-                    value: ipam_scope_id_binding.get_id(),
+                    value: &ipam_scope_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: locale_binding.get_id(),
+                    value: &locale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpSource".into(),
-                    value: public_ip_source_binding.get_id(),
+                    value: &public_ip_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAdvertisable".into(),
-                    value: publicly_advertisable_binding.get_id(),
+                    value: &publicly_advertisable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpamPoolId".into(),
-                    value: source_ipam_pool_id_binding.get_id(),
+                    value: &source_ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

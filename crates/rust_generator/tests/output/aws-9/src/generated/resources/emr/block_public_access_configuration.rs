@@ -156,11 +156,12 @@ pub mod block_public_access_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicSecurityGroupRules".into(),
-                    value: block_public_security_group_rules_binding.get_id(),
+                    value: &block_public_security_group_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permittedPublicSecurityGroupRuleRanges".into(),
-                    value: permitted_public_security_group_rule_ranges_binding.get_id(),
+                    value: &permitted_public_security_group_rule_ranges_binding
+                        .drop_type(),
                 },
             ],
         };

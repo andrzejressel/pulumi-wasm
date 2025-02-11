@@ -73,15 +73,15 @@ pub mod source_control_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "token".into(),
-                    value: token_binding.get_id(),
+                    value: &token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenSecret".into(),
-                    value: token_secret_binding.get_id(),
+                    value: &token_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

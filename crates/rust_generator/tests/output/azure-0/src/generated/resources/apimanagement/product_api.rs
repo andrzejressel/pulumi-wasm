@@ -96,19 +96,19 @@ pub mod product_api {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiName".into(),
-                    value: api_name_binding.get_id(),
+                    value: &api_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: product_id_binding.get_id(),
+                    value: &product_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

@@ -136,23 +136,23 @@ pub mod account_queue_properties {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsRules".into(),
-                    value: cors_rules_binding.get_id(),
+                    value: &cors_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hourMetrics".into(),
-                    value: hour_metrics_binding.get_id(),
+                    value: &hour_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: logging_binding.get_id(),
+                    value: &logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minuteMetrics".into(),
-                    value: minute_metrics_binding.get_id(),
+                    value: &minute_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

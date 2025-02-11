@@ -65,7 +65,7 @@ pub mod bucket_access_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: bucket_name_binding.get_id(),
+                    value: &bucket_name_binding.drop_type(),
                 },
             ],
         };

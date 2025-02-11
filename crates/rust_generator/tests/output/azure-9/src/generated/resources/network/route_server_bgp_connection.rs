@@ -120,19 +120,19 @@ pub mod route_server_bgp_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: peer_asn_binding.get_id(),
+                    value: &peer_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: peer_ip_binding.get_id(),
+                    value: &peer_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeServerId".into(),
-                    value: route_server_id_binding.get_id(),
+                    value: &route_server_id_binding.drop_type(),
                 },
             ],
         };

@@ -35,7 +35,7 @@ pub mod get_origin_ca_root_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "algorithm".into(),
-                    value: algorithm_binding.get_id(),
+                    value: &algorithm_binding.drop_type(),
                 },
             ],
         };

@@ -205,39 +205,39 @@ pub mod express_route_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: authorization_key_binding.get_id(),
+                    value: &authorization_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableInternetSecurity".into(),
-                    value: enable_internet_security_binding.get_id(),
+                    value: &enable_internet_security_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteCircuitPeeringId".into(),
-                    value: express_route_circuit_peering_id_binding.get_id(),
+                    value: &express_route_circuit_peering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteGatewayBypassEnabled".into(),
-                    value: express_route_gateway_bypass_enabled_binding.get_id(),
+                    value: &express_route_gateway_bypass_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteGatewayId".into(),
-                    value: express_route_gateway_id_binding.get_id(),
+                    value: &express_route_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkFastPathEnabled".into(),
-                    value: private_link_fast_path_enabled_binding.get_id(),
+                    value: &private_link_fast_path_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: routing_binding.get_id(),
+                    value: &routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingWeight".into(),
-                    value: routing_weight_binding.get_id(),
+                    value: &routing_weight_binding.drop_type(),
                 },
             ],
         };

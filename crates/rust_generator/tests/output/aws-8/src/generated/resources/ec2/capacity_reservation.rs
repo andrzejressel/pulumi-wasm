@@ -146,55 +146,55 @@ pub mod capacity_reservation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: ebs_optimized_binding.get_id(),
+                    value: &ebs_optimized_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: end_date_binding.get_id(),
+                    value: &end_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDateType".into(),
-                    value: end_date_type_binding.get_id(),
+                    value: &end_date_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralStorage".into(),
-                    value: ephemeral_storage_binding.get_id(),
+                    value: &ephemeral_storage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMatchCriteria".into(),
-                    value: instance_match_criteria_binding.get_id(),
+                    value: &instance_match_criteria_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePlatform".into(),
-                    value: instance_platform_binding.get_id(),
+                    value: &instance_platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: outpost_arn_binding.get_id(),
+                    value: &outpost_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroupArn".into(),
-                    value: placement_group_arn_binding.get_id(),
+                    value: &placement_group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenancy".into(),
-                    value: tenancy_binding.get_id(),
+                    value: &tenancy_binding.drop_type(),
                 },
             ],
         };

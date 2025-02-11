@@ -160,47 +160,47 @@ pub mod reference_input_blob {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: authentication_mode_binding.get_id(),
+                    value: &authentication_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dateFormat".into(),
-                    value: date_format_binding.get_id(),
+                    value: &date_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPattern".into(),
-                    value: path_pattern_binding.get_id(),
+                    value: &path_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: serialization_binding.get_id(),
+                    value: &serialization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: storage_account_key_binding.get_id(),
+                    value: &storage_account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: storage_account_name_binding.get_id(),
+                    value: &storage_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerName".into(),
-                    value: storage_container_name_binding.get_id(),
+                    value: &storage_container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: stream_analytics_job_name_binding.get_id(),
+                    value: &stream_analytics_job_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeFormat".into(),
-                    value: time_format_binding.get_id(),
+                    value: &time_format_binding.drop_type(),
                 },
             ],
         };

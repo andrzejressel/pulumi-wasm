@@ -178,35 +178,35 @@ pub mod virtual_network_gateway_nat_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalMappings".into(),
-                    value: external_mappings_binding.get_id(),
+                    value: &external_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalMappings".into(),
-                    value: internal_mappings_binding.get_id(),
+                    value: &internal_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurationId".into(),
-                    value: ip_configuration_id_binding.get_id(),
+                    value: &ip_configuration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkGatewayId".into(),
-                    value: virtual_network_gateway_id_binding.get_id(),
+                    value: &virtual_network_gateway_id_binding.drop_type(),
                 },
             ],
         };

@@ -114,11 +114,11 @@ pub mod service_perimeter_dry_run_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeterName".into(),
-                    value: perimeter_name_binding.get_id(),
+                    value: &perimeter_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: resource_binding.get_id(),
+                    value: &resource_binding.drop_type(),
                 },
             ],
         };

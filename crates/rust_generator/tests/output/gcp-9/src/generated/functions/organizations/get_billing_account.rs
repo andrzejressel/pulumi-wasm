@@ -54,19 +54,19 @@ pub mod get_billing_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: billing_account_binding.get_id(),
+                    value: &billing_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookupProjects".into(),
-                    value: lookup_projects_binding.get_id(),
+                    value: &lookup_projects_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "open".into(),
-                    value: open_binding.get_id(),
+                    value: &open_binding.drop_type(),
                 },
             ],
         };

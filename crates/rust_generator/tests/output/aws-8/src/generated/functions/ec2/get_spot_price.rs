@@ -49,15 +49,15 @@ pub mod get_spot_price {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
             ],
         };

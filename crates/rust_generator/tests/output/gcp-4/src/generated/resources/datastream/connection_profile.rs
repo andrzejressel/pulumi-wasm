@@ -466,59 +466,59 @@ pub mod connection_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryProfile".into(),
-                    value: bigquery_profile_binding.get_id(),
+                    value: &bigquery_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProfileId".into(),
-                    value: connection_profile_id_binding.get_id(),
+                    value: &connection_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createWithoutValidation".into(),
-                    value: create_without_validation_binding.get_id(),
+                    value: &create_without_validation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardSshConnectivity".into(),
-                    value: forward_ssh_connectivity_binding.get_id(),
+                    value: &forward_ssh_connectivity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcsProfile".into(),
-                    value: gcs_profile_binding.get_id(),
+                    value: &gcs_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mysqlProfile".into(),
-                    value: mysql_profile_binding.get_id(),
+                    value: &mysql_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oracleProfile".into(),
-                    value: oracle_profile_binding.get_id(),
+                    value: &oracle_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postgresqlProfile".into(),
-                    value: postgresql_profile_binding.get_id(),
+                    value: &postgresql_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateConnectivity".into(),
-                    value: private_connectivity_binding.get_id(),
+                    value: &private_connectivity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlServerProfile".into(),
-                    value: sql_server_profile_binding.get_id(),
+                    value: &sql_server_profile_binding.drop_type(),
                 },
             ],
         };

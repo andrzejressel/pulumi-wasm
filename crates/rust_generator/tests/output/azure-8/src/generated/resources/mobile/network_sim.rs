@@ -200,39 +200,39 @@ pub mod network_sim {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationKey".into(),
-                    value: authentication_key_binding.get_id(),
+                    value: &authentication_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceType".into(),
-                    value: device_type_binding.get_id(),
+                    value: &device_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integratedCircuitCardIdentifier".into(),
-                    value: integrated_circuit_card_identifier_binding.get_id(),
+                    value: &integrated_circuit_card_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internationalMobileSubscriberIdentity".into(),
-                    value: international_mobile_subscriber_identity_binding.get_id(),
+                    value: &international_mobile_subscriber_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkSimGroupId".into(),
-                    value: mobile_network_sim_group_id_binding.get_id(),
+                    value: &mobile_network_sim_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatorKeyCode".into(),
-                    value: operator_key_code_binding.get_id(),
+                    value: &operator_key_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "simPolicyId".into(),
-                    value: sim_policy_id_binding.get_id(),
+                    value: &sim_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticIpConfigurations".into(),
-                    value: static_ip_configurations_binding.get_id(),
+                    value: &static_ip_configurations_binding.drop_type(),
                 },
             ],
         };

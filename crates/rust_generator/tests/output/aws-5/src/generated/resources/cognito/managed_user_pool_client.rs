@@ -296,91 +296,92 @@ pub mod managed_user_pool_client {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTokenValidity".into(),
-                    value: access_token_validity_binding.get_id(),
+                    value: &access_token_validity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthFlows".into(),
-                    value: allowed_oauth_flows_binding.get_id(),
+                    value: &allowed_oauth_flows_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthFlowsUserPoolClient".into(),
-                    value: allowed_oauth_flows_user_pool_client_binding.get_id(),
+                    value: &allowed_oauth_flows_user_pool_client_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthScopes".into(),
-                    value: allowed_oauth_scopes_binding.get_id(),
+                    value: &allowed_oauth_scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticsConfiguration".into(),
-                    value: analytics_configuration_binding.get_id(),
+                    value: &analytics_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSessionValidity".into(),
-                    value: auth_session_validity_binding.get_id(),
+                    value: &auth_session_validity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callbackUrls".into(),
-                    value: callback_urls_binding.get_id(),
+                    value: &callback_urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRedirectUri".into(),
-                    value: default_redirect_uri_binding.get_id(),
+                    value: &default_redirect_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePropagateAdditionalUserContextData".into(),
-                    value: enable_propagate_additional_user_context_data_binding.get_id(),
+                    value: &enable_propagate_additional_user_context_data_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTokenRevocation".into(),
-                    value: enable_token_revocation_binding.get_id(),
+                    value: &enable_token_revocation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "explicitAuthFlows".into(),
-                    value: explicit_auth_flows_binding.get_id(),
+                    value: &explicit_auth_flows_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idTokenValidity".into(),
-                    value: id_token_validity_binding.get_id(),
+                    value: &id_token_validity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logoutUrls".into(),
-                    value: logout_urls_binding.get_id(),
+                    value: &logout_urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePattern".into(),
-                    value: name_pattern_binding.get_id(),
+                    value: &name_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preventUserExistenceErrors".into(),
-                    value: prevent_user_existence_errors_binding.get_id(),
+                    value: &prevent_user_existence_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readAttributes".into(),
-                    value: read_attributes_binding.get_id(),
+                    value: &read_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshTokenValidity".into(),
-                    value: refresh_token_validity_binding.get_id(),
+                    value: &refresh_token_validity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedIdentityProviders".into(),
-                    value: supported_identity_providers_binding.get_id(),
+                    value: &supported_identity_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenValidityUnits".into(),
-                    value: token_validity_units_binding.get_id(),
+                    value: &token_validity_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAttributes".into(),
-                    value: write_attributes_binding.get_id(),
+                    value: &write_attributes_binding.drop_type(),
                 },
             ],
         };

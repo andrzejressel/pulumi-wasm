@@ -125,31 +125,31 @@ pub mod safety_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assertedControls".into(),
-                    value: asserted_controls_binding.get_id(),
+                    value: &asserted_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPanelArn".into(),
-                    value: control_panel_arn_binding.get_id(),
+                    value: &control_panel_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatingControls".into(),
-                    value: gating_controls_binding.get_id(),
+                    value: &gating_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleConfig".into(),
-                    value: rule_config_binding.get_id(),
+                    value: &rule_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetControls".into(),
-                    value: target_controls_binding.get_id(),
+                    value: &target_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitPeriodMs".into(),
-                    value: wait_period_ms_binding.get_id(),
+                    value: &wait_period_ms_binding.drop_type(),
                 },
             ],
         };

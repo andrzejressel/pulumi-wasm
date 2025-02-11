@@ -104,11 +104,11 @@ pub mod blob_inventory_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

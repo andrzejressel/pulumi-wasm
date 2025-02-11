@@ -84,27 +84,27 @@ pub mod vpc_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: authentication_binding.get_id(),
+                    value: &authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSubnets".into(),
-                    value: client_subnets_binding.get_id(),
+                    value: &client_subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetClusterArn".into(),
-                    value: target_cluster_arn_binding.get_id(),
+                    value: &target_cluster_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

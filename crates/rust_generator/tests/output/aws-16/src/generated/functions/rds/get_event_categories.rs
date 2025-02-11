@@ -33,7 +33,7 @@ pub mod get_event_categories {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceType".into(),
-                    value: source_type_binding.get_id(),
+                    value: &source_type_binding.drop_type(),
                 },
             ],
         };

@@ -61,11 +61,11 @@ pub mod contributor_insights {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexName".into(),
-                    value: index_name_binding.get_id(),
+                    value: &index_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

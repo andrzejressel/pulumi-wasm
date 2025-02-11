@@ -138,35 +138,35 @@ pub mod grafana_managed_private_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaId".into(),
-                    value: grafana_id_binding.get_id(),
+                    value: &grafana_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupIds".into(),
-                    value: group_ids_binding.get_id(),
+                    value: &group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceId".into(),
-                    value: private_link_resource_id_binding.get_id(),
+                    value: &private_link_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceRegion".into(),
-                    value: private_link_resource_region_binding.get_id(),
+                    value: &private_link_resource_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMessage".into(),
-                    value: request_message_binding.get_id(),
+                    value: &request_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

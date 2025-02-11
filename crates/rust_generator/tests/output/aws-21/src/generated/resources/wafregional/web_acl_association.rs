@@ -123,11 +123,11 @@ pub mod web_acl_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAclId".into(),
-                    value: web_acl_id_binding.get_id(),
+                    value: &web_acl_id_binding.drop_type(),
                 },
             ],
         };

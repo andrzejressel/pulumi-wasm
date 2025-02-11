@@ -147,23 +147,23 @@ pub mod virtual_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshName".into(),
-                    value: mesh_name_binding.get_id(),
+                    value: &mesh_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshOwner".into(),
-                    value: mesh_owner_binding.get_id(),
+                    value: &mesh_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: spec_binding.get_id(),
+                    value: &spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

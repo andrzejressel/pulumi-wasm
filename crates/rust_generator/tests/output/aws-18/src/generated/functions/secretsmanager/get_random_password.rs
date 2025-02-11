@@ -70,35 +70,35 @@ pub mod get_random_password {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeCharacters".into(),
-                    value: exclude_characters_binding.get_id(),
+                    value: &exclude_characters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeLowercase".into(),
-                    value: exclude_lowercase_binding.get_id(),
+                    value: &exclude_lowercase_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeNumbers".into(),
-                    value: exclude_numbers_binding.get_id(),
+                    value: &exclude_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludePunctuation".into(),
-                    value: exclude_punctuation_binding.get_id(),
+                    value: &exclude_punctuation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeUppercase".into(),
-                    value: exclude_uppercase_binding.get_id(),
+                    value: &exclude_uppercase_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeSpace".into(),
-                    value: include_space_binding.get_id(),
+                    value: &include_space_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordLength".into(),
-                    value: password_length_binding.get_id(),
+                    value: &password_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireEachIncludedType".into(),
-                    value: require_each_included_type_binding.get_id(),
+                    value: &require_each_included_type_binding.drop_type(),
                 },
             ],
         };

@@ -141,23 +141,23 @@ pub mod endpoint_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnEndpointId".into(),
-                    value: cdn_endpoint_id_binding.get_id(),
+                    value: &cdn_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnManagedHttps".into(),
-                    value: cdn_managed_https_binding.get_id(),
+                    value: &cdn_managed_https_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: host_name_binding.get_id(),
+                    value: &host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userManagedHttps".into(),
-                    value: user_managed_https_binding.get_id(),
+                    value: &user_managed_https_binding.drop_type(),
                 },
             ],
         };

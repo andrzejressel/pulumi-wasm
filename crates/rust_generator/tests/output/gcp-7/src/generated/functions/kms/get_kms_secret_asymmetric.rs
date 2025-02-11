@@ -46,15 +46,15 @@ pub mod get_kms_secret_asymmetric {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ciphertext".into(),
-                    value: ciphertext_binding.get_id(),
+                    value: &ciphertext_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crc32".into(),
-                    value: crc32_binding.get_id(),
+                    value: &crc32_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyVersion".into(),
-                    value: crypto_key_version_binding.get_id(),
+                    value: &crypto_key_version_binding.drop_type(),
                 },
             ],
         };

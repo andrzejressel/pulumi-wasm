@@ -182,55 +182,55 @@ pub mod registered_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminContact".into(),
-                    value: admin_contact_binding.get_id(),
+                    value: &admin_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPrivacy".into(),
-                    value: admin_privacy_binding.get_id(),
+                    value: &admin_privacy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRenew".into(),
-                    value: auto_renew_binding.get_id(),
+                    value: &auto_renew_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingContact".into(),
-                    value: billing_contact_binding.get_id(),
+                    value: &billing_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingPrivacy".into(),
-                    value: billing_privacy_binding.get_id(),
+                    value: &billing_privacy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameServers".into(),
-                    value: name_servers_binding.get_id(),
+                    value: &name_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrantContact".into(),
-                    value: registrant_contact_binding.get_id(),
+                    value: &registrant_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrantPrivacy".into(),
-                    value: registrant_privacy_binding.get_id(),
+                    value: &registrant_privacy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techContact".into(),
-                    value: tech_contact_binding.get_id(),
+                    value: &tech_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techPrivacy".into(),
-                    value: tech_privacy_binding.get_id(),
+                    value: &tech_privacy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transferLock".into(),
-                    value: transfer_lock_binding.get_id(),
+                    value: &transfer_lock_binding.drop_type(),
                 },
             ],
         };

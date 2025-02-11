@@ -355,35 +355,35 @@ pub mod resource_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskConsistencyGroupPolicy".into(),
-                    value: disk_consistency_group_policy_binding.get_id(),
+                    value: &disk_consistency_group_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupPlacementPolicy".into(),
-                    value: group_placement_policy_binding.get_id(),
+                    value: &group_placement_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceSchedulePolicy".into(),
-                    value: instance_schedule_policy_binding.get_id(),
+                    value: &instance_schedule_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotSchedulePolicy".into(),
-                    value: snapshot_schedule_policy_binding.get_id(),
+                    value: &snapshot_schedule_policy_binding.drop_type(),
                 },
             ],
         };

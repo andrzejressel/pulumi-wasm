@@ -148,47 +148,47 @@ pub mod extension {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcMachineId".into(),
-                    value: arc_machine_id_binding.get_id(),
+                    value: &arc_machine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticUpgradeEnabled".into(),
-                    value: automatic_upgrade_enabled_binding.get_id(),
+                    value: &automatic_upgrade_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdateTag".into(),
-                    value: force_update_tag_binding.get_id(),
+                    value: &force_update_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedSettings".into(),
-                    value: protected_settings_binding.get_id(),
+                    value: &protected_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: publisher_binding.get_id(),
+                    value: &publisher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeHandlerVersion".into(),
-                    value: type_handler_version_binding.get_id(),
+                    value: &type_handler_version_binding.drop_type(),
                 },
             ],
         };

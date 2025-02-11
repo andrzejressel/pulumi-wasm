@@ -425,55 +425,55 @@ pub mod key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: bypass_policy_lockout_safety_check_binding.get_id(),
+                    value: &bypass_policy_lockout_safety_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreId".into(),
-                    value: custom_key_store_id_binding.get_id(),
+                    value: &custom_key_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerMasterKeySpec".into(),
-                    value: customer_master_key_spec_binding.get_id(),
+                    value: &customer_master_key_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: deletion_window_in_days_binding.get_id(),
+                    value: &deletion_window_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableKeyRotation".into(),
-                    value: enable_key_rotation_binding.get_id(),
+                    value: &enable_key_rotation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isEnabled".into(),
-                    value: is_enabled_binding.get_id(),
+                    value: &is_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyUsage".into(),
-                    value: key_usage_binding.get_id(),
+                    value: &key_usage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegion".into(),
-                    value: multi_region_binding.get_id(),
+                    value: &multi_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationPeriodInDays".into(),
-                    value: rotation_period_in_days_binding.get_id(),
+                    value: &rotation_period_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xksKeyId".into(),
-                    value: xks_key_id_binding.get_id(),
+                    value: &xks_key_id_binding.drop_type(),
                 },
             ],
         };

@@ -206,35 +206,35 @@ pub mod stack_instances {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accounts".into(),
-                    value: accounts_binding.get_id(),
+                    value: &accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callAs".into(),
-                    value: call_as_binding.get_id(),
+                    value: &call_as_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentTargets".into(),
-                    value: deployment_targets_binding.get_id(),
+                    value: &deployment_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationPreferences".into(),
-                    value: operation_preferences_binding.get_id(),
+                    value: &operation_preferences_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterOverrides".into(),
-                    value: parameter_overrides_binding.get_id(),
+                    value: &parameter_overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: regions_binding.get_id(),
+                    value: &regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainStacks".into(),
-                    value: retain_stacks_binding.get_id(),
+                    value: &retain_stacks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetName".into(),
-                    value: stack_set_name_binding.get_id(),
+                    value: &stack_set_name_binding.drop_type(),
                 },
             ],
         };

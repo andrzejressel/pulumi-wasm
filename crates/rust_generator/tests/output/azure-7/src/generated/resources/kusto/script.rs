@@ -166,31 +166,31 @@ pub mod script {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continueOnErrorsEnabled".into(),
-                    value: continue_on_errors_enabled_binding.get_id(),
+                    value: &continue_on_errors_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseId".into(),
-                    value: database_id_binding.get_id(),
+                    value: &database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceAnUpdateWhenValueChanged".into(),
-                    value: force_an_update_when_value_changed_binding.get_id(),
+                    value: &force_an_update_when_value_changed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasToken".into(),
-                    value: sas_token_binding.get_id(),
+                    value: &sas_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptContent".into(),
-                    value: script_content_binding.get_id(),
+                    value: &script_content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: url_binding.get_id(),
+                    value: &url_binding.drop_type(),
                 },
             ],
         };

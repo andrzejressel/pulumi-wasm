@@ -344,63 +344,63 @@ pub mod flow_log {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliverCrossAccountRole".into(),
-                    value: deliver_cross_account_role_binding.get_id(),
+                    value: &deliver_cross_account_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationOptions".into(),
-                    value: destination_options_binding.get_id(),
+                    value: &destination_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eniId".into(),
-                    value: eni_id_binding.get_id(),
+                    value: &eni_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestination".into(),
-                    value: log_destination_binding.get_id(),
+                    value: &log_destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationType".into(),
-                    value: log_destination_type_binding.get_id(),
+                    value: &log_destination_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logFormat".into(),
-                    value: log_format_binding.get_id(),
+                    value: &log_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupName".into(),
-                    value: log_group_name_binding.get_id(),
+                    value: &log_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAggregationInterval".into(),
-                    value: max_aggregation_interval_binding.get_id(),
+                    value: &max_aggregation_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficType".into(),
-                    value: traffic_type_binding.get_id(),
+                    value: &traffic_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

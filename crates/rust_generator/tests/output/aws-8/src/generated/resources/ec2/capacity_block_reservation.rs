@@ -116,19 +116,19 @@ pub mod capacity_block_reservation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityBlockOfferingId".into(),
-                    value: capacity_block_offering_id_binding.get_id(),
+                    value: &capacity_block_offering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePlatform".into(),
-                    value: instance_platform_binding.get_id(),
+                    value: &instance_platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

@@ -290,63 +290,63 @@ pub mod cx_agent {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedSettings".into(),
-                    value: advanced_settings_binding.get_id(),
+                    value: &advanced_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "avatarUri".into(),
-                    value: avatar_uri_binding.get_id(),
+                    value: &avatar_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLanguageCode".into(),
-                    value: default_language_code_binding.get_id(),
+                    value: &default_language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSpellCorrection".into(),
-                    value: enable_spell_correction_binding.get_id(),
+                    value: &enable_spell_correction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStackdriverLogging".into(),
-                    value: enable_stackdriver_logging_binding.get_id(),
+                    value: &enable_stackdriver_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitIntegrationSettings".into(),
-                    value: git_integration_settings_binding.get_id(),
+                    value: &git_integration_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securitySettings".into(),
-                    value: security_settings_binding.get_id(),
+                    value: &security_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "speechToTextSettings".into(),
-                    value: speech_to_text_settings_binding.get_id(),
+                    value: &speech_to_text_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedLanguageCodes".into(),
-                    value: supported_language_codes_binding.get_id(),
+                    value: &supported_language_codes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "textToSpeechSettings".into(),
-                    value: text_to_speech_settings_binding.get_id(),
+                    value: &text_to_speech_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
             ],
         };

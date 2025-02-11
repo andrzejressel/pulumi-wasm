@@ -165,23 +165,23 @@ pub mod mirroring_endpoint_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mirroringDeploymentGroup".into(),
-                    value: mirroring_deployment_group_binding.get_id(),
+                    value: &mirroring_deployment_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mirroringEndpointGroupId".into(),
-                    value: mirroring_endpoint_group_id_binding.get_id(),
+                    value: &mirroring_endpoint_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

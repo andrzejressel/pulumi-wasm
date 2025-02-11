@@ -123,19 +123,19 @@ pub mod certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caPem".into(),
-                    value: ca_pem_binding.get_id(),
+                    value: &ca_pem_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePem".into(),
-                    value: certificate_pem_binding.get_id(),
+                    value: &certificate_pem_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csr".into(),
-                    value: csr_binding.get_id(),
+                    value: &csr_binding.drop_type(),
                 },
             ],
         };

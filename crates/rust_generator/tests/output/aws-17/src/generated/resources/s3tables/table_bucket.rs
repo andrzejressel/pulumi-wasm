@@ -87,11 +87,11 @@ pub mod table_bucket {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfiguration".into(),
-                    value: maintenance_configuration_binding.get_id(),
+                    value: &maintenance_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

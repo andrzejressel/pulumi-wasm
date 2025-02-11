@@ -103,15 +103,15 @@ pub mod transit_gateway_route_table_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: peering_id_binding.get_id(),
+                    value: &peering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableArn".into(),
-                    value: transit_gateway_route_table_arn_binding.get_id(),
+                    value: &transit_gateway_route_table_arn_binding.drop_type(),
                 },
             ],
         };

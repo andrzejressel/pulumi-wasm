@@ -85,19 +85,19 @@ pub mod suppression {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recommendationId".into(),
-                    value: recommendation_id_binding.get_id(),
+                    value: &recommendation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
             ],
         };

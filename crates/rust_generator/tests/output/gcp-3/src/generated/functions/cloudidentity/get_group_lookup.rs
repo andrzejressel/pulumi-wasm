@@ -39,7 +39,7 @@ pub mod get_group_lookup {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupKey".into(),
-                    value: group_key_binding.get_id(),
+                    value: &group_key_binding.drop_type(),
                 },
             ],
         };

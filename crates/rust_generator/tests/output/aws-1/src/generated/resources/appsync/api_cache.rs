@@ -101,27 +101,27 @@ pub mod api_cache {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiCachingBehavior".into(),
-                    value: api_caching_behavior_binding.get_id(),
+                    value: &api_caching_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "atRestEncryptionEnabled".into(),
-                    value: at_rest_encryption_enabled_binding.get_id(),
+                    value: &at_rest_encryption_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionEnabled".into(),
-                    value: transit_encryption_enabled_binding.get_id(),
+                    value: &transit_encryption_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

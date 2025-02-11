@@ -408,87 +408,87 @@ pub mod distribution {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliases".into(),
-                    value: aliases_binding.get_id(),
+                    value: &aliases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continuousDeploymentPolicyId".into(),
-                    value: continuous_deployment_policy_id_binding.get_id(),
+                    value: &continuous_deployment_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customErrorResponses".into(),
-                    value: custom_error_responses_binding.get_id(),
+                    value: &custom_error_responses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCacheBehavior".into(),
-                    value: default_cache_behavior_binding.get_id(),
+                    value: &default_cache_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRootObject".into(),
-                    value: default_root_object_binding.get_id(),
+                    value: &default_root_object_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpVersion".into(),
-                    value: http_version_binding.get_id(),
+                    value: &http_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isIpv6Enabled".into(),
-                    value: is_ipv6_enabled_binding.get_id(),
+                    value: &is_ipv6_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: logging_config_binding.get_id(),
+                    value: &logging_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orderedCacheBehaviors".into(),
-                    value: ordered_cache_behaviors_binding.get_id(),
+                    value: &ordered_cache_behaviors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originGroups".into(),
-                    value: origin_groups_binding.get_id(),
+                    value: &origin_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: origins_binding.get_id(),
+                    value: &origins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priceClass".into(),
-                    value: price_class_binding.get_id(),
+                    value: &price_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictions".into(),
-                    value: restrictions_binding.get_id(),
+                    value: &restrictions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainOnDelete".into(),
-                    value: retain_on_delete_binding.get_id(),
+                    value: &retain_on_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staging".into(),
-                    value: staging_binding.get_id(),
+                    value: &staging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewerCertificate".into(),
-                    value: viewer_certificate_binding.get_id(),
+                    value: &viewer_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForDeployment".into(),
-                    value: wait_for_deployment_binding.get_id(),
+                    value: &wait_for_deployment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAclId".into(),
-                    value: web_acl_id_binding.get_id(),
+                    value: &web_acl_id_binding.drop_type(),
                 },
             ],
         };

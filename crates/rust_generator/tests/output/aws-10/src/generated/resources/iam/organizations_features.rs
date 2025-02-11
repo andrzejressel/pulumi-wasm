@@ -66,7 +66,7 @@ pub mod organizations_features {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledFeatures".into(),
-                    value: enabled_features_binding.get_id(),
+                    value: &enabled_features_binding.drop_type(),
                 },
             ],
         };

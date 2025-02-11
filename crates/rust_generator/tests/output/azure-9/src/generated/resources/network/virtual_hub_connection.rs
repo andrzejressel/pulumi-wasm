@@ -126,23 +126,23 @@ pub mod virtual_hub_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetSecurityEnabled".into(),
-                    value: internet_security_enabled_binding.get_id(),
+                    value: &internet_security_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVirtualNetworkId".into(),
-                    value: remote_virtual_network_id_binding.get_id(),
+                    value: &remote_virtual_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: routing_binding.get_id(),
+                    value: &routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: virtual_hub_id_binding.get_id(),
+                    value: &virtual_hub_id_binding.drop_type(),
                 },
             ],
         };

@@ -44,15 +44,15 @@ pub mod get_addon_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonName".into(),
-                    value: addon_name_binding.get_id(),
+                    value: &addon_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesVersion".into(),
-                    value: kubernetes_version_binding.get_id(),
+                    value: &kubernetes_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: most_recent_binding.get_id(),
+                    value: &most_recent_binding.drop_type(),
                 },
             ],
         };

@@ -183,35 +183,35 @@ pub mod organization_feed {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetNames".into(),
-                    value: asset_names_binding.get_id(),
+                    value: &asset_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetTypes".into(),
-                    value: asset_types_binding.get_id(),
+                    value: &asset_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingProject".into(),
-                    value: billing_project_binding.get_id(),
+                    value: &billing_project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: content_type_binding.get_id(),
+                    value: &content_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedId".into(),
-                    value: feed_id_binding.get_id(),
+                    value: &feed_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedOutputConfig".into(),
-                    value: feed_output_config_binding.get_id(),
+                    value: &feed_output_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
             ],
         };

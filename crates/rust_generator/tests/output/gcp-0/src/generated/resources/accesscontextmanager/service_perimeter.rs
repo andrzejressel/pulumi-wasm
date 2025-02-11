@@ -345,35 +345,35 @@ pub mod service_perimeter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeterType".into(),
-                    value: perimeter_type_binding.get_id(),
+                    value: &perimeter_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: spec_binding.get_id(),
+                    value: &spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: title_binding.get_id(),
+                    value: &title_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useExplicitDryRunSpec".into(),
-                    value: use_explicit_dry_run_spec_binding.get_id(),
+                    value: &use_explicit_dry_run_spec_binding.drop_type(),
                 },
             ],
         };

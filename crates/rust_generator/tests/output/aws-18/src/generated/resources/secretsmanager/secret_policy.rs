@@ -92,15 +92,15 @@ pub mod secret_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicPolicy".into(),
-                    value: block_public_policy_binding.get_id(),
+                    value: &block_public_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArn".into(),
-                    value: secret_arn_binding.get_id(),
+                    value: &secret_arn_binding.drop_type(),
                 },
             ],
         };

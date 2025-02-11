@@ -294,27 +294,27 @@ pub mod target_http_proxy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpKeepAliveTimeoutSec".into(),
-                    value: http_keep_alive_timeout_sec_binding.get_id(),
+                    value: &http_keep_alive_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyBind".into(),
-                    value: proxy_bind_binding.get_id(),
+                    value: &proxy_bind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlMap".into(),
-                    value: url_map_binding.get_id(),
+                    value: &url_map_binding.drop_type(),
                 },
             ],
         };

@@ -124,23 +124,23 @@ pub mod container_immutability_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immutabilityPeriodInDays".into(),
-                    value: immutability_period_in_days_binding.get_id(),
+                    value: &immutability_period_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locked".into(),
-                    value: locked_binding.get_id(),
+                    value: &locked_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedAppendWritesAllEnabled".into(),
-                    value: protected_append_writes_all_enabled_binding.get_id(),
+                    value: &protected_append_writes_all_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedAppendWritesEnabled".into(),
-                    value: protected_append_writes_enabled_binding.get_id(),
+                    value: &protected_append_writes_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerResourceManagerId".into(),
-                    value: storage_container_resource_manager_id_binding.get_id(),
+                    value: &storage_container_resource_manager_id_binding.drop_type(),
                 },
             ],
         };

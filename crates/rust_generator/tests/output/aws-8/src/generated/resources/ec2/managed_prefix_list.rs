@@ -116,23 +116,23 @@ pub mod managed_prefix_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: address_family_binding.get_id(),
+                    value: &address_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entries".into(),
-                    value: entries_binding.get_id(),
+                    value: &entries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxEntries".into(),
-                    value: max_entries_binding.get_id(),
+                    value: &max_entries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

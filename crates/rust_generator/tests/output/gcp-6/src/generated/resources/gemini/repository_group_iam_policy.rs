@@ -104,23 +104,23 @@ pub mod repository_group_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeRepositoryIndex".into(),
-                    value: code_repository_index_binding.get_id(),
+                    value: &code_repository_index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryGroupId".into(),
-                    value: repository_group_id_binding.get_id(),
+                    value: &repository_group_id_binding.drop_type(),
                 },
             ],
         };

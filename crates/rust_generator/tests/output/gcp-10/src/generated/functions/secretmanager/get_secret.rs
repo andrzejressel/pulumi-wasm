@@ -68,11 +68,11 @@ pub mod get_secret {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
             ],
         };

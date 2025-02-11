@@ -106,19 +106,19 @@ pub mod spring_cloud_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: storage_account_key_binding.get_id(),
+                    value: &storage_account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: storage_account_name_binding.get_id(),
+                    value: &storage_account_name_binding.drop_type(),
                 },
             ],
         };

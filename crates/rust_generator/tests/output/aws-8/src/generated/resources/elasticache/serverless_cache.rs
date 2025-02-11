@@ -171,59 +171,59 @@ pub mod serverless_cache {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheUsageLimits".into(),
-                    value: cache_usage_limits_binding.get_id(),
+                    value: &cache_usage_limits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailySnapshotTime".into(),
-                    value: daily_snapshot_time_binding.get_id(),
+                    value: &daily_snapshot_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "majorEngineVersion".into(),
-                    value: major_engine_version_binding.get_id(),
+                    value: &major_engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArnsToRestores".into(),
-                    value: snapshot_arns_to_restores_binding.get_id(),
+                    value: &snapshot_arns_to_restores_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotRetentionLimit".into(),
-                    value: snapshot_retention_limit_binding.get_id(),
+                    value: &snapshot_retention_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userGroupId".into(),
-                    value: user_group_id_binding.get_id(),
+                    value: &user_group_id_binding.drop_type(),
                 },
             ],
         };

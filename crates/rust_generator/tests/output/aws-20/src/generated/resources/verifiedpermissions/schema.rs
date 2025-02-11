@@ -70,11 +70,11 @@ pub mod schema {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: definition_binding.get_id(),
+                    value: &definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyStoreId".into(),
-                    value: policy_store_id_binding.get_id(),
+                    value: &policy_store_id_binding.drop_type(),
                 },
             ],
         };

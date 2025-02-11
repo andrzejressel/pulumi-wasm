@@ -69,7 +69,7 @@ pub mod organization_admin_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminAccountId".into(),
-                    value: admin_account_id_binding.get_id(),
+                    value: &admin_account_id_binding.drop_type(),
                 },
             ],
         };

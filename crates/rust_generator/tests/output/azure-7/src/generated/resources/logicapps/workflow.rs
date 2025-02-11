@@ -185,55 +185,55 @@ pub mod workflow {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessControl".into(),
-                    value: access_control_binding.get_id(),
+                    value: &access_control_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationServiceEnvironmentId".into(),
-                    value: integration_service_environment_id_binding.get_id(),
+                    value: &integration_service_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppIntegrationAccountId".into(),
-                    value: logic_app_integration_account_id_binding.get_id(),
+                    value: &logic_app_integration_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowParameters".into(),
-                    value: workflow_parameters_binding.get_id(),
+                    value: &workflow_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowSchema".into(),
-                    value: workflow_schema_binding.get_id(),
+                    value: &workflow_schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowVersion".into(),
-                    value: workflow_version_binding.get_id(),
+                    value: &workflow_version_binding.drop_type(),
                 },
             ],
         };

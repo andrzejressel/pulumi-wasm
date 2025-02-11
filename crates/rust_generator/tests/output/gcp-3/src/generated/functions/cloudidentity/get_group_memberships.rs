@@ -35,7 +35,7 @@ pub mod get_group_memberships {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
             ],
         };

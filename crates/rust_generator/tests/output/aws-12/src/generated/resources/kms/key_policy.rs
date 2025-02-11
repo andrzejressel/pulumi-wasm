@@ -93,15 +93,15 @@ pub mod key_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: bypass_policy_lockout_safety_check_binding.get_id(),
+                    value: &bypass_policy_lockout_safety_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
             ],
         };

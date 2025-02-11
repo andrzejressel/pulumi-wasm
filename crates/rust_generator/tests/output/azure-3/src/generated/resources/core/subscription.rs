@@ -164,27 +164,27 @@ pub mod subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: alias_binding.get_id(),
+                    value: &alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingScopeId".into(),
-                    value: billing_scope_id_binding.get_id(),
+                    value: &billing_scope_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: subscription_id_binding.get_id(),
+                    value: &subscription_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionName".into(),
-                    value: subscription_name_binding.get_id(),
+                    value: &subscription_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workload".into(),
-                    value: workload_binding.get_id(),
+                    value: &workload_binding.drop_type(),
                 },
             ],
         };

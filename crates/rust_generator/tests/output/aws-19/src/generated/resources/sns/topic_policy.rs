@@ -96,11 +96,11 @@ pub mod topic_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
             ],
         };

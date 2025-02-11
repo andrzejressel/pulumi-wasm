@@ -87,11 +87,11 @@ pub mod region_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeManagementPreference".into(),
-                    value: resource_type_management_preference_binding.get_id(),
+                    value: &resource_type_management_preference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeOptInPreference".into(),
-                    value: resource_type_opt_in_preference_binding.get_id(),
+                    value: &resource_type_opt_in_preference_binding.drop_type(),
                 },
             ],
         };

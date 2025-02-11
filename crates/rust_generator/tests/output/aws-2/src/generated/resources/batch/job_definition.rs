@@ -365,59 +365,59 @@ pub mod job_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerProperties".into(),
-                    value: container_properties_binding.get_id(),
+                    value: &container_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deregisterOnNewRevision".into(),
-                    value: deregister_on_new_revision_binding.get_id(),
+                    value: &deregister_on_new_revision_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsProperties".into(),
-                    value: ecs_properties_binding.get_id(),
+                    value: &ecs_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eksProperties".into(),
-                    value: eks_properties_binding.get_id(),
+                    value: &eks_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeProperties".into(),
-                    value: node_properties_binding.get_id(),
+                    value: &node_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformCapabilities".into(),
-                    value: platform_capabilities_binding.get_id(),
+                    value: &platform_capabilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagateTags".into(),
-                    value: propagate_tags_binding.get_id(),
+                    value: &propagate_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryStrategy".into(),
-                    value: retry_strategy_binding.get_id(),
+                    value: &retry_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulingPriority".into(),
-                    value: scheduling_priority_binding.get_id(),
+                    value: &scheduling_priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: timeout_binding.get_id(),
+                    value: &timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

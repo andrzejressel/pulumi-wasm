@@ -43,7 +43,7 @@ pub mod get_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: policy_id_binding.get_id(),
+                    value: &policy_id_binding.drop_type(),
                 },
             ],
         };

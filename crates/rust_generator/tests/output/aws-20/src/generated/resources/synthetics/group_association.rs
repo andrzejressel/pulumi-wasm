@@ -69,11 +69,11 @@ pub mod group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canaryArn".into(),
-                    value: canary_arn_binding.get_id(),
+                    value: &canary_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
             ],
         };

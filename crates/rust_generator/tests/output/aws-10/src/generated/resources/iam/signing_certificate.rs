@@ -90,15 +90,15 @@ pub mod signing_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBody".into(),
-                    value: certificate_body_binding.get_id(),
+                    value: &certificate_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: user_name_binding.get_id(),
+                    value: &user_name_binding.drop_type(),
                 },
             ],
         };

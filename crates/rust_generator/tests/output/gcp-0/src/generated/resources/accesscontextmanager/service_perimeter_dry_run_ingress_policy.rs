@@ -101,15 +101,15 @@ pub mod service_perimeter_dry_run_ingress_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressFrom".into(),
-                    value: ingress_from_binding.get_id(),
+                    value: &ingress_from_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressTo".into(),
-                    value: ingress_to_binding.get_id(),
+                    value: &ingress_to_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeter".into(),
-                    value: perimeter_binding.get_id(),
+                    value: &perimeter_binding.drop_type(),
                 },
             ],
         };

@@ -43,15 +43,15 @@ pub mod get_local_disk {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskNode".into(),
-                    value: disk_node_binding.get_id(),
+                    value: &disk_node_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskPath".into(),
-                    value: disk_path_binding.get_id(),
+                    value: &disk_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: gateway_arn_binding.get_id(),
+                    value: &gateway_arn_binding.drop_type(),
                 },
             ],
         };

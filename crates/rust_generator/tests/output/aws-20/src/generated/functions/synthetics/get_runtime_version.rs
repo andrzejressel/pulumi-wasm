@@ -51,15 +51,15 @@ pub mod get_runtime_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latest".into(),
-                    value: latest_binding.get_id(),
+                    value: &latest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

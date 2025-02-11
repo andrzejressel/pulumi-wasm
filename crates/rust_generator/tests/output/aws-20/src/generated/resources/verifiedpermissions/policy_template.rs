@@ -82,15 +82,15 @@ pub mod policy_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyStoreId".into(),
-                    value: policy_store_id_binding.get_id(),
+                    value: &policy_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statement".into(),
-                    value: statement_binding.get_id(),
+                    value: &statement_binding.drop_type(),
                 },
             ],
         };

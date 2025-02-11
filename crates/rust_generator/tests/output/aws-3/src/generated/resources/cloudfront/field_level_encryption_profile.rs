@@ -91,15 +91,15 @@ pub mod field_level_encryption_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionEntities".into(),
-                    value: encryption_entities_binding.get_id(),
+                    value: &encryption_entities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -214,11 +214,11 @@ pub mod crypto_key_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyId".into(),
-                    value: crypto_key_id_binding.get_id(),
+                    value: &crypto_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
             ],
         };

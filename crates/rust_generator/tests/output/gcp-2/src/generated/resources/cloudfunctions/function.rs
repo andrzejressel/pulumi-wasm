@@ -420,127 +420,127 @@ pub mod function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availableMemoryMb".into(),
-                    value: available_memory_mb_binding.get_id(),
+                    value: &available_memory_mb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildEnvironmentVariables".into(),
-                    value: build_environment_variables_binding.get_id(),
+                    value: &build_environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildServiceAccount".into(),
-                    value: build_service_account_binding.get_id(),
+                    value: &build_service_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildWorkerPool".into(),
-                    value: build_worker_pool_binding.get_id(),
+                    value: &build_worker_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerRegistry".into(),
-                    value: docker_registry_binding.get_id(),
+                    value: &docker_registry_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerRepository".into(),
-                    value: docker_repository_binding.get_id(),
+                    value: &docker_repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryPoint".into(),
-                    value: entry_point_binding.get_id(),
+                    value: &entry_point_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: environment_variables_binding.get_id(),
+                    value: &environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTrigger".into(),
-                    value: event_trigger_binding.get_id(),
+                    value: &event_trigger_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsTriggerSecurityLevel".into(),
-                    value: https_trigger_security_level_binding.get_id(),
+                    value: &https_trigger_security_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsTriggerUrl".into(),
-                    value: https_trigger_url_binding.get_id(),
+                    value: &https_trigger_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressSettings".into(),
-                    value: ingress_settings_binding.get_id(),
+                    value: &ingress_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstances".into(),
-                    value: max_instances_binding.get_id(),
+                    value: &max_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minInstances".into(),
-                    value: min_instances_binding.get_id(),
+                    value: &min_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: runtime_binding.get_id(),
+                    value: &runtime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretEnvironmentVariables".into(),
-                    value: secret_environment_variables_binding.get_id(),
+                    value: &secret_environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretVolumes".into(),
-                    value: secret_volumes_binding.get_id(),
+                    value: &secret_volumes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountEmail".into(),
-                    value: service_account_email_binding.get_id(),
+                    value: &service_account_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArchiveBucket".into(),
-                    value: source_archive_bucket_binding.get_id(),
+                    value: &source_archive_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArchiveObject".into(),
-                    value: source_archive_object_binding.get_id(),
+                    value: &source_archive_object_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRepository".into(),
-                    value: source_repository_binding.get_id(),
+                    value: &source_repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: timeout_binding.get_id(),
+                    value: &timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerHttp".into(),
-                    value: trigger_http_binding.get_id(),
+                    value: &trigger_http_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnector".into(),
-                    value: vpc_connector_binding.get_id(),
+                    value: &vpc_connector_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnectorEgressSettings".into(),
-                    value: vpc_connector_egress_settings_binding.get_id(),
+                    value: &vpc_connector_egress_settings_binding.drop_type(),
                 },
             ],
         };

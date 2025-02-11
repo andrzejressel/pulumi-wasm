@@ -92,19 +92,19 @@ pub mod random_integer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "max".into(),
-                    value: max_binding.get_id(),
+                    value: &max_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "min".into(),
-                    value: min_binding.get_id(),
+                    value: &min_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "seed".into(),
-                    value: seed_binding.get_id(),
+                    value: &seed_binding.drop_type(),
                 },
             ],
         };

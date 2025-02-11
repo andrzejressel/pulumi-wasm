@@ -203,43 +203,43 @@ pub mod diagnostic_setting {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledLogs".into(),
-                    value: enabled_logs_binding.get_id(),
+                    value: &enabled_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubAuthorizationRuleId".into(),
-                    value: eventhub_authorization_rule_id_binding.get_id(),
+                    value: &eventhub_authorization_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: eventhub_name_binding.get_id(),
+                    value: &eventhub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsDestinationType".into(),
-                    value: log_analytics_destination_type_binding.get_id(),
+                    value: &log_analytics_destination_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metrics".into(),
-                    value: metrics_binding.get_id(),
+                    value: &metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerSolutionId".into(),
-                    value: partner_solution_id_binding.get_id(),
+                    value: &partner_solution_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
             ],
         };

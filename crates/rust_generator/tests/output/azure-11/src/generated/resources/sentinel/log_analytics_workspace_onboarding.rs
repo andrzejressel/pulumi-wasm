@@ -94,11 +94,11 @@ pub mod log_analytics_workspace_onboarding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyEnabled".into(),
-                    value: customer_managed_key_enabled_binding.get_id(),
+                    value: &customer_managed_key_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

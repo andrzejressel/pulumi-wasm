@@ -113,27 +113,27 @@ pub mod route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefix".into(),
-                    value: address_prefix_binding.get_id(),
+                    value: &address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopInIpAddress".into(),
-                    value: next_hop_in_ip_address_binding.get_id(),
+                    value: &next_hop_in_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopType".into(),
-                    value: next_hop_type_binding.get_id(),
+                    value: &next_hop_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableName".into(),
-                    value: route_table_name_binding.get_id(),
+                    value: &route_table_name_binding.drop_type(),
                 },
             ],
         };

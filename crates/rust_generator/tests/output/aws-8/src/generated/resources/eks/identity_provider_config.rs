@@ -92,15 +92,15 @@ pub mod identity_provider_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidc".into(),
-                    value: oidc_binding.get_id(),
+                    value: &oidc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

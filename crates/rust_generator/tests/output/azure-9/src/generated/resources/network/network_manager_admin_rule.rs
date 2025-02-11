@@ -191,47 +191,47 @@ pub mod network_manager_admin_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminRuleCollectionId".into(),
-                    value: admin_rule_collection_id_binding.get_id(),
+                    value: &admin_rule_collection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRanges".into(),
-                    value: destination_port_ranges_binding.get_id(),
+                    value: &destination_port_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: destinations_binding.get_id(),
+                    value: &destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: direction_binding.get_id(),
+                    value: &direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRanges".into(),
-                    value: source_port_ranges_binding.get_id(),
+                    value: &source_port_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: sources_binding.get_id(),
+                    value: &sources_binding.drop_type(),
                 },
             ],
         };

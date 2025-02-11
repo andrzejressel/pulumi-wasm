@@ -66,11 +66,11 @@ pub mod cost_allocation_tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagKey".into(),
-                    value: tag_key_binding.get_id(),
+                    value: &tag_key_binding.drop_type(),
                 },
             ],
         };

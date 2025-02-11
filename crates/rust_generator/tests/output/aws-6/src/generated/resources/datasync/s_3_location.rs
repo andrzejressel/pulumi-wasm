@@ -108,27 +108,27 @@ pub mod s_3_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: agent_arns_binding.get_id(),
+                    value: &agent_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketArn".into(),
-                    value: s3_bucket_arn_binding.get_id(),
+                    value: &s3_bucket_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Config".into(),
-                    value: s3_config_binding.get_id(),
+                    value: &s3_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3StorageClass".into(),
-                    value: s3_storage_class_binding.get_id(),
+                    value: &s3_storage_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

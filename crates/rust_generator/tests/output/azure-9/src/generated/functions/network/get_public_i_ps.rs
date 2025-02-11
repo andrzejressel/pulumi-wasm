@@ -50,19 +50,19 @@ pub mod get_public_i_ps {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationType".into(),
-                    value: allocation_type_binding.get_id(),
+                    value: &allocation_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentStatus".into(),
-                    value: attachment_status_binding.get_id(),
+                    value: &attachment_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

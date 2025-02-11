@@ -87,15 +87,15 @@ pub mod model_package_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelPackageGroupDescription".into(),
-                    value: model_package_group_description_binding.get_id(),
+                    value: &model_package_group_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelPackageGroupName".into(),
-                    value: model_package_group_name_binding.get_id(),
+                    value: &model_package_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

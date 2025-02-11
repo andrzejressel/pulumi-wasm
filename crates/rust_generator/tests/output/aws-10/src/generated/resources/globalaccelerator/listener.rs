@@ -101,19 +101,19 @@ pub mod listener {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorArn".into(),
-                    value: accelerator_arn_binding.get_id(),
+                    value: &accelerator_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAffinity".into(),
-                    value: client_affinity_binding.get_id(),
+                    value: &client_affinity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portRanges".into(),
-                    value: port_ranges_binding.get_id(),
+                    value: &port_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
             ],
         };

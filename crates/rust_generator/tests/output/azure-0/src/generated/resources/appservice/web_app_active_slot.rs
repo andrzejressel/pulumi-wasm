@@ -148,11 +148,11 @@ pub mod web_app_active_slot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overwriteNetworkConfig".into(),
-                    value: overwrite_network_config_binding.get_id(),
+                    value: &overwrite_network_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotId".into(),
-                    value: slot_id_binding.get_id(),
+                    value: &slot_id_binding.drop_type(),
                 },
             ],
         };

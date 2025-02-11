@@ -123,15 +123,15 @@ pub mod repository_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyDetails".into(),
-                    value: kms_key_details_binding.get_id(),
+                    value: &kms_key_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

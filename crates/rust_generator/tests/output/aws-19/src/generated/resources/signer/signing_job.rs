@@ -145,19 +145,19 @@ pub mod signing_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreSigningJobFailure".into(),
-                    value: ignore_signing_job_failure_binding.get_id(),
+                    value: &ignore_signing_job_failure_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileName".into(),
-                    value: profile_name_binding.get_id(),
+                    value: &profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
             ],
         };

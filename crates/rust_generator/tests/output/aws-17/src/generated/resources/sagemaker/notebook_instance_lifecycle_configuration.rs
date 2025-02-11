@@ -80,15 +80,15 @@ pub mod notebook_instance_lifecycle_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onCreate".into(),
-                    value: on_create_binding.get_id(),
+                    value: &on_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onStart".into(),
-                    value: on_start_binding.get_id(),
+                    value: &on_start_binding.drop_type(),
                 },
             ],
         };

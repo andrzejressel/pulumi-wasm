@@ -89,15 +89,15 @@ pub mod account_registration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedAdminAccount".into(),
-                    value: delegated_admin_account_binding.get_id(),
+                    value: &delegated_admin_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deregisterOnDestroy".into(),
-                    value: deregister_on_destroy_binding.get_id(),
+                    value: &deregister_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: kms_key_binding.get_id(),
+                    value: &kms_key_binding.drop_type(),
                 },
             ],
         };

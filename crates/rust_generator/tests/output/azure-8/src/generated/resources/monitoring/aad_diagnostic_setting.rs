@@ -140,27 +140,27 @@ pub mod aad_diagnostic_setting {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledLogs".into(),
-                    value: enabled_logs_binding.get_id(),
+                    value: &enabled_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubAuthorizationRuleId".into(),
-                    value: eventhub_authorization_rule_id_binding.get_id(),
+                    value: &eventhub_authorization_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: eventhub_name_binding.get_id(),
+                    value: &eventhub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

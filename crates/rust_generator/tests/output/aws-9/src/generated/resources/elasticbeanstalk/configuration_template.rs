@@ -112,27 +112,27 @@ pub mod configuration_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "application".into(),
-                    value: application_binding.get_id(),
+                    value: &application_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: environment_id_binding.get_id(),
+                    value: &environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionStackName".into(),
-                    value: solution_stack_name_binding.get_id(),
+                    value: &solution_stack_name_binding.drop_type(),
                 },
             ],
         };

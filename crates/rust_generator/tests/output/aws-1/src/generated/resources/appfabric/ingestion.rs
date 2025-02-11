@@ -94,23 +94,23 @@ pub mod ingestion {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "app".into(),
-                    value: app_binding.get_id(),
+                    value: &app_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: app_bundle_arn_binding.get_id(),
+                    value: &app_bundle_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionType".into(),
-                    value: ingestion_type_binding.get_id(),
+                    value: &ingestion_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

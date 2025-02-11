@@ -136,27 +136,27 @@ pub mod policy_vm_workload {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionPolicies".into(),
-                    value: protection_policies_binding.get_id(),
+                    value: &protection_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: recovery_vault_name_binding.get_id(),
+                    value: &recovery_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadType".into(),
-                    value: workload_type_binding.get_id(),
+                    value: &workload_type_binding.drop_type(),
                 },
             ],
         };

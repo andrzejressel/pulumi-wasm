@@ -230,27 +230,27 @@ pub mod cx_test_case {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: notes_binding.get_id(),
+                    value: &notes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testCaseConversationTurns".into(),
-                    value: test_case_conversation_turns_binding.get_id(),
+                    value: &test_case_conversation_turns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testConfig".into(),
-                    value: test_config_binding.get_id(),
+                    value: &test_config_binding.drop_type(),
                 },
             ],
         };

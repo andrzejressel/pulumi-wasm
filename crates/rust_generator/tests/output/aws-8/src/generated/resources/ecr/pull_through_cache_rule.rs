@@ -82,15 +82,15 @@ pub mod pull_through_cache_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialArn".into(),
-                    value: credential_arn_binding.get_id(),
+                    value: &credential_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecrRepositoryPrefix".into(),
-                    value: ecr_repository_prefix_binding.get_id(),
+                    value: &ecr_repository_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upstreamRegistryUrl".into(),
-                    value: upstream_registry_url_binding.get_id(),
+                    value: &upstream_registry_url_binding.drop_type(),
                 },
             ],
         };

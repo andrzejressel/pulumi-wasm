@@ -74,35 +74,35 @@ pub mod get_objects {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delimiter".into(),
-                    value: delimiter_binding.get_id(),
+                    value: &delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodingType".into(),
-                    value: encoding_type_binding.get_id(),
+                    value: &encoding_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fetchOwner".into(),
-                    value: fetch_owner_binding.get_id(),
+                    value: &fetch_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxKeys".into(),
-                    value: max_keys_binding.get_id(),
+                    value: &max_keys_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPayer".into(),
-                    value: request_payer_binding.get_id(),
+                    value: &request_payer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startAfter".into(),
-                    value: start_after_binding.get_id(),
+                    value: &start_after_binding.drop_type(),
                 },
             ],
         };

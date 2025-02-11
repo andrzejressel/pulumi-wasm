@@ -130,7 +130,7 @@ pub mod replication_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationConfiguration".into(),
-                    value: replication_configuration_binding.get_id(),
+                    value: &replication_configuration_binding.drop_type(),
                 },
             ],
         };

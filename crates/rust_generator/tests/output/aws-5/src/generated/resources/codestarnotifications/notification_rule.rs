@@ -140,31 +140,31 @@ pub mod notification_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detailType".into(),
-                    value: detail_type_binding.get_id(),
+                    value: &detail_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTypeIds".into(),
-                    value: event_type_ids_binding.get_id(),
+                    value: &event_type_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: resource_binding.get_id(),
+                    value: &resource_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: targets_binding.get_id(),
+                    value: &targets_binding.drop_type(),
                 },
             ],
         };

@@ -143,27 +143,27 @@ pub mod virtual_hub_ip {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: private_ip_address_binding.get_id(),
+                    value: &private_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAllocationMethod".into(),
-                    value: private_ip_allocation_method_binding.get_id(),
+                    value: &private_ip_allocation_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressId".into(),
-                    value: public_ip_address_id_binding.get_id(),
+                    value: &public_ip_address_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: virtual_hub_id_binding.get_id(),
+                    value: &virtual_hub_id_binding.drop_type(),
                 },
             ],
         };

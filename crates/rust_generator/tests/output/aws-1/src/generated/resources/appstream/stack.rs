@@ -192,51 +192,51 @@ pub mod stack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessEndpoints".into(),
-                    value: access_endpoints_binding.get_id(),
+                    value: &access_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSettings".into(),
-                    value: application_settings_binding.get_id(),
+                    value: &application_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "embedHostDomains".into(),
-                    value: embed_host_domains_binding.get_id(),
+                    value: &embed_host_domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedbackUrl".into(),
-                    value: feedback_url_binding.get_id(),
+                    value: &feedback_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectUrl".into(),
-                    value: redirect_url_binding.get_id(),
+                    value: &redirect_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConnectors".into(),
-                    value: storage_connectors_binding.get_id(),
+                    value: &storage_connectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingExperienceSettings".into(),
-                    value: streaming_experience_settings_binding.get_id(),
+                    value: &streaming_experience_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSettings".into(),
-                    value: user_settings_binding.get_id(),
+                    value: &user_settings_binding.drop_type(),
                 },
             ],
         };

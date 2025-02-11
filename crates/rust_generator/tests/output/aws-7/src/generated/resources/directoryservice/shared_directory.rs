@@ -72,19 +72,19 @@ pub mod shared_directory {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: method_binding.get_id(),
+                    value: &method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: notes_binding.get_id(),
+                    value: &notes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: target_binding.get_id(),
+                    value: &target_binding.drop_type(),
                 },
             ],
         };

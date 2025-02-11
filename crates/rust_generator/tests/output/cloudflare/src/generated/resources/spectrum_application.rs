@@ -150,55 +150,55 @@ pub mod spectrum_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "argoSmartRouting".into(),
-                    value: argo_smart_routing_binding.get_id(),
+                    value: &argo_smart_routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: dns_binding.get_id(),
+                    value: &dns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeIps".into(),
-                    value: edge_ips_binding.get_id(),
+                    value: &edge_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipFirewall".into(),
-                    value: ip_firewall_binding.get_id(),
+                    value: &ip_firewall_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originDirects".into(),
-                    value: origin_directs_binding.get_id(),
+                    value: &origin_directs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originDns".into(),
-                    value: origin_dns_binding.get_id(),
+                    value: &origin_dns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPort".into(),
-                    value: origin_port_binding.get_id(),
+                    value: &origin_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPortRange".into(),
-                    value: origin_port_range_binding.get_id(),
+                    value: &origin_port_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyProtocol".into(),
-                    value: proxy_protocol_binding.get_id(),
+                    value: &proxy_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: tls_binding.get_id(),
+                    value: &tls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficType".into(),
-                    value: traffic_type_binding.get_id(),
+                    value: &traffic_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

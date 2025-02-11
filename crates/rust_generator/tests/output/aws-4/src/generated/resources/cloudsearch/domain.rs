@@ -118,23 +118,23 @@ pub mod domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointOptions".into(),
-                    value: endpoint_options_binding.get_id(),
+                    value: &endpoint_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexFields".into(),
-                    value: index_fields_binding.get_id(),
+                    value: &index_fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: multi_az_binding.get_id(),
+                    value: &multi_az_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingParameters".into(),
-                    value: scaling_parameters_binding.get_id(),
+                    value: &scaling_parameters_binding.drop_type(),
                 },
             ],
         };

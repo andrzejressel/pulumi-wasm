@@ -89,11 +89,11 @@ pub mod log_data_protection_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupName".into(),
-                    value: log_group_name_binding.get_id(),
+                    value: &log_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
             ],
         };

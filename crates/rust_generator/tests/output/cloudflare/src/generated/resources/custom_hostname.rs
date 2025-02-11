@@ -114,31 +114,31 @@ pub mod custom_hostname {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customMetadata".into(),
-                    value: custom_metadata_binding.get_id(),
+                    value: &custom_metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customOriginServer".into(),
-                    value: custom_origin_server_binding.get_id(),
+                    value: &custom_origin_server_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customOriginSni".into(),
-                    value: custom_origin_sni_binding.get_id(),
+                    value: &custom_origin_sni_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: hostname_binding.get_id(),
+                    value: &hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssls".into(),
-                    value: ssls_binding.get_id(),
+                    value: &ssls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForSslPendingValidation".into(),
-                    value: wait_for_ssl_pending_validation_binding.get_id(),
+                    value: &wait_for_ssl_pending_validation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

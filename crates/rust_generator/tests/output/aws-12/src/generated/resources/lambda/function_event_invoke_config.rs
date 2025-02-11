@@ -210,23 +210,23 @@ pub mod function_event_invoke_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfig".into(),
-                    value: destination_config_binding.get_id(),
+                    value: &destination_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumEventAgeInSeconds".into(),
-                    value: maximum_event_age_in_seconds_binding.get_id(),
+                    value: &maximum_event_age_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRetryAttempts".into(),
-                    value: maximum_retry_attempts_binding.get_id(),
+                    value: &maximum_retry_attempts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
             ],
         };

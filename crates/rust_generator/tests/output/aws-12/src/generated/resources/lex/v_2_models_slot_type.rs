@@ -232,47 +232,47 @@ pub mod v_2_models_slot_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: bot_id_binding.get_id(),
+                    value: &bot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: bot_version_binding.get_id(),
+                    value: &bot_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compositeSlotTypeSetting".into(),
-                    value: composite_slot_type_setting_binding.get_id(),
+                    value: &composite_slot_type_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalSourceSetting".into(),
-                    value: external_source_setting_binding.get_id(),
+                    value: &external_source_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: locale_id_binding.get_id(),
+                    value: &locale_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentSlotTypeSignature".into(),
-                    value: parent_slot_type_signature_binding.get_id(),
+                    value: &parent_slot_type_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotTypeValues".into(),
-                    value: slot_type_values_binding.get_id(),
+                    value: &slot_type_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueSelectionSetting".into(),
-                    value: value_selection_setting_binding.get_id(),
+                    value: &value_selection_setting_binding.drop_type(),
                 },
             ],
         };

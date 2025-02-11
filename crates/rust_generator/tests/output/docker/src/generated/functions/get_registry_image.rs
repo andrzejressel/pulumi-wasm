@@ -40,11 +40,11 @@ pub mod get_registry_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insecureSkipVerify".into(),
-                    value: insecure_skip_verify_binding.get_id(),
+                    value: &insecure_skip_verify_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

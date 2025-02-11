@@ -162,27 +162,27 @@ pub mod eligible_role_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "justification".into(),
-                    value: justification_binding.get_id(),
+                    value: &justification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: role_definition_id_binding.get_id(),
+                    value: &role_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ticket".into(),
-                    value: ticket_binding.get_id(),
+                    value: &ticket_binding.drop_type(),
                 },
             ],
         };

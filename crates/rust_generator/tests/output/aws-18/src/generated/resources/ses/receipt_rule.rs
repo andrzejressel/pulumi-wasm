@@ -181,59 +181,59 @@ pub mod receipt_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addHeaderActions".into(),
-                    value: add_header_actions_binding.get_id(),
+                    value: &add_header_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "after".into(),
-                    value: after_binding.get_id(),
+                    value: &after_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bounceActions".into(),
-                    value: bounce_actions_binding.get_id(),
+                    value: &bounce_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaActions".into(),
-                    value: lambda_actions_binding.get_id(),
+                    value: &lambda_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recipients".into(),
-                    value: recipients_binding.get_id(),
+                    value: &recipients_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: rule_set_name_binding.get_id(),
+                    value: &rule_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Actions".into(),
-                    value: s3_actions_binding.get_id(),
+                    value: &s3_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanEnabled".into(),
-                    value: scan_enabled_binding.get_id(),
+                    value: &scan_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsActions".into(),
-                    value: sns_actions_binding.get_id(),
+                    value: &sns_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopActions".into(),
-                    value: stop_actions_binding.get_id(),
+                    value: &stop_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsPolicy".into(),
-                    value: tls_policy_binding.get_id(),
+                    value: &tls_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workmailActions".into(),
-                    value: workmail_actions_binding.get_id(),
+                    value: &workmail_actions_binding.drop_type(),
                 },
             ],
         };

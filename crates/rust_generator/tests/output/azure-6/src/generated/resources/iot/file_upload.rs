@@ -148,43 +148,43 @@ pub mod file_upload {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: connection_string_binding.get_id(),
+                    value: &connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: default_ttl_binding.get_id(),
+                    value: &default_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: identity_id_binding.get_id(),
+                    value: &identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockDuration".into(),
-                    value: lock_duration_binding.get_id(),
+                    value: &lock_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxDeliveryCount".into(),
-                    value: max_delivery_count_binding.get_id(),
+                    value: &max_delivery_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationsEnabled".into(),
-                    value: notifications_enabled_binding.get_id(),
+                    value: &notifications_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasTtl".into(),
-                    value: sas_ttl_binding.get_id(),
+                    value: &sas_ttl_binding.drop_type(),
                 },
             ],
         };

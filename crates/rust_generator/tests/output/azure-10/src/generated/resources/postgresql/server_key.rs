@@ -149,11 +149,11 @@ pub mod server_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
             ],
         };

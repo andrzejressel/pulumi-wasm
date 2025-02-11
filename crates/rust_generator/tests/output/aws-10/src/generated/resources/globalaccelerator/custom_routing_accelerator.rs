@@ -124,27 +124,27 @@ pub mod custom_routing_accelerator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: ip_address_type_binding.get_id(),
+                    value: &ip_address_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddresses".into(),
-                    value: ip_addresses_binding.get_id(),
+                    value: &ip_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

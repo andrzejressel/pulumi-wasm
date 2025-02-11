@@ -46,15 +46,15 @@ pub mod get_appregistry_attribute_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

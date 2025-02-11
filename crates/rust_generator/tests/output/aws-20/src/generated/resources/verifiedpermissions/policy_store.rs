@@ -78,11 +78,11 @@ pub mod policy_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationSettings".into(),
-                    value: validation_settings_binding.get_id(),
+                    value: &validation_settings_binding.drop_type(),
                 },
             ],
         };

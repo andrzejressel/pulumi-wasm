@@ -201,39 +201,39 @@ pub mod database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseDialect".into(),
-                    value: database_dialect_binding.get_id(),
+                    value: &database_dialect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddls".into(),
-                    value: ddls_binding.get_id(),
+                    value: &ddls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDropProtection".into(),
-                    value: enable_drop_protection_binding.get_id(),
+                    value: &enable_drop_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: encryption_config_binding.get_id(),
+                    value: &encryption_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionRetentionPeriod".into(),
-                    value: version_retention_period_binding.get_id(),
+                    value: &version_retention_period_binding.drop_type(),
                 },
             ],
         };

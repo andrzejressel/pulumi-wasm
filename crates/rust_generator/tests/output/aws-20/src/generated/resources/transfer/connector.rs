@@ -150,31 +150,31 @@ pub mod connector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRole".into(),
-                    value: access_role_binding.get_id(),
+                    value: &access_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "as2Config".into(),
-                    value: as2_config_binding.get_id(),
+                    value: &as2_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingRole".into(),
-                    value: logging_role_binding.get_id(),
+                    value: &logging_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicyName".into(),
-                    value: security_policy_name_binding.get_id(),
+                    value: &security_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpConfig".into(),
-                    value: sftp_config_binding.get_id(),
+                    value: &sftp_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: url_binding.get_id(),
+                    value: &url_binding.drop_type(),
                 },
             ],
         };

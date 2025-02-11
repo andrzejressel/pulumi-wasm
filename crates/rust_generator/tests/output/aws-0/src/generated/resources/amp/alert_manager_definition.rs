@@ -67,11 +67,11 @@ pub mod alert_manager_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: definition_binding.get_id(),
+                    value: &definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

@@ -459,71 +459,71 @@ pub mod region_disk {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asyncPrimaryDisk".into(),
-                    value: async_primary_disk_binding.get_id(),
+                    value: &async_primary_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptionKey".into(),
-                    value: disk_encryption_key_binding.get_id(),
+                    value: &disk_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestOsFeatures".into(),
-                    value: guest_os_features_binding.get_id(),
+                    value: &guest_os_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interface".into(),
-                    value: interface_binding.get_id(),
+                    value: &interface_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenses".into(),
-                    value: licenses_binding.get_id(),
+                    value: &licenses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalBlockSizeBytes".into(),
-                    value: physical_block_size_bytes_binding.get_id(),
+                    value: &physical_block_size_bytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaZones".into(),
-                    value: replica_zones_binding.get_id(),
+                    value: &replica_zones_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: size_binding.get_id(),
+                    value: &size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshot".into(),
-                    value: snapshot_binding.get_id(),
+                    value: &snapshot_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: source_disk_binding.get_id(),
+                    value: &source_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSnapshotEncryptionKey".into(),
-                    value: source_snapshot_encryption_key_binding.get_id(),
+                    value: &source_snapshot_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

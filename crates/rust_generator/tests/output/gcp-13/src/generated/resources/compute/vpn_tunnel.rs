@@ -340,71 +340,71 @@ pub mod vpn_tunnel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ikeVersion".into(),
-                    value: ike_version_binding.get_id(),
+                    value: &ike_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localTrafficSelectors".into(),
-                    value: local_traffic_selectors_binding.get_id(),
+                    value: &local_traffic_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerExternalGateway".into(),
-                    value: peer_external_gateway_binding.get_id(),
+                    value: &peer_external_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerExternalGatewayInterface".into(),
-                    value: peer_external_gateway_interface_binding.get_id(),
+                    value: &peer_external_gateway_interface_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerGcpGateway".into(),
-                    value: peer_gcp_gateway_binding.get_id(),
+                    value: &peer_gcp_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: peer_ip_binding.get_id(),
+                    value: &peer_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteTrafficSelectors".into(),
-                    value: remote_traffic_selectors_binding.get_id(),
+                    value: &remote_traffic_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: router_binding.get_id(),
+                    value: &router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedSecret".into(),
-                    value: shared_secret_binding.get_id(),
+                    value: &shared_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVpnGateway".into(),
-                    value: target_vpn_gateway_binding.get_id(),
+                    value: &target_vpn_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGateway".into(),
-                    value: vpn_gateway_binding.get_id(),
+                    value: &vpn_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayInterface".into(),
-                    value: vpn_gateway_interface_binding.get_id(),
+                    value: &vpn_gateway_interface_binding.drop_type(),
                 },
             ],
         };

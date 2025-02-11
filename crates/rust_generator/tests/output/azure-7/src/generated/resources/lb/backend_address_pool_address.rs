@@ -137,23 +137,23 @@ pub mod backend_address_pool_address {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressIpConfigurationId".into(),
-                    value: backend_address_ip_configuration_id_binding.get_id(),
+                    value: &backend_address_ip_configuration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: backend_address_pool_id_binding.get_id(),
+                    value: &backend_address_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
             ],
         };

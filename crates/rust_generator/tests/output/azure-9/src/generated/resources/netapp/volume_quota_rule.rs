@@ -204,27 +204,27 @@ pub mod volume_quota_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaSizeInKib".into(),
-                    value: quota_size_in_kib_binding.get_id(),
+                    value: &quota_size_in_kib_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaTarget".into(),
-                    value: quota_target_binding.get_id(),
+                    value: &quota_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaType".into(),
-                    value: quota_type_binding.get_id(),
+                    value: &quota_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: volume_id_binding.get_id(),
+                    value: &volume_id_binding.drop_type(),
                 },
             ],
         };

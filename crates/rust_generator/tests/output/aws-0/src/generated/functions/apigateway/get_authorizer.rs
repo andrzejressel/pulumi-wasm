@@ -54,11 +54,11 @@ pub mod get_authorizer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerId".into(),
-                    value: authorizer_id_binding.get_id(),
+                    value: &authorizer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: rest_api_id_binding.get_id(),
+                    value: &rest_api_id_binding.drop_type(),
                 },
             ],
         };

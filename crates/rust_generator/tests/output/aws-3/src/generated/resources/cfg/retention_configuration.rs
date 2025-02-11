@@ -60,7 +60,7 @@ pub mod retention_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriodInDays".into(),
-                    value: retention_period_in_days_binding.get_id(),
+                    value: &retention_period_in_days_binding.drop_type(),
                 },
             ],
         };

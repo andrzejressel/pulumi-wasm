@@ -72,19 +72,19 @@ pub mod get_istio_canonical_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canonicalService".into(),
-                    value: canonical_service_binding.get_id(),
+                    value: &canonical_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canonicalServiceNamespace".into(),
-                    value: canonical_service_namespace_binding.get_id(),
+                    value: &canonical_service_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshUid".into(),
-                    value: mesh_uid_binding.get_id(),
+                    value: &mesh_uid_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

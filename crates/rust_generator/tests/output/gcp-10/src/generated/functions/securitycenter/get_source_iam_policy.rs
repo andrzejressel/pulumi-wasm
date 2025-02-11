@@ -40,11 +40,11 @@ pub mod get_source_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
             ],
         };

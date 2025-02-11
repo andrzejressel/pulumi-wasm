@@ -171,31 +171,31 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternativeNameServerConfig".into(),
-                    value: alternative_name_server_config_binding.get_id(),
+                    value: &alternative_name_server_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableInboundForwarding".into(),
-                    value: enable_inbound_forwarding_binding.get_id(),
+                    value: &enable_inbound_forwarding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: enable_logging_binding.get_id(),
+                    value: &enable_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: networks_binding.get_id(),
+                    value: &networks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

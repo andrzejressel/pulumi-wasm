@@ -33,7 +33,7 @@ pub mod get_resource_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

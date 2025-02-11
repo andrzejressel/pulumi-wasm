@@ -49,7 +49,7 @@ pub mod get_organization_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
             ],
         };

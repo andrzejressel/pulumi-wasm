@@ -46,15 +46,15 @@ pub mod get_framework {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlSets".into(),
-                    value: control_sets_binding.get_id(),
+                    value: &control_sets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frameworkType".into(),
-                    value: framework_type_binding.get_id(),
+                    value: &framework_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

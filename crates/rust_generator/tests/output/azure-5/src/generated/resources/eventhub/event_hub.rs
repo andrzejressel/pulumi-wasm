@@ -128,35 +128,35 @@ pub mod event_hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captureDescription".into(),
-                    value: capture_description_binding.get_id(),
+                    value: &capture_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetention".into(),
-                    value: message_retention_binding.get_id(),
+                    value: &message_retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: namespace_id_binding.get_id(),
+                    value: &namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionCount".into(),
-                    value: partition_count_binding.get_id(),
+                    value: &partition_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
             ],
         };

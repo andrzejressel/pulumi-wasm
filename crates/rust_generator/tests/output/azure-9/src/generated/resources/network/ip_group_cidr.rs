@@ -86,11 +86,11 @@ pub mod ip_group_cidr {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: cidr_binding.get_id(),
+                    value: &cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipGroupId".into(),
-                    value: ip_group_id_binding.get_id(),
+                    value: &ip_group_id_binding.drop_type(),
                 },
             ],
         };

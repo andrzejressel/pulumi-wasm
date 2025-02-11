@@ -45,11 +45,11 @@ pub mod get_sink {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sinkIdentifier".into(),
-                    value: sink_identifier_binding.get_id(),
+                    value: &sink_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

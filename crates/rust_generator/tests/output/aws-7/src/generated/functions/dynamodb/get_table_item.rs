@@ -59,19 +59,19 @@ pub mod get_table_item {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressionAttributeNames".into(),
-                    value: expression_attribute_names_binding.get_id(),
+                    value: &expression_attribute_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectionExpression".into(),
-                    value: projection_expression_binding.get_id(),
+                    value: &projection_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

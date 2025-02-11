@@ -257,55 +257,55 @@ pub mod environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "application".into(),
-                    value: application_binding.get_id(),
+                    value: &application_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cnamePrefix".into(),
-                    value: cname_prefix_binding.get_id(),
+                    value: &cname_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformArn".into(),
-                    value: platform_arn_binding.get_id(),
+                    value: &platform_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pollInterval".into(),
-                    value: poll_interval_binding.get_id(),
+                    value: &poll_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionStackName".into(),
-                    value: solution_stack_name_binding.get_id(),
+                    value: &solution_stack_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateName".into(),
-                    value: template_name_binding.get_id(),
+                    value: &template_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForReadyTimeout".into(),
-                    value: wait_for_ready_timeout_binding.get_id(),
+                    value: &wait_for_ready_timeout_binding.drop_type(),
                 },
             ],
         };

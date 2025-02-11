@@ -84,15 +84,15 @@ pub mod iam_audit_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditLogConfigs".into(),
-                    value: audit_log_configs_binding.get_id(),
+                    value: &audit_log_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

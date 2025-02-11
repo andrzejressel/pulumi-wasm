@@ -131,27 +131,27 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchPoolId".into(),
-                    value: batch_pool_id_binding.get_id(),
+                    value: &batch_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonEnvironmentProperties".into(),
-                    value: common_environment_properties_binding.get_id(),
+                    value: &common_environment_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskRetryMaximum".into(),
-                    value: task_retry_maximum_binding.get_id(),
+                    value: &task_retry_maximum_binding.drop_type(),
                 },
             ],
         };

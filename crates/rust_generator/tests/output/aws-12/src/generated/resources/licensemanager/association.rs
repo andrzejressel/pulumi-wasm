@@ -87,11 +87,11 @@ pub mod association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseConfigurationArn".into(),
-                    value: license_configuration_arn_binding.get_id(),
+                    value: &license_configuration_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

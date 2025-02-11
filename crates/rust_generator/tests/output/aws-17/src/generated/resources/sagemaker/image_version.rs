@@ -73,11 +73,11 @@ pub mod image_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseImage".into(),
-                    value: base_image_binding.get_id(),
+                    value: &base_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: image_name_binding.get_id(),
+                    value: &image_name_binding.drop_type(),
                 },
             ],
         };

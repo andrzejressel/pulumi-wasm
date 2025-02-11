@@ -107,24 +107,24 @@ pub mod hyperv_network_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: recovery_vault_id_binding.get_id(),
+                    value: &recovery_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceNetworkName".into(),
-                    value: source_network_name_binding.get_id(),
+                    value: &source_network_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSystemCenterVirtualMachineManagerName".into(),
-                    value: source_system_center_virtual_machine_manager_name_binding
-                        .get_id(),
+                    value: &source_system_center_virtual_machine_manager_name_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkId".into(),
-                    value: target_network_id_binding.get_id(),
+                    value: &target_network_id_binding.drop_type(),
                 },
             ],
         };

@@ -114,39 +114,39 @@ pub mod radius_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProtocol".into(),
-                    value: authentication_protocol_binding.get_id(),
+                    value: &authentication_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayLabel".into(),
-                    value: display_label_binding.get_id(),
+                    value: &display_label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusPort".into(),
-                    value: radius_port_binding.get_id(),
+                    value: &radius_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusRetries".into(),
-                    value: radius_retries_binding.get_id(),
+                    value: &radius_retries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusServers".into(),
-                    value: radius_servers_binding.get_id(),
+                    value: &radius_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusTimeout".into(),
-                    value: radius_timeout_binding.get_id(),
+                    value: &radius_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedSecret".into(),
-                    value: shared_secret_binding.get_id(),
+                    value: &shared_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useSameUsername".into(),
-                    value: use_same_username_binding.get_id(),
+                    value: &use_same_username_binding.drop_type(),
                 },
             ],
         };

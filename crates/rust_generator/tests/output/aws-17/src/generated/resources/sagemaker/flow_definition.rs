@@ -239,31 +239,31 @@ pub mod flow_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowDefinitionName".into(),
-                    value: flow_definition_name_binding.get_id(),
+                    value: &flow_definition_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopActivationConfig".into(),
-                    value: human_loop_activation_config_binding.get_id(),
+                    value: &human_loop_activation_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopConfig".into(),
-                    value: human_loop_config_binding.get_id(),
+                    value: &human_loop_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopRequestSource".into(),
-                    value: human_loop_request_source_binding.get_id(),
+                    value: &human_loop_request_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputConfig".into(),
-                    value: output_config_binding.get_id(),
+                    value: &output_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -86,11 +86,11 @@ pub mod preferences {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberAccountDiscountVisibility".into(),
-                    value: member_account_discount_visibility_binding.get_id(),
+                    value: &member_account_discount_visibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "savingsEstimationMode".into(),
-                    value: savings_estimation_mode_binding.get_id(),
+                    value: &savings_estimation_mode_binding.drop_type(),
                 },
             ],
         };

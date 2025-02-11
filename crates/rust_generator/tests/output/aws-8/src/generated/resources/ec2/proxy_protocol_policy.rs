@@ -76,11 +76,11 @@ pub mod proxy_protocol_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePorts".into(),
-                    value: instance_ports_binding.get_id(),
+                    value: &instance_ports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: load_balancer_binding.get_id(),
+                    value: &load_balancer_binding.drop_type(),
                 },
             ],
         };

@@ -180,31 +180,31 @@ pub mod region_target_tcp_proxy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendService".into(),
-                    value: backend_service_binding.get_id(),
+                    value: &backend_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyBind".into(),
-                    value: proxy_bind_binding.get_id(),
+                    value: &proxy_bind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyHeader".into(),
-                    value: proxy_header_binding.get_id(),
+                    value: &proxy_header_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
             ],
         };

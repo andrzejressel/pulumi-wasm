@@ -66,23 +66,23 @@ pub mod get_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshName".into(),
-                    value: mesh_name_binding.get_id(),
+                    value: &mesh_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshOwner".into(),
-                    value: mesh_owner_binding.get_id(),
+                    value: &mesh_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualRouterName".into(),
-                    value: virtual_router_name_binding.get_id(),
+                    value: &virtual_router_name_binding.drop_type(),
                 },
             ],
         };

@@ -66,23 +66,23 @@ pub mod gcm_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: api_key_binding.get_id(),
+                    value: &api_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAuthenticationMethod".into(),
-                    value: default_authentication_method_binding.get_id(),
+                    value: &default_authentication_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceJson".into(),
-                    value: service_json_binding.get_id(),
+                    value: &service_json_binding.drop_type(),
                 },
             ],
         };

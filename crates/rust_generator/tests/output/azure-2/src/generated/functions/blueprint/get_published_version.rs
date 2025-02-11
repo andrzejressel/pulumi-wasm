@@ -51,15 +51,15 @@ pub mod get_published_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueprintName".into(),
-                    value: blueprint_name_binding.get_id(),
+                    value: &blueprint_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: scope_id_binding.get_id(),
+                    value: &scope_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

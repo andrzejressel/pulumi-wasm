@@ -265,51 +265,51 @@ pub mod volume_replication {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDestinationVolume".into(),
-                    value: delete_destination_volume_binding.get_id(),
+                    value: &delete_destination_volume_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationVolumeParameters".into(),
-                    value: destination_volume_parameters_binding.get_id(),
+                    value: &destination_volume_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceStopping".into(),
-                    value: force_stopping_binding.get_id(),
+                    value: &force_stopping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationEnabled".into(),
-                    value: replication_enabled_binding.get_id(),
+                    value: &replication_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSchedule".into(),
-                    value: replication_schedule_binding.get_id(),
+                    value: &replication_schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeName".into(),
-                    value: volume_name_binding.get_id(),
+                    value: &volume_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForMirror".into(),
-                    value: wait_for_mirror_binding.get_id(),
+                    value: &wait_for_mirror_binding.drop_type(),
                 },
             ],
         };

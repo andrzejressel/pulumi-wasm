@@ -67,7 +67,7 @@ pub mod vpc_ipam_organization_admin_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedAdminAccountId".into(),
-                    value: delegated_admin_account_id_binding.get_id(),
+                    value: &delegated_admin_account_id_binding.drop_type(),
                 },
             ],
         };

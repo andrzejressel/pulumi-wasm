@@ -78,19 +78,19 @@ pub mod observatory_scheduled_test {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: frequency_binding.get_id(),
+                    value: &frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: url_binding.get_id(),
+                    value: &url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

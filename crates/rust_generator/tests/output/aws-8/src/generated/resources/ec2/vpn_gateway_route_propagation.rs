@@ -61,11 +61,11 @@ pub mod vpn_gateway_route_propagation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: route_table_id_binding.get_id(),
+                    value: &route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
             ],
         };

@@ -180,39 +180,39 @@ pub mod datastore_blobstorage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountKey".into(),
-                    value: account_key_binding.get_id(),
+                    value: &account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefault".into(),
-                    value: is_default_binding.get_id(),
+                    value: &is_default_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDataAuthIdentity".into(),
-                    value: service_data_auth_identity_binding.get_id(),
+                    value: &service_data_auth_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessSignature".into(),
-                    value: shared_access_signature_binding.get_id(),
+                    value: &shared_access_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerId".into(),
-                    value: storage_container_id_binding.get_id(),
+                    value: &storage_container_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

@@ -146,47 +146,47 @@ pub mod subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowTracing".into(),
-                    value: allow_tracing_binding.get_id(),
+                    value: &allow_tracing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryKey".into(),
-                    value: primary_key_binding.get_id(),
+                    value: &primary_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: product_id_binding.get_id(),
+                    value: &product_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryKey".into(),
-                    value: secondary_key_binding.get_id(),
+                    value: &secondary_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: subscription_id_binding.get_id(),
+                    value: &subscription_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: user_id_binding.get_id(),
+                    value: &user_id_binding.drop_type(),
                 },
             ],
         };

@@ -87,23 +87,23 @@ pub mod traffic_policy_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: hosted_zone_id_binding.get_id(),
+                    value: &hosted_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPolicyId".into(),
-                    value: traffic_policy_id_binding.get_id(),
+                    value: &traffic_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPolicyVersion".into(),
-                    value: traffic_policy_version_binding.get_id(),
+                    value: &traffic_policy_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
             ],
         };

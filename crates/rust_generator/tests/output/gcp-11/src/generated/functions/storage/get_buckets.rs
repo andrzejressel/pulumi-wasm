@@ -40,11 +40,11 @@ pub mod get_buckets {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

@@ -79,11 +79,11 @@ pub mod instance_access_control_attributes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
             ],
         };

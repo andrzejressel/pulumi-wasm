@@ -204,51 +204,51 @@ pub mod document_classifier {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataAccessRoleArn".into(),
-                    value: data_access_role_arn_binding.get_id(),
+                    value: &data_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputDataConfig".into(),
-                    value: input_data_config_binding.get_id(),
+                    value: &input_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelKmsKeyId".into(),
-                    value: model_kms_key_id_binding.get_id(),
+                    value: &model_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputDataConfig".into(),
-                    value: output_data_config_binding.get_id(),
+                    value: &output_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionName".into(),
-                    value: version_name_binding.get_id(),
+                    value: &version_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionNamePrefix".into(),
-                    value: version_name_prefix_binding.get_id(),
+                    value: &version_name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeKmsKeyId".into(),
-                    value: volume_kms_key_id_binding.get_id(),
+                    value: &volume_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: vpc_config_binding.get_id(),
+                    value: &vpc_config_binding.drop_type(),
                 },
             ],
         };

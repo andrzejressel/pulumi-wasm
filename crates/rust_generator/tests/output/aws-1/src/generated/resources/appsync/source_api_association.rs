@@ -113,31 +113,31 @@ pub mod source_api_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiArn".into(),
-                    value: merged_api_arn_binding.get_id(),
+                    value: &merged_api_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiId".into(),
-                    value: merged_api_id_binding.get_id(),
+                    value: &merged_api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiArn".into(),
-                    value: source_api_arn_binding.get_id(),
+                    value: &source_api_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiAssociationConfigs".into(),
-                    value: source_api_association_configs_binding.get_id(),
+                    value: &source_api_association_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiId".into(),
-                    value: source_api_id_binding.get_id(),
+                    value: &source_api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

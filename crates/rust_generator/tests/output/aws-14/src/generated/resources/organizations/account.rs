@@ -135,35 +135,35 @@ pub mod account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "closeOnDeletion".into(),
-                    value: close_on_deletion_binding.get_id(),
+                    value: &close_on_deletion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createGovcloud".into(),
-                    value: create_govcloud_binding.get_id(),
+                    value: &create_govcloud_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamUserAccessToBilling".into(),
-                    value: iam_user_access_to_billing_binding.get_id(),
+                    value: &iam_user_access_to_billing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: parent_id_binding.get_id(),
+                    value: &parent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: role_name_binding.get_id(),
+                    value: &role_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

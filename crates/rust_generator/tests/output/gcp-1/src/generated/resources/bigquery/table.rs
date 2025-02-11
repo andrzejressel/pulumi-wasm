@@ -406,91 +406,91 @@ pub mod table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "biglakeConfiguration".into(),
-                    value: biglake_configuration_binding.get_id(),
+                    value: &biglake_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterings".into(),
-                    value: clusterings_binding.get_id(),
+                    value: &clusterings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: dataset_id_binding.get_id(),
+                    value: &dataset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: encryption_configuration_binding.get_id(),
+                    value: &encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTime".into(),
-                    value: expiration_time_binding.get_id(),
+                    value: &expiration_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDataConfiguration".into(),
-                    value: external_data_configuration_binding.get_id(),
+                    value: &external_data_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: friendly_name_binding.get_id(),
+                    value: &friendly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "materializedView".into(),
-                    value: materialized_view_binding.get_id(),
+                    value: &materialized_view_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxStaleness".into(),
-                    value: max_staleness_binding.get_id(),
+                    value: &max_staleness_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangePartitioning".into(),
-                    value: range_partitioning_binding.get_id(),
+                    value: &range_partitioning_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirePartitionFilter".into(),
-                    value: require_partition_filter_binding.get_id(),
+                    value: &require_partition_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: resource_tags_binding.get_id(),
+                    value: &resource_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: schema_binding.get_id(),
+                    value: &schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableConstraints".into(),
-                    value: table_constraints_binding.get_id(),
+                    value: &table_constraints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableId".into(),
-                    value: table_id_binding.get_id(),
+                    value: &table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableReplicationInfo".into(),
-                    value: table_replication_info_binding.get_id(),
+                    value: &table_replication_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePartitioning".into(),
-                    value: time_partitioning_binding.get_id(),
+                    value: &time_partitioning_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "view".into(),
-                    value: view_binding.get_id(),
+                    value: &view_binding.drop_type(),
                 },
             ],
         };

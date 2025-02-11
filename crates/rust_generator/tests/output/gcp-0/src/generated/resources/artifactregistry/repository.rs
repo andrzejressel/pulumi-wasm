@@ -813,59 +813,59 @@ pub mod repository {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupPolicies".into(),
-                    value: cleanup_policies_binding.get_id(),
+                    value: &cleanup_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupPolicyDryRun".into(),
-                    value: cleanup_policy_dry_run_binding.get_id(),
+                    value: &cleanup_policy_dry_run_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerConfig".into(),
-                    value: docker_config_binding.get_id(),
+                    value: &docker_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: format_binding.get_id(),
+                    value: &format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mavenConfig".into(),
-                    value: maven_config_binding.get_id(),
+                    value: &maven_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteRepositoryConfig".into(),
-                    value: remote_repository_config_binding.get_id(),
+                    value: &remote_repository_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryId".into(),
-                    value: repository_id_binding.get_id(),
+                    value: &repository_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualRepositoryConfig".into(),
-                    value: virtual_repository_config_binding.get_id(),
+                    value: &virtual_repository_config_binding.drop_type(),
                 },
             ],
         };

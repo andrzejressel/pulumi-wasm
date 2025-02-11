@@ -48,15 +48,15 @@ pub mod get_prefix_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: prefix_list_id_binding.get_id(),
+                    value: &prefix_list_id_binding.drop_type(),
                 },
             ],
         };

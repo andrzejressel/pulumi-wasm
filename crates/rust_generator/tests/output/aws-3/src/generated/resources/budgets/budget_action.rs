@@ -200,43 +200,43 @@ pub mod budget_action {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionThreshold".into(),
-                    value: action_threshold_binding.get_id(),
+                    value: &action_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionType".into(),
-                    value: action_type_binding.get_id(),
+                    value: &action_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalModel".into(),
-                    value: approval_model_binding.get_id(),
+                    value: &approval_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetName".into(),
-                    value: budget_name_binding.get_id(),
+                    value: &budget_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: definition_binding.get_id(),
+                    value: &definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: execution_role_arn_binding.get_id(),
+                    value: &execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationType".into(),
-                    value: notification_type_binding.get_id(),
+                    value: &notification_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscribers".into(),
-                    value: subscribers_binding.get_id(),
+                    value: &subscribers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

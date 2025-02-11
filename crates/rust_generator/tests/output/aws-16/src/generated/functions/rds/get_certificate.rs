@@ -48,11 +48,11 @@ pub mod get_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latestValidTill".into(),
-                    value: latest_valid_till_binding.get_id(),
+                    value: &latest_valid_till_binding.drop_type(),
                 },
             ],
         };

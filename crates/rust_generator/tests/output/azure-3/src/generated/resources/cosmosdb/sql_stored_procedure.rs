@@ -113,27 +113,27 @@ pub mod sql_stored_procedure {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: account_name_binding.get_id(),
+                    value: &account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: body_binding.get_id(),
+                    value: &body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

@@ -214,23 +214,23 @@ pub mod dicom_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: notification_config_binding.get_id(),
+                    value: &notification_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamConfigs".into(),
-                    value: stream_configs_binding.get_id(),
+                    value: &stream_configs_binding.drop_type(),
                 },
             ],
         };

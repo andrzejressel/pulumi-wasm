@@ -84,15 +84,15 @@ pub mod custom_ssl {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSslOptions".into(),
-                    value: custom_ssl_options_binding.get_id(),
+                    value: &custom_ssl_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSslPriorities".into(),
-                    value: custom_ssl_priorities_binding.get_id(),
+                    value: &custom_ssl_priorities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

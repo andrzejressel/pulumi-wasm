@@ -106,15 +106,15 @@ pub mod organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsServiceAccessPrincipals".into(),
-                    value: aws_service_access_principals_binding.get_id(),
+                    value: &aws_service_access_principals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledPolicyTypes".into(),
-                    value: enabled_policy_types_binding.get_id(),
+                    value: &enabled_policy_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureSet".into(),
-                    value: feature_set_binding.get_id(),
+                    value: &feature_set_binding.drop_type(),
                 },
             ],
         };

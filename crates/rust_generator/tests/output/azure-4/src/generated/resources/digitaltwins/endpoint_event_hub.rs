@@ -147,23 +147,23 @@ pub mod endpoint_event_hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterStorageSecret".into(),
-                    value: dead_letter_storage_secret_binding.get_id(),
+                    value: &dead_letter_storage_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: digital_twins_id_binding.get_id(),
+                    value: &digital_twins_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubPrimaryConnectionString".into(),
-                    value: eventhub_primary_connection_string_binding.get_id(),
+                    value: &eventhub_primary_connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubSecondaryConnectionString".into(),
-                    value: eventhub_secondary_connection_string_binding.get_id(),
+                    value: &eventhub_secondary_connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

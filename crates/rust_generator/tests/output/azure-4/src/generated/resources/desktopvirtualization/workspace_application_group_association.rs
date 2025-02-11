@@ -101,11 +101,11 @@ pub mod workspace_application_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationGroupId".into(),
-                    value: application_group_id_binding.get_id(),
+                    value: &application_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

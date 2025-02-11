@@ -41,15 +41,15 @@ pub mod get_mca_account_scope {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountName".into(),
-                    value: billing_account_name_binding.get_id(),
+                    value: &billing_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingProfileName".into(),
-                    value: billing_profile_name_binding.get_id(),
+                    value: &billing_profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invoiceSectionName".into(),
-                    value: invoice_section_name_binding.get_id(),
+                    value: &invoice_section_name_binding.drop_type(),
                 },
             ],
         };

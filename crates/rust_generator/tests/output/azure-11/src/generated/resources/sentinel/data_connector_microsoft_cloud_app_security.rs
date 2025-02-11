@@ -122,23 +122,23 @@ pub mod data_connector_microsoft_cloud_app_security {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertsEnabled".into(),
-                    value: alerts_enabled_binding.get_id(),
+                    value: &alerts_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "discoveryLogsEnabled".into(),
-                    value: discovery_logs_enabled_binding.get_id(),
+                    value: &discovery_logs_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };
