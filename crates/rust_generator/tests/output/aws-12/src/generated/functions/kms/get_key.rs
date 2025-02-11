@@ -84,11 +84,11 @@ pub mod get_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantTokens".into(),
-                    value: grant_tokens_binding.get_id(),
+                    value: &grant_tokens_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
             ],
         };

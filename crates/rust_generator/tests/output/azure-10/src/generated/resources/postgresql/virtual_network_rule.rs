@@ -147,23 +147,23 @@ pub mod virtual_network_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreMissingVnetServiceEndpoint".into(),
-                    value: ignore_missing_vnet_service_endpoint_binding.get_id(),
+                    value: &ignore_missing_vnet_service_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: server_name_binding.get_id(),
+                    value: &server_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

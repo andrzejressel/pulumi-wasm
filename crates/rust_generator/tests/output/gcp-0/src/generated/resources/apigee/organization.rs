@@ -401,59 +401,59 @@ pub mod organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticsRegion".into(),
-                    value: analytics_region_binding.get_id(),
+                    value: &analytics_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConsumerDataEncryptionKeyName".into(),
-                    value: api_consumer_data_encryption_key_name_binding.get_id(),
+                    value: &api_consumer_data_encryption_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConsumerDataLocation".into(),
-                    value: api_consumer_data_location_binding.get_id(),
+                    value: &api_consumer_data_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: authorized_network_binding.get_id(),
+                    value: &authorized_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingType".into(),
-                    value: billing_type_binding.get_id(),
+                    value: &billing_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneEncryptionKeyName".into(),
-                    value: control_plane_encryption_key_name_binding.get_id(),
+                    value: &control_plane_encryption_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableVpcPeering".into(),
-                    value: disable_vpc_peering_binding.get_id(),
+                    value: &disable_vpc_peering_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: project_id_binding.get_id(),
+                    value: &project_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: retention_binding.get_id(),
+                    value: &retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeDatabaseEncryptionKeyName".into(),
-                    value: runtime_database_encryption_key_name_binding.get_id(),
+                    value: &runtime_database_encryption_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeType".into(),
-                    value: runtime_type_binding.get_id(),
+                    value: &runtime_type_binding.drop_type(),
                 },
             ],
         };

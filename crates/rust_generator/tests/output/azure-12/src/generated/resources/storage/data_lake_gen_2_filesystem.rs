@@ -124,31 +124,31 @@ pub mod data_lake_gen_2_filesystem {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aces".into(),
-                    value: aces_binding.get_id(),
+                    value: &aces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionScope".into(),
-                    value: default_encryption_scope_binding.get_id(),
+                    value: &default_encryption_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: owner_binding.get_id(),
+                    value: &owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

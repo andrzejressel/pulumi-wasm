@@ -46,11 +46,11 @@ pub mod get_recommendations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterByCategories".into(),
-                    value: filter_by_categories_binding.get_id(),
+                    value: &filter_by_categories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterByResourceGroups".into(),
-                    value: filter_by_resource_groups_binding.get_id(),
+                    value: &filter_by_resource_groups_binding.drop_type(),
                 },
             ],
         };

@@ -303,43 +303,43 @@ pub mod snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chainName".into(),
-                    value: chain_name_binding.get_id(),
+                    value: &chain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotEncryptionKey".into(),
-                    value: snapshot_encryption_key_binding.get_id(),
+                    value: &snapshot_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: source_disk_binding.get_id(),
+                    value: &source_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDiskEncryptionKey".into(),
-                    value: source_disk_encryption_key_binding.get_id(),
+                    value: &source_disk_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocations".into(),
-                    value: storage_locations_binding.get_id(),
+                    value: &storage_locations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

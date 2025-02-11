@@ -141,39 +141,39 @@ pub mod resource_policy_exemption {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exemptionCategory".into(),
-                    value: exemption_category_binding.get_id(),
+                    value: &exemption_category_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresOn".into(),
-                    value: expires_on_binding.get_id(),
+                    value: &expires_on_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAssignmentId".into(),
-                    value: policy_assignment_id_binding.get_id(),
+                    value: &policy_assignment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionReferenceIds".into(),
-                    value: policy_definition_reference_ids_binding.get_id(),
+                    value: &policy_definition_reference_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

@@ -34,7 +34,7 @@ pub mod get_secret {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: secrets_binding.get_id(),
+                    value: &secrets_binding.drop_type(),
                 },
             ],
         };

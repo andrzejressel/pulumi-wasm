@@ -173,43 +173,43 @@ pub mod fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseCapacity".into(),
-                    value: base_capacity_binding.get_id(),
+                    value: &base_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeType".into(),
-                    value: compute_type_binding.get_id(),
+                    value: &compute_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentType".into(),
-                    value: environment_type_binding.get_id(),
+                    value: &environment_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetServiceRole".into(),
-                    value: fleet_service_role_binding.get_id(),
+                    value: &fleet_service_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: image_id_binding.get_id(),
+                    value: &image_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overflowBehavior".into(),
-                    value: overflow_behavior_binding.get_id(),
+                    value: &overflow_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfiguration".into(),
-                    value: scaling_configuration_binding.get_id(),
+                    value: &scaling_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfigs".into(),
-                    value: vpc_configs_binding.get_id(),
+                    value: &vpc_configs_binding.drop_type(),
                 },
             ],
         };

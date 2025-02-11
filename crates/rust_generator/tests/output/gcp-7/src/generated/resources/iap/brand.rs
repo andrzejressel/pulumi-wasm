@@ -128,15 +128,15 @@ pub mod brand {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationTitle".into(),
-                    value: application_title_binding.get_id(),
+                    value: &application_title_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportEmail".into(),
-                    value: support_email_binding.get_id(),
+                    value: &support_email_binding.drop_type(),
                 },
             ],
         };

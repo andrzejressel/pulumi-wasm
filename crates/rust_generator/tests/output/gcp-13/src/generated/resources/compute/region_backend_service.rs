@@ -959,115 +959,115 @@ pub mod region_backend_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "affinityCookieTtlSec".into(),
-                    value: affinity_cookie_ttl_sec_binding.get_id(),
+                    value: &affinity_cookie_ttl_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backends".into(),
-                    value: backends_binding.get_id(),
+                    value: &backends_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnPolicy".into(),
-                    value: cdn_policy_binding.get_id(),
+                    value: &cdn_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "circuitBreakers".into(),
-                    value: circuit_breakers_binding.get_id(),
+                    value: &circuit_breakers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDrainingTimeoutSec".into(),
-                    value: connection_draining_timeout_sec_binding.get_id(),
+                    value: &connection_draining_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionTrackingPolicy".into(),
-                    value: connection_tracking_policy_binding.get_id(),
+                    value: &connection_tracking_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consistentHash".into(),
-                    value: consistent_hash_binding.get_id(),
+                    value: &consistent_hash_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCdn".into(),
-                    value: enable_cdn_binding.get_id(),
+                    value: &enable_cdn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverPolicy".into(),
-                    value: failover_policy_binding.get_id(),
+                    value: &failover_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthChecks".into(),
-                    value: health_checks_binding.get_id(),
+                    value: &health_checks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iap".into(),
-                    value: iap_binding.get_id(),
+                    value: &iap_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressSelectionPolicy".into(),
-                    value: ip_address_selection_policy_binding.get_id(),
+                    value: &ip_address_selection_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingScheme".into(),
-                    value: load_balancing_scheme_binding.get_id(),
+                    value: &load_balancing_scheme_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localityLbPolicy".into(),
-                    value: locality_lb_policy_binding.get_id(),
+                    value: &locality_lb_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: log_config_binding.get_id(),
+                    value: &log_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outlierDetection".into(),
-                    value: outlier_detection_binding.get_id(),
+                    value: &outlier_detection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portName".into(),
-                    value: port_name_binding.get_id(),
+                    value: &port_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: security_policy_binding.get_id(),
+                    value: &security_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinity".into(),
-                    value: session_affinity_binding.get_id(),
+                    value: &session_affinity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "strongSessionAffinityCookie".into(),
-                    value: strong_session_affinity_cookie_binding.get_id(),
+                    value: &strong_session_affinity_cookie_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subsetting".into(),
-                    value: subsetting_binding.get_id(),
+                    value: &subsetting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutSec".into(),
-                    value: timeout_sec_binding.get_id(),
+                    value: &timeout_sec_binding.drop_type(),
                 },
             ],
         };

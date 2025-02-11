@@ -83,15 +83,15 @@ pub mod local_gateway_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: destination_cidr_block_binding.get_id(),
+                    value: &destination_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayRouteTableId".into(),
-                    value: local_gateway_route_table_id_binding.get_id(),
+                    value: &local_gateway_route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayVirtualInterfaceGroupId".into(),
-                    value: local_gateway_virtual_interface_group_id_binding.get_id(),
+                    value: &local_gateway_virtual_interface_group_id_binding.drop_type(),
                 },
             ],
         };

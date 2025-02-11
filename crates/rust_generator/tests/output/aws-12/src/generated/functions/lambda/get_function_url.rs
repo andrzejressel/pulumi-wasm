@@ -54,11 +54,11 @@ pub mod get_function_url {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
             ],
         };

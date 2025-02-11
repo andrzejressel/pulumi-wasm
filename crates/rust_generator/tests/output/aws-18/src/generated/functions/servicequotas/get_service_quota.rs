@@ -57,15 +57,15 @@ pub mod get_service_quota {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaCode".into(),
-                    value: quota_code_binding.get_id(),
+                    value: &quota_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaName".into(),
-                    value: quota_name_binding.get_id(),
+                    value: &quota_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceCode".into(),
-                    value: service_code_binding.get_id(),
+                    value: &service_code_binding.drop_type(),
                 },
             ],
         };

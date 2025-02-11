@@ -214,35 +214,35 @@ pub mod next_generation_firewall_virtual_network_panorama {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationNats".into(),
-                    value: destination_nats_binding.get_id(),
+                    value: &destination_nats_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSettings".into(),
-                    value: dns_settings_binding.get_id(),
+                    value: &dns_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: network_profile_binding.get_id(),
+                    value: &network_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "panoramaBase64Config".into(),
-                    value: panorama_base64_config_binding.get_id(),
+                    value: &panorama_base64_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

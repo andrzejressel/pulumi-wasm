@@ -46,11 +46,11 @@ pub mod get_instance_type_offerings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationType".into(),
-                    value: location_type_binding.get_id(),
+                    value: &location_type_binding.drop_type(),
                 },
             ],
         };

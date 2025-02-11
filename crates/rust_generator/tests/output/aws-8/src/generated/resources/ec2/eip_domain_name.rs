@@ -79,15 +79,15 @@ pub mod eip_domain_name {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationId".into(),
-                    value: allocation_id_binding.get_id(),
+                    value: &allocation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

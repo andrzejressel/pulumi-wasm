@@ -184,43 +184,43 @@ pub mod contact_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoTracking".into(),
-                    value: auto_tracking_binding.get_id(),
+                    value: &auto_tracking_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHubUri".into(),
-                    value: event_hub_uri_binding.get_id(),
+                    value: &event_hub_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "links".into(),
-                    value: links_binding.get_id(),
+                    value: &links_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumElevationDegrees".into(),
-                    value: minimum_elevation_degrees_binding.get_id(),
+                    value: &minimum_elevation_degrees_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumVariableContactDuration".into(),
-                    value: minimum_variable_contact_duration_binding.get_id(),
+                    value: &minimum_variable_contact_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfigurationSubnetId".into(),
-                    value: network_configuration_subnet_id_binding.get_id(),
+                    value: &network_configuration_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

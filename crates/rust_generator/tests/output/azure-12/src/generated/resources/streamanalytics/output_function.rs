@@ -160,35 +160,35 @@ pub mod output_function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: api_key_binding.get_id(),
+                    value: &api_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchMaxCount".into(),
-                    value: batch_max_count_binding.get_id(),
+                    value: &batch_max_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchMaxInBytes".into(),
-                    value: batch_max_in_bytes_binding.get_id(),
+                    value: &batch_max_in_bytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionApp".into(),
-                    value: function_app_binding.get_id(),
+                    value: &function_app_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: stream_analytics_job_name_binding.get_id(),
+                    value: &stream_analytics_job_name_binding.drop_type(),
                 },
             ],
         };

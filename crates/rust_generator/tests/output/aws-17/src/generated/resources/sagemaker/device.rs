@@ -73,11 +73,11 @@ pub mod device {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "device".into(),
-                    value: device_binding.get_id(),
+                    value: &device_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceFleetName".into(),
-                    value: device_fleet_name_binding.get_id(),
+                    value: &device_fleet_name_binding.drop_type(),
                 },
             ],
         };

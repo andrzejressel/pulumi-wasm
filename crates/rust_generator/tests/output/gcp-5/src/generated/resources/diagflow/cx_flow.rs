@@ -464,43 +464,43 @@ pub mod cx_flow {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedSettings".into(),
-                    value: advanced_settings_binding.get_id(),
+                    value: &advanced_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHandlers".into(),
-                    value: event_handlers_binding.get_id(),
+                    value: &event_handlers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefaultStartFlow".into(),
-                    value: is_default_start_flow_binding.get_id(),
+                    value: &is_default_start_flow_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nluSettings".into(),
-                    value: nlu_settings_binding.get_id(),
+                    value: &nlu_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRouteGroups".into(),
-                    value: transition_route_groups_binding.get_id(),
+                    value: &transition_route_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRoutes".into(),
-                    value: transition_routes_binding.get_id(),
+                    value: &transition_routes_binding.drop_type(),
                 },
             ],
         };

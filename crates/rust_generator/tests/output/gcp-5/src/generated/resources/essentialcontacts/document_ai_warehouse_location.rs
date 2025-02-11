@@ -123,27 +123,27 @@ pub mod document_ai_warehouse_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessControlMode".into(),
-                    value: access_control_mode_binding.get_id(),
+                    value: &access_control_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseType".into(),
-                    value: database_type_binding.get_id(),
+                    value: &database_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentCreatorDefaultRole".into(),
-                    value: document_creator_default_role_binding.get_id(),
+                    value: &document_creator_default_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: kms_key_binding.get_id(),
+                    value: &kms_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectNumber".into(),
-                    value: project_number_binding.get_id(),
+                    value: &project_number_binding.drop_type(),
                 },
             ],
         };

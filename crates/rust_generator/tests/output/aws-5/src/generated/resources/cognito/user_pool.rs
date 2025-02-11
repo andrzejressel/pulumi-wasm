@@ -360,99 +360,99 @@ pub mod user_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountRecoverySetting".into(),
-                    value: account_recovery_setting_binding.get_id(),
+                    value: &account_recovery_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminCreateUserConfig".into(),
-                    value: admin_create_user_config_binding.get_id(),
+                    value: &admin_create_user_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasAttributes".into(),
-                    value: alias_attributes_binding.get_id(),
+                    value: &alias_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoVerifiedAttributes".into(),
-                    value: auto_verified_attributes_binding.get_id(),
+                    value: &auto_verified_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceConfiguration".into(),
-                    value: device_configuration_binding.get_id(),
+                    value: &device_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailConfiguration".into(),
-                    value: email_configuration_binding.get_id(),
+                    value: &email_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailVerificationMessage".into(),
-                    value: email_verification_message_binding.get_id(),
+                    value: &email_verification_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailVerificationSubject".into(),
-                    value: email_verification_subject_binding.get_id(),
+                    value: &email_verification_subject_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaConfig".into(),
-                    value: lambda_config_binding.get_id(),
+                    value: &lambda_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mfaConfiguration".into(),
-                    value: mfa_configuration_binding.get_id(),
+                    value: &mfa_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordPolicy".into(),
-                    value: password_policy_binding.get_id(),
+                    value: &password_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemas".into(),
-                    value: schemas_binding.get_id(),
+                    value: &schemas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsAuthenticationMessage".into(),
-                    value: sms_authentication_message_binding.get_id(),
+                    value: &sms_authentication_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsConfiguration".into(),
-                    value: sms_configuration_binding.get_id(),
+                    value: &sms_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsVerificationMessage".into(),
-                    value: sms_verification_message_binding.get_id(),
+                    value: &sms_verification_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareTokenMfaConfiguration".into(),
-                    value: software_token_mfa_configuration_binding.get_id(),
+                    value: &software_token_mfa_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAttributeUpdateSettings".into(),
-                    value: user_attribute_update_settings_binding.get_id(),
+                    value: &user_attribute_update_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolAddOns".into(),
-                    value: user_pool_add_ons_binding.get_id(),
+                    value: &user_pool_add_ons_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usernameAttributes".into(),
-                    value: username_attributes_binding.get_id(),
+                    value: &username_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usernameConfiguration".into(),
-                    value: username_configuration_binding.get_id(),
+                    value: &username_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMessageTemplate".into(),
-                    value: verification_message_template_binding.get_id(),
+                    value: &verification_message_template_binding.drop_type(),
                 },
             ],
         };

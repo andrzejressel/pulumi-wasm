@@ -120,43 +120,43 @@ pub mod get_principal_policy_simulation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionNames".into(),
-                    value: action_names_binding.get_id(),
+                    value: &action_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalPoliciesJsons".into(),
-                    value: additional_policies_jsons_binding.get_id(),
+                    value: &additional_policies_jsons_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callerArn".into(),
-                    value: caller_arn_binding.get_id(),
+                    value: &caller_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contexts".into(),
-                    value: contexts_binding.get_id(),
+                    value: &contexts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionsBoundaryPoliciesJsons".into(),
-                    value: permissions_boundary_policies_jsons_binding.get_id(),
+                    value: &permissions_boundary_policies_jsons_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policySourceArn".into(),
-                    value: policy_source_arn_binding.get_id(),
+                    value: &policy_source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArns".into(),
-                    value: resource_arns_binding.get_id(),
+                    value: &resource_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceHandlingOption".into(),
-                    value: resource_handling_option_binding.get_id(),
+                    value: &resource_handling_option_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerAccountId".into(),
-                    value: resource_owner_account_id_binding.get_id(),
+                    value: &resource_owner_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicyJson".into(),
-                    value: resource_policy_json_binding.get_id(),
+                    value: &resource_policy_json_binding.drop_type(),
                 },
             ],
         };

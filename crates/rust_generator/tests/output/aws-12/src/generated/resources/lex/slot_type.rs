@@ -122,23 +122,23 @@ pub mod slot_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: create_version_binding.get_id(),
+                    value: &create_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enumerationValues".into(),
-                    value: enumeration_values_binding.get_id(),
+                    value: &enumeration_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueSelectionStrategy".into(),
-                    value: value_selection_strategy_binding.get_id(),
+                    value: &value_selection_strategy_binding.drop_type(),
                 },
             ],
         };

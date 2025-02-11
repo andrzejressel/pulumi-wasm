@@ -138,55 +138,55 @@ pub mod primary_contact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine1".into(),
-                    value: address_line1_binding.get_id(),
+                    value: &address_line1_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine2".into(),
-                    value: address_line2_binding.get_id(),
+                    value: &address_line2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine3".into(),
-                    value: address_line3_binding.get_id(),
+                    value: &address_line3_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "city".into(),
-                    value: city_binding.get_id(),
+                    value: &city_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "companyName".into(),
-                    value: company_name_binding.get_id(),
+                    value: &company_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryCode".into(),
-                    value: country_code_binding.get_id(),
+                    value: &country_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "districtOrCounty".into(),
-                    value: district_or_county_binding.get_id(),
+                    value: &district_or_county_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullName".into(),
-                    value: full_name_binding.get_id(),
+                    value: &full_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: phone_number_binding.get_id(),
+                    value: &phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postalCode".into(),
-                    value: postal_code_binding.get_id(),
+                    value: &postal_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stateOrRegion".into(),
-                    value: state_or_region_binding.get_id(),
+                    value: &state_or_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "websiteUrl".into(),
-                    value: website_url_binding.get_id(),
+                    value: &website_url_binding.drop_type(),
                 },
             ],
         };

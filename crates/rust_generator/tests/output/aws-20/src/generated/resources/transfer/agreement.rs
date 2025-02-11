@@ -112,31 +112,31 @@ pub mod agreement {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRole".into(),
-                    value: access_role_binding.get_id(),
+                    value: &access_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseDirectory".into(),
-                    value: base_directory_binding.get_id(),
+                    value: &base_directory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localProfileId".into(),
-                    value: local_profile_id_binding.get_id(),
+                    value: &local_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerProfileId".into(),
-                    value: partner_profile_id_binding.get_id(),
+                    value: &partner_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

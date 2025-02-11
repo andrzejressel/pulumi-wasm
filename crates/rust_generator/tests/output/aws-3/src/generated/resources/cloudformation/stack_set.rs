@@ -229,59 +229,59 @@ pub mod stack_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administrationRoleArn".into(),
-                    value: administration_role_arn_binding.get_id(),
+                    value: &administration_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeployment".into(),
-                    value: auto_deployment_binding.get_id(),
+                    value: &auto_deployment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callAs".into(),
-                    value: call_as_binding.get_id(),
+                    value: &call_as_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: capabilities_binding.get_id(),
+                    value: &capabilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleName".into(),
-                    value: execution_role_name_binding.get_id(),
+                    value: &execution_role_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedExecution".into(),
-                    value: managed_execution_binding.get_id(),
+                    value: &managed_execution_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationPreferences".into(),
-                    value: operation_preferences_binding.get_id(),
+                    value: &operation_preferences_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionModel".into(),
-                    value: permission_model_binding.get_id(),
+                    value: &permission_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: template_body_binding.get_id(),
+                    value: &template_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: template_url_binding.get_id(),
+                    value: &template_url_binding.drop_type(),
                 },
             ],
         };

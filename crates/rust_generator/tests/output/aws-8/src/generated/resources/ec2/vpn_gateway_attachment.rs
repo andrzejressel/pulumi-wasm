@@ -74,11 +74,11 @@ pub mod vpn_gateway_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
             ],
         };

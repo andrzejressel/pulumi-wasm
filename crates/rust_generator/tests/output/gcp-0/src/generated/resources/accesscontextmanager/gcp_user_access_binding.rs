@@ -123,15 +123,15 @@ pub mod gcp_user_access_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevels".into(),
-                    value: access_levels_binding.get_id(),
+                    value: &access_levels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupKey".into(),
-                    value: group_key_binding.get_id(),
+                    value: &group_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: organization_id_binding.get_id(),
+                    value: &organization_id_binding.drop_type(),
                 },
             ],
         };

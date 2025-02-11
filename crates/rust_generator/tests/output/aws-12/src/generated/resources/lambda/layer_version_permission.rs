@@ -105,31 +105,31 @@ pub mod layer_version_permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: layer_name_binding.get_id(),
+                    value: &layer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: organization_id_binding.get_id(),
+                    value: &organization_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: statement_id_binding.get_id(),
+                    value: &statement_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionNumber".into(),
-                    value: version_number_binding.get_id(),
+                    value: &version_number_binding.drop_type(),
                 },
             ],
         };

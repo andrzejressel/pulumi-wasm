@@ -249,27 +249,27 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "admissionWhitelistPatterns".into(),
-                    value: admission_whitelist_patterns_binding.get_id(),
+                    value: &admission_whitelist_patterns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterAdmissionRules".into(),
-                    value: cluster_admission_rules_binding.get_id(),
+                    value: &cluster_admission_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAdmissionRule".into(),
-                    value: default_admission_rule_binding.get_id(),
+                    value: &default_admission_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalPolicyEvaluationMode".into(),
-                    value: global_policy_evaluation_mode_binding.get_id(),
+                    value: &global_policy_evaluation_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

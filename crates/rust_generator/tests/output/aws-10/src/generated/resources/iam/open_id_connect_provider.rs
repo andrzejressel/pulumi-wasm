@@ -108,19 +108,19 @@ pub mod open_id_connect_provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientIdLists".into(),
-                    value: client_id_lists_binding.get_id(),
+                    value: &client_id_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprintLists".into(),
-                    value: thumbprint_lists_binding.get_id(),
+                    value: &thumbprint_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: url_binding.get_id(),
+                    value: &url_binding.drop_type(),
                 },
             ],
         };

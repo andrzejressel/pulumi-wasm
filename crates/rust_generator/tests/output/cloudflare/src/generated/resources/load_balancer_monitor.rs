@@ -147,71 +147,71 @@ pub mod load_balancer_monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowInsecure".into(),
-                    value: allow_insecure_binding.get_id(),
+                    value: &allow_insecure_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consecutiveDown".into(),
-                    value: consecutive_down_binding.get_id(),
+                    value: &consecutive_down_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consecutiveUp".into(),
-                    value: consecutive_up_binding.get_id(),
+                    value: &consecutive_up_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBody".into(),
-                    value: expected_body_binding.get_id(),
+                    value: &expected_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedCodes".into(),
-                    value: expected_codes_binding.get_id(),
+                    value: &expected_codes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "followRedirects".into(),
-                    value: follow_redirects_binding.get_id(),
+                    value: &follow_redirects_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headers".into(),
-                    value: headers_binding.get_id(),
+                    value: &headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: interval_binding.get_id(),
+                    value: &interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: method_binding.get_id(),
+                    value: &method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probeZone".into(),
-                    value: probe_zone_binding.get_id(),
+                    value: &probe_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retries".into(),
-                    value: retries_binding.get_id(),
+                    value: &retries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: timeout_binding.get_id(),
+                    value: &timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

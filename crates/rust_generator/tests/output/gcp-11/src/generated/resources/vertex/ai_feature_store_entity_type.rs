@@ -199,27 +199,27 @@ pub mod ai_feature_store_entity_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featurestore".into(),
-                    value: featurestore_binding.get_id(),
+                    value: &featurestore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringConfig".into(),
-                    value: monitoring_config_binding.get_id(),
+                    value: &monitoring_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offlineStorageTtlDays".into(),
-                    value: offline_storage_ttl_days_binding.get_id(),
+                    value: &offline_storage_ttl_days_binding.drop_type(),
                 },
             ],
         };

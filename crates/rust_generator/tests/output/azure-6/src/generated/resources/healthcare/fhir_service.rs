@@ -206,55 +206,55 @@ pub mod fhir_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicyObjectIds".into(),
-                    value: access_policy_object_ids_binding.get_id(),
+                    value: &access_policy_object_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: authentication_binding.get_id(),
+                    value: &authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationExportStorageAccountName".into(),
-                    value: configuration_export_storage_account_name_binding.get_id(),
+                    value: &configuration_export_storage_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryLoginServerUrls".into(),
-                    value: container_registry_login_server_urls_binding.get_id(),
+                    value: &container_registry_login_server_urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: cors_binding.get_id(),
+                    value: &cors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: kind_binding.get_id(),
+                    value: &kind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ociArtifacts".into(),
-                    value: oci_artifacts_binding.get_id(),
+                    value: &oci_artifacts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

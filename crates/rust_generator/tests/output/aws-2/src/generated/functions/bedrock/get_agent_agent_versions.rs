@@ -51,11 +51,11 @@ pub mod get_agent_agent_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: agent_id_binding.get_id(),
+                    value: &agent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersionSummaries".into(),
-                    value: agent_version_summaries_binding.get_id(),
+                    value: &agent_version_summaries_binding.drop_type(),
                 },
             ],
         };

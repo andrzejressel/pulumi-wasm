@@ -598,63 +598,63 @@ pub mod migration_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpFlags".into(),
-                    value: dump_flags_binding.get_id(),
+                    value: &dump_flags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpPath".into(),
-                    value: dump_path_binding.get_id(),
+                    value: &dump_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpType".into(),
-                    value: dump_type_binding.get_id(),
+                    value: &dump_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrationJobId".into(),
-                    value: migration_job_id_binding.get_id(),
+                    value: &migration_job_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceConfig".into(),
-                    value: performance_config_binding.get_id(),
+                    value: &performance_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseSshConnectivity".into(),
-                    value: reverse_ssh_connectivity_binding.get_id(),
+                    value: &reverse_ssh_connectivity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticIpConnectivity".into(),
-                    value: static_ip_connectivity_binding.get_id(),
+                    value: &static_ip_connectivity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcPeeringConnectivity".into(),
-                    value: vpc_peering_connectivity_binding.get_id(),
+                    value: &vpc_peering_connectivity_binding.drop_type(),
                 },
             ],
         };

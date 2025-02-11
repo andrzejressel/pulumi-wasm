@@ -176,23 +176,23 @@ pub mod frontdoor_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: cdn_frontdoor_profile_id_binding.get_id(),
+                    value: &cdn_frontdoor_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsZoneId".into(),
-                    value: dns_zone_id_binding.get_id(),
+                    value: &dns_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: host_name_binding.get_id(),
+                    value: &host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: tls_binding.get_id(),
+                    value: &tls_binding.drop_type(),
                 },
             ],
         };

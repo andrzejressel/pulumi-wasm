@@ -98,11 +98,11 @@ pub mod indexing_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingGroupIndexingConfiguration".into(),
-                    value: thing_group_indexing_configuration_binding.get_id(),
+                    value: &thing_group_indexing_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingIndexingConfiguration".into(),
-                    value: thing_indexing_configuration_binding.get_id(),
+                    value: &thing_indexing_configuration_binding.drop_type(),
                 },
             ],
         };

@@ -112,11 +112,11 @@ pub mod hosted_zone_dns_sec {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: hosted_zone_id_binding.get_id(),
+                    value: &hosted_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingStatus".into(),
-                    value: signing_status_binding.get_id(),
+                    value: &signing_status_binding.drop_type(),
                 },
             ],
         };

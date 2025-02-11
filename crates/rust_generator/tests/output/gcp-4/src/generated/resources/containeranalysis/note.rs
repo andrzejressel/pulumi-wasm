@@ -204,35 +204,35 @@ pub mod note {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attestationAuthority".into(),
-                    value: attestation_authority_binding.get_id(),
+                    value: &attestation_authority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTime".into(),
-                    value: expiration_time_binding.get_id(),
+                    value: &expiration_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longDescription".into(),
-                    value: long_description_binding.get_id(),
+                    value: &long_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relatedNoteNames".into(),
-                    value: related_note_names_binding.get_id(),
+                    value: &related_note_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relatedUrls".into(),
-                    value: related_urls_binding.get_id(),
+                    value: &related_urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortDescription".into(),
-                    value: short_description_binding.get_id(),
+                    value: &short_description_binding.drop_type(),
                 },
             ],
         };

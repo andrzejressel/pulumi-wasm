@@ -182,19 +182,19 @@ pub mod workspace_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyName".into(),
-                    value: customer_managed_key_name_binding.get_id(),
+                    value: &customer_managed_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyVersionlessId".into(),
-                    value: customer_managed_key_versionless_id_binding.get_id(),
+                    value: &customer_managed_key_versionless_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: synapse_workspace_id_binding.get_id(),
+                    value: &synapse_workspace_id_binding.drop_type(),
                 },
             ],
         };

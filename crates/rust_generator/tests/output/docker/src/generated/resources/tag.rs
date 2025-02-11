@@ -41,11 +41,11 @@ pub mod tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImage".into(),
-                    value: source_image_binding.get_id(),
+                    value: &source_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetImage".into(),
-                    value: target_image_binding.get_id(),
+                    value: &target_image_binding.drop_type(),
                 },
             ],
         };

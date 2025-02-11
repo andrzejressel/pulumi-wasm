@@ -184,47 +184,47 @@ pub mod vpn_server_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectoryAuthentications".into(),
-                    value: azure_active_directory_authentications_binding.get_id(),
+                    value: &azure_active_directory_authentications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRevokedCertificates".into(),
-                    value: client_revoked_certificates_binding.get_id(),
+                    value: &client_revoked_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRootCertificates".into(),
-                    value: client_root_certificates_binding.get_id(),
+                    value: &client_root_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipsecPolicy".into(),
-                    value: ipsec_policy_binding.get_id(),
+                    value: &ipsec_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radius".into(),
-                    value: radius_binding.get_id(),
+                    value: &radius_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnAuthenticationTypes".into(),
-                    value: vpn_authentication_types_binding.get_id(),
+                    value: &vpn_authentication_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnProtocols".into(),
-                    value: vpn_protocols_binding.get_id(),
+                    value: &vpn_protocols_binding.drop_type(),
                 },
             ],
         };

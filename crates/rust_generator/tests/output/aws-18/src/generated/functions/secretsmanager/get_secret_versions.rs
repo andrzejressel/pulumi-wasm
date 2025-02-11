@@ -44,11 +44,11 @@ pub mod get_secret_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDeprecated".into(),
-                    value: include_deprecated_binding.get_id(),
+                    value: &include_deprecated_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
             ],
         };

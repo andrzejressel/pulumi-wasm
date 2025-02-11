@@ -107,19 +107,19 @@ pub mod linked_storage_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceType".into(),
-                    value: data_source_type_binding.get_id(),
+                    value: &data_source_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountIds".into(),
-                    value: storage_account_ids_binding.get_id(),
+                    value: &storage_account_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceResourceId".into(),
-                    value: workspace_resource_id_binding.get_id(),
+                    value: &workspace_resource_id_binding.drop_type(),
                 },
             ],
         };

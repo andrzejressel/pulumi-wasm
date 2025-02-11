@@ -112,23 +112,23 @@ pub mod spring_cloud_app_redis_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisAccessKey".into(),
-                    value: redis_access_key_binding.get_id(),
+                    value: &redis_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheId".into(),
-                    value: redis_cache_id_binding.get_id(),
+                    value: &redis_cache_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslEnabled".into(),
-                    value: ssl_enabled_binding.get_id(),
+                    value: &ssl_enabled_binding.drop_type(),
                 },
             ],
         };

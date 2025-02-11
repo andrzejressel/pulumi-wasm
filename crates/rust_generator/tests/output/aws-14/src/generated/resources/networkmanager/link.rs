@@ -112,31 +112,31 @@ pub mod link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: bandwidth_binding.get_id(),
+                    value: &bandwidth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: global_network_id_binding.get_id(),
+                    value: &global_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: provider_name_binding.get_id(),
+                    value: &provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

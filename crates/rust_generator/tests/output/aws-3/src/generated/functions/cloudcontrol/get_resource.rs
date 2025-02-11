@@ -50,19 +50,19 @@ pub mod get_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: identifier_binding.get_id(),
+                    value: &identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeName".into(),
-                    value: type_name_binding.get_id(),
+                    value: &type_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeVersionId".into(),
-                    value: type_version_id_binding.get_id(),
+                    value: &type_version_id_binding.drop_type(),
                 },
             ],
         };

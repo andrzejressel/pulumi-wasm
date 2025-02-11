@@ -388,39 +388,39 @@ pub mod instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerAcceptLists".into(),
-                    value: consumer_accept_lists_binding.get_id(),
+                    value: &consumer_accept_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptionKeyName".into(),
-                    value: disk_encryption_key_name_binding.get_id(),
+                    value: &disk_encryption_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRange".into(),
-                    value: ip_range_binding.get_id(),
+                    value: &ip_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringCidrRange".into(),
-                    value: peering_cidr_range_binding.get_id(),
+                    value: &peering_cidr_range_binding.drop_type(),
                 },
             ],
         };

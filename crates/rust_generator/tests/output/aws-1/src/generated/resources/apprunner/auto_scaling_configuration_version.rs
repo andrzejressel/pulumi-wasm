@@ -101,23 +101,23 @@ pub mod auto_scaling_configuration_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingConfigurationName".into(),
-                    value: auto_scaling_configuration_name_binding.get_id(),
+                    value: &auto_scaling_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: max_concurrency_binding.get_id(),
+                    value: &max_concurrency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: max_size_binding.get_id(),
+                    value: &max_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: min_size_binding.get_id(),
+                    value: &min_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

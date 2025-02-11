@@ -353,67 +353,67 @@ pub mod record {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliases".into(),
-                    value: aliases_binding.get_id(),
+                    value: &aliases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowOverwrite".into(),
-                    value: allow_overwrite_binding.get_id(),
+                    value: &allow_overwrite_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrRoutingPolicy".into(),
-                    value: cidr_routing_policy_binding.get_id(),
+                    value: &cidr_routing_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverRoutingPolicies".into(),
-                    value: failover_routing_policies_binding.get_id(),
+                    value: &failover_routing_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geolocationRoutingPolicies".into(),
-                    value: geolocation_routing_policies_binding.get_id(),
+                    value: &geolocation_routing_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoproximityRoutingPolicy".into(),
-                    value: geoproximity_routing_policy_binding.get_id(),
+                    value: &geoproximity_routing_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckId".into(),
-                    value: health_check_id_binding.get_id(),
+                    value: &health_check_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latencyRoutingPolicies".into(),
-                    value: latency_routing_policies_binding.get_id(),
+                    value: &latency_routing_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multivalueAnswerRoutingPolicy".into(),
-                    value: multivalue_answer_routing_policy_binding.get_id(),
+                    value: &multivalue_answer_routing_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "records".into(),
-                    value: records_binding.get_id(),
+                    value: &records_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "setIdentifier".into(),
-                    value: set_identifier_binding.get_id(),
+                    value: &set_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weightedRoutingPolicies".into(),
-                    value: weighted_routing_policies_binding.get_id(),
+                    value: &weighted_routing_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

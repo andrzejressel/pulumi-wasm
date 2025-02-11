@@ -76,19 +76,19 @@ pub mod zone_hold {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hold".into(),
-                    value: hold_binding.get_id(),
+                    value: &hold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "holdAfter".into(),
-                    value: hold_after_binding.get_id(),
+                    value: &hold_after_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeSubdomains".into(),
-                    value: include_subdomains_binding.get_id(),
+                    value: &include_subdomains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

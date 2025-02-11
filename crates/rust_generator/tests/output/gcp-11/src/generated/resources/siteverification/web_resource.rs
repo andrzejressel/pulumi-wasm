@@ -125,11 +125,11 @@ pub mod web_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "site".into(),
-                    value: site_binding.get_id(),
+                    value: &site_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMethod".into(),
-                    value: verification_method_binding.get_id(),
+                    value: &verification_method_binding.drop_type(),
                 },
             ],
         };

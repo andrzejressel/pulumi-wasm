@@ -188,47 +188,47 @@ pub mod function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: code_binding.get_id(),
+                    value: &code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSource".into(),
-                    value: data_source_binding.get_id(),
+                    value: &data_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionVersion".into(),
-                    value: function_version_binding.get_id(),
+                    value: &function_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxBatchSize".into(),
-                    value: max_batch_size_binding.get_id(),
+                    value: &max_batch_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMappingTemplate".into(),
-                    value: request_mapping_template_binding.get_id(),
+                    value: &request_mapping_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseMappingTemplate".into(),
-                    value: response_mapping_template_binding.get_id(),
+                    value: &response_mapping_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: runtime_binding.get_id(),
+                    value: &runtime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncConfig".into(),
-                    value: sync_config_binding.get_id(),
+                    value: &sync_config_binding.drop_type(),
                 },
             ],
         };

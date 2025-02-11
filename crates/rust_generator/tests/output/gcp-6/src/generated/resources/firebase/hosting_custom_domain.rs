@@ -331,27 +331,27 @@ pub mod hosting_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certPreference".into(),
-                    value: cert_preference_binding.get_id(),
+                    value: &cert_preference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomain".into(),
-                    value: custom_domain_binding.get_id(),
+                    value: &custom_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectTarget".into(),
-                    value: redirect_target_binding.get_id(),
+                    value: &redirect_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitDnsVerification".into(),
-                    value: wait_dns_verification_binding.get_id(),
+                    value: &wait_dns_verification_binding.drop_type(),
                 },
             ],
         };

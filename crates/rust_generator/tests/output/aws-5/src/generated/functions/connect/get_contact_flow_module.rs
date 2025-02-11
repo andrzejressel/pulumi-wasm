@@ -61,19 +61,19 @@ pub mod get_contact_flow_module {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactFlowModuleId".into(),
-                    value: contact_flow_module_id_binding.get_id(),
+                    value: &contact_flow_module_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

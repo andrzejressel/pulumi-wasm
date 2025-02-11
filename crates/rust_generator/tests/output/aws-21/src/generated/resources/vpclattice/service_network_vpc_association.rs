@@ -98,19 +98,19 @@ pub mod service_network_vpc_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNetworkIdentifier".into(),
-                    value: service_network_identifier_binding.get_id(),
+                    value: &service_network_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcIdentifier".into(),
-                    value: vpc_identifier_binding.get_id(),
+                    value: &vpc_identifier_binding.drop_type(),
                 },
             ],
         };

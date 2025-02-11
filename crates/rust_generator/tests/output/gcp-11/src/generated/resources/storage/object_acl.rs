@@ -100,19 +100,19 @@ pub mod object_acl {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "object".into(),
-                    value: object_binding.get_id(),
+                    value: &object_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predefinedAcl".into(),
-                    value: predefined_acl_binding.get_id(),
+                    value: &predefined_acl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleEntities".into(),
-                    value: role_entities_binding.get_id(),
+                    value: &role_entities_binding.drop_type(),
                 },
             ],
         };

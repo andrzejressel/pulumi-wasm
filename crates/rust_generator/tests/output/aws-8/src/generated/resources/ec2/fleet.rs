@@ -221,71 +221,71 @@ pub mod fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: context_binding.get_id(),
+                    value: &context_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excessCapacityTerminationPolicy".into(),
-                    value: excess_capacity_termination_policy_binding.get_id(),
+                    value: &excess_capacity_termination_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetInstanceSets".into(),
-                    value: fleet_instance_sets_binding.get_id(),
+                    value: &fleet_instance_sets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetState".into(),
-                    value: fleet_state_binding.get_id(),
+                    value: &fleet_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfilledCapacity".into(),
-                    value: fulfilled_capacity_binding.get_id(),
+                    value: &fulfilled_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfilledOnDemandCapacity".into(),
-                    value: fulfilled_on_demand_capacity_binding.get_id(),
+                    value: &fulfilled_on_demand_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplateConfigs".into(),
-                    value: launch_template_configs_binding.get_id(),
+                    value: &launch_template_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandOptions".into(),
-                    value: on_demand_options_binding.get_id(),
+                    value: &on_demand_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceUnhealthyInstances".into(),
-                    value: replace_unhealthy_instances_binding.get_id(),
+                    value: &replace_unhealthy_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotOptions".into(),
-                    value: spot_options_binding.get_id(),
+                    value: &spot_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCapacitySpecification".into(),
-                    value: target_capacity_specification_binding.get_id(),
+                    value: &target_capacity_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstances".into(),
-                    value: terminate_instances_binding.get_id(),
+                    value: &terminate_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstancesWithExpiration".into(),
-                    value: terminate_instances_with_expiration_binding.get_id(),
+                    value: &terminate_instances_with_expiration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validFrom".into(),
-                    value: valid_from_binding.get_id(),
+                    value: &valid_from_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validUntil".into(),
-                    value: valid_until_binding.get_id(),
+                    value: &valid_until_binding.drop_type(),
                 },
             ],
         };

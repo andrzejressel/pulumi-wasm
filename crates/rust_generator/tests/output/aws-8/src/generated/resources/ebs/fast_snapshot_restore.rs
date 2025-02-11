@@ -76,15 +76,15 @@ pub mod fast_snapshot_restore {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: snapshot_id_binding.get_id(),
+                    value: &snapshot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

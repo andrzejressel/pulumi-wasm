@@ -110,23 +110,23 @@ pub mod event_permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBusName".into(),
-                    value: event_bus_name_binding.get_id(),
+                    value: &event_bus_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: statement_id_binding.get_id(),
+                    value: &statement_id_binding.drop_type(),
                 },
             ],
         };

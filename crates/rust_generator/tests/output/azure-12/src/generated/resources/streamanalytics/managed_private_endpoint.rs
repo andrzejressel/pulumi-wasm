@@ -108,23 +108,23 @@ pub mod managed_private_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsClusterName".into(),
-                    value: stream_analytics_cluster_name_binding.get_id(),
+                    value: &stream_analytics_cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subresourceName".into(),
-                    value: subresource_name_binding.get_id(),
+                    value: &subresource_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
             ],
         };

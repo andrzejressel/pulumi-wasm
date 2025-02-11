@@ -270,35 +270,35 @@ pub mod directory {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipGroupIds".into(),
-                    value: ip_group_ids_binding.get_id(),
+                    value: &ip_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samlProperties".into(),
-                    value: saml_properties_binding.get_id(),
+                    value: &saml_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfServicePermissions".into(),
-                    value: self_service_permissions_binding.get_id(),
+                    value: &self_service_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceAccessProperties".into(),
-                    value: workspace_access_properties_binding.get_id(),
+                    value: &workspace_access_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceCreationProperties".into(),
-                    value: workspace_creation_properties_binding.get_id(),
+                    value: &workspace_creation_properties_binding.drop_type(),
                 },
             ],
         };

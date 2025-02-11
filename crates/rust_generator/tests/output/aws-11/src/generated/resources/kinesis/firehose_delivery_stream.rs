@@ -939,75 +939,75 @@ pub mod firehose_delivery_stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationId".into(),
-                    value: destination_id_binding.get_id(),
+                    value: &destination_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchConfiguration".into(),
-                    value: elasticsearch_configuration_binding.get_id(),
+                    value: &elasticsearch_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedS3Configuration".into(),
-                    value: extended_s3_configuration_binding.get_id(),
+                    value: &extended_s3_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpEndpointConfiguration".into(),
-                    value: http_endpoint_configuration_binding.get_id(),
+                    value: &http_endpoint_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icebergConfiguration".into(),
-                    value: iceberg_configuration_binding.get_id(),
+                    value: &iceberg_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisSourceConfiguration".into(),
-                    value: kinesis_source_configuration_binding.get_id(),
+                    value: &kinesis_source_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mskSourceConfiguration".into(),
-                    value: msk_source_configuration_binding.get_id(),
+                    value: &msk_source_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchConfiguration".into(),
-                    value: opensearch_configuration_binding.get_id(),
+                    value: &opensearch_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchserverlessConfiguration".into(),
-                    value: opensearchserverless_configuration_binding.get_id(),
+                    value: &opensearchserverless_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftConfiguration".into(),
-                    value: redshift_configuration_binding.get_id(),
+                    value: &redshift_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: server_side_encryption_binding.get_id(),
+                    value: &server_side_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snowflakeConfiguration".into(),
-                    value: snowflake_configuration_binding.get_id(),
+                    value: &snowflake_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splunkConfiguration".into(),
-                    value: splunk_configuration_binding.get_id(),
+                    value: &splunk_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: version_id_binding.get_id(),
+                    value: &version_id_binding.drop_type(),
                 },
             ],
         };

@@ -88,11 +88,11 @@ pub mod cluster_snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterIdentifier".into(),
-                    value: db_cluster_identifier_binding.get_id(),
+                    value: &db_cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterSnapshotIdentifier".into(),
-                    value: db_cluster_snapshot_identifier_binding.get_id(),
+                    value: &db_cluster_snapshot_identifier_binding.drop_type(),
                 },
             ],
         };

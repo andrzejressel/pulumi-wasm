@@ -95,15 +95,15 @@ pub mod route_table_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayId".into(),
-                    value: gateway_id_binding.get_id(),
+                    value: &gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: route_table_id_binding.get_id(),
+                    value: &route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

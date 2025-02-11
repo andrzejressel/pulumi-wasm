@@ -127,19 +127,19 @@ pub mod reserved_cache_node {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNodeCount".into(),
-                    value: cache_node_count_binding.get_id(),
+                    value: &cache_node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedCacheNodesOfferingId".into(),
-                    value: reserved_cache_nodes_offering_id_binding.get_id(),
+                    value: &reserved_cache_nodes_offering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

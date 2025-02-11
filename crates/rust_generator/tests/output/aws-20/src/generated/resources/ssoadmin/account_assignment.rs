@@ -155,27 +155,27 @@ pub mod account_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionSetArn".into(),
-                    value: permission_set_arn_binding.get_id(),
+                    value: &permission_set_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: principal_type_binding.get_id(),
+                    value: &principal_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: target_id_binding.get_id(),
+                    value: &target_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: target_type_binding.get_id(),
+                    value: &target_type_binding.drop_type(),
                 },
             ],
         };

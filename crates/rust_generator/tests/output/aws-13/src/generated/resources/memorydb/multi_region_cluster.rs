@@ -157,47 +157,47 @@ pub mod multi_region_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: engine_version_binding.get_id(),
+                    value: &engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionClusterNameSuffix".into(),
-                    value: multi_region_cluster_name_suffix_binding.get_id(),
+                    value: &multi_region_cluster_name_suffix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionParameterGroupName".into(),
-                    value: multi_region_parameter_group_name_binding.get_id(),
+                    value: &multi_region_parameter_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: node_type_binding.get_id(),
+                    value: &node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numShards".into(),
-                    value: num_shards_binding.get_id(),
+                    value: &num_shards_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEnabled".into(),
-                    value: tls_enabled_binding.get_id(),
+                    value: &tls_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateStrategy".into(),
-                    value: update_strategy_binding.get_id(),
+                    value: &update_strategy_binding.drop_type(),
                 },
             ],
         };

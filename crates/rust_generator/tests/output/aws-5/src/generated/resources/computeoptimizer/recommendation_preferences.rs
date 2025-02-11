@@ -198,39 +198,39 @@ pub mod recommendation_preferences {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedInfrastructureMetrics".into(),
-                    value: enhanced_infrastructure_metrics_binding.get_id(),
+                    value: &enhanced_infrastructure_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalMetricsPreference".into(),
-                    value: external_metrics_preference_binding.get_id(),
+                    value: &external_metrics_preference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferredWorkloadTypes".into(),
-                    value: inferred_workload_types_binding.get_id(),
+                    value: &inferred_workload_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookBackPeriod".into(),
-                    value: look_back_period_binding.get_id(),
+                    value: &look_back_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredResources".into(),
-                    value: preferred_resources_binding.get_id(),
+                    value: &preferred_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "savingsEstimationMode".into(),
-                    value: savings_estimation_mode_binding.get_id(),
+                    value: &savings_estimation_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "utilizationPreferences".into(),
-                    value: utilization_preferences_binding.get_id(),
+                    value: &utilization_preferences_binding.drop_type(),
                 },
             ],
         };

@@ -75,7 +75,7 @@ pub mod license_grant_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantArn".into(),
-                    value: grant_arn_binding.get_id(),
+                    value: &grant_arn_binding.drop_type(),
                 },
             ],
         };

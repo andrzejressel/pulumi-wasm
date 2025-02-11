@@ -155,23 +155,23 @@ pub mod cluster_customer_managed_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: cluster_id_binding.get_id(),
+                    value: &cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: key_name_binding.get_id(),
+                    value: &key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVersion".into(),
-                    value: key_version_binding.get_id(),
+                    value: &key_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIdentity".into(),
-                    value: user_identity_binding.get_id(),
+                    value: &user_identity_binding.drop_type(),
                 },
             ],
         };

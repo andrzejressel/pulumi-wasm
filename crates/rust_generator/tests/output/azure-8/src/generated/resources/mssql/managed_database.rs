@@ -145,27 +145,27 @@ pub mod managed_database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longTermRetentionPolicy".into(),
-                    value: long_term_retention_policy_binding.get_id(),
+                    value: &long_term_retention_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: managed_instance_id_binding.get_id(),
+                    value: &managed_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRestore".into(),
-                    value: point_in_time_restore_binding.get_id(),
+                    value: &point_in_time_restore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortTermRetentionDays".into(),
-                    value: short_term_retention_days_binding.get_id(),
+                    value: &short_term_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

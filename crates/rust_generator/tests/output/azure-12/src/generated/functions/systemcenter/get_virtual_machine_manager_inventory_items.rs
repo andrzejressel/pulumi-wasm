@@ -49,12 +49,12 @@ pub mod get_virtual_machine_manager_inventory_items {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inventoryType".into(),
-                    value: inventory_type_binding.get_id(),
+                    value: &inventory_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemCenterVirtualMachineManagerServerId".into(),
-                    value: system_center_virtual_machine_manager_server_id_binding
-                        .get_id(),
+                    value: &system_center_virtual_machine_manager_server_id_binding
+                        .drop_type(),
                 },
             ],
         };

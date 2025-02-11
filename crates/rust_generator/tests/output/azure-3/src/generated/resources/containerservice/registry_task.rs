@@ -238,75 +238,75 @@ pub mod registry_task {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentPoolName".into(),
-                    value: agent_pool_name_binding.get_id(),
+                    value: &agent_pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentSetting".into(),
-                    value: agent_setting_binding.get_id(),
+                    value: &agent_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseImageTrigger".into(),
-                    value: base_image_trigger_binding.get_id(),
+                    value: &base_image_trigger_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: container_registry_id_binding.get_id(),
+                    value: &container_registry_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerStep".into(),
-                    value: docker_step_binding.get_id(),
+                    value: &docker_step_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodedStep".into(),
-                    value: encoded_step_binding.get_id(),
+                    value: &encoded_step_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileStep".into(),
-                    value: file_step_binding.get_id(),
+                    value: &file_step_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSystemTask".into(),
-                    value: is_system_task_binding.get_id(),
+                    value: &is_system_task_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logTemplate".into(),
-                    value: log_template_binding.get_id(),
+                    value: &log_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: platform_binding.get_id(),
+                    value: &platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryCredential".into(),
-                    value: registry_credential_binding.get_id(),
+                    value: &registry_credential_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceTriggers".into(),
-                    value: source_triggers_binding.get_id(),
+                    value: &source_triggers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInSeconds".into(),
-                    value: timeout_in_seconds_binding.get_id(),
+                    value: &timeout_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timerTriggers".into(),
-                    value: timer_triggers_binding.get_id(),
+                    value: &timer_triggers_binding.drop_type(),
                 },
             ],
         };

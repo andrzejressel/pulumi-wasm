@@ -195,47 +195,47 @@ pub mod software_update_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: automation_account_id_binding.get_id(),
+                    value: &automation_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linux".into(),
-                    value: linux_binding.get_id(),
+                    value: &linux_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonAzureComputerNames".into(),
-                    value: non_azure_computer_names_binding.get_id(),
+                    value: &non_azure_computer_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postTask".into(),
-                    value: post_task_binding.get_id(),
+                    value: &post_task_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preTask".into(),
-                    value: pre_task_binding.get_id(),
+                    value: &pre_task_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: target_binding.get_id(),
+                    value: &target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineIds".into(),
-                    value: virtual_machine_ids_binding.get_id(),
+                    value: &virtual_machine_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windows".into(),
-                    value: windows_binding.get_id(),
+                    value: &windows_binding.drop_type(),
                 },
             ],
         };

@@ -190,35 +190,35 @@ pub mod repository_release_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeCompilationConfig".into(),
-                    value: code_compilation_config_binding.get_id(),
+                    value: &code_compilation_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cronSchedule".into(),
-                    value: cron_schedule_binding.get_id(),
+                    value: &cron_schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitCommitish".into(),
-                    value: git_commitish_binding.get_id(),
+                    value: &git_commitish_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
             ],
         };

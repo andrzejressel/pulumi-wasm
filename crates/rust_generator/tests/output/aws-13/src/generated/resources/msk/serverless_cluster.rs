@@ -86,19 +86,19 @@ pub mod serverless_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthentication".into(),
-                    value: client_authentication_binding.get_id(),
+                    value: &client_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfigs".into(),
-                    value: vpc_configs_binding.get_id(),
+                    value: &vpc_configs_binding.drop_type(),
                 },
             ],
         };

@@ -60,7 +60,7 @@ pub mod get_variables {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: automation_account_id_binding.get_id(),
+                    value: &automation_account_id_binding.drop_type(),
                 },
             ],
         };

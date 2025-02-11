@@ -198,35 +198,35 @@ pub mod trust {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionalForwarderIpAddrs".into(),
-                    value: conditional_forwarder_ip_addrs_binding.get_id(),
+                    value: &conditional_forwarder_ip_addrs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteAssociatedConditionalForwarder".into(),
-                    value: delete_associated_conditional_forwarder_binding.get_id(),
+                    value: &delete_associated_conditional_forwarder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDomainName".into(),
-                    value: remote_domain_name_binding.get_id(),
+                    value: &remote_domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectiveAuth".into(),
-                    value: selective_auth_binding.get_id(),
+                    value: &selective_auth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustDirection".into(),
-                    value: trust_direction_binding.get_id(),
+                    value: &trust_direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustPassword".into(),
-                    value: trust_password_binding.get_id(),
+                    value: &trust_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustType".into(),
-                    value: trust_type_binding.get_id(),
+                    value: &trust_type_binding.drop_type(),
                 },
             ],
         };

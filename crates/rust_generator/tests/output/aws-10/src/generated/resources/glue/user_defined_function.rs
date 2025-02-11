@@ -116,31 +116,31 @@ pub mod user_defined_function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "className".into(),
-                    value: class_name_binding.get_id(),
+                    value: &class_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerName".into(),
-                    value: owner_name_binding.get_id(),
+                    value: &owner_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerType".into(),
-                    value: owner_type_binding.get_id(),
+                    value: &owner_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceUris".into(),
-                    value: resource_uris_binding.get_id(),
+                    value: &resource_uris_binding.drop_type(),
                 },
             ],
         };

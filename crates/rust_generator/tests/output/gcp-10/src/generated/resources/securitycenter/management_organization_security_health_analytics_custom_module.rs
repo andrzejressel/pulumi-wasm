@@ -227,23 +227,23 @@ pub mod management_organization_security_health_analytics_custom_module {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customConfig".into(),
-                    value: custom_config_binding.get_id(),
+                    value: &custom_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablementState".into(),
-                    value: enablement_state_binding.get_id(),
+                    value: &enablement_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
             ],
         };

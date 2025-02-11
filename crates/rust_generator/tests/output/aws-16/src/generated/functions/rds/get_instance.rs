@@ -122,11 +122,11 @@ pub mod get_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: db_instance_identifier_binding.get_id(),
+                    value: &db_instance_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

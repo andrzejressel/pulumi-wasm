@@ -75,15 +75,15 @@ pub mod cidr_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlocks".into(),
-                    value: cidr_blocks_binding.get_id(),
+                    value: &cidr_blocks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrCollectionId".into(),
-                    value: cidr_collection_id_binding.get_id(),
+                    value: &cidr_collection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -47,11 +47,11 @@ pub mod bucket_resource_access {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: bucket_name_binding.get_id(),
+                    value: &bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceName".into(),
-                    value: resource_name_binding.get_id(),
+                    value: &resource_name_binding.drop_type(),
                 },
             ],
         };

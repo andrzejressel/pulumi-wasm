@@ -161,35 +161,35 @@ pub mod outbound_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocatedOutboundPorts".into(),
-                    value: allocated_outbound_ports_binding.get_id(),
+                    value: &allocated_outbound_ports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: backend_address_pool_id_binding.get_id(),
+                    value: &backend_address_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTcpReset".into(),
-                    value: enable_tcp_reset_binding.get_id(),
+                    value: &enable_tcp_reset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendIpConfigurations".into(),
-                    value: frontend_ip_configurations_binding.get_id(),
+                    value: &frontend_ip_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeoutInMinutes".into(),
-                    value: idle_timeout_in_minutes_binding.get_id(),
+                    value: &idle_timeout_in_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: loadbalancer_id_binding.get_id(),
+                    value: &loadbalancer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
             ],
         };

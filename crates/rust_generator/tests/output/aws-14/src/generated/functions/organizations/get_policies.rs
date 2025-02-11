@@ -33,7 +33,7 @@ pub mod get_policies {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
             ],
         };

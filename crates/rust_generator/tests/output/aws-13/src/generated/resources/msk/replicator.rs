@@ -96,27 +96,27 @@ pub mod replicator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusters".into(),
-                    value: kafka_clusters_binding.get_id(),
+                    value: &kafka_clusters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInfoList".into(),
-                    value: replication_info_list_binding.get_id(),
+                    value: &replication_info_list_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicatorName".into(),
-                    value: replicator_name_binding.get_id(),
+                    value: &replicator_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRoleArn".into(),
-                    value: service_execution_role_arn_binding.get_id(),
+                    value: &service_execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -30,7 +30,7 @@ pub mod resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baz".into(),
-                    value: baz_binding.get_id(),
+                    value: &baz_binding.drop_type(),
                 },
             ],
         };

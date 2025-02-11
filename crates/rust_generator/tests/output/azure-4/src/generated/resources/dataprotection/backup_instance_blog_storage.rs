@@ -140,27 +140,27 @@ pub mod backup_instance_blog_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: backup_policy_id_binding.get_id(),
+                    value: &backup_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountContainerNames".into(),
-                    value: storage_account_container_names_binding.get_id(),
+                    value: &storage_account_container_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: vault_id_binding.get_id(),
+                    value: &vault_id_binding.drop_type(),
                 },
             ],
         };

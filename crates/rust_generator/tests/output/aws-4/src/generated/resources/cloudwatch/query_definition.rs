@@ -75,15 +75,15 @@ pub mod query_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupNames".into(),
-                    value: log_group_names_binding.get_id(),
+                    value: &log_group_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryString".into(),
-                    value: query_string_binding.get_id(),
+                    value: &query_string_binding.drop_type(),
                 },
             ],
         };

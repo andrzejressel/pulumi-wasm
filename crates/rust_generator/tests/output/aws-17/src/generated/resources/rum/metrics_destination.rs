@@ -76,19 +76,19 @@ pub mod metrics_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appMonitorName".into(),
-                    value: app_monitor_name_binding.get_id(),
+                    value: &app_monitor_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationArn".into(),
-                    value: destination_arn_binding.get_id(),
+                    value: &destination_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
             ],
         };

@@ -199,47 +199,47 @@ pub mod prefix {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: cidr_binding.get_id(),
+                    value: &cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commissioningEnabled".into(),
-                    value: commissioning_enabled_binding.get_id(),
+                    value: &commissioning_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetAdvertisingDisabled".into(),
-                    value: internet_advertising_disabled_binding.get_id(),
+                    value: &internet_advertising_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentCustomIpPrefixId".into(),
-                    value: parent_custom_ip_prefix_id_binding.get_id(),
+                    value: &parent_custom_ip_prefix_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roaValidityEndDate".into(),
-                    value: roa_validity_end_date_binding.get_id(),
+                    value: &roa_validity_end_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wanValidationSignedMessage".into(),
-                    value: wan_validation_signed_message_binding.get_id(),
+                    value: &wan_validation_signed_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: zones_binding.get_id(),
+                    value: &zones_binding.drop_type(),
                 },
             ],
         };

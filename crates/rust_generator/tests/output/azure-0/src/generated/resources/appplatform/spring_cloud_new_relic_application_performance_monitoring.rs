@@ -157,51 +157,51 @@ pub mod spring_cloud_new_relic_application_performance_monitoring {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentEnabled".into(),
-                    value: agent_enabled_binding.get_id(),
+                    value: &agent_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: app_name_binding.get_id(),
+                    value: &app_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServerPort".into(),
-                    value: app_server_port_binding.get_id(),
+                    value: &app_server_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditModeEnabled".into(),
-                    value: audit_mode_enabled_binding.get_id(),
+                    value: &audit_mode_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAppNamingEnabled".into(),
-                    value: auto_app_naming_enabled_binding.get_id(),
+                    value: &auto_app_naming_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoTransactionNamingEnabled".into(),
-                    value: auto_transaction_naming_enabled_binding.get_id(),
+                    value: &auto_transaction_naming_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customTracingEnabled".into(),
-                    value: custom_tracing_enabled_binding.get_id(),
+                    value: &custom_tracing_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: globally_enabled_binding.get_id(),
+                    value: &globally_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseKey".into(),
-                    value: license_key_binding.get_id(),
+                    value: &license_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
             ],
         };

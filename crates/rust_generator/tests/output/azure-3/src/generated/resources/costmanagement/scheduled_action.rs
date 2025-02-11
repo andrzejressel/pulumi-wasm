@@ -147,59 +147,59 @@ pub mod scheduled_action {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dayOfMonth".into(),
-                    value: day_of_month_binding.get_id(),
+                    value: &day_of_month_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "daysOfWeeks".into(),
-                    value: days_of_weeks_binding.get_id(),
+                    value: &days_of_weeks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddressSender".into(),
-                    value: email_address_sender_binding.get_id(),
+                    value: &email_address_sender_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddresses".into(),
-                    value: email_addresses_binding.get_id(),
+                    value: &email_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailSubject".into(),
-                    value: email_subject_binding.get_id(),
+                    value: &email_subject_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: end_date_binding.get_id(),
+                    value: &end_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: frequency_binding.get_id(),
+                    value: &frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hourOfDay".into(),
-                    value: hour_of_day_binding.get_id(),
+                    value: &hour_of_day_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: message_binding.get_id(),
+                    value: &message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDate".into(),
-                    value: start_date_binding.get_id(),
+                    value: &start_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewId".into(),
-                    value: view_id_binding.get_id(),
+                    value: &view_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeksOfMonths".into(),
-                    value: weeks_of_months_binding.get_id(),
+                    value: &weeks_of_months_binding.drop_type(),
                 },
             ],
         };

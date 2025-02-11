@@ -341,27 +341,27 @@ pub mod frontdoor_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: actions_binding.get_id(),
+                    value: &actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "behaviorOnMatch".into(),
-                    value: behavior_on_match_binding.get_id(),
+                    value: &behavior_on_match_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRuleSetId".into(),
-                    value: cdn_frontdoor_rule_set_id_binding.get_id(),
+                    value: &cdn_frontdoor_rule_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: conditions_binding.get_id(),
+                    value: &conditions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: order_binding.get_id(),
+                    value: &order_binding.drop_type(),
                 },
             ],
         };

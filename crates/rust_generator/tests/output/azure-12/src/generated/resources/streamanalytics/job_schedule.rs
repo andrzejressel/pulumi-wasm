@@ -163,15 +163,15 @@ pub mod job_schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startMode".into(),
-                    value: start_mode_binding.get_id(),
+                    value: &start_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: start_time_binding.get_id(),
+                    value: &start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: stream_analytics_job_id_binding.get_id(),
+                    value: &stream_analytics_job_id_binding.drop_type(),
                 },
             ],
         };

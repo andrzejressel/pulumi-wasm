@@ -38,7 +38,7 @@ pub mod get_dataset_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: dataset_id_binding.get_id(),
+                    value: &dataset_id_binding.drop_type(),
                 },
             ],
         };

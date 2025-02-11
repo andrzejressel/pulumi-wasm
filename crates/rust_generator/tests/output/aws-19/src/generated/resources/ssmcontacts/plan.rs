@@ -139,11 +139,11 @@ pub mod plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactId".into(),
-                    value: contact_id_binding.get_id(),
+                    value: &contact_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stages".into(),
-                    value: stages_binding.get_id(),
+                    value: &stages_binding.drop_type(),
                 },
             ],
         };

@@ -171,31 +171,31 @@ pub mod organization_conformance_pack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryS3Bucket".into(),
-                    value: delivery_s3_bucket_binding.get_id(),
+                    value: &delivery_s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryS3KeyPrefix".into(),
-                    value: delivery_s3_key_prefix_binding.get_id(),
+                    value: &delivery_s3_key_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedAccounts".into(),
-                    value: excluded_accounts_binding.get_id(),
+                    value: &excluded_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputParameters".into(),
-                    value: input_parameters_binding.get_id(),
+                    value: &input_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: template_body_binding.get_id(),
+                    value: &template_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateS3Uri".into(),
-                    value: template_s3_uri_binding.get_id(),
+                    value: &template_s3_uri_binding.drop_type(),
                 },
             ],
         };

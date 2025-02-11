@@ -57,7 +57,7 @@ pub mod email_identity {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
             ],
         };

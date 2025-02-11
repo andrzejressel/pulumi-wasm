@@ -249,71 +249,71 @@ pub mod load_balancer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogs".into(),
-                    value: access_logs_binding.get_id(),
+                    value: &access_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: availability_zones_binding.get_id(),
+                    value: &availability_zones_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDraining".into(),
-                    value: connection_draining_binding.get_id(),
+                    value: &connection_draining_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDrainingTimeout".into(),
-                    value: connection_draining_timeout_binding.get_id(),
+                    value: &connection_draining_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossZoneLoadBalancing".into(),
-                    value: cross_zone_load_balancing_binding.get_id(),
+                    value: &cross_zone_load_balancing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desyncMitigationMode".into(),
-                    value: desync_mitigation_mode_binding.get_id(),
+                    value: &desync_mitigation_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheck".into(),
-                    value: health_check_binding.get_id(),
+                    value: &health_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeout".into(),
-                    value: idle_timeout_binding.get_id(),
+                    value: &idle_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instances".into(),
-                    value: instances_binding.get_id(),
+                    value: &instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internal".into(),
-                    value: internal_binding.get_id(),
+                    value: &internal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listeners".into(),
-                    value: listeners_binding.get_id(),
+                    value: &listeners_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSecurityGroup".into(),
-                    value: source_security_group_binding.get_id(),
+                    value: &source_security_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: subnets_binding.get_id(),
+                    value: &subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

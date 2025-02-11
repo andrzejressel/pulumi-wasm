@@ -284,95 +284,95 @@ pub mod alert_rule_scheduled {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertDetailsOverrides".into(),
-                    value: alert_details_overrides_binding.get_id(),
+                    value: &alert_details_overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateGuid".into(),
-                    value: alert_rule_template_guid_binding.get_id(),
+                    value: &alert_rule_template_guid_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateVersion".into(),
-                    value: alert_rule_template_version_binding.get_id(),
+                    value: &alert_rule_template_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDetails".into(),
-                    value: custom_details_binding.get_id(),
+                    value: &custom_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entityMappings".into(),
-                    value: entity_mappings_binding.get_id(),
+                    value: &entity_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventGrouping".into(),
-                    value: event_grouping_binding.get_id(),
+                    value: &event_grouping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incident".into(),
-                    value: incident_binding.get_id(),
+                    value: &incident_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: query_binding.get_id(),
+                    value: &query_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryFrequency".into(),
-                    value: query_frequency_binding.get_id(),
+                    value: &query_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryPeriod".into(),
-                    value: query_period_binding.get_id(),
+                    value: &query_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sentinelEntityMappings".into(),
-                    value: sentinel_entity_mappings_binding.get_id(),
+                    value: &sentinel_entity_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: severity_binding.get_id(),
+                    value: &severity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionDuration".into(),
-                    value: suppression_duration_binding.get_id(),
+                    value: &suppression_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionEnabled".into(),
-                    value: suppression_enabled_binding.get_id(),
+                    value: &suppression_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tactics".into(),
-                    value: tactics_binding.get_id(),
+                    value: &tactics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techniques".into(),
-                    value: techniques_binding.get_id(),
+                    value: &techniques_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerOperator".into(),
-                    value: trigger_operator_binding.get_id(),
+                    value: &trigger_operator_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerThreshold".into(),
-                    value: trigger_threshold_binding.get_id(),
+                    value: &trigger_threshold_binding.drop_type(),
                 },
             ],
         };

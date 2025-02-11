@@ -71,11 +71,11 @@ pub mod email_routing_address {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
             ],
         };

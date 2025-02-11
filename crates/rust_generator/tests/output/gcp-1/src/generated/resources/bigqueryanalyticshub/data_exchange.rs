@@ -193,39 +193,39 @@ pub mod data_exchange {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataExchangeId".into(),
-                    value: data_exchange_id_binding.get_id(),
+                    value: &data_exchange_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentation".into(),
-                    value: documentation_binding.get_id(),
+                    value: &documentation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icon".into(),
-                    value: icon_binding.get_id(),
+                    value: &icon_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContact".into(),
-                    value: primary_contact_binding.get_id(),
+                    value: &primary_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharingEnvironmentConfig".into(),
-                    value: sharing_environment_config_binding.get_id(),
+                    value: &sharing_environment_config_binding.drop_type(),
                 },
             ],
         };

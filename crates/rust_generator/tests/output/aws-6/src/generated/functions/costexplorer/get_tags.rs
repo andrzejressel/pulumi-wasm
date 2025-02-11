@@ -67,23 +67,23 @@ pub mod get_tags {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchString".into(),
-                    value: search_string_binding.get_id(),
+                    value: &search_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sortBies".into(),
-                    value: sort_bies_binding.get_id(),
+                    value: &sort_bies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagKey".into(),
-                    value: tag_key_binding.get_id(),
+                    value: &tag_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriod".into(),
-                    value: time_period_binding.get_id(),
+                    value: &time_period_binding.drop_type(),
                 },
             ],
         };

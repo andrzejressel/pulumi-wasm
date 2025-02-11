@@ -269,39 +269,39 @@ pub mod network_connection_monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: endpoints_binding.get_id(),
+                    value: &endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkWatcherId".into(),
-                    value: network_watcher_id_binding.get_id(),
+                    value: &network_watcher_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: notes_binding.get_id(),
+                    value: &notes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputWorkspaceResourceIds".into(),
-                    value: output_workspace_resource_ids_binding.get_id(),
+                    value: &output_workspace_resource_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testConfigurations".into(),
-                    value: test_configurations_binding.get_id(),
+                    value: &test_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testGroups".into(),
-                    value: test_groups_binding.get_id(),
+                    value: &test_groups_binding.drop_type(),
                 },
             ],
         };

@@ -96,15 +96,15 @@ pub mod load_balancer_backend_server_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePort".into(),
-                    value: instance_port_binding.get_id(),
+                    value: &instance_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerName".into(),
-                    value: load_balancer_name_binding.get_id(),
+                    value: &load_balancer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyNames".into(),
-                    value: policy_names_binding.get_id(),
+                    value: &policy_names_binding.drop_type(),
                 },
             ],
         };

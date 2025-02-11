@@ -87,15 +87,15 @@ pub mod domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: encryption_key_binding.get_id(),
+                    value: &encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

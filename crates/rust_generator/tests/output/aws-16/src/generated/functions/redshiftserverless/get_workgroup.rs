@@ -48,7 +48,7 @@ pub mod get_workgroup {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: workgroup_name_binding.get_id(),
+                    value: &workgroup_name_binding.drop_type(),
                 },
             ],
         };

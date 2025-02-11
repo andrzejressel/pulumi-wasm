@@ -144,39 +144,39 @@ pub mod provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openEnclavePolicyBase64".into(),
-                    value: open_enclave_policy_base64_binding.get_id(),
+                    value: &open_enclave_policy_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policySigningCertificateData".into(),
-                    value: policy_signing_certificate_data_binding.get_id(),
+                    value: &policy_signing_certificate_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sevSnpPolicyBase64".into(),
-                    value: sev_snp_policy_base64_binding.get_id(),
+                    value: &sev_snp_policy_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sgxEnclavePolicyBase64".into(),
-                    value: sgx_enclave_policy_base64_binding.get_id(),
+                    value: &sgx_enclave_policy_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tpmPolicyBase64".into(),
-                    value: tpm_policy_base64_binding.get_id(),
+                    value: &tpm_policy_base64_binding.drop_type(),
                 },
             ],
         };

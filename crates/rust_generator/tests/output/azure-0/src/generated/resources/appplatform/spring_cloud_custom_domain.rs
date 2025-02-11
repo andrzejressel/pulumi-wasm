@@ -117,19 +117,19 @@ pub mod spring_cloud_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: certificate_name_binding.get_id(),
+                    value: &certificate_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: thumbprint_binding.get_id(),
+                    value: &thumbprint_binding.drop_type(),
                 },
             ],
         };

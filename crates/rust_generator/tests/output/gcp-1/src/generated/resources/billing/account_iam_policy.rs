@@ -196,11 +196,11 @@ pub mod account_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountId".into(),
-                    value: billing_account_id_binding.get_id(),
+                    value: &billing_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
             ],
         };

@@ -334,91 +334,91 @@ pub mod system_topic_event_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedFilter".into(),
-                    value: advanced_filter_binding.get_id(),
+                    value: &advanced_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedFilteringOnArraysEnabled".into(),
-                    value: advanced_filtering_on_arrays_enabled_binding.get_id(),
+                    value: &advanced_filtering_on_arrays_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureFunctionEndpoint".into(),
-                    value: azure_function_endpoint_binding.get_id(),
+                    value: &azure_function_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterIdentity".into(),
-                    value: dead_letter_identity_binding.get_id(),
+                    value: &dead_letter_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryIdentity".into(),
-                    value: delivery_identity_binding.get_id(),
+                    value: &delivery_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryProperties".into(),
-                    value: delivery_properties_binding.get_id(),
+                    value: &delivery_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDeliverySchema".into(),
-                    value: event_delivery_schema_binding.get_id(),
+                    value: &event_delivery_schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubEndpointId".into(),
-                    value: eventhub_endpoint_id_binding.get_id(),
+                    value: &eventhub_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTimeUtc".into(),
-                    value: expiration_time_utc_binding.get_id(),
+                    value: &expiration_time_utc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hybridConnectionEndpointId".into(),
-                    value: hybrid_connection_endpoint_id_binding.get_id(),
+                    value: &hybrid_connection_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includedEventTypes".into(),
-                    value: included_event_types_binding.get_id(),
+                    value: &included_event_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryPolicy".into(),
-                    value: retry_policy_binding.get_id(),
+                    value: &retry_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceBusQueueEndpointId".into(),
-                    value: service_bus_queue_endpoint_id_binding.get_id(),
+                    value: &service_bus_queue_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceBusTopicEndpointId".into(),
-                    value: service_bus_topic_endpoint_id_binding.get_id(),
+                    value: &service_bus_topic_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageBlobDeadLetterDestination".into(),
-                    value: storage_blob_dead_letter_destination_binding.get_id(),
+                    value: &storage_blob_dead_letter_destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageQueueEndpoint".into(),
-                    value: storage_queue_endpoint_binding.get_id(),
+                    value: &storage_queue_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectFilter".into(),
-                    value: subject_filter_binding.get_id(),
+                    value: &subject_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemTopic".into(),
-                    value: system_topic_binding.get_id(),
+                    value: &system_topic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookEndpoint".into(),
-                    value: webhook_endpoint_binding.get_id(),
+                    value: &webhook_endpoint_binding.drop_type(),
                 },
             ],
         };

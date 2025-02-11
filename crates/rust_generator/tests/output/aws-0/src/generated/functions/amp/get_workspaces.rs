@@ -37,7 +37,7 @@ pub mod get_workspaces {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasPrefix".into(),
-                    value: alias_prefix_binding.get_id(),
+                    value: &alias_prefix_binding.drop_type(),
                 },
             ],
         };

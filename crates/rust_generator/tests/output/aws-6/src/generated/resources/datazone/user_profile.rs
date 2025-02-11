@@ -97,23 +97,23 @@ pub mod user_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: domain_identifier_binding.get_id(),
+                    value: &domain_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIdentifier".into(),
-                    value: user_identifier_binding.get_id(),
+                    value: &user_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: user_type_binding.get_id(),
+                    value: &user_type_binding.drop_type(),
                 },
             ],
         };

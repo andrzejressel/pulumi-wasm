@@ -66,11 +66,11 @@ pub mod resource_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceShareArn".into(),
-                    value: resource_share_arn_binding.get_id(),
+                    value: &resource_share_arn_binding.drop_type(),
                 },
             ],
         };

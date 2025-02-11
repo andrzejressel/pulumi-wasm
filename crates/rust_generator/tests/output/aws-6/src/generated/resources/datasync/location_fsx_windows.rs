@@ -110,31 +110,31 @@ pub mod location_fsx_windows {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fsxFilesystemArn".into(),
-                    value: fsx_filesystem_arn_binding.get_id(),
+                    value: &fsx_filesystem_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupArns".into(),
-                    value: security_group_arns_binding.get_id(),
+                    value: &security_group_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

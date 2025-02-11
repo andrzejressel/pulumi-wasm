@@ -152,19 +152,19 @@ pub mod data_lake {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metaStoreManagerRoleArn".into(),
-                    value: meta_store_manager_role_arn_binding.get_id(),
+                    value: &meta_store_manager_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

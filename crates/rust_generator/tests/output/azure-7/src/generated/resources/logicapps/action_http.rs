@@ -134,35 +134,35 @@ pub mod action_http {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: body_binding.get_id(),
+                    value: &body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headers".into(),
-                    value: headers_binding.get_id(),
+                    value: &headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppId".into(),
-                    value: logic_app_id_binding.get_id(),
+                    value: &logic_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: method_binding.get_id(),
+                    value: &method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queries".into(),
-                    value: queries_binding.get_id(),
+                    value: &queries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAfters".into(),
-                    value: run_afters_binding.get_id(),
+                    value: &run_afters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uri".into(),
-                    value: uri_binding.get_id(),
+                    value: &uri_binding.drop_type(),
                 },
             ],
         };

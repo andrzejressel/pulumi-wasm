@@ -203,51 +203,51 @@ pub mod cassandra_datacenter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZonesEnabled".into(),
-                    value: availability_zones_enabled_binding.get_id(),
+                    value: &availability_zones_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupStorageCustomerKeyUri".into(),
-                    value: backup_storage_customer_key_uri_binding.get_id(),
+                    value: &backup_storage_customer_key_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "base64EncodedYamlFragment".into(),
-                    value: base64_encoded_yaml_fragment_binding.get_id(),
+                    value: &base64_encoded_yaml_fragment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cassandraClusterId".into(),
-                    value: cassandra_cluster_id_binding.get_id(),
+                    value: &cassandra_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagementSubnetId".into(),
-                    value: delegated_management_subnet_id_binding.get_id(),
+                    value: &delegated_management_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskCount".into(),
-                    value: disk_count_binding.get_id(),
+                    value: &disk_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSku".into(),
-                    value: disk_sku_binding.get_id(),
+                    value: &disk_sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCustomerKeyUri".into(),
-                    value: managed_disk_customer_key_uri_binding.get_id(),
+                    value: &managed_disk_customer_key_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: node_count_binding.get_id(),
+                    value: &node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
             ],
         };

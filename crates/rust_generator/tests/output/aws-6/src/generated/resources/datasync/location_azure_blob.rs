@@ -125,35 +125,35 @@ pub mod location_azure_blob {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTier".into(),
-                    value: access_tier_binding.get_id(),
+                    value: &access_tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: agent_arns_binding.get_id(),
+                    value: &agent_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobType".into(),
-                    value: blob_type_binding.get_id(),
+                    value: &blob_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerUrl".into(),
-                    value: container_url_binding.get_id(),
+                    value: &container_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasConfiguration".into(),
-                    value: sas_configuration_binding.get_id(),
+                    value: &sas_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -67,11 +67,11 @@ pub mod subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRenew".into(),
-                    value: auto_renew_binding.get_id(),
+                    value: &auto_renew_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
             ],
         };

@@ -90,15 +90,15 @@ pub mod resource_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSets".into(),
-                    value: resource_sets_binding.get_id(),
+                    value: &resource_sets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

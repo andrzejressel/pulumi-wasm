@@ -172,59 +172,59 @@ pub mod user {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addresses".into(),
-                    value: addresses_binding.get_id(),
+                    value: &addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emails".into(),
-                    value: emails_binding.get_id(),
+                    value: &emails_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: identity_store_id_binding.get_id(),
+                    value: &identity_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: locale_binding.get_id(),
+                    value: &locale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nickname".into(),
-                    value: nickname_binding.get_id(),
+                    value: &nickname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumbers".into(),
-                    value: phone_numbers_binding.get_id(),
+                    value: &phone_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredLanguage".into(),
-                    value: preferred_language_binding.get_id(),
+                    value: &preferred_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileUrl".into(),
-                    value: profile_url_binding.get_id(),
+                    value: &profile_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: timezone_binding.get_id(),
+                    value: &timezone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: title_binding.get_id(),
+                    value: &title_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: user_name_binding.get_id(),
+                    value: &user_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: user_type_binding.get_id(),
+                    value: &user_type_binding.drop_type(),
                 },
             ],
         };

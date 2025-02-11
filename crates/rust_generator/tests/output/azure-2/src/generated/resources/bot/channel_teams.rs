@@ -108,27 +108,27 @@ pub mod channel_teams {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: bot_name_binding.get_id(),
+                    value: &bot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callingWebHook".into(),
-                    value: calling_web_hook_binding.get_id(),
+                    value: &calling_web_hook_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentEnvironment".into(),
-                    value: deployment_environment_binding.get_id(),
+                    value: &deployment_environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCalling".into(),
-                    value: enable_calling_binding.get_id(),
+                    value: &enable_calling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

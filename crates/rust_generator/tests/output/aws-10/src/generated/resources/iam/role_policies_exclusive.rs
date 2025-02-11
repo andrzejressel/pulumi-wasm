@@ -93,11 +93,11 @@ pub mod role_policies_exclusive {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyNames".into(),
-                    value: policy_names_binding.get_id(),
+                    value: &policy_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: role_name_binding.get_id(),
+                    value: &role_name_binding.drop_type(),
                 },
             ],
         };

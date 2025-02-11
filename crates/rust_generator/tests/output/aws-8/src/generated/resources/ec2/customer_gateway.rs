@@ -103,31 +103,31 @@ pub mod customer_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: bgp_asn_binding.get_id(),
+                    value: &bgp_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsnExtended".into(),
-                    value: bgp_asn_extended_binding.get_id(),
+                    value: &bgp_asn_extended_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: device_name_binding.get_id(),
+                    value: &device_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

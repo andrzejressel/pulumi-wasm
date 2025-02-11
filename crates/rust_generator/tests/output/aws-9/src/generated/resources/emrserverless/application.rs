@@ -226,51 +226,51 @@ pub mod application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: architecture_binding.get_id(),
+                    value: &architecture_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoStartConfiguration".into(),
-                    value: auto_start_configuration_binding.get_id(),
+                    value: &auto_start_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoStopConfiguration".into(),
-                    value: auto_stop_configuration_binding.get_id(),
+                    value: &auto_stop_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageConfiguration".into(),
-                    value: image_configuration_binding.get_id(),
+                    value: &image_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialCapacities".into(),
-                    value: initial_capacities_binding.get_id(),
+                    value: &initial_capacities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interactiveConfiguration".into(),
-                    value: interactive_configuration_binding.get_id(),
+                    value: &interactive_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumCapacity".into(),
-                    value: maximum_capacity_binding.get_id(),
+                    value: &maximum_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: network_configuration_binding.get_id(),
+                    value: &network_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: release_label_binding.get_id(),
+                    value: &release_label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

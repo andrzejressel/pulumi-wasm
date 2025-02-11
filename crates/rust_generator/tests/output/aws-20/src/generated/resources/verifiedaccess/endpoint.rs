@@ -186,55 +186,55 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationDomain".into(),
-                    value: application_domain_binding.get_id(),
+                    value: &application_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentType".into(),
-                    value: attachment_type_binding.get_id(),
+                    value: &attachment_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainCertificateArn".into(),
-                    value: domain_certificate_arn_binding.get_id(),
+                    value: &domain_certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointDomainPrefix".into(),
-                    value: endpoint_domain_prefix_binding.get_id(),
+                    value: &endpoint_domain_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: endpoint_type_binding.get_id(),
+                    value: &endpoint_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerOptions".into(),
-                    value: load_balancer_options_binding.get_id(),
+                    value: &load_balancer_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceOptions".into(),
-                    value: network_interface_options_binding.get_id(),
+                    value: &network_interface_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sseSpecification".into(),
-                    value: sse_specification_binding.get_id(),
+                    value: &sse_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedAccessGroupId".into(),
-                    value: verified_access_group_id_binding.get_id(),
+                    value: &verified_access_group_id_binding.drop_type(),
                 },
             ],
         };

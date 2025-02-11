@@ -153,43 +153,43 @@ pub mod kubernetes_cluster_extension {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: cluster_id_binding.get_id(),
+                    value: &cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationProtectedSettings".into(),
-                    value: configuration_protected_settings_binding.get_id(),
+                    value: &configuration_protected_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSettings".into(),
-                    value: configuration_settings_binding.get_id(),
+                    value: &configuration_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensionType".into(),
-                    value: extension_type_binding.get_id(),
+                    value: &extension_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: plan_binding.get_id(),
+                    value: &plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseNamespace".into(),
-                    value: release_namespace_binding.get_id(),
+                    value: &release_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseTrain".into(),
-                    value: release_train_binding.get_id(),
+                    value: &release_train_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNamespace".into(),
-                    value: target_namespace_binding.get_id(),
+                    value: &target_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

@@ -194,47 +194,47 @@ pub mod instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoResolveBestVoicesEnabled".into(),
-                    value: auto_resolve_best_voices_enabled_binding.get_id(),
+                    value: &auto_resolve_best_voices_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactFlowLogsEnabled".into(),
-                    value: contact_flow_logs_enabled_binding.get_id(),
+                    value: &contact_flow_logs_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactLensEnabled".into(),
-                    value: contact_lens_enabled_binding.get_id(),
+                    value: &contact_lens_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "earlyMediaEnabled".into(),
-                    value: early_media_enabled_binding.get_id(),
+                    value: &early_media_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityManagementType".into(),
-                    value: identity_management_type_binding.get_id(),
+                    value: &identity_management_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundCallsEnabled".into(),
-                    value: inbound_calls_enabled_binding.get_id(),
+                    value: &inbound_calls_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceAlias".into(),
-                    value: instance_alias_binding.get_id(),
+                    value: &instance_alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiPartyConferenceEnabled".into(),
-                    value: multi_party_conference_enabled_binding.get_id(),
+                    value: &multi_party_conference_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outboundCallsEnabled".into(),
-                    value: outbound_calls_enabled_binding.get_id(),
+                    value: &outbound_calls_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -111,27 +111,27 @@ pub mod services_communications_gateway_test_line {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: phone_number_binding.get_id(),
+                    value: &phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: purpose_binding.get_id(),
+                    value: &purpose_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceServicesCommunicationsGatewayId".into(),
-                    value: voice_services_communications_gateway_id_binding.get_id(),
+                    value: &voice_services_communications_gateway_id_binding.drop_type(),
                 },
             ],
         };

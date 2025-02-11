@@ -167,51 +167,51 @@ pub mod schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyRecurrence".into(),
-                    value: daily_recurrence_binding.get_id(),
+                    value: &daily_recurrence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hourlyRecurrence".into(),
-                    value: hourly_recurrence_binding.get_id(),
+                    value: &hourly_recurrence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labName".into(),
-                    value: lab_name_binding.get_id(),
+                    value: &lab_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationSettings".into(),
-                    value: notification_settings_binding.get_id(),
+                    value: &notification_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskType".into(),
-                    value: task_type_binding.get_id(),
+                    value: &task_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZoneId".into(),
-                    value: time_zone_id_binding.get_id(),
+                    value: &time_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyRecurrence".into(),
-                    value: weekly_recurrence_binding.get_id(),
+                    value: &weekly_recurrence_binding.drop_type(),
                 },
             ],
         };

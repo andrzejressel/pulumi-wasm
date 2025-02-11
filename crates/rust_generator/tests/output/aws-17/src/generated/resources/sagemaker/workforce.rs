@@ -156,23 +156,23 @@ pub mod workforce {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitoConfig".into(),
-                    value: cognito_config_binding.get_id(),
+                    value: &cognito_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidcConfig".into(),
-                    value: oidc_config_binding.get_id(),
+                    value: &oidc_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpConfig".into(),
-                    value: source_ip_config_binding.get_id(),
+                    value: &source_ip_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforceName".into(),
-                    value: workforce_name_binding.get_id(),
+                    value: &workforce_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforceVpcConfig".into(),
-                    value: workforce_vpc_config_binding.get_id(),
+                    value: &workforce_vpc_config_binding.drop_type(),
                 },
             ],
         };

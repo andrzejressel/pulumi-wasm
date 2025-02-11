@@ -56,11 +56,11 @@ pub mod get_network_sim_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: mobile_network_id_binding.get_id(),
+                    value: &mobile_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -98,19 +98,19 @@ pub mod group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterExpression".into(),
-                    value: filter_expression_binding.get_id(),
+                    value: &filter_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insightsConfiguration".into(),
-                    value: insights_configuration_binding.get_id(),
+                    value: &insights_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

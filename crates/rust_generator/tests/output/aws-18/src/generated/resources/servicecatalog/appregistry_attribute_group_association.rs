@@ -76,11 +76,11 @@ pub mod appregistry_attribute_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeGroupId".into(),
-                    value: attribute_group_id_binding.get_id(),
+                    value: &attribute_group_id_binding.drop_type(),
                 },
             ],
         };

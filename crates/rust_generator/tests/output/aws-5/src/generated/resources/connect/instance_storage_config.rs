@@ -214,15 +214,15 @@ pub mod instance_storage_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConfig".into(),
-                    value: storage_config_binding.get_id(),
+                    value: &storage_config_binding.drop_type(),
                 },
             ],
         };

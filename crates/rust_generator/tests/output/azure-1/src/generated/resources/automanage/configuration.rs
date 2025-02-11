@@ -210,55 +210,55 @@ pub mod configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antimalware".into(),
-                    value: antimalware_binding.get_id(),
+                    value: &antimalware_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountEnabled".into(),
-                    value: automation_account_enabled_binding.get_id(),
+                    value: &automation_account_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureSecurityBaseline".into(),
-                    value: azure_security_baseline_binding.get_id(),
+                    value: &azure_security_baseline_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: backup_binding.get_id(),
+                    value: &backup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiagnosticsEnabled".into(),
-                    value: boot_diagnostics_enabled_binding.get_id(),
+                    value: &boot_diagnostics_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defenderForCloudEnabled".into(),
-                    value: defender_for_cloud_enabled_binding.get_id(),
+                    value: &defender_for_cloud_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestConfigurationEnabled".into(),
-                    value: guest_configuration_enabled_binding.get_id(),
+                    value: &guest_configuration_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsEnabled".into(),
-                    value: log_analytics_enabled_binding.get_id(),
+                    value: &log_analytics_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusChangeAlertEnabled".into(),
-                    value: status_change_alert_enabled_binding.get_id(),
+                    value: &status_change_alert_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

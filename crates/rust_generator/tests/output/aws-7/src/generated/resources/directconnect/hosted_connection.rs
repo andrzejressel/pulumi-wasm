@@ -97,23 +97,23 @@ pub mod hosted_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: bandwidth_binding.get_id(),
+                    value: &bandwidth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccountId".into(),
-                    value: owner_account_id_binding.get_id(),
+                    value: &owner_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlan".into(),
-                    value: vlan_binding.get_id(),
+                    value: &vlan_binding.drop_type(),
                 },
             ],
         };

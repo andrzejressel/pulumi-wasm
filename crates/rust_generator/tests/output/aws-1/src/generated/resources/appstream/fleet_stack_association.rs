@@ -79,11 +79,11 @@ pub mod fleet_stack_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetName".into(),
-                    value: fleet_name_binding.get_id(),
+                    value: &fleet_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackName".into(),
-                    value: stack_name_binding.get_id(),
+                    value: &stack_name_binding.drop_type(),
                 },
             ],
         };

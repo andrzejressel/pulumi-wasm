@@ -199,43 +199,43 @@ pub mod endpoint_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationPolicy".into(),
-                    value: authorization_policy_binding.get_id(),
+                    value: &authorization_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientTlsPolicy".into(),
-                    value: client_tls_policy_binding.get_id(),
+                    value: &client_tls_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointMatcher".into(),
-                    value: endpoint_matcher_binding.get_id(),
+                    value: &endpoint_matcher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTlsPolicy".into(),
-                    value: server_tls_policy_binding.get_id(),
+                    value: &server_tls_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPortSelector".into(),
-                    value: traffic_port_selector_binding.get_id(),
+                    value: &traffic_port_selector_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

@@ -201,35 +201,35 @@ pub mod environment_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountRegion".into(),
-                    value: aws_account_region_binding.get_id(),
+                    value: &aws_account_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: domain_identifier_binding.get_id(),
+                    value: &domain_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentBlueprintIdentifier".into(),
-                    value: environment_blueprint_identifier_binding.get_id(),
+                    value: &environment_blueprint_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectIdentifier".into(),
-                    value: project_identifier_binding.get_id(),
+                    value: &project_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userParameters".into(),
-                    value: user_parameters_binding.get_id(),
+                    value: &user_parameters_binding.drop_type(),
                 },
             ],
         };

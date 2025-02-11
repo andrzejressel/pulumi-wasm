@@ -334,43 +334,43 @@ pub mod tls_inspection_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caPool".into(),
-                    value: ca_pool_binding.get_id(),
+                    value: &ca_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customTlsFeatures".into(),
-                    value: custom_tls_features_binding.get_id(),
+                    value: &custom_tls_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludePublicCaSet".into(),
-                    value: exclude_public_ca_set_binding.get_id(),
+                    value: &exclude_public_ca_set_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: min_tls_version_binding.get_id(),
+                    value: &min_tls_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsFeatureProfile".into(),
-                    value: tls_feature_profile_binding.get_id(),
+                    value: &tls_feature_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustConfig".into(),
-                    value: trust_config_binding.get_id(),
+                    value: &trust_config_binding.drop_type(),
                 },
             ],
         };

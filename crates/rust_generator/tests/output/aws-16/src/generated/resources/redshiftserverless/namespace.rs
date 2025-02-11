@@ -138,47 +138,47 @@ pub mod namespace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPasswordSecretKmsKeyId".into(),
-                    value: admin_password_secret_kms_key_id_binding.get_id(),
+                    value: &admin_password_secret_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUserPassword".into(),
-                    value: admin_user_password_binding.get_id(),
+                    value: &admin_user_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUsername".into(),
-                    value: admin_username_binding.get_id(),
+                    value: &admin_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: db_name_binding.get_id(),
+                    value: &db_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: default_iam_role_arn_binding.get_id(),
+                    value: &default_iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoles".into(),
-                    value: iam_roles_binding.get_id(),
+                    value: &iam_roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logExports".into(),
-                    value: log_exports_binding.get_id(),
+                    value: &log_exports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAdminPassword".into(),
-                    value: manage_admin_password_binding.get_id(),
+                    value: &manage_admin_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

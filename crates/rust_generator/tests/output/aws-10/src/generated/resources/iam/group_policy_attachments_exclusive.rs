@@ -48,11 +48,11 @@ pub mod group_policy_attachments_exclusive {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArns".into(),
-                    value: policy_arns_binding.get_id(),
+                    value: &policy_arns_binding.drop_type(),
                 },
             ],
         };

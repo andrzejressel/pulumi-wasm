@@ -67,23 +67,23 @@ pub mod zero_trust_gateway_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activate".into(),
-                    value: activate_binding.get_id(),
+                    value: &activate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "custom".into(),
-                    value: custom_binding.get_id(),
+                    value: &custom_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayManaged".into(),
-                    value: gateway_managed_binding.get_id(),
+                    value: &gateway_managed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityPeriodDays".into(),
-                    value: validity_period_days_binding.get_id(),
+                    value: &validity_period_days_binding.drop_type(),
                 },
             ],
         };

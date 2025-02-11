@@ -49,11 +49,11 @@ pub mod get_route_calculator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "calculatorName".into(),
-                    value: calculator_name_binding.get_id(),
+                    value: &calculator_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

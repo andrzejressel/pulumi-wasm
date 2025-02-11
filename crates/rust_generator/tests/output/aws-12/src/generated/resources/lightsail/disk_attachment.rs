@@ -90,15 +90,15 @@ pub mod disk_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskName".into(),
-                    value: disk_name_binding.get_id(),
+                    value: &disk_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskPath".into(),
-                    value: disk_path_binding.get_id(),
+                    value: &disk_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
             ],
         };

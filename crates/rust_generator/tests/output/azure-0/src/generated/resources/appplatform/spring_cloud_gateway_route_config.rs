@@ -178,39 +178,39 @@ pub mod spring_cloud_gateway_route_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openApi".into(),
-                    value: open_api_binding.get_id(),
+                    value: &open_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predicates".into(),
-                    value: predicates_binding.get_id(),
+                    value: &predicates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: routes_binding.get_id(),
+                    value: &routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudGatewayId".into(),
-                    value: spring_cloud_gateway_id_binding.get_id(),
+                    value: &spring_cloud_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssoValidationEnabled".into(),
-                    value: sso_validation_enabled_binding.get_id(),
+                    value: &sso_validation_enabled_binding.drop_type(),
                 },
             ],
         };

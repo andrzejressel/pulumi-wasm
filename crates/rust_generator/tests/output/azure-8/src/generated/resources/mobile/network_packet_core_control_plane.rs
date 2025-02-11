@@ -246,71 +246,71 @@ pub mod network_packet_core_control_plane {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Address".into(),
-                    value: control_plane_access_ipv4_address_binding.get_id(),
+                    value: &control_plane_access_ipv4_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Gateway".into(),
-                    value: control_plane_access_ipv4_gateway_binding.get_id(),
+                    value: &control_plane_access_ipv4_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Subnet".into(),
-                    value: control_plane_access_ipv4_subnet_binding.get_id(),
+                    value: &control_plane_access_ipv4_subnet_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessName".into(),
-                    value: control_plane_access_name_binding.get_id(),
+                    value: &control_plane_access_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkTechnology".into(),
-                    value: core_network_technology_binding.get_id(),
+                    value: &core_network_technology_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interoperabilitySettingsJson".into(),
-                    value: interoperability_settings_json_binding.get_id(),
+                    value: &interoperability_settings_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localDiagnosticsAccess".into(),
-                    value: local_diagnostics_access_binding.get_id(),
+                    value: &local_diagnostics_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: platform_binding.get_id(),
+                    value: &platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteIds".into(),
-                    value: site_ids_binding.get_id(),
+                    value: &site_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareVersion".into(),
-                    value: software_version_binding.get_id(),
+                    value: &software_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentMtuInBytes".into(),
-                    value: user_equipment_mtu_in_bytes_binding.get_id(),
+                    value: &user_equipment_mtu_in_bytes_binding.drop_type(),
                 },
             ],
         };

@@ -96,23 +96,23 @@ pub mod endpoint_access {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointName".into(),
-                    value: endpoint_name_binding.get_id(),
+                    value: &endpoint_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccount".into(),
-                    value: owner_account_binding.get_id(),
+                    value: &owner_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: vpc_security_group_ids_binding.get_id(),
+                    value: &vpc_security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: workgroup_name_binding.get_id(),
+                    value: &workgroup_name_binding.drop_type(),
                 },
             ],
         };

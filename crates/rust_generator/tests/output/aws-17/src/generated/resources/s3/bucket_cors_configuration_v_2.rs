@@ -103,15 +103,15 @@ pub mod bucket_cors_configuration_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsRules".into(),
-                    value: cors_rules_binding.get_id(),
+                    value: &cors_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
             ],
         };

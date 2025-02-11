@@ -172,43 +172,43 @@ pub mod traffic_mirror_filter_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: destination_cidr_block_binding.get_id(),
+                    value: &destination_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRange".into(),
-                    value: destination_port_range_binding.get_id(),
+                    value: &destination_port_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleAction".into(),
-                    value: rule_action_binding.get_id(),
+                    value: &rule_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleNumber".into(),
-                    value: rule_number_binding.get_id(),
+                    value: &rule_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceCidrBlock".into(),
-                    value: source_cidr_block_binding.get_id(),
+                    value: &source_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRange".into(),
-                    value: source_port_range_binding.get_id(),
+                    value: &source_port_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficDirection".into(),
-                    value: traffic_direction_binding.get_id(),
+                    value: &traffic_direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorFilterId".into(),
-                    value: traffic_mirror_filter_id_binding.get_id(),
+                    value: &traffic_mirror_filter_id_binding.drop_type(),
                 },
             ],
         };

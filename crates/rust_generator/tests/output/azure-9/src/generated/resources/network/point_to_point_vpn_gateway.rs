@@ -190,43 +190,43 @@ pub mod point_to_point_vpn_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionConfigurations".into(),
-                    value: connection_configurations_binding.get_id(),
+                    value: &connection_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: dns_servers_binding.get_id(),
+                    value: &dns_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingPreferenceInternetEnabled".into(),
-                    value: routing_preference_internet_enabled_binding.get_id(),
+                    value: &routing_preference_internet_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleUnit".into(),
-                    value: scale_unit_binding.get_id(),
+                    value: &scale_unit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: virtual_hub_id_binding.get_id(),
+                    value: &virtual_hub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnServerConfigurationId".into(),
-                    value: vpn_server_configuration_id_binding.get_id(),
+                    value: &vpn_server_configuration_id_binding.drop_type(),
                 },
             ],
         };

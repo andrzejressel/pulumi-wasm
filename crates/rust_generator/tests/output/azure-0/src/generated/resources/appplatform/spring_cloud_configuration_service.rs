@@ -127,23 +127,23 @@ pub mod spring_cloud_configuration_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "generation".into(),
-                    value: generation_binding.get_id(),
+                    value: &generation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshIntervalInSeconds".into(),
-                    value: refresh_interval_in_seconds_binding.get_id(),
+                    value: &refresh_interval_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositories".into(),
-                    value: repositories_binding.get_id(),
+                    value: &repositories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
             ],
         };

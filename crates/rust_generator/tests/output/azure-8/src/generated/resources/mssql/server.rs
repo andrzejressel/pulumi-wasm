@@ -304,63 +304,64 @@ pub mod server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: administrator_login_binding.get_id(),
+                    value: &administrator_login_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: administrator_login_password_binding.get_id(),
+                    value: &administrator_login_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureadAdministrator".into(),
-                    value: azuread_administrator_binding.get_id(),
+                    value: &azuread_administrator_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPolicy".into(),
-                    value: connection_policy_binding.get_id(),
+                    value: &connection_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumTlsVersion".into(),
-                    value: minimum_tls_version_binding.get_id(),
+                    value: &minimum_tls_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outboundNetworkRestrictionEnabled".into(),
-                    value: outbound_network_restriction_enabled_binding.get_id(),
+                    value: &outbound_network_restriction_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryUserAssignedIdentityId".into(),
-                    value: primary_user_assigned_identity_id_binding.get_id(),
+                    value: &primary_user_assigned_identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                    value: transparent_data_encryption_key_vault_key_id_binding.get_id(),
+                    value: &transparent_data_encryption_key_vault_key_id_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

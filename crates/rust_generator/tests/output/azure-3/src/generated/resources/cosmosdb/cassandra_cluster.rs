@@ -217,59 +217,59 @@ pub mod cassandra_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMethod".into(),
-                    value: authentication_method_binding.get_id(),
+                    value: &authentication_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificatePems".into(),
-                    value: client_certificate_pems_binding.get_id(),
+                    value: &client_certificate_pems_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAdminPassword".into(),
-                    value: default_admin_password_binding.get_id(),
+                    value: &default_admin_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagementSubnetId".into(),
-                    value: delegated_management_subnet_id_binding.get_id(),
+                    value: &delegated_management_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalGossipCertificatePems".into(),
-                    value: external_gossip_certificate_pems_binding.get_id(),
+                    value: &external_gossip_certificate_pems_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalSeedNodeIpAddresses".into(),
-                    value: external_seed_node_ip_addresses_binding.get_id(),
+                    value: &external_seed_node_ip_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hoursBetweenBackups".into(),
-                    value: hours_between_backups_binding.get_id(),
+                    value: &hours_between_backups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repairEnabled".into(),
-                    value: repair_enabled_binding.get_id(),
+                    value: &repair_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

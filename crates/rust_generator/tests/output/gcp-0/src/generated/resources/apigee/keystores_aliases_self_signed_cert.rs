@@ -247,39 +247,39 @@ pub mod keystores_aliases_self_signed_cert {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: alias_binding.get_id(),
+                    value: &alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certValidityInDays".into(),
-                    value: cert_validity_in_days_binding.get_id(),
+                    value: &cert_validity_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: environment_binding.get_id(),
+                    value: &environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySize".into(),
-                    value: key_size_binding.get_id(),
+                    value: &key_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keystore".into(),
-                    value: keystore_binding.get_id(),
+                    value: &keystore_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sigAlg".into(),
-                    value: sig_alg_binding.get_id(),
+                    value: &sig_alg_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: subject_binding.get_id(),
+                    value: &subject_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectAlternativeDnsNames".into(),
-                    value: subject_alternative_dns_names_binding.get_id(),
+                    value: &subject_alternative_dns_names_binding.drop_type(),
                 },
             ],
         };

@@ -147,47 +147,47 @@ pub mod resolver_firewall_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideDnsType".into(),
-                    value: block_override_dns_type_binding.get_id(),
+                    value: &block_override_dns_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideDomain".into(),
-                    value: block_override_domain_binding.get_id(),
+                    value: &block_override_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideTtl".into(),
-                    value: block_override_ttl_binding.get_id(),
+                    value: &block_override_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockResponse".into(),
-                    value: block_response_binding.get_id(),
+                    value: &block_response_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainListId".into(),
-                    value: firewall_domain_list_id_binding.get_id(),
+                    value: &firewall_domain_list_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainRedirectionAction".into(),
-                    value: firewall_domain_redirection_action_binding.get_id(),
+                    value: &firewall_domain_redirection_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupId".into(),
-                    value: firewall_rule_group_id_binding.get_id(),
+                    value: &firewall_rule_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qType".into(),
-                    value: q_type_binding.get_id(),
+                    value: &q_type_binding.drop_type(),
                 },
             ],
         };

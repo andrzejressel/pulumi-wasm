@@ -409,91 +409,91 @@ pub mod managed_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: administrator_login_binding.get_id(),
+                    value: &administrator_login_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: administrator_login_password_binding.get_id(),
+                    value: &administrator_login_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: collation_binding.get_id(),
+                    value: &collation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsZonePartnerId".into(),
-                    value: dns_zone_partner_id_binding.get_id(),
+                    value: &dns_zone_partner_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: license_type_binding.get_id(),
+                    value: &license_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationName".into(),
-                    value: maintenance_configuration_name_binding.get_id(),
+                    value: &maintenance_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumTlsVersion".into(),
-                    value: minimum_tls_version_binding.get_id(),
+                    value: &minimum_tls_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyOverride".into(),
-                    value: proxy_override_binding.get_id(),
+                    value: &proxy_override_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicDataEndpointEnabled".into(),
-                    value: public_data_endpoint_enabled_binding.get_id(),
+                    value: &public_data_endpoint_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalType".into(),
-                    value: service_principal_type_binding.get_id(),
+                    value: &service_principal_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountType".into(),
-                    value: storage_account_type_binding.get_id(),
+                    value: &storage_account_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSizeInGb".into(),
-                    value: storage_size_in_gb_binding.get_id(),
+                    value: &storage_size_in_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezoneId".into(),
-                    value: timezone_id_binding.get_id(),
+                    value: &timezone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vcores".into(),
-                    value: vcores_binding.get_id(),
+                    value: &vcores_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundantEnabled".into(),
-                    value: zone_redundant_enabled_binding.get_id(),
+                    value: &zone_redundant_enabled_binding.drop_type(),
                 },
             ],
         };

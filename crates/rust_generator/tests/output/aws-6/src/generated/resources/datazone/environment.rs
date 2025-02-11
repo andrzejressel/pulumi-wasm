@@ -158,47 +158,47 @@ pub mod environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountIdentifier".into(),
-                    value: account_identifier_binding.get_id(),
+                    value: &account_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountRegion".into(),
-                    value: account_region_binding.get_id(),
+                    value: &account_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueprintIdentifier".into(),
-                    value: blueprint_identifier_binding.get_id(),
+                    value: &blueprint_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: domain_identifier_binding.get_id(),
+                    value: &domain_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glossaryTerms".into(),
-                    value: glossary_terms_binding.get_id(),
+                    value: &glossary_terms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileIdentifier".into(),
-                    value: profile_identifier_binding.get_id(),
+                    value: &profile_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectIdentifier".into(),
-                    value: project_identifier_binding.get_id(),
+                    value: &project_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userParameters".into(),
-                    value: user_parameters_binding.get_id(),
+                    value: &user_parameters_binding.drop_type(),
                 },
             ],
         };

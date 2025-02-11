@@ -77,11 +77,11 @@ pub mod policy_table_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayPolicyTableId".into(),
-                    value: transit_gateway_policy_table_id_binding.get_id(),
+                    value: &transit_gateway_policy_table_id_binding.drop_type(),
                 },
             ],
         };

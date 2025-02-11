@@ -84,11 +84,11 @@ pub mod zone_dnssec {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modifiedOn".into(),
-                    value: modified_on_binding.get_id(),
+                    value: &modified_on_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

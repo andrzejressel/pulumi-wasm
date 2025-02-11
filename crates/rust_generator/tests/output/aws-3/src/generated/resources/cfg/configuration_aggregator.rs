@@ -158,19 +158,19 @@ pub mod configuration_aggregator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountAggregationSource".into(),
-                    value: account_aggregation_source_binding.get_id(),
+                    value: &account_aggregation_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationAggregationSource".into(),
-                    value: organization_aggregation_source_binding.get_id(),
+                    value: &organization_aggregation_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

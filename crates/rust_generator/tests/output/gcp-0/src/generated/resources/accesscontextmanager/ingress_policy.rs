@@ -63,11 +63,11 @@ pub mod ingress_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressPolicyName".into(),
-                    value: ingress_policy_name_binding.get_id(),
+                    value: &ingress_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: resource_binding.get_id(),
+                    value: &resource_binding.drop_type(),
                 },
             ],
         };

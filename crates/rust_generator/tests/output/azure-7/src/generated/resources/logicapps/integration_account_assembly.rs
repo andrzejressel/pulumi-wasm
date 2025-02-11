@@ -124,35 +124,35 @@ pub mod integration_account_assembly {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assemblyName".into(),
-                    value: assembly_name_binding.get_id(),
+                    value: &assembly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assemblyVersion".into(),
-                    value: assembly_version_binding.get_id(),
+                    value: &assembly_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: content_binding.get_id(),
+                    value: &content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentLinkUri".into(),
-                    value: content_link_uri_binding.get_id(),
+                    value: &content_link_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationAccountName".into(),
-                    value: integration_account_name_binding.get_id(),
+                    value: &integration_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

@@ -334,47 +334,47 @@ pub mod app_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appProfileId".into(),
-                    value: app_profile_id_binding.get_id(),
+                    value: &app_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataBoostIsolationReadOnly".into(),
-                    value: data_boost_isolation_read_only_binding.get_id(),
+                    value: &data_boost_isolation_read_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreWarnings".into(),
-                    value: ignore_warnings_binding.get_id(),
+                    value: &ignore_warnings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiClusterRoutingClusterIds".into(),
-                    value: multi_cluster_routing_cluster_ids_binding.get_id(),
+                    value: &multi_cluster_routing_cluster_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiClusterRoutingUseAny".into(),
-                    value: multi_cluster_routing_use_any_binding.get_id(),
+                    value: &multi_cluster_routing_use_any_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowAffinity".into(),
-                    value: row_affinity_binding.get_id(),
+                    value: &row_affinity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleClusterRouting".into(),
-                    value: single_cluster_routing_binding.get_id(),
+                    value: &single_cluster_routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardIsolation".into(),
-                    value: standard_isolation_binding.get_id(),
+                    value: &standard_isolation_binding.drop_type(),
                 },
             ],
         };

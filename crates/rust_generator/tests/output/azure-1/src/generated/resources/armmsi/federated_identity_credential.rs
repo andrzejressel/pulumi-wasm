@@ -109,27 +109,27 @@ pub mod federated_identity_credential {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audience".into(),
-                    value: audience_binding.get_id(),
+                    value: &audience_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "issuer".into(),
-                    value: issuer_binding.get_id(),
+                    value: &issuer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: parent_id_binding.get_id(),
+                    value: &parent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: subject_binding.get_id(),
+                    value: &subject_binding.drop_type(),
                 },
             ],
         };

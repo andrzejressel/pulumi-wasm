@@ -365,111 +365,111 @@ pub mod topic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationFailureFeedbackRoleArn".into(),
-                    value: application_failure_feedback_role_arn_binding.get_id(),
+                    value: &application_failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSuccessFeedbackRoleArn".into(),
-                    value: application_success_feedback_role_arn_binding.get_id(),
+                    value: &application_success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSuccessFeedbackSampleRate".into(),
-                    value: application_success_feedback_sample_rate_binding.get_id(),
+                    value: &application_success_feedback_sample_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "archivePolicy".into(),
-                    value: archive_policy_binding.get_id(),
+                    value: &archive_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentBasedDeduplication".into(),
-                    value: content_based_deduplication_binding.get_id(),
+                    value: &content_based_deduplication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryPolicy".into(),
-                    value: delivery_policy_binding.get_id(),
+                    value: &delivery_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoTopic".into(),
-                    value: fifo_topic_binding.get_id(),
+                    value: &fifo_topic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseFailureFeedbackRoleArn".into(),
-                    value: firehose_failure_feedback_role_arn_binding.get_id(),
+                    value: &firehose_failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseSuccessFeedbackRoleArn".into(),
-                    value: firehose_success_feedback_role_arn_binding.get_id(),
+                    value: &firehose_success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseSuccessFeedbackSampleRate".into(),
-                    value: firehose_success_feedback_sample_rate_binding.get_id(),
+                    value: &firehose_success_feedback_sample_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpFailureFeedbackRoleArn".into(),
-                    value: http_failure_feedback_role_arn_binding.get_id(),
+                    value: &http_failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpSuccessFeedbackRoleArn".into(),
-                    value: http_success_feedback_role_arn_binding.get_id(),
+                    value: &http_success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpSuccessFeedbackSampleRate".into(),
-                    value: http_success_feedback_sample_rate_binding.get_id(),
+                    value: &http_success_feedback_sample_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsMasterKeyId".into(),
-                    value: kms_master_key_id_binding.get_id(),
+                    value: &kms_master_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaFailureFeedbackRoleArn".into(),
-                    value: lambda_failure_feedback_role_arn_binding.get_id(),
+                    value: &lambda_failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaSuccessFeedbackRoleArn".into(),
-                    value: lambda_success_feedback_role_arn_binding.get_id(),
+                    value: &lambda_success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaSuccessFeedbackSampleRate".into(),
-                    value: lambda_success_feedback_sample_rate_binding.get_id(),
+                    value: &lambda_success_feedback_sample_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signatureVersion".into(),
-                    value: signature_version_binding.get_id(),
+                    value: &signature_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsFailureFeedbackRoleArn".into(),
-                    value: sqs_failure_feedback_role_arn_binding.get_id(),
+                    value: &sqs_failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsSuccessFeedbackRoleArn".into(),
-                    value: sqs_success_feedback_role_arn_binding.get_id(),
+                    value: &sqs_success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsSuccessFeedbackSampleRate".into(),
-                    value: sqs_success_feedback_sample_rate_binding.get_id(),
+                    value: &sqs_success_feedback_sample_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tracingConfig".into(),
-                    value: tracing_config_binding.get_id(),
+                    value: &tracing_config_binding.drop_type(),
                 },
             ],
         };

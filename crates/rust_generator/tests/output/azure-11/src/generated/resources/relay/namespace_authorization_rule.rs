@@ -112,27 +112,27 @@ pub mod namespace_authorization_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listen".into(),
-                    value: listen_binding.get_id(),
+                    value: &listen_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manage".into(),
-                    value: manage_binding.get_id(),
+                    value: &manage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "send".into(),
-                    value: send_binding.get_id(),
+                    value: &send_binding.drop_type(),
                 },
             ],
         };

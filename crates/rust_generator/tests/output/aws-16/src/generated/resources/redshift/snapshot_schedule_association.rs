@@ -81,11 +81,11 @@ pub mod snapshot_schedule_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleIdentifier".into(),
-                    value: schedule_identifier_binding.get_id(),
+                    value: &schedule_identifier_binding.drop_type(),
                 },
             ],
         };

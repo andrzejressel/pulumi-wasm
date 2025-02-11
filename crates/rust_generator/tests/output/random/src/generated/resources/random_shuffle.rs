@@ -78,19 +78,19 @@ pub mod random_shuffle {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: inputs_binding.get_id(),
+                    value: &inputs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resultCount".into(),
-                    value: result_count_binding.get_id(),
+                    value: &result_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "seed".into(),
-                    value: seed_binding.get_id(),
+                    value: &seed_binding.drop_type(),
                 },
             ],
         };

@@ -134,19 +134,19 @@ pub mod user_pool_ui_customization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "css".into(),
-                    value: css_binding.get_id(),
+                    value: &css_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageFile".into(),
-                    value: image_file_binding.get_id(),
+                    value: &image_file_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
             ],
         };

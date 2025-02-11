@@ -89,11 +89,11 @@ pub mod custom_routing_listener {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorArn".into(),
-                    value: accelerator_arn_binding.get_id(),
+                    value: &accelerator_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portRanges".into(),
-                    value: port_ranges_binding.get_id(),
+                    value: &port_ranges_binding.drop_type(),
                 },
             ],
         };

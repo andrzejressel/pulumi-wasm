@@ -72,11 +72,11 @@ pub mod random_bytes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "length".into(),
-                    value: length_binding.get_id(),
+                    value: &length_binding.drop_type(),
                 },
             ],
         };

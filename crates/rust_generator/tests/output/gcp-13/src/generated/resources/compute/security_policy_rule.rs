@@ -325,47 +325,47 @@ pub mod security_policy_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headerAction".into(),
-                    value: header_action_binding.get_id(),
+                    value: &header_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: match__binding.get_id(),
+                    value: &match__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preconfiguredWafConfig".into(),
-                    value: preconfigured_waf_config_binding.get_id(),
+                    value: &preconfigured_waf_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preview".into(),
-                    value: preview_binding.get_id(),
+                    value: &preview_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateLimitOptions".into(),
-                    value: rate_limit_options_binding.get_id(),
+                    value: &rate_limit_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectOptions".into(),
-                    value: redirect_options_binding.get_id(),
+                    value: &redirect_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: security_policy_binding.get_id(),
+                    value: &security_policy_binding.drop_type(),
                 },
             ],
         };

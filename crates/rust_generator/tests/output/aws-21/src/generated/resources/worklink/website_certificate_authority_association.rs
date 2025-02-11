@@ -78,15 +78,15 @@ pub mod website_certificate_authority_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: certificate_binding.get_id(),
+                    value: &certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetArn".into(),
-                    value: fleet_arn_binding.get_id(),
+                    value: &fleet_arn_binding.drop_type(),
                 },
             ],
         };

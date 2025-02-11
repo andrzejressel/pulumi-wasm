@@ -54,15 +54,15 @@ pub mod get_virtual_machine_configuration_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineName".into(),
-                    value: virtual_machine_name_binding.get_id(),
+                    value: &virtual_machine_name_binding.drop_type(),
                 },
             ],
         };

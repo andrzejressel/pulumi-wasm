@@ -65,11 +65,11 @@ pub mod snapshot_create_volume_permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: snapshot_id_binding.get_id(),
+                    value: &snapshot_id_binding.drop_type(),
                 },
             ],
         };

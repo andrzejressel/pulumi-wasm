@@ -168,51 +168,51 @@ pub mod endpoint_storage_container {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchFrequencyInSeconds".into(),
-                    value: batch_frequency_in_seconds_binding.get_id(),
+                    value: &batch_frequency_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: connection_string_binding.get_id(),
+                    value: &connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: encoding_binding.get_id(),
+                    value: &encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointUri".into(),
-                    value: endpoint_uri_binding.get_id(),
+                    value: &endpoint_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileNameFormat".into(),
-                    value: file_name_format_binding.get_id(),
+                    value: &file_name_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: identity_id_binding.get_id(),
+                    value: &identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxChunkSizeInBytes".into(),
-                    value: max_chunk_size_in_bytes_binding.get_id(),
+                    value: &max_chunk_size_in_bytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

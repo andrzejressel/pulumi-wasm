@@ -114,27 +114,27 @@ pub mod user_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: domain_id_binding.get_id(),
+                    value: &domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnUserIdentifier".into(),
-                    value: single_sign_on_user_identifier_binding.get_id(),
+                    value: &single_sign_on_user_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnUserValue".into(),
-                    value: single_sign_on_user_value_binding.get_id(),
+                    value: &single_sign_on_user_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userProfileName".into(),
-                    value: user_profile_name_binding.get_id(),
+                    value: &user_profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSettings".into(),
-                    value: user_settings_binding.get_id(),
+                    value: &user_settings_binding.drop_type(),
                 },
             ],
         };

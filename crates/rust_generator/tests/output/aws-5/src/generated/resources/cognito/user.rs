@@ -189,47 +189,47 @@ pub mod user {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientMetadata".into(),
-                    value: client_metadata_binding.get_id(),
+                    value: &client_metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredDeliveryMediums".into(),
-                    value: desired_delivery_mediums_binding.get_id(),
+                    value: &desired_delivery_mediums_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceAliasCreation".into(),
-                    value: force_alias_creation_binding.get_id(),
+                    value: &force_alias_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageAction".into(),
-                    value: message_action_binding.get_id(),
+                    value: &message_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "temporaryPassword".into(),
-                    value: temporary_password_binding.get_id(),
+                    value: &temporary_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationData".into(),
-                    value: validation_data_binding.get_id(),
+                    value: &validation_data_binding.drop_type(),
                 },
             ],
         };

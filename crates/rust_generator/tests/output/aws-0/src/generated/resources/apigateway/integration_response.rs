@@ -156,35 +156,35 @@ pub mod integration_response {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentHandling".into(),
-                    value: content_handling_binding.get_id(),
+                    value: &content_handling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: http_method_binding.get_id(),
+                    value: &http_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseParameters".into(),
-                    value: response_parameters_binding.get_id(),
+                    value: &response_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseTemplates".into(),
-                    value: response_templates_binding.get_id(),
+                    value: &response_templates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionPattern".into(),
-                    value: selection_pattern_binding.get_id(),
+                    value: &selection_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusCode".into(),
-                    value: status_code_binding.get_id(),
+                    value: &status_code_binding.drop_type(),
                 },
             ],
         };

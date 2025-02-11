@@ -148,23 +148,23 @@ pub mod vpc_peering_connection_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accepter".into(),
-                    value: accepter_binding.get_id(),
+                    value: &accepter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAccept".into(),
-                    value: auto_accept_binding.get_id(),
+                    value: &auto_accept_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requester".into(),
-                    value: requester_binding.get_id(),
+                    value: &requester_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcPeeringConnectionId".into(),
-                    value: vpc_peering_connection_id_binding.get_id(),
+                    value: &vpc_peering_connection_id_binding.drop_type(),
                 },
             ],
         };

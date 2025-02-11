@@ -148,19 +148,19 @@ pub mod endpoint_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointAttachmentId".into(),
-                    value: endpoint_attachment_id_binding.get_id(),
+                    value: &endpoint_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAttachment".into(),
-                    value: service_attachment_binding.get_id(),
+                    value: &service_attachment_binding.drop_type(),
                 },
             ],
         };

@@ -169,47 +169,47 @@ pub mod router_interface {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectAttachment".into(),
-                    value: interconnect_attachment_binding.get_id(),
+                    value: &interconnect_attachment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRange".into(),
-                    value: ip_range_binding.get_id(),
+                    value: &ip_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipVersion".into(),
-                    value: ip_version_binding.get_id(),
+                    value: &ip_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: private_ip_address_binding.get_id(),
+                    value: &private_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redundantInterface".into(),
-                    value: redundant_interface_binding.get_id(),
+                    value: &redundant_interface_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: router_binding.get_id(),
+                    value: &router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: subnetwork_binding.get_id(),
+                    value: &subnetwork_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnTunnel".into(),
-                    value: vpn_tunnel_binding.get_id(),
+                    value: &vpn_tunnel_binding.drop_type(),
                 },
             ],
         };

@@ -173,43 +173,43 @@ pub mod remediation_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatic".into(),
-                    value: automatic_binding.get_id(),
+                    value: &automatic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configRuleName".into(),
-                    value: config_rule_name_binding.get_id(),
+                    value: &config_rule_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionControls".into(),
-                    value: execution_controls_binding.get_id(),
+                    value: &execution_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumAutomaticAttempts".into(),
-                    value: maximum_automatic_attempts_binding.get_id(),
+                    value: &maximum_automatic_attempts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryAttemptSeconds".into(),
-                    value: retry_attempt_seconds_binding.get_id(),
+                    value: &retry_attempt_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: target_id_binding.get_id(),
+                    value: &target_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: target_type_binding.get_id(),
+                    value: &target_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVersion".into(),
-                    value: target_version_binding.get_id(),
+                    value: &target_version_binding.drop_type(),
                 },
             ],
         };

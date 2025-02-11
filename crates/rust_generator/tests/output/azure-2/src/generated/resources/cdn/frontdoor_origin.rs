@@ -345,47 +345,47 @@ pub mod frontdoor_origin {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginGroupId".into(),
-                    value: cdn_frontdoor_origin_group_id_binding.get_id(),
+                    value: &cdn_frontdoor_origin_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateNameCheckEnabled".into(),
-                    value: certificate_name_check_enabled_binding.get_id(),
+                    value: &certificate_name_check_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: host_name_binding.get_id(),
+                    value: &host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpPort".into(),
-                    value: http_port_binding.get_id(),
+                    value: &http_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsPort".into(),
-                    value: https_port_binding.get_id(),
+                    value: &https_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originHostHeader".into(),
-                    value: origin_host_header_binding.get_id(),
+                    value: &origin_host_header_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLink".into(),
-                    value: private_link_binding.get_id(),
+                    value: &private_link_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: weight_binding.get_id(),
+                    value: &weight_binding.drop_type(),
                 },
             ],
         };

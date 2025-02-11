@@ -162,19 +162,19 @@ pub mod email_identity {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: configuration_set_name_binding.get_id(),
+                    value: &configuration_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dkimSigningAttributes".into(),
-                    value: dkim_signing_attributes_binding.get_id(),
+                    value: &dkim_signing_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: email_identity_binding.get_id(),
+                    value: &email_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

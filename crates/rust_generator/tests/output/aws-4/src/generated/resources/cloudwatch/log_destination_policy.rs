@@ -87,15 +87,15 @@ pub mod log_destination_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicy".into(),
-                    value: access_policy_binding.get_id(),
+                    value: &access_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationName".into(),
-                    value: destination_name_binding.get_id(),
+                    value: &destination_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdate".into(),
-                    value: force_update_binding.get_id(),
+                    value: &force_update_binding.drop_type(),
                 },
             ],
         };

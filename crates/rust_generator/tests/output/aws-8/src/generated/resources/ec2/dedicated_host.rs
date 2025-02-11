@@ -114,35 +114,35 @@ pub mod dedicated_host {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetId".into(),
-                    value: asset_id_binding.get_id(),
+                    value: &asset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPlacement".into(),
-                    value: auto_placement_binding.get_id(),
+                    value: &auto_placement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostRecovery".into(),
-                    value: host_recovery_binding.get_id(),
+                    value: &host_recovery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFamily".into(),
-                    value: instance_family_binding.get_id(),
+                    value: &instance_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: outpost_arn_binding.get_id(),
+                    value: &outpost_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

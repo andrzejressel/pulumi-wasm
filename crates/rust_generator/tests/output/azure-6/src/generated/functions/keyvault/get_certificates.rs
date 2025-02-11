@@ -45,11 +45,11 @@ pub mod get_certificates {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePending".into(),
-                    value: include_pending_binding.get_id(),
+                    value: &include_pending_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
             ],
         };

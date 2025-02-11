@@ -88,15 +88,15 @@ pub mod lication_load_balancer_frontend {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationLoadBalancerId".into(),
-                    value: application_load_balancer_id_binding.get_id(),
+                    value: &application_load_balancer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

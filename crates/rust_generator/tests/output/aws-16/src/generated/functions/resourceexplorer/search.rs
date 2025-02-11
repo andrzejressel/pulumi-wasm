@@ -46,11 +46,11 @@ pub mod search {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryString".into(),
-                    value: query_string_binding.get_id(),
+                    value: &query_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewArn".into(),
-                    value: view_arn_binding.get_id(),
+                    value: &view_arn_binding.drop_type(),
                 },
             ],
         };

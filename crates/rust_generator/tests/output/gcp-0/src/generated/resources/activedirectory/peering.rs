@@ -143,31 +143,31 @@ pub mod peering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: authorized_network_binding.get_id(),
+                    value: &authorized_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainResource".into(),
-                    value: domain_resource_binding.get_id(),
+                    value: &domain_resource_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: peering_id_binding.get_id(),
+                    value: &peering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusMessage".into(),
-                    value: status_message_binding.get_id(),
+                    value: &status_message_binding.drop_type(),
                 },
             ],
         };

@@ -67,7 +67,7 @@ pub mod event_sources_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSources".into(),
-                    value: event_sources_binding.get_id(),
+                    value: &event_sources_binding.drop_type(),
                 },
             ],
         };

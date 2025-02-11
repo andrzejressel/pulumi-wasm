@@ -133,23 +133,23 @@ pub mod group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sseConfiguration".into(),
-                    value: sse_configuration_binding.get_id(),
+                    value: &sse_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: verifiedaccess_instance_id_binding.get_id(),
+                    value: &verifiedaccess_instance_id_binding.drop_type(),
                 },
             ],
         };

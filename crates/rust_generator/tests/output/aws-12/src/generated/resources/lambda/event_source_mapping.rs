@@ -496,111 +496,111 @@ pub mod event_source_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonManagedKafkaEventSourceConfig".into(),
-                    value: amazon_managed_kafka_event_source_config_binding.get_id(),
+                    value: &amazon_managed_kafka_event_source_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchSize".into(),
-                    value: batch_size_binding.get_id(),
+                    value: &batch_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bisectBatchOnFunctionError".into(),
-                    value: bisect_batch_on_function_error_binding.get_id(),
+                    value: &bisect_batch_on_function_error_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfig".into(),
-                    value: destination_config_binding.get_id(),
+                    value: &destination_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentDbEventSourceConfig".into(),
-                    value: document_db_event_source_config_binding.get_id(),
+                    value: &document_db_event_source_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSourceArn".into(),
-                    value: event_source_arn_binding.get_id(),
+                    value: &event_source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterCriteria".into(),
-                    value: filter_criteria_binding.get_id(),
+                    value: &filter_criteria_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionResponseTypes".into(),
-                    value: function_response_types_binding.get_id(),
+                    value: &function_response_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBatchingWindowInSeconds".into(),
-                    value: maximum_batching_window_in_seconds_binding.get_id(),
+                    value: &maximum_batching_window_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRecordAgeInSeconds".into(),
-                    value: maximum_record_age_in_seconds_binding.get_id(),
+                    value: &maximum_record_age_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRetryAttempts".into(),
-                    value: maximum_retry_attempts_binding.get_id(),
+                    value: &maximum_retry_attempts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricsConfig".into(),
-                    value: metrics_config_binding.get_id(),
+                    value: &metrics_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parallelizationFactor".into(),
-                    value: parallelization_factor_binding.get_id(),
+                    value: &parallelization_factor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedPollerConfig".into(),
-                    value: provisioned_poller_config_binding.get_id(),
+                    value: &provisioned_poller_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queues".into(),
-                    value: queues_binding.get_id(),
+                    value: &queues_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfig".into(),
-                    value: scaling_config_binding.get_id(),
+                    value: &scaling_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedEventSource".into(),
-                    value: self_managed_event_source_binding.get_id(),
+                    value: &self_managed_event_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedKafkaEventSourceConfig".into(),
-                    value: self_managed_kafka_event_source_config_binding.get_id(),
+                    value: &self_managed_kafka_event_source_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccessConfigurations".into(),
-                    value: source_access_configurations_binding.get_id(),
+                    value: &source_access_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startingPosition".into(),
-                    value: starting_position_binding.get_id(),
+                    value: &starting_position_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startingPositionTimestamp".into(),
-                    value: starting_position_timestamp_binding.get_id(),
+                    value: &starting_position_timestamp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: topics_binding.get_id(),
+                    value: &topics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tumblingWindowInSeconds".into(),
-                    value: tumbling_window_in_seconds_binding.get_id(),
+                    value: &tumbling_window_in_seconds_binding.drop_type(),
                 },
             ],
         };

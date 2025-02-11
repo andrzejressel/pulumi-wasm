@@ -128,15 +128,15 @@ pub mod crypto_key_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: crypto_key_binding.get_id(),
+                    value: &crypto_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalProtectionLevelOptions".into(),
-                    value: external_protection_level_options_binding.get_id(),
+                    value: &external_protection_level_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
             ],
         };

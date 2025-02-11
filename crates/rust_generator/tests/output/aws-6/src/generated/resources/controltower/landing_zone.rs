@@ -70,15 +70,15 @@ pub mod landing_zone {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manifestJson".into(),
-                    value: manifest_json_binding.get_id(),
+                    value: &manifest_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

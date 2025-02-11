@@ -165,39 +165,39 @@ pub mod identity_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowClassicFlow".into(),
-                    value: allow_classic_flow_binding.get_id(),
+                    value: &allow_classic_flow_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUnauthenticatedIdentities".into(),
-                    value: allow_unauthenticated_identities_binding.get_id(),
+                    value: &allow_unauthenticated_identities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitoIdentityProviders".into(),
-                    value: cognito_identity_providers_binding.get_id(),
+                    value: &cognito_identity_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerProviderName".into(),
-                    value: developer_provider_name_binding.get_id(),
+                    value: &developer_provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolName".into(),
-                    value: identity_pool_name_binding.get_id(),
+                    value: &identity_pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openidConnectProviderArns".into(),
-                    value: openid_connect_provider_arns_binding.get_id(),
+                    value: &openid_connect_provider_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samlProviderArns".into(),
-                    value: saml_provider_arns_binding.get_id(),
+                    value: &saml_provider_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedLoginProviders".into(),
-                    value: supported_login_providers_binding.get_id(),
+                    value: &supported_login_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

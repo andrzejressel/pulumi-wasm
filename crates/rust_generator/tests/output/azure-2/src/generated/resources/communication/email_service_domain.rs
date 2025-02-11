@@ -115,23 +115,23 @@ pub mod email_service_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainManagement".into(),
-                    value: domain_management_binding.get_id(),
+                    value: &domain_management_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailServiceId".into(),
-                    value: email_service_id_binding.get_id(),
+                    value: &email_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEngagementTrackingEnabled".into(),
-                    value: user_engagement_tracking_enabled_binding.get_id(),
+                    value: &user_engagement_tracking_enabled_binding.drop_type(),
                 },
             ],
         };

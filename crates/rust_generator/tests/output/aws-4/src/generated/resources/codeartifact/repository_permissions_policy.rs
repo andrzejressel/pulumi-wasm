@@ -113,23 +113,23 @@ pub mod repository_permissions_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: domain_owner_binding.get_id(),
+                    value: &domain_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyRevision".into(),
-                    value: policy_revision_binding.get_id(),
+                    value: &policy_revision_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
             ],
         };

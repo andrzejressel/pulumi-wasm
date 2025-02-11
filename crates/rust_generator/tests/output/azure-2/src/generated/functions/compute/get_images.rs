@@ -44,11 +44,11 @@ pub mod get_images {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagsFilter".into(),
-                    value: tags_filter_binding.get_id(),
+                    value: &tags_filter_binding.drop_type(),
                 },
             ],
         };

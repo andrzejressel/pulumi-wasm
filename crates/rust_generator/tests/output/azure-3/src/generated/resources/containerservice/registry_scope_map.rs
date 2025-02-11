@@ -114,23 +114,23 @@ pub mod registry_scope_map {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: actions_binding.get_id(),
+                    value: &actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryName".into(),
-                    value: container_registry_name_binding.get_id(),
+                    value: &container_registry_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

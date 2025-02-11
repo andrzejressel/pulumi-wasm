@@ -83,19 +83,19 @@ pub mod zero_trust_tunnel_cloudflared {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configSrc".into(),
-                    value: config_src_binding.get_id(),
+                    value: &config_src_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: secret_binding.get_id(),
+                    value: &secret_binding.drop_type(),
                 },
             ],
         };

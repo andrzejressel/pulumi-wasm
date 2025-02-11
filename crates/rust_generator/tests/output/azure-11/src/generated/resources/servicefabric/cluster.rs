@@ -309,95 +309,95 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addOnFeatures".into(),
-                    value: add_on_features_binding.get_id(),
+                    value: &add_on_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectory".into(),
-                    value: azure_active_directory_binding.get_id(),
+                    value: &azure_active_directory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: certificate_binding.get_id(),
+                    value: &certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateCommonNames".into(),
-                    value: certificate_common_names_binding.get_id(),
+                    value: &certificate_common_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateCommonNames".into(),
-                    value: client_certificate_common_names_binding.get_id(),
+                    value: &client_certificate_common_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateThumbprints".into(),
-                    value: client_certificate_thumbprints_binding.get_id(),
+                    value: &client_certificate_thumbprints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterCodeVersion".into(),
-                    value: cluster_code_version_binding.get_id(),
+                    value: &cluster_code_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticsConfig".into(),
-                    value: diagnostics_config_binding.get_id(),
+                    value: &diagnostics_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fabricSettings".into(),
-                    value: fabric_settings_binding.get_id(),
+                    value: &fabric_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementEndpoint".into(),
-                    value: management_endpoint_binding.get_id(),
+                    value: &management_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypes".into(),
-                    value: node_types_binding.get_id(),
+                    value: &node_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reliabilityLevel".into(),
-                    value: reliability_level_binding.get_id(),
+                    value: &reliability_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseProxyCertificate".into(),
-                    value: reverse_proxy_certificate_binding.get_id(),
+                    value: &reverse_proxy_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseProxyCertificateCommonNames".into(),
-                    value: reverse_proxy_certificate_common_names_binding.get_id(),
+                    value: &reverse_proxy_certificate_common_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceFabricZonalUpgradeMode".into(),
-                    value: service_fabric_zonal_upgrade_mode_binding.get_id(),
+                    value: &service_fabric_zonal_upgrade_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradeMode".into(),
-                    value: upgrade_mode_binding.get_id(),
+                    value: &upgrade_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicy".into(),
-                    value: upgrade_policy_binding.get_id(),
+                    value: &upgrade_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmImage".into(),
-                    value: vm_image_binding.get_id(),
+                    value: &vm_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmssZonalUpgradeMode".into(),
-                    value: vmss_zonal_upgrade_mode_binding.get_id(),
+                    value: &vmss_zonal_upgrade_mode_binding.drop_type(),
                 },
             ],
         };

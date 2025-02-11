@@ -286,19 +286,19 @@ pub mod namespace_customer_managed_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceId".into(),
-                    value: eventhub_namespace_id_binding.get_id(),
+                    value: &eventhub_namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: infrastructure_encryption_enabled_binding.get_id(),
+                    value: &infrastructure_encryption_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyIds".into(),
-                    value: key_vault_key_ids_binding.get_id(),
+                    value: &key_vault_key_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: user_assigned_identity_id_binding.get_id(),
+                    value: &user_assigned_identity_id_binding.drop_type(),
                 },
             ],
         };

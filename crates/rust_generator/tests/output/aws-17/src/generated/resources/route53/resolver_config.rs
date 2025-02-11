@@ -76,11 +76,11 @@ pub mod resolver_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autodefinedReverseFlag".into(),
-                    value: autodefined_reverse_flag_binding.get_id(),
+                    value: &autodefined_reverse_flag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

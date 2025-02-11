@@ -107,23 +107,23 @@ pub mod cache_access_policy_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicyName".into(),
-                    value: access_policy_name_binding.get_id(),
+                    value: &access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: object_id_binding.get_id(),
+                    value: &object_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectIdAlias".into(),
-                    value: object_id_alias_binding.get_id(),
+                    value: &object_id_alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheId".into(),
-                    value: redis_cache_id_binding.get_id(),
+                    value: &redis_cache_id_binding.drop_type(),
                 },
             ],
         };

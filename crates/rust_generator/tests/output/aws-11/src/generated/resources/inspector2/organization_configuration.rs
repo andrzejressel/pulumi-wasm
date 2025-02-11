@@ -69,7 +69,7 @@ pub mod organization_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: auto_enable_binding.get_id(),
+                    value: &auto_enable_binding.drop_type(),
                 },
             ],
         };

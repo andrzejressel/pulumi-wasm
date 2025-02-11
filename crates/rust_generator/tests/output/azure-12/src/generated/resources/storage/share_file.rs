@@ -139,39 +139,39 @@ pub mod share_file {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentDisposition".into(),
-                    value: content_disposition_binding.get_id(),
+                    value: &content_disposition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentEncoding".into(),
-                    value: content_encoding_binding.get_id(),
+                    value: &content_encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentMd5".into(),
-                    value: content_md5_binding.get_id(),
+                    value: &content_md5_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: content_type_binding.get_id(),
+                    value: &content_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageShareId".into(),
-                    value: storage_share_id_binding.get_id(),
+                    value: &storage_share_id_binding.drop_type(),
                 },
             ],
         };

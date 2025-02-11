@@ -164,35 +164,35 @@ pub mod share {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTier".into(),
-                    value: access_tier_binding.get_id(),
+                    value: &access_tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acls".into(),
-                    value: acls_binding.get_id(),
+                    value: &acls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledProtocol".into(),
-                    value: enabled_protocol_binding.get_id(),
+                    value: &enabled_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: quota_binding.get_id(),
+                    value: &quota_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: storage_account_name_binding.get_id(),
+                    value: &storage_account_name_binding.drop_type(),
                 },
             ],
         };

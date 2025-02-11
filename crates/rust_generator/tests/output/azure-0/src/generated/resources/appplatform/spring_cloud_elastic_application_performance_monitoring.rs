@@ -114,27 +114,27 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPackages".into(),
-                    value: application_packages_binding.get_id(),
+                    value: &application_packages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: globally_enabled_binding.get_id(),
+                    value: &globally_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverUrl".into(),
-                    value: server_url_binding.get_id(),
+                    value: &server_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
             ],
         };

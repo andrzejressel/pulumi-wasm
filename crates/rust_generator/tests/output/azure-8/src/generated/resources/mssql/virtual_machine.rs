@@ -218,67 +218,67 @@ pub mod virtual_machine {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessment".into(),
-                    value: assessment_binding.get_id(),
+                    value: &assessment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBackup".into(),
-                    value: auto_backup_binding.get_id(),
+                    value: &auto_backup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPatching".into(),
-                    value: auto_patching_binding.get_id(),
+                    value: &auto_patching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultCredential".into(),
-                    value: key_vault_credential_binding.get_id(),
+                    value: &key_vault_credential_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rServicesEnabled".into(),
-                    value: r_services_enabled_binding.get_id(),
+                    value: &r_services_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityPort".into(),
-                    value: sql_connectivity_port_binding.get_id(),
+                    value: &sql_connectivity_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityType".into(),
-                    value: sql_connectivity_type_binding.get_id(),
+                    value: &sql_connectivity_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityUpdatePassword".into(),
-                    value: sql_connectivity_update_password_binding.get_id(),
+                    value: &sql_connectivity_update_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityUpdateUsername".into(),
-                    value: sql_connectivity_update_username_binding.get_id(),
+                    value: &sql_connectivity_update_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlInstance".into(),
-                    value: sql_instance_binding.get_id(),
+                    value: &sql_instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlLicenseType".into(),
-                    value: sql_license_type_binding.get_id(),
+                    value: &sql_license_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVirtualMachineGroupId".into(),
-                    value: sql_virtual_machine_group_id_binding.get_id(),
+                    value: &sql_virtual_machine_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConfiguration".into(),
-                    value: storage_configuration_binding.get_id(),
+                    value: &storage_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wsfcDomainCredential".into(),
-                    value: wsfc_domain_credential_binding.get_id(),
+                    value: &wsfc_domain_credential_binding.drop_type(),
                 },
             ],
         };

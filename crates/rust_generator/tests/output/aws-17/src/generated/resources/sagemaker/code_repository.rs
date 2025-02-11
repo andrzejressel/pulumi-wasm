@@ -120,15 +120,15 @@ pub mod code_repository {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeRepositoryName".into(),
-                    value: code_repository_name_binding.get_id(),
+                    value: &code_repository_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitConfig".into(),
-                    value: git_config_binding.get_id(),
+                    value: &git_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

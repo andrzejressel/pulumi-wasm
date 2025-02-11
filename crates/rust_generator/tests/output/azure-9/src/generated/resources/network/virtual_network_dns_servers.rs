@@ -79,11 +79,11 @@ pub mod virtual_network_dns_servers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: dns_servers_binding.get_id(),
+                    value: &dns_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
             ],
         };

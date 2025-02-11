@@ -84,11 +84,11 @@ pub mod package_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageId".into(),
-                    value: package_id_binding.get_id(),
+                    value: &package_id_binding.drop_type(),
                 },
             ],
         };

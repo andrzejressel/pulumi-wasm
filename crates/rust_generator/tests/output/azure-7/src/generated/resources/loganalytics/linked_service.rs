@@ -103,19 +103,19 @@ pub mod linked_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readAccessId".into(),
-                    value: read_access_id_binding.get_id(),
+                    value: &read_access_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAccessId".into(),
-                    value: write_access_id_binding.get_id(),
+                    value: &write_access_id_binding.drop_type(),
                 },
             ],
         };

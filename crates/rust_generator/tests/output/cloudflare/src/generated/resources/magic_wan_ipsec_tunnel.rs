@@ -170,75 +170,75 @@ pub mod magic_wan_ipsec_tunnel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowNullCipher".into(),
-                    value: allow_null_cipher_binding.get_id(),
+                    value: &allow_null_cipher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareEndpoint".into(),
-                    value: cloudflare_endpoint_binding.get_id(),
+                    value: &cloudflare_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerEndpoint".into(),
-                    value: customer_endpoint_binding.get_id(),
+                    value: &customer_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdnId".into(),
-                    value: fqdn_id_binding.get_id(),
+                    value: &fqdn_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckDirection".into(),
-                    value: health_check_direction_binding.get_id(),
+                    value: &health_check_direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckEnabled".into(),
-                    value: health_check_enabled_binding.get_id(),
+                    value: &health_check_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckRate".into(),
-                    value: health_check_rate_binding.get_id(),
+                    value: &health_check_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckTarget".into(),
-                    value: health_check_target_binding.get_id(),
+                    value: &health_check_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: health_check_type_binding.get_id(),
+                    value: &health_check_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hexId".into(),
-                    value: hex_id_binding.get_id(),
+                    value: &hex_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceAddress".into(),
-                    value: interface_address_binding.get_id(),
+                    value: &interface_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "psk".into(),
-                    value: psk_binding.get_id(),
+                    value: &psk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteId".into(),
-                    value: remote_id_binding.get_id(),
+                    value: &remote_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replayProtection".into(),
-                    value: replay_protection_binding.get_id(),
+                    value: &replay_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: user_id_binding.get_id(),
+                    value: &user_id_binding.drop_type(),
                 },
             ],
         };

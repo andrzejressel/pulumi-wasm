@@ -177,55 +177,55 @@ pub mod load_balancer_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkRegions".into(),
-                    value: check_regions_binding.get_id(),
+                    value: &check_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latitude".into(),
-                    value: latitude_binding.get_id(),
+                    value: &latitude_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadSheddings".into(),
-                    value: load_sheddings_binding.get_id(),
+                    value: &load_sheddings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longitude".into(),
-                    value: longitude_binding.get_id(),
+                    value: &longitude_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumOrigins".into(),
-                    value: minimum_origins_binding.get_id(),
+                    value: &minimum_origins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitor".into(),
-                    value: monitor_binding.get_id(),
+                    value: &monitor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmail".into(),
-                    value: notification_email_binding.get_id(),
+                    value: &notification_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originSteerings".into(),
-                    value: origin_steerings_binding.get_id(),
+                    value: &origin_steerings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: origins_binding.get_id(),
+                    value: &origins_binding.drop_type(),
                 },
             ],
         };

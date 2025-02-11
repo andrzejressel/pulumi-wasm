@@ -39,11 +39,11 @@ pub mod get_enrollment_account_scope {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountName".into(),
-                    value: billing_account_name_binding.get_id(),
+                    value: &billing_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentAccountName".into(),
-                    value: enrollment_account_name_binding.get_id(),
+                    value: &enrollment_account_name_binding.drop_type(),
                 },
             ],
         };

@@ -50,19 +50,19 @@ pub mod get_outposts {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: availability_zone_id_binding.get_id(),
+                    value: &availability_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: owner_id_binding.get_id(),
+                    value: &owner_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
             ],
         };

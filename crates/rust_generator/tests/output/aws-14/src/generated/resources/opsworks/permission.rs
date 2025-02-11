@@ -77,23 +77,23 @@ pub mod permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSsh".into(),
-                    value: allow_ssh_binding.get_id(),
+                    value: &allow_ssh_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSudo".into(),
-                    value: allow_sudo_binding.get_id(),
+                    value: &allow_sudo_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "level".into(),
-                    value: level_binding.get_id(),
+                    value: &level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: stack_id_binding.get_id(),
+                    value: &stack_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userArn".into(),
-                    value: user_arn_binding.get_id(),
+                    value: &user_arn_binding.drop_type(),
                 },
             ],
         };

@@ -307,51 +307,51 @@ pub mod cx_security_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audioExportSettings".into(),
-                    value: audio_export_settings_binding.get_id(),
+                    value: &audio_export_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deidentifyTemplate".into(),
-                    value: deidentify_template_binding.get_id(),
+                    value: &deidentify_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insightsExportSettings".into(),
-                    value: insights_export_settings_binding.get_id(),
+                    value: &insights_export_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inspectTemplate".into(),
-                    value: inspect_template_binding.get_id(),
+                    value: &inspect_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purgeDataTypes".into(),
-                    value: purge_data_types_binding.get_id(),
+                    value: &purge_data_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactionScope".into(),
-                    value: redaction_scope_binding.get_id(),
+                    value: &redaction_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactionStrategy".into(),
-                    value: redaction_strategy_binding.get_id(),
+                    value: &redaction_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionStrategy".into(),
-                    value: retention_strategy_binding.get_id(),
+                    value: &retention_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionWindowDays".into(),
-                    value: retention_window_days_binding.get_id(),
+                    value: &retention_window_days_binding.drop_type(),
                 },
             ],
         };

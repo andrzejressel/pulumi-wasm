@@ -151,19 +151,19 @@ pub mod domain_name {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameConfiguration".into(),
-                    value: domain_name_configuration_binding.get_id(),
+                    value: &domain_name_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualTlsAuthentication".into(),
-                    value: mutual_tls_authentication_binding.get_id(),
+                    value: &mutual_tls_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

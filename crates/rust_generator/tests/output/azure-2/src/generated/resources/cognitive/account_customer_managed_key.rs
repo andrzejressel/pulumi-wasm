@@ -181,15 +181,15 @@ pub mod account_customer_managed_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: cognitive_account_id_binding.get_id(),
+                    value: &cognitive_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityClientId".into(),
-                    value: identity_client_id_binding.get_id(),
+                    value: &identity_client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
             ],
         };

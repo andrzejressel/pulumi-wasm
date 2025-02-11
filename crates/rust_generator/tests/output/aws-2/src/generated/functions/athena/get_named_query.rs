@@ -41,11 +41,11 @@ pub mod get_named_query {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroup".into(),
-                    value: workgroup_binding.get_id(),
+                    value: &workgroup_binding.drop_type(),
                 },
             ],
         };

@@ -140,19 +140,19 @@ pub mod resolver_virtual_network_link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsForwardingRulesetId".into(),
-                    value: dns_forwarding_ruleset_id_binding.get_id(),
+                    value: &dns_forwarding_ruleset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
             ],
         };

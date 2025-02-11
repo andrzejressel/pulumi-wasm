@@ -98,35 +98,35 @@ pub mod grant {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "constraints".into(),
-                    value: constraints_binding.get_id(),
+                    value: &constraints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantCreationTokens".into(),
-                    value: grant_creation_tokens_binding.get_id(),
+                    value: &grant_creation_tokens_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "granteePrincipal".into(),
-                    value: grantee_principal_binding.get_id(),
+                    value: &grantee_principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operations".into(),
-                    value: operations_binding.get_id(),
+                    value: &operations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retireOnDelete".into(),
-                    value: retire_on_delete_binding.get_id(),
+                    value: &retire_on_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retiringPrincipal".into(),
-                    value: retiring_principal_binding.get_id(),
+                    value: &retiring_principal_binding.drop_type(),
                 },
             ],
         };

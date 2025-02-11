@@ -103,27 +103,27 @@ pub mod instance_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeAppPackagesFromCleanups".into(),
-                    value: exclude_app_packages_from_cleanups_binding.get_id(),
+                    value: &exclude_app_packages_from_cleanups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageCleanup".into(),
-                    value: package_cleanup_binding.get_id(),
+                    value: &package_cleanup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rebootAfterUse".into(),
-                    value: reboot_after_use_binding.get_id(),
+                    value: &reboot_after_use_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

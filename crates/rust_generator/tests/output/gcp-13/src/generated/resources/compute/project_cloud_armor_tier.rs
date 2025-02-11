@@ -128,11 +128,11 @@ pub mod project_cloud_armor_tier {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudArmorTier".into(),
-                    value: cloud_armor_tier_binding.get_id(),
+                    value: &cloud_armor_tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

@@ -105,11 +105,11 @@ pub mod logging_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallArn".into(),
-                    value: firewall_arn_binding.get_id(),
+                    value: &firewall_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfiguration".into(),
-                    value: logging_configuration_binding.get_id(),
+                    value: &logging_configuration_binding.drop_type(),
                 },
             ],
         };

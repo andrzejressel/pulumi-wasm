@@ -87,19 +87,19 @@ pub mod ingestion {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: data_set_id_binding.get_id(),
+                    value: &data_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionId".into(),
-                    value: ingestion_id_binding.get_id(),
+                    value: &ingestion_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionType".into(),
-                    value: ingestion_type_binding.get_id(),
+                    value: &ingestion_type_binding.drop_type(),
                 },
             ],
         };

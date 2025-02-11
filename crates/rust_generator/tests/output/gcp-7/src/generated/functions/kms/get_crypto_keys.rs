@@ -47,11 +47,11 @@ pub mod get_crypto_keys {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: key_ring_binding.get_id(),
+                    value: &key_ring_binding.drop_type(),
                 },
             ],
         };

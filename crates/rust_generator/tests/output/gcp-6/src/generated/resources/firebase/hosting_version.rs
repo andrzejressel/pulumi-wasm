@@ -333,11 +333,11 @@ pub mod hosting_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: config_binding.get_id(),
+                    value: &config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
             ],
         };

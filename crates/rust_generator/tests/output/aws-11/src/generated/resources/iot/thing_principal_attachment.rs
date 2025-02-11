@@ -64,11 +64,11 @@ pub mod thing_principal_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thing".into(),
-                    value: thing_binding.get_id(),
+                    value: &thing_binding.drop_type(),
                 },
             ],
         };

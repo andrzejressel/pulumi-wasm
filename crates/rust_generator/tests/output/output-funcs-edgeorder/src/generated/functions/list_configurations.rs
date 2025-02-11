@@ -50,15 +50,15 @@ pub mod list_configurations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationFilters".into(),
-                    value: configuration_filters_binding.get_id(),
+                    value: &configuration_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerSubscriptionDetails".into(),
-                    value: customer_subscription_details_binding.get_id(),
+                    value: &customer_subscription_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipToken".into(),
-                    value: skip_token_binding.get_id(),
+                    value: &skip_token_binding.drop_type(),
                 },
             ],
         };

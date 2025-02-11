@@ -238,35 +238,35 @@ pub mod global_replication_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticFailoverEnabled".into(),
-                    value: automatic_failover_enabled_binding.get_id(),
+                    value: &automatic_failover_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNodeType".into(),
-                    value: cache_node_type_binding.get_id(),
+                    value: &cache_node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: engine_version_binding.get_id(),
+                    value: &engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalReplicationGroupDescription".into(),
-                    value: global_replication_group_description_binding.get_id(),
+                    value: &global_replication_group_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalReplicationGroupIdSuffix".into(),
-                    value: global_replication_group_id_suffix_binding.get_id(),
+                    value: &global_replication_group_id_suffix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numNodeGroups".into(),
-                    value: num_node_groups_binding.get_id(),
+                    value: &num_node_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupName".into(),
-                    value: parameter_group_name_binding.get_id(),
+                    value: &parameter_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryReplicationGroupId".into(),
-                    value: primary_replication_group_id_binding.get_id(),
+                    value: &primary_replication_group_id_binding.drop_type(),
                 },
             ],
         };

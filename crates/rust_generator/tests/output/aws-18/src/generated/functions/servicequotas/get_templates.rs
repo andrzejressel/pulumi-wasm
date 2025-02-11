@@ -41,11 +41,11 @@ pub mod get_templates {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templates".into(),
-                    value: templates_binding.get_id(),
+                    value: &templates_binding.drop_type(),
                 },
             ],
         };

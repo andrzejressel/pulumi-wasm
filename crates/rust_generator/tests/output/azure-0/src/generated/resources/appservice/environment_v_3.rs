@@ -211,43 +211,43 @@ pub mod environment_v_3 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowNewPrivateEndpointConnections".into(),
-                    value: allow_new_private_endpoint_connections_binding.get_id(),
+                    value: &allow_new_private_endpoint_connections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterSettings".into(),
-                    value: cluster_settings_binding.get_id(),
+                    value: &cluster_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedHostCount".into(),
-                    value: dedicated_host_count_binding.get_id(),
+                    value: &dedicated_host_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalLoadBalancingMode".into(),
-                    value: internal_load_balancing_mode_binding.get_id(),
+                    value: &internal_load_balancing_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDebuggingEnabled".into(),
-                    value: remote_debugging_enabled_binding.get_id(),
+                    value: &remote_debugging_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: zone_redundant_binding.get_id(),
+                    value: &zone_redundant_binding.drop_type(),
                 },
             ],
         };

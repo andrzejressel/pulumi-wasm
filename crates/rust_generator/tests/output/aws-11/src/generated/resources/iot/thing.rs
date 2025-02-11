@@ -75,15 +75,15 @@ pub mod thing {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingTypeName".into(),
-                    value: thing_type_name_binding.get_id(),
+                    value: &thing_type_name_binding.drop_type(),
                 },
             ],
         };

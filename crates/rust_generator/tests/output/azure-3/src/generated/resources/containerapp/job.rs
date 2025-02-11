@@ -251,63 +251,63 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: container_app_environment_id_binding.get_id(),
+                    value: &container_app_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTriggerConfig".into(),
-                    value: event_trigger_config_binding.get_id(),
+                    value: &event_trigger_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualTriggerConfig".into(),
-                    value: manual_trigger_config_binding.get_id(),
+                    value: &manual_trigger_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registries".into(),
-                    value: registries_binding.get_id(),
+                    value: &registries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaRetryLimit".into(),
-                    value: replica_retry_limit_binding.get_id(),
+                    value: &replica_retry_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaTimeoutInSeconds".into(),
-                    value: replica_timeout_in_seconds_binding.get_id(),
+                    value: &replica_timeout_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleTriggerConfig".into(),
-                    value: schedule_trigger_config_binding.get_id(),
+                    value: &schedule_trigger_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: secrets_binding.get_id(),
+                    value: &secrets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "template".into(),
-                    value: template_binding.get_id(),
+                    value: &template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadProfileName".into(),
-                    value: workload_profile_name_binding.get_id(),
+                    value: &workload_profile_name_binding.drop_type(),
                 },
             ],
         };

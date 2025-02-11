@@ -96,11 +96,11 @@ pub mod spring_cloud_active_deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentName".into(),
-                    value: deployment_name_binding.get_id(),
+                    value: &deployment_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
             ],
         };

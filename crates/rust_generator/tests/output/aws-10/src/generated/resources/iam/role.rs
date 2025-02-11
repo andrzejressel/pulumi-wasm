@@ -310,47 +310,47 @@ pub mod role {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assumeRolePolicy".into(),
-                    value: assume_role_policy_binding.get_id(),
+                    value: &assume_role_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDetachPolicies".into(),
-                    value: force_detach_policies_binding.get_id(),
+                    value: &force_detach_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inlinePolicies".into(),
-                    value: inline_policies_binding.get_id(),
+                    value: &inline_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedPolicyArns".into(),
-                    value: managed_policy_arns_binding.get_id(),
+                    value: &managed_policy_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSessionDuration".into(),
-                    value: max_session_duration_binding.get_id(),
+                    value: &max_session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionsBoundary".into(),
-                    value: permissions_boundary_binding.get_id(),
+                    value: &permissions_boundary_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

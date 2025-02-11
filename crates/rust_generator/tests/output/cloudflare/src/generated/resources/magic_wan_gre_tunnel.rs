@@ -130,47 +130,47 @@ pub mod magic_wan_gre_tunnel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareGreEndpoint".into(),
-                    value: cloudflare_gre_endpoint_binding.get_id(),
+                    value: &cloudflare_gre_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerGreEndpoint".into(),
-                    value: customer_gre_endpoint_binding.get_id(),
+                    value: &customer_gre_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckEnabled".into(),
-                    value: health_check_enabled_binding.get_id(),
+                    value: &health_check_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckTarget".into(),
-                    value: health_check_target_binding.get_id(),
+                    value: &health_check_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: health_check_type_binding.get_id(),
+                    value: &health_check_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceAddress".into(),
-                    value: interface_address_binding.get_id(),
+                    value: &interface_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: mtu_binding.get_id(),
+                    value: &mtu_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
             ],
         };

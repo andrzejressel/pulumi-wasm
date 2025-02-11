@@ -107,15 +107,15 @@ pub mod spring_cloud_api_portal_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudApiPortalId".into(),
-                    value: spring_cloud_api_portal_id_binding.get_id(),
+                    value: &spring_cloud_api_portal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: thumbprint_binding.get_id(),
+                    value: &thumbprint_binding.drop_type(),
                 },
             ],
         };

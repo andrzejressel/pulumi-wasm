@@ -103,19 +103,19 @@ pub mod private_link_scoped_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedResourceId".into(),
-                    value: linked_resource_id_binding.get_id(),
+                    value: &linked_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeName".into(),
-                    value: scope_name_binding.get_id(),
+                    value: &scope_name_binding.drop_type(),
                 },
             ],
         };

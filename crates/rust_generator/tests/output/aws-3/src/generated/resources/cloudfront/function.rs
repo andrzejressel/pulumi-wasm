@@ -95,27 +95,27 @@ pub mod function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: code_binding.get_id(),
+                    value: &code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValueStoreAssociations".into(),
-                    value: key_value_store_associations_binding.get_id(),
+                    value: &key_value_store_associations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publish".into(),
-                    value: publish_binding.get_id(),
+                    value: &publish_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: runtime_binding.get_id(),
+                    value: &runtime_binding.drop_type(),
                 },
             ],
         };

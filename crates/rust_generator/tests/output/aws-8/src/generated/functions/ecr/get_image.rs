@@ -59,23 +59,23 @@ pub mod get_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageDigest".into(),
-                    value: image_digest_binding.get_id(),
+                    value: &image_digest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTag".into(),
-                    value: image_tag_binding.get_id(),
+                    value: &image_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: most_recent_binding.get_id(),
+                    value: &most_recent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryId".into(),
-                    value: registry_id_binding.get_id(),
+                    value: &registry_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: repository_name_binding.get_id(),
+                    value: &repository_name_binding.drop_type(),
                 },
             ],
         };

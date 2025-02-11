@@ -83,19 +83,19 @@ pub mod folder_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderId".into(),
-                    value: folder_id_binding.get_id(),
+                    value: &folder_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberId".into(),
-                    value: member_id_binding.get_id(),
+                    value: &member_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberType".into(),
-                    value: member_type_binding.get_id(),
+                    value: &member_type_binding.drop_type(),
                 },
             ],
         };

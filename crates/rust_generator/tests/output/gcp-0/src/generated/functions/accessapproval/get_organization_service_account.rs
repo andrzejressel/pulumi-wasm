@@ -37,7 +37,7 @@ pub mod get_organization_service_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: organization_id_binding.get_id(),
+                    value: &organization_id_binding.drop_type(),
                 },
             ],
         };

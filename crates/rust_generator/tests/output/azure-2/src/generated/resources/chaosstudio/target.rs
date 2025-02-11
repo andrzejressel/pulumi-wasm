@@ -94,15 +94,15 @@ pub mod target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: target_type_binding.get_id(),
+                    value: &target_type_binding.drop_type(),
                 },
             ],
         };

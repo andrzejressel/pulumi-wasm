@@ -72,15 +72,15 @@ pub mod assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lighthouseDefinitionId".into(),
-                    value: lighthouse_definition_id_binding.get_id(),
+                    value: &lighthouse_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

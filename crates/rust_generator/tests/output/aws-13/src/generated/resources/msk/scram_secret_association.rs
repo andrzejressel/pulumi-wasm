@@ -125,11 +125,11 @@ pub mod scram_secret_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: cluster_arn_binding.get_id(),
+                    value: &cluster_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArnLists".into(),
-                    value: secret_arn_lists_binding.get_id(),
+                    value: &secret_arn_lists_binding.drop_type(),
                 },
             ],
         };

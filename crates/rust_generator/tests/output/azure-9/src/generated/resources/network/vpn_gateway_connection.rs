@@ -178,31 +178,31 @@ pub mod vpn_gateway_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetSecurityEnabled".into(),
-                    value: internet_security_enabled_binding.get_id(),
+                    value: &internet_security_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVpnSiteId".into(),
-                    value: remote_vpn_site_id_binding.get_id(),
+                    value: &remote_vpn_site_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: routing_binding.get_id(),
+                    value: &routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSelectorPolicies".into(),
-                    value: traffic_selector_policies_binding.get_id(),
+                    value: &traffic_selector_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnLinks".into(),
-                    value: vpn_links_binding.get_id(),
+                    value: &vpn_links_binding.drop_type(),
                 },
             ],
         };

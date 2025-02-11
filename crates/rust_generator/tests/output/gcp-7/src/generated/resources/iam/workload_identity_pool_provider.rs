@@ -592,51 +592,51 @@ pub mod workload_identity_pool_provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeCondition".into(),
-                    value: attribute_condition_binding.get_id(),
+                    value: &attribute_condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeMapping".into(),
-                    value: attribute_mapping_binding.get_id(),
+                    value: &attribute_mapping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aws".into(),
-                    value: aws_binding.get_id(),
+                    value: &aws_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidc".into(),
-                    value: oidc_binding.get_id(),
+                    value: &oidc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "saml".into(),
-                    value: saml_binding.get_id(),
+                    value: &saml_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityPoolId".into(),
-                    value: workload_identity_pool_id_binding.get_id(),
+                    value: &workload_identity_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityPoolProviderId".into(),
-                    value: workload_identity_pool_provider_id_binding.get_id(),
+                    value: &workload_identity_pool_provider_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "x509".into(),
-                    value: x509_binding.get_id(),
+                    value: &x509_binding.drop_type(),
                 },
             ],
         };

@@ -141,27 +141,27 @@ pub mod ingestion_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: app_bundle_arn_binding.get_id(),
+                    value: &app_bundle_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfiguration".into(),
-                    value: destination_configuration_binding.get_id(),
+                    value: &destination_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionArn".into(),
-                    value: ingestion_arn_binding.get_id(),
+                    value: &ingestion_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processingConfiguration".into(),
-                    value: processing_configuration_binding.get_id(),
+                    value: &processing_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

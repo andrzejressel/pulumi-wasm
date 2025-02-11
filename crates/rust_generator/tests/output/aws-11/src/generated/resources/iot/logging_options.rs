@@ -62,15 +62,15 @@ pub mod logging_options {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLogLevel".into(),
-                    value: default_log_level_binding.get_id(),
+                    value: &default_log_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAllLogs".into(),
-                    value: disable_all_logs_binding.get_id(),
+                    value: &disable_all_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
             ],
         };

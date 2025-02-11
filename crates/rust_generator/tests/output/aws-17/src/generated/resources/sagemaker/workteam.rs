@@ -160,31 +160,31 @@ pub mod workteam {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberDefinitions".into(),
-                    value: member_definitions_binding.get_id(),
+                    value: &member_definitions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfiguration".into(),
-                    value: notification_configuration_binding.get_id(),
+                    value: &notification_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerAccessConfiguration".into(),
-                    value: worker_access_configuration_binding.get_id(),
+                    value: &worker_access_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforceName".into(),
-                    value: workforce_name_binding.get_id(),
+                    value: &workforce_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workteamName".into(),
-                    value: workteam_name_binding.get_id(),
+                    value: &workteam_name_binding.drop_type(),
                 },
             ],
         };

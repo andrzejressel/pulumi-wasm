@@ -98,23 +98,23 @@ pub mod private_link_scope {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionAccessMode".into(),
-                    value: ingestion_access_mode_binding.get_id(),
+                    value: &ingestion_access_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryAccessMode".into(),
-                    value: query_access_mode_binding.get_id(),
+                    value: &query_access_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

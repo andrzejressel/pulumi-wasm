@@ -143,35 +143,35 @@ pub mod spring_cloud_build_deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonJson".into(),
-                    value: addon_json_binding.get_id(),
+                    value: &addon_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPerformanceMonitoringIds".into(),
-                    value: application_performance_monitoring_ids_binding.get_id(),
+                    value: &application_performance_monitoring_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildResultId".into(),
-                    value: build_result_id_binding.get_id(),
+                    value: &build_result_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: environment_variables_binding.get_id(),
+                    value: &environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: quota_binding.get_id(),
+                    value: &quota_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
             ],
         };

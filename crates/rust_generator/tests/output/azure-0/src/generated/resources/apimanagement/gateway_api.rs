@@ -81,11 +81,11 @@ pub mod gateway_api {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayId".into(),
-                    value: gateway_id_binding.get_id(),
+                    value: &gateway_id_binding.drop_type(),
                 },
             ],
         };

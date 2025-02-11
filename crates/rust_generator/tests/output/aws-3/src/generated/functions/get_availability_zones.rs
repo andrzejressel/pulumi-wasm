@@ -66,23 +66,23 @@ pub mod get_availability_zones {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allAvailabilityZones".into(),
-                    value: all_availability_zones_binding.get_id(),
+                    value: &all_availability_zones_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeNames".into(),
-                    value: exclude_names_binding.get_id(),
+                    value: &exclude_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeZoneIds".into(),
-                    value: exclude_zone_ids_binding.get_id(),
+                    value: &exclude_zone_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
             ],
         };

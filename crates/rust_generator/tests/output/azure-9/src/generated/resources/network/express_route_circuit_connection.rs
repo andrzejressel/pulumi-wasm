@@ -184,27 +184,27 @@ pub mod express_route_circuit_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixIpv4".into(),
-                    value: address_prefix_ipv4_binding.get_id(),
+                    value: &address_prefix_ipv4_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixIpv6".into(),
-                    value: address_prefix_ipv6_binding.get_id(),
+                    value: &address_prefix_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: authorization_key_binding.get_id(),
+                    value: &authorization_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerPeeringId".into(),
-                    value: peer_peering_id_binding.get_id(),
+                    value: &peer_peering_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: peering_id_binding.get_id(),
+                    value: &peering_id_binding.drop_type(),
                 },
             ],
         };

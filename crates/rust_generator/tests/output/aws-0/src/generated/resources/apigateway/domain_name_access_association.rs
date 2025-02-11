@@ -92,19 +92,19 @@ pub mod domain_name_access_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessAssociationSource".into(),
-                    value: access_association_source_binding.get_id(),
+                    value: &access_association_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessAssociationSourceType".into(),
-                    value: access_association_source_type_binding.get_id(),
+                    value: &access_association_source_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameArn".into(),
-                    value: domain_name_arn_binding.get_id(),
+                    value: &domain_name_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

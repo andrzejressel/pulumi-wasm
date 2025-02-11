@@ -129,19 +129,19 @@ pub mod mongo_user_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosMongoDatabaseId".into(),
-                    value: cosmos_mongo_database_id_binding.get_id(),
+                    value: &cosmos_mongo_database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inheritedRoleNames".into(),
-                    value: inherited_role_names_binding.get_id(),
+                    value: &inherited_role_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

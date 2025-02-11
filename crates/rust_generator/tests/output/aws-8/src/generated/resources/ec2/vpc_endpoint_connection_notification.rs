@@ -115,19 +115,19 @@ pub mod vpc_endpoint_connection_notification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionEvents".into(),
-                    value: connection_events_binding.get_id(),
+                    value: &connection_events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionNotificationArn".into(),
-                    value: connection_notification_arn_binding.get_id(),
+                    value: &connection_notification_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: vpc_endpoint_id_binding.get_id(),
+                    value: &vpc_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointServiceId".into(),
-                    value: vpc_endpoint_service_id_binding.get_id(),
+                    value: &vpc_endpoint_service_id_binding.drop_type(),
                 },
             ],
         };

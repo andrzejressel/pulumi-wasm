@@ -45,15 +45,15 @@ pub mod get_authorization_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: domain_owner_binding.get_id(),
+                    value: &domain_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: duration_seconds_binding.get_id(),
+                    value: &duration_seconds_binding.drop_type(),
                 },
             ],
         };

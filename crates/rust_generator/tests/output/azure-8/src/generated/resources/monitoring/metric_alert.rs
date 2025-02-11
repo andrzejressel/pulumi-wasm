@@ -248,69 +248,69 @@ pub mod metric_alert {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: actions_binding.get_id(),
+                    value: &actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsWebTestLocationAvailabilityCriteria"
                         .into(),
-                    value: application_insights_web_test_location_availability_criteria_binding
-                        .get_id(),
+                    value: &application_insights_web_test_location_availability_criteria_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMitigate".into(),
-                    value: auto_mitigate_binding.get_id(),
+                    value: &auto_mitigate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "criterias".into(),
-                    value: criterias_binding.get_id(),
+                    value: &criterias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicCriteria".into(),
-                    value: dynamic_criteria_binding.get_id(),
+                    value: &dynamic_criteria_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: frequency_binding.get_id(),
+                    value: &frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: scopes_binding.get_id(),
+                    value: &scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: severity_binding.get_id(),
+                    value: &severity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceLocation".into(),
-                    value: target_resource_location_binding.get_id(),
+                    value: &target_resource_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceType".into(),
-                    value: target_resource_type_binding.get_id(),
+                    value: &target_resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowSize".into(),
-                    value: window_size_binding.get_id(),
+                    value: &window_size_binding.drop_type(),
                 },
             ],
         };

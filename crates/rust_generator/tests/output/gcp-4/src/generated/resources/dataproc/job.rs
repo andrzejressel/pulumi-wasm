@@ -241,59 +241,59 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: force_delete_binding.get_id(),
+                    value: &force_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hadoopConfig".into(),
-                    value: hadoop_config_binding.get_id(),
+                    value: &hadoop_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hiveConfig".into(),
-                    value: hive_config_binding.get_id(),
+                    value: &hive_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pigConfig".into(),
-                    value: pig_config_binding.get_id(),
+                    value: &pig_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placement".into(),
-                    value: placement_binding.get_id(),
+                    value: &placement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prestoConfig".into(),
-                    value: presto_config_binding.get_id(),
+                    value: &presto_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pysparkConfig".into(),
-                    value: pyspark_config_binding.get_id(),
+                    value: &pyspark_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reference".into(),
-                    value: reference_binding.get_id(),
+                    value: &reference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduling".into(),
-                    value: scheduling_binding.get_id(),
+                    value: &scheduling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkConfig".into(),
-                    value: spark_config_binding.get_id(),
+                    value: &spark_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparksqlConfig".into(),
-                    value: sparksql_config_binding.get_id(),
+                    value: &sparksql_config_binding.drop_type(),
                 },
             ],
         };

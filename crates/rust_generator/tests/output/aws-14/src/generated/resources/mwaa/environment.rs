@@ -267,103 +267,103 @@ pub mod environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "airflowConfigurationOptions".into(),
-                    value: airflow_configuration_options_binding.get_id(),
+                    value: &airflow_configuration_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "airflowVersion".into(),
-                    value: airflow_version_binding.get_id(),
+                    value: &airflow_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagS3Path".into(),
-                    value: dag_s3_path_binding.get_id(),
+                    value: &dag_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointManagement".into(),
-                    value: endpoint_management_binding.get_id(),
+                    value: &endpoint_management_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentClass".into(),
-                    value: environment_class_binding.get_id(),
+                    value: &environment_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: execution_role_arn_binding.get_id(),
+                    value: &execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: kms_key_binding.get_id(),
+                    value: &kms_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfiguration".into(),
-                    value: logging_configuration_binding.get_id(),
+                    value: &logging_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWebservers".into(),
-                    value: max_webservers_binding.get_id(),
+                    value: &max_webservers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWorkers".into(),
-                    value: max_workers_binding.get_id(),
+                    value: &max_workers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minWebservers".into(),
-                    value: min_webservers_binding.get_id(),
+                    value: &min_webservers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minWorkers".into(),
-                    value: min_workers_binding.get_id(),
+                    value: &min_workers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: network_configuration_binding.get_id(),
+                    value: &network_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pluginsS3ObjectVersion".into(),
-                    value: plugins_s3_object_version_binding.get_id(),
+                    value: &plugins_s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pluginsS3Path".into(),
-                    value: plugins_s3_path_binding.get_id(),
+                    value: &plugins_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirementsS3ObjectVersion".into(),
-                    value: requirements_s3_object_version_binding.get_id(),
+                    value: &requirements_s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirementsS3Path".into(),
-                    value: requirements_s3_path_binding.get_id(),
+                    value: &requirements_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulers".into(),
-                    value: schedulers_binding.get_id(),
+                    value: &schedulers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceBucketArn".into(),
-                    value: source_bucket_arn_binding.get_id(),
+                    value: &source_bucket_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startupScriptS3ObjectVersion".into(),
-                    value: startup_script_s3_object_version_binding.get_id(),
+                    value: &startup_script_s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startupScriptS3Path".into(),
-                    value: startup_script_s3_path_binding.get_id(),
+                    value: &startup_script_s3_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webserverAccessMode".into(),
-                    value: webserver_access_mode_binding.get_id(),
+                    value: &webserver_access_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceWindowStart".into(),
-                    value: weekly_maintenance_window_start_binding.get_id(),
+                    value: &weekly_maintenance_window_start_binding.drop_type(),
                 },
             ],
         };

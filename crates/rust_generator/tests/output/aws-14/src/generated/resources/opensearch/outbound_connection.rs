@@ -119,27 +119,27 @@ pub mod outbound_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptConnection".into(),
-                    value: accept_connection_binding.get_id(),
+                    value: &accept_connection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionAlias".into(),
-                    value: connection_alias_binding.get_id(),
+                    value: &connection_alias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionMode".into(),
-                    value: connection_mode_binding.get_id(),
+                    value: &connection_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProperties".into(),
-                    value: connection_properties_binding.get_id(),
+                    value: &connection_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localDomainInfo".into(),
-                    value: local_domain_info_binding.get_id(),
+                    value: &local_domain_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDomainInfo".into(),
-                    value: remote_domain_info_binding.get_id(),
+                    value: &remote_domain_info_binding.drop_type(),
                 },
             ],
         };

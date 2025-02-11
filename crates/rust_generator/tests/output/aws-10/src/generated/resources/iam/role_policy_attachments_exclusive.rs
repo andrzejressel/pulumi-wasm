@@ -94,11 +94,11 @@ pub mod role_policy_attachments_exclusive {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArns".into(),
-                    value: policy_arns_binding.get_id(),
+                    value: &policy_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: role_name_binding.get_id(),
+                    value: &role_name_binding.drop_type(),
                 },
             ],
         };

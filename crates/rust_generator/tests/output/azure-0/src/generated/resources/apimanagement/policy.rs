@@ -97,15 +97,15 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: api_management_id_binding.get_id(),
+                    value: &api_management_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlContent".into(),
-                    value: xml_content_binding.get_id(),
+                    value: &xml_content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlLink".into(),
-                    value: xml_link_binding.get_id(),
+                    value: &xml_link_binding.drop_type(),
                 },
             ],
         };

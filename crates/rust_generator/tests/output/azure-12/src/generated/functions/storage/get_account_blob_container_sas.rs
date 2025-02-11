@@ -95,51 +95,51 @@ pub mod get_account_blob_container_sas {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheControl".into(),
-                    value: cache_control_binding.get_id(),
+                    value: &cache_control_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: connection_string_binding.get_id(),
+                    value: &connection_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentDisposition".into(),
-                    value: content_disposition_binding.get_id(),
+                    value: &content_disposition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentEncoding".into(),
-                    value: content_encoding_binding.get_id(),
+                    value: &content_encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentLanguage".into(),
-                    value: content_language_binding.get_id(),
+                    value: &content_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: content_type_binding.get_id(),
+                    value: &content_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiry".into(),
-                    value: expiry_binding.get_id(),
+                    value: &expiry_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: https_only_binding.get_id(),
+                    value: &https_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "start".into(),
-                    value: start_binding.get_id(),
+                    value: &start_binding.drop_type(),
                 },
             ],
         };

@@ -144,23 +144,23 @@ pub mod bgp_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: peer_asn_binding.get_id(),
+                    value: &peer_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: peer_ip_binding.get_id(),
+                    value: &peer_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: virtual_hub_id_binding.get_id(),
+                    value: &virtual_hub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkConnectionId".into(),
-                    value: virtual_network_connection_id_binding.get_id(),
+                    value: &virtual_network_connection_id_binding.drop_type(),
                 },
             ],
         };

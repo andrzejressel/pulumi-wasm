@@ -124,31 +124,31 @@ pub mod shared_access_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceConnect".into(),
-                    value: device_connect_binding.get_id(),
+                    value: &device_connect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubName".into(),
-                    value: iothub_name_binding.get_id(),
+                    value: &iothub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryRead".into(),
-                    value: registry_read_binding.get_id(),
+                    value: &registry_read_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryWrite".into(),
-                    value: registry_write_binding.get_id(),
+                    value: &registry_write_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceConnect".into(),
-                    value: service_connect_binding.get_id(),
+                    value: &service_connect_binding.drop_type(),
                 },
             ],
         };

@@ -137,39 +137,39 @@ pub mod apns_voip_sandbox_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: bundle_id_binding.get_id(),
+                    value: &bundle_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: certificate_binding.get_id(),
+                    value: &certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAuthenticationMethod".into(),
-                    value: default_authentication_method_binding.get_id(),
+                    value: &default_authentication_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKey".into(),
-                    value: private_key_binding.get_id(),
+                    value: &private_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamId".into(),
-                    value: team_id_binding.get_id(),
+                    value: &team_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenKey".into(),
-                    value: token_key_binding.get_id(),
+                    value: &token_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenKeyId".into(),
-                    value: token_key_id_binding.get_id(),
+                    value: &token_key_id_binding.drop_type(),
                 },
             ],
         };

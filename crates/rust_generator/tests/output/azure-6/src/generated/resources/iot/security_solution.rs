@@ -187,63 +187,63 @@ pub mod security_solution {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalWorkspaces".into(),
-                    value: additional_workspaces_binding.get_id(),
+                    value: &additional_workspaces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledDataSources".into(),
-                    value: disabled_data_sources_binding.get_id(),
+                    value: &disabled_data_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsToExports".into(),
-                    value: events_to_exports_binding.get_id(),
+                    value: &events_to_exports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubIds".into(),
-                    value: iothub_ids_binding.get_id(),
+                    value: &iothub_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logUnmaskedIpsEnabled".into(),
-                    value: log_unmasked_ips_enabled_binding.get_id(),
+                    value: &log_unmasked_ips_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryForResources".into(),
-                    value: query_for_resources_binding.get_id(),
+                    value: &query_for_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querySubscriptionIds".into(),
-                    value: query_subscription_ids_binding.get_id(),
+                    value: &query_subscription_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recommendationsEnabled".into(),
-                    value: recommendations_enabled_binding.get_id(),
+                    value: &recommendations_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

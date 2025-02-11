@@ -76,19 +76,19 @@ pub mod get_patch_baseline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBaseline".into(),
-                    value: default_baseline_binding.get_id(),
+                    value: &default_baseline_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingSystem".into(),
-                    value: operating_system_binding.get_id(),
+                    value: &operating_system_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: owner_binding.get_id(),
+                    value: &owner_binding.drop_type(),
                 },
             ],
         };

@@ -310,15 +310,15 @@ pub mod replica_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainServiceId".into(),
-                    value: domain_service_id_binding.get_id(),
+                    value: &domain_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

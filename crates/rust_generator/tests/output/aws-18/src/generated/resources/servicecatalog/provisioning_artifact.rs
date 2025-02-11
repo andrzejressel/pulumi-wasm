@@ -136,43 +136,43 @@ pub mod provisioning_artifact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: accept_language_binding.get_id(),
+                    value: &accept_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableTemplateValidation".into(),
-                    value: disable_template_validation_binding.get_id(),
+                    value: &disable_template_validation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guidance".into(),
-                    value: guidance_binding.get_id(),
+                    value: &guidance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: product_id_binding.get_id(),
+                    value: &product_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templatePhysicalId".into(),
-                    value: template_physical_id_binding.get_id(),
+                    value: &template_physical_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: template_url_binding.get_id(),
+                    value: &template_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

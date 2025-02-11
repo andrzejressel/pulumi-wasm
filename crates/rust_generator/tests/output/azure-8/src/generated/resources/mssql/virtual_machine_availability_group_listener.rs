@@ -119,31 +119,31 @@ pub mod virtual_machine_availability_group_listener {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityGroupName".into(),
-                    value: availability_group_name_binding.get_id(),
+                    value: &availability_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerConfiguration".into(),
-                    value: load_balancer_configuration_binding.get_id(),
+                    value: &load_balancer_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiSubnetIpConfigurations".into(),
-                    value: multi_subnet_ip_configurations_binding.get_id(),
+                    value: &multi_subnet_ip_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicas".into(),
-                    value: replicas_binding.get_id(),
+                    value: &replicas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVirtualMachineGroupId".into(),
-                    value: sql_virtual_machine_group_id_binding.get_id(),
+                    value: &sql_virtual_machine_group_id_binding.drop_type(),
                 },
             ],
         };

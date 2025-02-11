@@ -50,11 +50,11 @@ pub mod model_package_group_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelPackageGroupName".into(),
-                    value: model_package_group_name_binding.get_id(),
+                    value: &model_package_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicy".into(),
-                    value: resource_policy_binding.get_id(),
+                    value: &resource_policy_binding.drop_type(),
                 },
             ],
         };

@@ -84,23 +84,23 @@ pub mod studio_session_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: identity_id_binding.get_id(),
+                    value: &identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityName".into(),
-                    value: identity_name_binding.get_id(),
+                    value: &identity_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityType".into(),
-                    value: identity_type_binding.get_id(),
+                    value: &identity_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionPolicyArn".into(),
-                    value: session_policy_arn_binding.get_id(),
+                    value: &session_policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioId".into(),
-                    value: studio_id_binding.get_id(),
+                    value: &studio_id_binding.drop_type(),
                 },
             ],
         };

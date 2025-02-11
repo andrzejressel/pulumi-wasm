@@ -173,55 +173,55 @@ pub mod factory {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyId".into(),
-                    value: customer_managed_key_id_binding.get_id(),
+                    value: &customer_managed_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyIdentityId".into(),
-                    value: customer_managed_key_identity_id_binding.get_id(),
+                    value: &customer_managed_key_identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubConfiguration".into(),
-                    value: github_configuration_binding.get_id(),
+                    value: &github_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalParameters".into(),
-                    value: global_parameters_binding.get_id(),
+                    value: &global_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedVirtualNetworkEnabled".into(),
-                    value: managed_virtual_network_enabled_binding.get_id(),
+                    value: &managed_virtual_network_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkEnabled".into(),
-                    value: public_network_enabled_binding.get_id(),
+                    value: &public_network_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purviewId".into(),
-                    value: purview_id_binding.get_id(),
+                    value: &purview_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vstsConfiguration".into(),
-                    value: vsts_configuration_binding.get_id(),
+                    value: &vsts_configuration_binding.drop_type(),
                 },
             ],
         };

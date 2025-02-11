@@ -205,63 +205,63 @@ pub mod location_hdfs {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: agent_arns_binding.get_id(),
+                    value: &agent_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: authentication_type_binding.get_id(),
+                    value: &authentication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockSize".into(),
-                    value: block_size_binding.get_id(),
+                    value: &block_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKeytab".into(),
-                    value: kerberos_keytab_binding.get_id(),
+                    value: &kerberos_keytab_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKeytabBase64".into(),
-                    value: kerberos_keytab_base64_binding.get_id(),
+                    value: &kerberos_keytab_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKrb5Conf".into(),
-                    value: kerberos_krb5_conf_binding.get_id(),
+                    value: &kerberos_krb5_conf_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKrb5ConfBase64".into(),
-                    value: kerberos_krb5_conf_base64_binding.get_id(),
+                    value: &kerberos_krb5_conf_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosPrincipal".into(),
-                    value: kerberos_principal_binding.get_id(),
+                    value: &kerberos_principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyProviderUri".into(),
-                    value: kms_key_provider_uri_binding.get_id(),
+                    value: &kms_key_provider_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameNodes".into(),
-                    value: name_nodes_binding.get_id(),
+                    value: &name_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qopConfiguration".into(),
-                    value: qop_configuration_binding.get_id(),
+                    value: &qop_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationFactor".into(),
-                    value: replication_factor_binding.get_id(),
+                    value: &replication_factor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "simpleUser".into(),
-                    value: simple_user_binding.get_id(),
+                    value: &simple_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

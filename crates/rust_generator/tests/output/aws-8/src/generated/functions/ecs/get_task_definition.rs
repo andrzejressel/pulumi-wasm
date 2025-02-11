@@ -47,7 +47,7 @@ pub mod get_task_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: task_definition_binding.get_id(),
+                    value: &task_definition_binding.drop_type(),
                 },
             ],
         };

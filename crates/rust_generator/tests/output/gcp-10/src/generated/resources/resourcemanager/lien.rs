@@ -126,19 +126,19 @@ pub mod lien {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origin".into(),
-                    value: origin_binding.get_id(),
+                    value: &origin_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reason".into(),
-                    value: reason_binding.get_id(),
+                    value: &reason_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictions".into(),
-                    value: restrictions_binding.get_id(),
+                    value: &restrictions_binding.drop_type(),
                 },
             ],
         };

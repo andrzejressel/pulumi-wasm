@@ -212,55 +212,55 @@ pub mod policy_vm {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: backup_binding.get_id(),
+                    value: &backup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instantRestoreResourceGroup".into(),
-                    value: instant_restore_resource_group_binding.get_id(),
+                    value: &instant_restore_resource_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instantRestoreRetentionDays".into(),
-                    value: instant_restore_retention_days_binding.get_id(),
+                    value: &instant_restore_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: policy_type_binding.get_id(),
+                    value: &policy_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: recovery_vault_name_binding.get_id(),
+                    value: &recovery_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDaily".into(),
-                    value: retention_daily_binding.get_id(),
+                    value: &retention_daily_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionMonthly".into(),
-                    value: retention_monthly_binding.get_id(),
+                    value: &retention_monthly_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionWeekly".into(),
-                    value: retention_weekly_binding.get_id(),
+                    value: &retention_weekly_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionYearly".into(),
-                    value: retention_yearly_binding.get_id(),
+                    value: &retention_yearly_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieringPolicy".into(),
-                    value: tiering_policy_binding.get_id(),
+                    value: &tiering_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: timezone_binding.get_id(),
+                    value: &timezone_binding.drop_type(),
                 },
             ],
         };

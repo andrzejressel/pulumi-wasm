@@ -92,15 +92,15 @@ pub mod kinesis_streaming_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approximateCreationDateTimePrecision".into(),
-                    value: approximate_creation_date_time_precision_binding.get_id(),
+                    value: &approximate_creation_date_time_precision_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamArn".into(),
-                    value: stream_arn_binding.get_id(),
+                    value: &stream_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

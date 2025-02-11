@@ -42,11 +42,11 @@ pub mod get_managed_zone_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedZone".into(),
-                    value: managed_zone_binding.get_id(),
+                    value: &managed_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

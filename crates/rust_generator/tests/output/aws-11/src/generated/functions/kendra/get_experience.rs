@@ -60,11 +60,11 @@ pub mod get_experience {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "experienceId".into(),
-                    value: experience_id_binding.get_id(),
+                    value: &experience_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: index_id_binding.get_id(),
+                    value: &index_id_binding.drop_type(),
                 },
             ],
         };

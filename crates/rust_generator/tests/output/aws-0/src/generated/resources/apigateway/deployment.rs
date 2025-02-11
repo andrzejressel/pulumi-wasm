@@ -122,31 +122,31 @@ pub mod deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canarySettings".into(),
-                    value: canary_settings_binding.get_id(),
+                    value: &canary_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageDescription".into(),
-                    value: stage_description_binding.get_id(),
+                    value: &stage_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: stage_name_binding.get_id(),
+                    value: &stage_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: triggers_binding.get_id(),
+                    value: &triggers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variables".into(),
-                    value: variables_binding.get_id(),
+                    value: &variables_binding.drop_type(),
                 },
             ],
         };

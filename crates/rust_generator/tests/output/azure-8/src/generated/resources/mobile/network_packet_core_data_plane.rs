@@ -166,35 +166,36 @@ pub mod network_packet_core_data_plane {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreControlPlaneId".into(),
-                    value: mobile_network_packet_core_control_plane_id_binding.get_id(),
+                    value: &mobile_network_packet_core_control_plane_id_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Address".into(),
-                    value: user_plane_access_ipv4_address_binding.get_id(),
+                    value: &user_plane_access_ipv4_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Gateway".into(),
-                    value: user_plane_access_ipv4_gateway_binding.get_id(),
+                    value: &user_plane_access_ipv4_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Subnet".into(),
-                    value: user_plane_access_ipv4_subnet_binding.get_id(),
+                    value: &user_plane_access_ipv4_subnet_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessName".into(),
-                    value: user_plane_access_name_binding.get_id(),
+                    value: &user_plane_access_name_binding.drop_type(),
                 },
             ],
         };

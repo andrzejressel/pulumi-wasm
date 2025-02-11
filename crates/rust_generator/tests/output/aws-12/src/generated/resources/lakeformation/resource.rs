@@ -91,23 +91,23 @@ pub mod resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hybridAccessEnabled".into(),
-                    value: hybrid_access_enabled_binding.get_id(),
+                    value: &hybrid_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useServiceLinkedRole".into(),
-                    value: use_service_linked_role_binding.get_id(),
+                    value: &use_service_linked_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "withFederation".into(),
-                    value: with_federation_binding.get_id(),
+                    value: &with_federation_binding.drop_type(),
                 },
             ],
         };

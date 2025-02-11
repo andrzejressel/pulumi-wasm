@@ -94,27 +94,27 @@ pub mod zone_lockdown {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurations".into(),
-                    value: configurations_binding.get_id(),
+                    value: &configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: paused_binding.get_id(),
+                    value: &paused_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urls".into(),
-                    value: urls_binding.get_id(),
+                    value: &urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

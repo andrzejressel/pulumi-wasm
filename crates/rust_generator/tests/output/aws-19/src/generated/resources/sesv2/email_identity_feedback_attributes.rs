@@ -73,11 +73,11 @@ pub mod email_identity_feedback_attributes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailForwardingEnabled".into(),
-                    value: email_forwarding_enabled_binding.get_id(),
+                    value: &email_forwarding_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: email_identity_binding.get_id(),
+                    value: &email_identity_binding.drop_type(),
                 },
             ],
         };

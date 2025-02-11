@@ -91,15 +91,15 @@ pub mod application_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: application_arn_binding.get_id(),
+                    value: &application_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: principal_type_binding.get_id(),
+                    value: &principal_type_binding.drop_type(),
                 },
             ],
         };

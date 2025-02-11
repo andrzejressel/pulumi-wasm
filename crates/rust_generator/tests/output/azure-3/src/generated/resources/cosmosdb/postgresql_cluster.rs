@@ -253,95 +253,95 @@ pub mod postgresql_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: administrator_login_password_binding.get_id(),
+                    value: &administrator_login_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "citusVersion".into(),
-                    value: citus_version_binding.get_id(),
+                    value: &citus_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorPublicIpAccessEnabled".into(),
-                    value: coordinator_public_ip_access_enabled_binding.get_id(),
+                    value: &coordinator_public_ip_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorServerEdition".into(),
-                    value: coordinator_server_edition_binding.get_id(),
+                    value: &coordinator_server_edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorStorageQuotaInMb".into(),
-                    value: coordinator_storage_quota_in_mb_binding.get_id(),
+                    value: &coordinator_storage_quota_in_mb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorVcoreCount".into(),
-                    value: coordinator_vcore_count_binding.get_id(),
+                    value: &coordinator_vcore_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "haEnabled".into(),
-                    value: ha_enabled_binding.get_id(),
+                    value: &ha_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: maintenance_window_binding.get_id(),
+                    value: &maintenance_window_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: node_count_binding.get_id(),
+                    value: &node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpAccessEnabled".into(),
-                    value: node_public_ip_access_enabled_binding.get_id(),
+                    value: &node_public_ip_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeServerEdition".into(),
-                    value: node_server_edition_binding.get_id(),
+                    value: &node_server_edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeStorageQuotaInMb".into(),
-                    value: node_storage_quota_in_mb_binding.get_id(),
+                    value: &node_storage_quota_in_mb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeVcores".into(),
-                    value: node_vcores_binding.get_id(),
+                    value: &node_vcores_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeInUtc".into(),
-                    value: point_in_time_in_utc_binding.get_id(),
+                    value: &point_in_time_in_utc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredPrimaryZone".into(),
-                    value: preferred_primary_zone_binding.get_id(),
+                    value: &preferred_primary_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardsOnCoordinatorEnabled".into(),
-                    value: shards_on_coordinator_enabled_binding.get_id(),
+                    value: &shards_on_coordinator_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceLocation".into(),
-                    value: source_location_binding.get_id(),
+                    value: &source_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: source_resource_id_binding.get_id(),
+                    value: &source_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVersion".into(),
-                    value: sql_version_binding.get_id(),
+                    value: &sql_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

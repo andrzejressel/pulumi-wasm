@@ -73,11 +73,11 @@ pub mod connection_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lagId".into(),
-                    value: lag_id_binding.get_id(),
+                    value: &lag_id_binding.drop_type(),
                 },
             ],
         };

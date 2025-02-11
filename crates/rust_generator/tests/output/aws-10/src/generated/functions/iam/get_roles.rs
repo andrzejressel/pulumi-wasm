@@ -40,11 +40,11 @@ pub mod get_roles {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: name_regex_binding.get_id(),
+                    value: &name_regex_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPrefix".into(),
-                    value: path_prefix_binding.get_id(),
+                    value: &path_prefix_binding.drop_type(),
                 },
             ],
         };

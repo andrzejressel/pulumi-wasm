@@ -129,27 +129,27 @@ pub mod endpoint_event_grid {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterStorageSecret".into(),
-                    value: dead_letter_storage_secret_binding.get_id(),
+                    value: &dead_letter_storage_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: digital_twins_id_binding.get_id(),
+                    value: &digital_twins_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicEndpoint".into(),
-                    value: eventgrid_topic_endpoint_binding.get_id(),
+                    value: &eventgrid_topic_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicPrimaryAccessKey".into(),
-                    value: eventgrid_topic_primary_access_key_binding.get_id(),
+                    value: &eventgrid_topic_primary_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicSecondaryAccessKey".into(),
-                    value: eventgrid_topic_secondary_access_key_binding.get_id(),
+                    value: &eventgrid_topic_secondary_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

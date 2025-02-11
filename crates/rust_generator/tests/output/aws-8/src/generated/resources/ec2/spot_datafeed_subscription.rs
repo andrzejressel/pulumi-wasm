@@ -71,11 +71,11 @@ pub mod spot_datafeed_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
             ],
         };

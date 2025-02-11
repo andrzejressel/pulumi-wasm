@@ -255,83 +255,83 @@ pub mod threat_intelligence_indicator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidence".into(),
-                    value: confidence_binding.get_id(),
+                    value: &confidence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createdBy".into(),
-                    value: created_by_binding.get_id(),
+                    value: &created_by_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extension".into(),
-                    value: extension_binding.get_id(),
+                    value: &extension_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalReferences".into(),
-                    value: external_references_binding.get_id(),
+                    value: &external_references_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "granularMarkings".into(),
-                    value: granular_markings_binding.get_id(),
+                    value: &granular_markings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "killChainPhases".into(),
-                    value: kill_chain_phases_binding.get_id(),
+                    value: &kill_chain_phases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: language_binding.get_id(),
+                    value: &language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectMarkingRefs".into(),
-                    value: object_marking_refs_binding.get_id(),
+                    value: &object_marking_refs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: pattern_binding.get_id(),
+                    value: &pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternType".into(),
-                    value: pattern_type_binding.get_id(),
+                    value: &pattern_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternVersion".into(),
-                    value: pattern_version_binding.get_id(),
+                    value: &pattern_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revoked".into(),
-                    value: revoked_binding.get_id(),
+                    value: &revoked_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatTypes".into(),
-                    value: threat_types_binding.get_id(),
+                    value: &threat_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateFromUtc".into(),
-                    value: validate_from_utc_binding.get_id(),
+                    value: &validate_from_utc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateUntilUtc".into(),
-                    value: validate_until_utc_binding.get_id(),
+                    value: &validate_until_utc_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

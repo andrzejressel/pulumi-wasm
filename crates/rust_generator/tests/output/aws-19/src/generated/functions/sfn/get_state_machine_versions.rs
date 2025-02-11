@@ -33,7 +33,7 @@ pub mod get_state_machine_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statemachineArn".into(),
-                    value: statemachine_arn_binding.get_id(),
+                    value: &statemachine_arn_binding.drop_type(),
                 },
             ],
         };

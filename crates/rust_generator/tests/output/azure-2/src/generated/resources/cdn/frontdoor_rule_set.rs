@@ -82,11 +82,11 @@ pub mod frontdoor_rule_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: cdn_frontdoor_profile_id_binding.get_id(),
+                    value: &cdn_frontdoor_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

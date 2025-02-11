@@ -301,139 +301,139 @@ pub mod zero_trust_access_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAuthenticateViaWarp".into(),
-                    value: allow_authenticate_via_warp_binding.get_id(),
+                    value: &allow_authenticate_via_warp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedIdps".into(),
-                    value: allowed_idps_binding.get_id(),
+                    value: &allowed_idps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appLauncherLogoUrl".into(),
-                    value: app_launcher_logo_url_binding.get_id(),
+                    value: &app_launcher_logo_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appLauncherVisible".into(),
-                    value: app_launcher_visible_binding.get_id(),
+                    value: &app_launcher_visible_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRedirectToIdentity".into(),
-                    value: auto_redirect_to_identity_binding.get_id(),
+                    value: &auto_redirect_to_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgColor".into(),
-                    value: bg_color_binding.get_id(),
+                    value: &bg_color_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsHeaders".into(),
-                    value: cors_headers_binding.get_id(),
+                    value: &cors_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDenyMessage".into(),
-                    value: custom_deny_message_binding.get_id(),
+                    value: &custom_deny_message_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDenyUrl".into(),
-                    value: custom_deny_url_binding.get_id(),
+                    value: &custom_deny_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customNonIdentityDenyUrl".into(),
-                    value: custom_non_identity_deny_url_binding.get_id(),
+                    value: &custom_non_identity_deny_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPages".into(),
-                    value: custom_pages_binding.get_id(),
+                    value: &custom_pages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBindingCookie".into(),
-                    value: enable_binding_cookie_binding.get_id(),
+                    value: &enable_binding_cookie_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "footerLinks".into(),
-                    value: footer_links_binding.get_id(),
+                    value: &footer_links_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headerBgColor".into(),
-                    value: header_bg_color_binding.get_id(),
+                    value: &header_bg_color_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpOnlyCookieAttribute".into(),
-                    value: http_only_cookie_attribute_binding.get_id(),
+                    value: &http_only_cookie_attribute_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "landingPageDesign".into(),
-                    value: landing_page_design_binding.get_id(),
+                    value: &landing_page_design_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logoUrl".into(),
-                    value: logo_url_binding.get_id(),
+                    value: &logo_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionsPreflightBypass".into(),
-                    value: options_preflight_bypass_binding.get_id(),
+                    value: &options_preflight_bypass_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: policies_binding.get_id(),
+                    value: &policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "saasApp".into(),
-                    value: saas_app_binding.get_id(),
+                    value: &saas_app_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sameSiteCookieAttribute".into(),
-                    value: same_site_cookie_attribute_binding.get_id(),
+                    value: &same_site_cookie_attribute_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scimConfig".into(),
-                    value: scim_config_binding.get_id(),
+                    value: &scim_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfHostedDomains".into(),
-                    value: self_hosted_domains_binding.get_id(),
+                    value: &self_hosted_domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAuth401Redirect".into(),
-                    value: service_auth401_redirect_binding.get_id(),
+                    value: &service_auth401_redirect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: session_duration_binding.get_id(),
+                    value: &session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipAppLauncherLoginPage".into(),
-                    value: skip_app_launcher_login_page_binding.get_id(),
+                    value: &skip_app_launcher_login_page_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipInterstitial".into(),
-                    value: skip_interstitial_binding.get_id(),
+                    value: &skip_interstitial_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCriterias".into(),
-                    value: target_criterias_binding.get_id(),
+                    value: &target_criterias_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

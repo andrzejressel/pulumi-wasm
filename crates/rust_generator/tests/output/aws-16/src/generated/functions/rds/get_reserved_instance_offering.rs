@@ -58,23 +58,23 @@ pub mod get_reserved_instance_offering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceClass".into(),
-                    value: db_instance_class_binding.get_id(),
+                    value: &db_instance_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: multi_az_binding.get_id(),
+                    value: &multi_az_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offeringType".into(),
-                    value: offering_type_binding.get_id(),
+                    value: &offering_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productDescription".into(),
-                    value: product_description_binding.get_id(),
+                    value: &product_description_binding.drop_type(),
                 },
             ],
         };

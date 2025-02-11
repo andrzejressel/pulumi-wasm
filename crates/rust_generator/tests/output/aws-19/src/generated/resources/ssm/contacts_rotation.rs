@@ -197,27 +197,27 @@ pub mod contacts_rotation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactIds".into(),
-                    value: contact_ids_binding.get_id(),
+                    value: &contact_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrence".into(),
-                    value: recurrence_binding.get_id(),
+                    value: &recurrence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: start_time_binding.get_id(),
+                    value: &start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZoneId".into(),
-                    value: time_zone_id_binding.get_id(),
+                    value: &time_zone_id_binding.drop_type(),
                 },
             ],
         };

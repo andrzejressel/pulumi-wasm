@@ -76,15 +76,15 @@ pub mod default_route_table_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: transit_gateway_route_table_id_binding.get_id(),
+                    value: &transit_gateway_route_table_id_binding.drop_type(),
                 },
             ],
         };

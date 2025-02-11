@@ -245,19 +245,19 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dryRunSpec".into(),
-                    value: dry_run_spec_binding.get_id(),
+                    value: &dry_run_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: spec_binding.get_id(),
+                    value: &spec_binding.drop_type(),
                 },
             ],
         };

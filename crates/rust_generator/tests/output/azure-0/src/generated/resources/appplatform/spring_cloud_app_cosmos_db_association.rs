@@ -183,43 +183,43 @@ pub mod spring_cloud_app_cosmos_db_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiType".into(),
-                    value: api_type_binding.get_id(),
+                    value: &api_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccessKey".into(),
-                    value: cosmosdb_access_key_binding.get_id(),
+                    value: &cosmosdb_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccountId".into(),
-                    value: cosmosdb_account_id_binding.get_id(),
+                    value: &cosmosdb_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbCassandraKeyspaceName".into(),
-                    value: cosmosdb_cassandra_keyspace_name_binding.get_id(),
+                    value: &cosmosdb_cassandra_keyspace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbGremlinDatabaseName".into(),
-                    value: cosmosdb_gremlin_database_name_binding.get_id(),
+                    value: &cosmosdb_gremlin_database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbGremlinGraphName".into(),
-                    value: cosmosdb_gremlin_graph_name_binding.get_id(),
+                    value: &cosmosdb_gremlin_graph_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbMongoDatabaseName".into(),
-                    value: cosmosdb_mongo_database_name_binding.get_id(),
+                    value: &cosmosdb_mongo_database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbSqlDatabaseName".into(),
-                    value: cosmosdb_sql_database_name_binding.get_id(),
+                    value: &cosmosdb_sql_database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
             ],
         };

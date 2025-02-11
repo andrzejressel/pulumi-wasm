@@ -65,11 +65,11 @@ pub mod domain_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicies".into(),
-                    value: access_policies_binding.get_id(),
+                    value: &access_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
             ],
         };

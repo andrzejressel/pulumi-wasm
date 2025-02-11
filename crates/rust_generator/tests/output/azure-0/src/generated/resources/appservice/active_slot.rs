@@ -77,15 +77,15 @@ pub mod active_slot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceName".into(),
-                    value: app_service_name_binding.get_id(),
+                    value: &app_service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceSlotName".into(),
-                    value: app_service_slot_name_binding.get_id(),
+                    value: &app_service_slot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

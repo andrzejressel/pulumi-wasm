@@ -79,19 +79,19 @@ pub mod baidu_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: api_key_binding.get_id(),
+                    value: &api_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretKey".into(),
-                    value: secret_key_binding.get_id(),
+                    value: &secret_key_binding.drop_type(),
                 },
             ],
         };

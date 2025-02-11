@@ -94,15 +94,15 @@ pub mod standards_control {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlStatus".into(),
-                    value: control_status_binding.get_id(),
+                    value: &control_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledReason".into(),
-                    value: disabled_reason_binding.get_id(),
+                    value: &disabled_reason_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardsControlArn".into(),
-                    value: standards_control_arn_binding.get_id(),
+                    value: &standards_control_arn_binding.drop_type(),
                 },
             ],
         };

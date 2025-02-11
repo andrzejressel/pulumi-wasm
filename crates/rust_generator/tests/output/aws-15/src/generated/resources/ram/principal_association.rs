@@ -97,11 +97,11 @@ pub mod principal_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceShareArn".into(),
-                    value: resource_share_arn_binding.get_id(),
+                    value: &resource_share_arn_binding.drop_type(),
                 },
             ],
         };

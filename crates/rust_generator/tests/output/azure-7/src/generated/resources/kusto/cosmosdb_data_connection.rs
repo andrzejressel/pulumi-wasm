@@ -212,35 +212,35 @@ pub mod cosmosdb_data_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbContainerId".into(),
-                    value: cosmosdb_container_id_binding.get_id(),
+                    value: &cosmosdb_container_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoDatabaseId".into(),
-                    value: kusto_database_id_binding.get_id(),
+                    value: &kusto_database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedIdentityId".into(),
-                    value: managed_identity_id_binding.get_id(),
+                    value: &managed_identity_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingRuleName".into(),
-                    value: mapping_rule_name_binding.get_id(),
+                    value: &mapping_rule_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retrievalStartDate".into(),
-                    value: retrieval_start_date_binding.get_id(),
+                    value: &retrieval_start_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: table_name_binding.get_id(),
+                    value: &table_name_binding.drop_type(),
                 },
             ],
         };

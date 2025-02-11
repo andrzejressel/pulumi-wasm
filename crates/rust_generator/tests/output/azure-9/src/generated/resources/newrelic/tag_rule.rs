@@ -154,31 +154,31 @@ pub mod tag_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activityLogEnabled".into(),
-                    value: activity_log_enabled_binding.get_id(),
+                    value: &activity_log_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectoryLogEnabled".into(),
-                    value: azure_active_directory_log_enabled_binding.get_id(),
+                    value: &azure_active_directory_log_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logTagFilters".into(),
-                    value: log_tag_filters_binding.get_id(),
+                    value: &log_tag_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricEnabled".into(),
-                    value: metric_enabled_binding.get_id(),
+                    value: &metric_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricTagFilters".into(),
-                    value: metric_tag_filters_binding.get_id(),
+                    value: &metric_tag_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorId".into(),
-                    value: monitor_id_binding.get_id(),
+                    value: &monitor_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionLogEnabled".into(),
-                    value: subscription_log_enabled_binding.get_id(),
+                    value: &subscription_log_enabled_binding.drop_type(),
                 },
             ],
         };

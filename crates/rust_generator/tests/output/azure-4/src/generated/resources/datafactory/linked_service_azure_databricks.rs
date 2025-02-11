@@ -264,59 +264,59 @@ pub mod linked_service_azure_databricks {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessToken".into(),
-                    value: access_token_binding.get_id(),
+                    value: &access_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adbDomain".into(),
-                    value: adb_domain_binding.get_id(),
+                    value: &adb_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: additional_properties_binding.get_id(),
+                    value: &additional_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "existingClusterId".into(),
-                    value: existing_cluster_id_binding.get_id(),
+                    value: &existing_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePool".into(),
-                    value: instance_pool_binding.get_id(),
+                    value: &instance_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: integration_runtime_name_binding.get_id(),
+                    value: &integration_runtime_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultPassword".into(),
-                    value: key_vault_password_binding.get_id(),
+                    value: &key_vault_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "msiWorkSpaceResourceId".into(),
-                    value: msi_work_space_resource_id_binding.get_id(),
+                    value: &msi_work_space_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newClusterConfig".into(),
-                    value: new_cluster_config_binding.get_id(),
+                    value: &new_cluster_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
             ],
         };

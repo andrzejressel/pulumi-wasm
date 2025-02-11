@@ -88,11 +88,11 @@ pub mod spring_cloud_application_live_view {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
             ],
         };

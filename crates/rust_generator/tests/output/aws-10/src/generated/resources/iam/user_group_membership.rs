@@ -89,11 +89,11 @@ pub mod user_group_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groups".into(),
-                    value: groups_binding.get_id(),
+                    value: &groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

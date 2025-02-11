@@ -89,27 +89,27 @@ pub mod flowhook {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continueOnError".into(),
-                    value: continue_on_error_binding.get_id(),
+                    value: &continue_on_error_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: environment_binding.get_id(),
+                    value: &environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowHookPoint".into(),
-                    value: flow_hook_point_binding.get_id(),
+                    value: &flow_hook_point_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedflow".into(),
-                    value: sharedflow_binding.get_id(),
+                    value: &sharedflow_binding.drop_type(),
                 },
             ],
         };

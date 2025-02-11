@@ -205,95 +205,95 @@ pub mod get_orderable_db_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneGroup".into(),
-                    value: availability_zone_group_binding.get_id(),
+                    value: &availability_zone_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineLatestVersion".into(),
-                    value: engine_latest_version_binding.get_id(),
+                    value: &engine_latest_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: engine_version_binding.get_id(),
+                    value: &engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: instance_class_binding.get_id(),
+                    value: &instance_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: license_model_binding.get_id(),
+                    value: &license_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredEngineVersions".into(),
-                    value: preferred_engine_versions_binding.get_id(),
+                    value: &preferred_engine_versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceClasses".into(),
-                    value: preferred_instance_classes_binding.get_id(),
+                    value: &preferred_instance_classes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readReplicaCapable".into(),
-                    value: read_replica_capable_binding.get_id(),
+                    value: &read_replica_capable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: storage_type_binding.get_id(),
+                    value: &storage_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedEngineModes".into(),
-                    value: supported_engine_modes_binding.get_id(),
+                    value: &supported_engine_modes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedNetworkTypes".into(),
-                    value: supported_network_types_binding.get_id(),
+                    value: &supported_network_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsClusters".into(),
-                    value: supports_clusters_binding.get_id(),
+                    value: &supports_clusters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsEnhancedMonitoring".into(),
-                    value: supports_enhanced_monitoring_binding.get_id(),
+                    value: &supports_enhanced_monitoring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsGlobalDatabases".into(),
-                    value: supports_global_databases_binding.get_id(),
+                    value: &supports_global_databases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsIamDatabaseAuthentication".into(),
-                    value: supports_iam_database_authentication_binding.get_id(),
+                    value: &supports_iam_database_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsIops".into(),
-                    value: supports_iops_binding.get_id(),
+                    value: &supports_iops_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsKerberosAuthentication".into(),
-                    value: supports_kerberos_authentication_binding.get_id(),
+                    value: &supports_kerberos_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsMultiAz".into(),
-                    value: supports_multi_az_binding.get_id(),
+                    value: &supports_multi_az_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsPerformanceInsights".into(),
-                    value: supports_performance_insights_binding.get_id(),
+                    value: &supports_performance_insights_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsStorageAutoscaling".into(),
-                    value: supports_storage_autoscaling_binding.get_id(),
+                    value: &supports_storage_autoscaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsStorageEncryption".into(),
-                    value: supports_storage_encryption_binding.get_id(),
+                    value: &supports_storage_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: vpc_binding.get_id(),
+                    value: &vpc_binding.drop_type(),
                 },
             ],
         };

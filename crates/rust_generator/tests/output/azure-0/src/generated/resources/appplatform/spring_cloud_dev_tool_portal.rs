@@ -134,27 +134,27 @@ pub mod spring_cloud_dev_tool_portal {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationAcceleratorEnabled".into(),
-                    value: application_accelerator_enabled_binding.get_id(),
+                    value: &application_accelerator_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationLiveViewEnabled".into(),
-                    value: application_live_view_enabled_binding.get_id(),
+                    value: &application_live_view_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sso".into(),
-                    value: sso_binding.get_id(),
+                    value: &sso_binding.drop_type(),
                 },
             ],
         };

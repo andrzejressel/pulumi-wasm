@@ -76,7 +76,7 @@ pub mod enrollment_status {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeMemberAccounts".into(),
-                    value: include_member_accounts_binding.get_id(),
+                    value: &include_member_accounts_binding.drop_type(),
                 },
             ],
         };

@@ -237,39 +237,39 @@ pub mod entitlement {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalNotificationTargets".into(),
-                    value: additional_notification_targets_binding.get_id(),
+                    value: &additional_notification_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalWorkflow".into(),
-                    value: approval_workflow_binding.get_id(),
+                    value: &approval_workflow_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eligibleUsers".into(),
-                    value: eligible_users_binding.get_id(),
+                    value: &eligible_users_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitlementId".into(),
-                    value: entitlement_id_binding.get_id(),
+                    value: &entitlement_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRequestDuration".into(),
-                    value: max_request_duration_binding.get_id(),
+                    value: &max_request_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privilegedAccess".into(),
-                    value: privileged_access_binding.get_id(),
+                    value: &privileged_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requesterJustificationConfig".into(),
-                    value: requester_justification_config_binding.get_id(),
+                    value: &requester_justification_config_binding.drop_type(),
                 },
             ],
         };

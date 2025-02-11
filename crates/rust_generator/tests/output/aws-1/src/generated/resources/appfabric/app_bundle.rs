@@ -73,11 +73,11 @@ pub mod app_bundle {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyArn".into(),
-                    value: customer_managed_key_arn_binding.get_id(),
+                    value: &customer_managed_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

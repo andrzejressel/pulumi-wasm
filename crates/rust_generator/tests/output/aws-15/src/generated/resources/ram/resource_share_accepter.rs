@@ -89,7 +89,7 @@ pub mod resource_share_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareArn".into(),
-                    value: share_arn_binding.get_id(),
+                    value: &share_arn_binding.drop_type(),
                 },
             ],
         };

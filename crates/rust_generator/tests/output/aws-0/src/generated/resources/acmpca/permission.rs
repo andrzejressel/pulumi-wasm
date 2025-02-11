@@ -90,19 +90,19 @@ pub mod permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: actions_binding.get_id(),
+                    value: &actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: certificate_authority_arn_binding.get_id(),
+                    value: &certificate_authority_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccount".into(),
-                    value: source_account_binding.get_id(),
+                    value: &source_account_binding.drop_type(),
                 },
             ],
         };

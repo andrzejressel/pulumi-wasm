@@ -125,23 +125,24 @@ pub mod risk_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountTakeoverRiskConfiguration".into(),
-                    value: account_takeover_risk_configuration_binding.get_id(),
+                    value: &account_takeover_risk_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compromisedCredentialsRiskConfiguration".into(),
-                    value: compromised_credentials_risk_configuration_binding.get_id(),
+                    value: &compromised_credentials_risk_configuration_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "riskExceptionConfiguration".into(),
-                    value: risk_exception_configuration_binding.get_id(),
+                    value: &risk_exception_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
             ],
         };

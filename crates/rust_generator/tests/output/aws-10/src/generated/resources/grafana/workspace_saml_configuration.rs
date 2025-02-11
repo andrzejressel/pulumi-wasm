@@ -163,55 +163,55 @@ pub mod workspace_saml_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminRoleValues".into(),
-                    value: admin_role_values_binding.get_id(),
+                    value: &admin_role_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOrganizations".into(),
-                    value: allowed_organizations_binding.get_id(),
+                    value: &allowed_organizations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "editorRoleValues".into(),
-                    value: editor_role_values_binding.get_id(),
+                    value: &editor_role_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAssertion".into(),
-                    value: email_assertion_binding.get_id(),
+                    value: &email_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupsAssertion".into(),
-                    value: groups_assertion_binding.get_id(),
+                    value: &groups_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpMetadataUrl".into(),
-                    value: idp_metadata_url_binding.get_id(),
+                    value: &idp_metadata_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpMetadataXml".into(),
-                    value: idp_metadata_xml_binding.get_id(),
+                    value: &idp_metadata_xml_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginAssertion".into(),
-                    value: login_assertion_binding.get_id(),
+                    value: &login_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginValidityDuration".into(),
-                    value: login_validity_duration_binding.get_id(),
+                    value: &login_validity_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameAssertion".into(),
-                    value: name_assertion_binding.get_id(),
+                    value: &name_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgAssertion".into(),
-                    value: org_assertion_binding.get_id(),
+                    value: &org_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleAssertion".into(),
-                    value: role_assertion_binding.get_id(),
+                    value: &role_assertion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

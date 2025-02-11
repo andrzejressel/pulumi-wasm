@@ -148,19 +148,19 @@ pub mod web_acl_logging_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationConfigs".into(),
-                    value: log_destination_configs_binding.get_id(),
+                    value: &log_destination_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingFilter".into(),
-                    value: logging_filter_binding.get_id(),
+                    value: &logging_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactedFields".into(),
-                    value: redacted_fields_binding.get_id(),
+                    value: &redacted_fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

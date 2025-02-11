@@ -261,79 +261,79 @@ pub mod integration_runtime_ssis {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogInfo".into(),
-                    value: catalog_info_binding.get_id(),
+                    value: &catalog_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyComputeScale".into(),
-                    value: copy_compute_scale_binding.get_id(),
+                    value: &copy_compute_scale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialName".into(),
-                    value: credential_name_binding.get_id(),
+                    value: &credential_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSetupScript".into(),
-                    value: custom_setup_script_binding.get_id(),
+                    value: &custom_setup_script_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: edition_binding.get_id(),
+                    value: &edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressCustomSetup".into(),
-                    value: express_custom_setup_binding.get_id(),
+                    value: &express_custom_setup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressVnetIntegration".into(),
-                    value: express_vnet_integration_binding.get_id(),
+                    value: &express_vnet_integration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: license_type_binding.get_id(),
+                    value: &license_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxParallelExecutionsPerNode".into(),
-                    value: max_parallel_executions_per_node_binding.get_id(),
+                    value: &max_parallel_executions_per_node_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSize".into(),
-                    value: node_size_binding.get_id(),
+                    value: &node_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: number_of_nodes_binding.get_id(),
+                    value: &number_of_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageStores".into(),
-                    value: package_stores_binding.get_id(),
+                    value: &package_stores_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineExternalComputeScale".into(),
-                    value: pipeline_external_compute_scale_binding.get_id(),
+                    value: &pipeline_external_compute_scale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: proxy_binding.get_id(),
+                    value: &proxy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vnetIntegration".into(),
-                    value: vnet_integration_binding.get_id(),
+                    value: &vnet_integration_binding.drop_type(),
                 },
             ],
         };

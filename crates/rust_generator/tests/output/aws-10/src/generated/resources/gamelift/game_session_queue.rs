@@ -125,31 +125,31 @@ pub mod game_session_queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEventData".into(),
-                    value: custom_event_data_binding.get_id(),
+                    value: &custom_event_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: destinations_binding.get_id(),
+                    value: &destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTarget".into(),
-                    value: notification_target_binding.get_id(),
+                    value: &notification_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "playerLatencyPolicies".into(),
-                    value: player_latency_policies_binding.get_id(),
+                    value: &player_latency_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInSeconds".into(),
-                    value: timeout_in_seconds_binding.get_id(),
+                    value: &timeout_in_seconds_binding.drop_type(),
                 },
             ],
         };

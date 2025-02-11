@@ -80,47 +80,47 @@ pub mod get_logs {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "details".into(),
-                    value: details_binding.get_id(),
+                    value: &details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "discardHeaders".into(),
-                    value: discard_headers_binding.get_id(),
+                    value: &discard_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "follow".into(),
-                    value: follow_binding.get_id(),
+                    value: &follow_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logsListStringEnabled".into(),
-                    value: logs_list_string_enabled_binding.get_id(),
+                    value: &logs_list_string_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "showStderr".into(),
-                    value: show_stderr_binding.get_id(),
+                    value: &show_stderr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "showStdout".into(),
-                    value: show_stdout_binding.get_id(),
+                    value: &show_stdout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "since".into(),
-                    value: since_binding.get_id(),
+                    value: &since_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tail".into(),
-                    value: tail_binding.get_id(),
+                    value: &tail_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestamps".into(),
-                    value: timestamps_binding.get_id(),
+                    value: &timestamps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "until".into(),
-                    value: until_binding.get_id(),
+                    value: &until_binding.drop_type(),
                 },
             ],
         };

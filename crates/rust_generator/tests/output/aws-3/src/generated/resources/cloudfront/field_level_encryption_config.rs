@@ -118,15 +118,15 @@ pub mod field_level_encryption_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentTypeProfileConfig".into(),
-                    value: content_type_profile_config_binding.get_id(),
+                    value: &content_type_profile_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryArgProfileConfig".into(),
-                    value: query_arg_profile_config_binding.get_id(),
+                    value: &query_arg_profile_config_binding.drop_type(),
                 },
             ],
         };

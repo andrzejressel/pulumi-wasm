@@ -108,35 +108,35 @@ pub mod assessment_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "categories".into(),
-                    value: categories_binding.get_id(),
+                    value: &categories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "implementationEffort".into(),
-                    value: implementation_effort_binding.get_id(),
+                    value: &implementation_effort_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remediationDescription".into(),
-                    value: remediation_description_binding.get_id(),
+                    value: &remediation_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: severity_binding.get_id(),
+                    value: &severity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threats".into(),
-                    value: threats_binding.get_id(),
+                    value: &threats_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userImpact".into(),
-                    value: user_impact_binding.get_id(),
+                    value: &user_impact_binding.drop_type(),
                 },
             ],
         };

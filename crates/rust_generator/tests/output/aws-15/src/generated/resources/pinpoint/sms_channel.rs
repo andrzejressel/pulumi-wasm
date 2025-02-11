@@ -78,19 +78,19 @@ pub mod sms_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: application_id_binding.get_id(),
+                    value: &application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "senderId".into(),
-                    value: sender_id_binding.get_id(),
+                    value: &sender_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortCode".into(),
-                    value: short_code_binding.get_id(),
+                    value: &short_code_binding.drop_type(),
                 },
             ],
         };

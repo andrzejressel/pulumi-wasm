@@ -108,19 +108,19 @@ pub mod hosted_private_virtual_interface_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dxGatewayId".into(),
-                    value: dx_gateway_id_binding.get_id(),
+                    value: &dx_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualInterfaceId".into(),
-                    value: virtual_interface_id_binding.get_id(),
+                    value: &virtual_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
             ],
         };

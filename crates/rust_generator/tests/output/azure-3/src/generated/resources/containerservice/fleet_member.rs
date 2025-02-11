@@ -113,19 +113,19 @@ pub mod fleet_member {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: kubernetes_cluster_id_binding.get_id(),
+                    value: &kubernetes_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesFleetId".into(),
-                    value: kubernetes_fleet_id_binding.get_id(),
+                    value: &kubernetes_fleet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

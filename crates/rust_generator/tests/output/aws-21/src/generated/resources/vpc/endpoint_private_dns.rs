@@ -69,11 +69,11 @@ pub mod endpoint_private_dns {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsEnabled".into(),
-                    value: private_dns_enabled_binding.get_id(),
+                    value: &private_dns_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: vpc_endpoint_id_binding.get_id(),
+                    value: &vpc_endpoint_id_binding.drop_type(),
                 },
             ],
         };

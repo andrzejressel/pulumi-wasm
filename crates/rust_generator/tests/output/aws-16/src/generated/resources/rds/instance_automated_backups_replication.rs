@@ -141,19 +141,19 @@ pub mod instance_automated_backups_replication {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preSignedUrl".into(),
-                    value: pre_signed_url_binding.get_id(),
+                    value: &pre_signed_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: retention_period_binding.get_id(),
+                    value: &retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDbInstanceArn".into(),
-                    value: source_db_instance_arn_binding.get_id(),
+                    value: &source_db_instance_arn_binding.drop_type(),
                 },
             ],
         };

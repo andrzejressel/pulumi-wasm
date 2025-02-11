@@ -691,219 +691,219 @@ pub mod vpn_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerGatewayId".into(),
-                    value: customer_gateway_id_binding.get_id(),
+                    value: &customer_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAcceleration".into(),
-                    value: enable_acceleration_binding.get_id(),
+                    value: &enable_acceleration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localIpv4NetworkCidr".into(),
-                    value: local_ipv4_network_cidr_binding.get_id(),
+                    value: &local_ipv4_network_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localIpv6NetworkCidr".into(),
-                    value: local_ipv6_network_cidr_binding.get_id(),
+                    value: &local_ipv6_network_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outsideIpAddressType".into(),
-                    value: outside_ip_address_type_binding.get_id(),
+                    value: &outside_ip_address_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteIpv4NetworkCidr".into(),
-                    value: remote_ipv4_network_cidr_binding.get_id(),
+                    value: &remote_ipv4_network_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteIpv6NetworkCidr".into(),
-                    value: remote_ipv6_network_cidr_binding.get_id(),
+                    value: &remote_ipv6_network_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticRoutesOnly".into(),
-                    value: static_routes_only_binding.get_id(),
+                    value: &static_routes_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportTransitGatewayAttachmentId".into(),
-                    value: transport_transit_gateway_attachment_id_binding.get_id(),
+                    value: &transport_transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1DpdTimeoutAction".into(),
-                    value: tunnel1_dpd_timeout_action_binding.get_id(),
+                    value: &tunnel1_dpd_timeout_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1DpdTimeoutSeconds".into(),
-                    value: tunnel1_dpd_timeout_seconds_binding.get_id(),
+                    value: &tunnel1_dpd_timeout_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1EnableTunnelLifecycleControl".into(),
-                    value: tunnel1_enable_tunnel_lifecycle_control_binding.get_id(),
+                    value: &tunnel1_enable_tunnel_lifecycle_control_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1IkeVersions".into(),
-                    value: tunnel1_ike_versions_binding.get_id(),
+                    value: &tunnel1_ike_versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1InsideCidr".into(),
-                    value: tunnel1_inside_cidr_binding.get_id(),
+                    value: &tunnel1_inside_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1InsideIpv6Cidr".into(),
-                    value: tunnel1_inside_ipv6_cidr_binding.get_id(),
+                    value: &tunnel1_inside_ipv6_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1LogOptions".into(),
-                    value: tunnel1_log_options_binding.get_id(),
+                    value: &tunnel1_log_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1DhGroupNumbers".into(),
-                    value: tunnel1_phase1_dh_group_numbers_binding.get_id(),
+                    value: &tunnel1_phase1_dh_group_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1EncryptionAlgorithms".into(),
-                    value: tunnel1_phase1_encryption_algorithms_binding.get_id(),
+                    value: &tunnel1_phase1_encryption_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1IntegrityAlgorithms".into(),
-                    value: tunnel1_phase1_integrity_algorithms_binding.get_id(),
+                    value: &tunnel1_phase1_integrity_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1LifetimeSeconds".into(),
-                    value: tunnel1_phase1_lifetime_seconds_binding.get_id(),
+                    value: &tunnel1_phase1_lifetime_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2DhGroupNumbers".into(),
-                    value: tunnel1_phase2_dh_group_numbers_binding.get_id(),
+                    value: &tunnel1_phase2_dh_group_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2EncryptionAlgorithms".into(),
-                    value: tunnel1_phase2_encryption_algorithms_binding.get_id(),
+                    value: &tunnel1_phase2_encryption_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2IntegrityAlgorithms".into(),
-                    value: tunnel1_phase2_integrity_algorithms_binding.get_id(),
+                    value: &tunnel1_phase2_integrity_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2LifetimeSeconds".into(),
-                    value: tunnel1_phase2_lifetime_seconds_binding.get_id(),
+                    value: &tunnel1_phase2_lifetime_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1PresharedKey".into(),
-                    value: tunnel1_preshared_key_binding.get_id(),
+                    value: &tunnel1_preshared_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1RekeyFuzzPercentage".into(),
-                    value: tunnel1_rekey_fuzz_percentage_binding.get_id(),
+                    value: &tunnel1_rekey_fuzz_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1RekeyMarginTimeSeconds".into(),
-                    value: tunnel1_rekey_margin_time_seconds_binding.get_id(),
+                    value: &tunnel1_rekey_margin_time_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1ReplayWindowSize".into(),
-                    value: tunnel1_replay_window_size_binding.get_id(),
+                    value: &tunnel1_replay_window_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1StartupAction".into(),
-                    value: tunnel1_startup_action_binding.get_id(),
+                    value: &tunnel1_startup_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2DpdTimeoutAction".into(),
-                    value: tunnel2_dpd_timeout_action_binding.get_id(),
+                    value: &tunnel2_dpd_timeout_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2DpdTimeoutSeconds".into(),
-                    value: tunnel2_dpd_timeout_seconds_binding.get_id(),
+                    value: &tunnel2_dpd_timeout_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2EnableTunnelLifecycleControl".into(),
-                    value: tunnel2_enable_tunnel_lifecycle_control_binding.get_id(),
+                    value: &tunnel2_enable_tunnel_lifecycle_control_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2IkeVersions".into(),
-                    value: tunnel2_ike_versions_binding.get_id(),
+                    value: &tunnel2_ike_versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2InsideCidr".into(),
-                    value: tunnel2_inside_cidr_binding.get_id(),
+                    value: &tunnel2_inside_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2InsideIpv6Cidr".into(),
-                    value: tunnel2_inside_ipv6_cidr_binding.get_id(),
+                    value: &tunnel2_inside_ipv6_cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2LogOptions".into(),
-                    value: tunnel2_log_options_binding.get_id(),
+                    value: &tunnel2_log_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1DhGroupNumbers".into(),
-                    value: tunnel2_phase1_dh_group_numbers_binding.get_id(),
+                    value: &tunnel2_phase1_dh_group_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1EncryptionAlgorithms".into(),
-                    value: tunnel2_phase1_encryption_algorithms_binding.get_id(),
+                    value: &tunnel2_phase1_encryption_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1IntegrityAlgorithms".into(),
-                    value: tunnel2_phase1_integrity_algorithms_binding.get_id(),
+                    value: &tunnel2_phase1_integrity_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1LifetimeSeconds".into(),
-                    value: tunnel2_phase1_lifetime_seconds_binding.get_id(),
+                    value: &tunnel2_phase1_lifetime_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2DhGroupNumbers".into(),
-                    value: tunnel2_phase2_dh_group_numbers_binding.get_id(),
+                    value: &tunnel2_phase2_dh_group_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2EncryptionAlgorithms".into(),
-                    value: tunnel2_phase2_encryption_algorithms_binding.get_id(),
+                    value: &tunnel2_phase2_encryption_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2IntegrityAlgorithms".into(),
-                    value: tunnel2_phase2_integrity_algorithms_binding.get_id(),
+                    value: &tunnel2_phase2_integrity_algorithms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2LifetimeSeconds".into(),
-                    value: tunnel2_phase2_lifetime_seconds_binding.get_id(),
+                    value: &tunnel2_phase2_lifetime_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2PresharedKey".into(),
-                    value: tunnel2_preshared_key_binding.get_id(),
+                    value: &tunnel2_preshared_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2RekeyFuzzPercentage".into(),
-                    value: tunnel2_rekey_fuzz_percentage_binding.get_id(),
+                    value: &tunnel2_rekey_fuzz_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2RekeyMarginTimeSeconds".into(),
-                    value: tunnel2_rekey_margin_time_seconds_binding.get_id(),
+                    value: &tunnel2_rekey_margin_time_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2ReplayWindowSize".into(),
-                    value: tunnel2_replay_window_size_binding.get_id(),
+                    value: &tunnel2_replay_window_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2StartupAction".into(),
-                    value: tunnel2_startup_action_binding.get_id(),
+                    value: &tunnel2_startup_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelInsideIpVersion".into(),
-                    value: tunnel_inside_ip_version_binding.get_id(),
+                    value: &tunnel_inside_ip_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
             ],
         };

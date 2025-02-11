@@ -158,39 +158,39 @@ pub mod traffic_manager_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsConfig".into(),
-                    value: dns_config_binding.get_id(),
+                    value: &dns_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxReturn".into(),
-                    value: max_return_binding.get_id(),
+                    value: &max_return_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorConfig".into(),
-                    value: monitor_config_binding.get_id(),
+                    value: &monitor_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileStatus".into(),
-                    value: profile_status_binding.get_id(),
+                    value: &profile_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficRoutingMethod".into(),
-                    value: traffic_routing_method_binding.get_id(),
+                    value: &traffic_routing_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficViewEnabled".into(),
-                    value: traffic_view_enabled_binding.get_id(),
+                    value: &traffic_view_enabled_binding.drop_type(),
                 },
             ],
         };

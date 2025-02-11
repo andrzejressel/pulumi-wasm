@@ -44,11 +44,11 @@ pub mod get_components {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: owner_binding.get_id(),
+                    value: &owner_binding.drop_type(),
                 },
             ],
         };

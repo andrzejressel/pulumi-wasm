@@ -118,23 +118,23 @@ pub mod dx_gateway_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkId".into(),
-                    value: core_network_id_binding.get_id(),
+                    value: &core_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directConnectGatewayArn".into(),
-                    value: direct_connect_gateway_arn_binding.get_id(),
+                    value: &direct_connect_gateway_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeLocations".into(),
-                    value: edge_locations_binding.get_id(),
+                    value: &edge_locations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

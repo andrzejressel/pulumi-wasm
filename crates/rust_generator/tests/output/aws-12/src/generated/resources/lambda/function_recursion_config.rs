@@ -66,11 +66,11 @@ pub mod function_recursion_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recursiveLoop".into(),
-                    value: recursive_loop_binding.get_id(),
+                    value: &recursive_loop_binding.drop_type(),
                 },
             ],
         };

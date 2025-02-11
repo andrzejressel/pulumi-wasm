@@ -274,23 +274,23 @@ pub mod v_2_organization_source_iam_member {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: member_binding.get_id(),
+                    value: &member_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
             ],
         };

@@ -70,27 +70,27 @@ pub mod get_topic_authorization_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueName".into(),
-                    value: queue_name_binding.get_id(),
+                    value: &queue_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicId".into(),
-                    value: topic_id_binding.get_id(),
+                    value: &topic_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicName".into(),
-                    value: topic_name_binding.get_id(),
+                    value: &topic_name_binding.drop_type(),
                 },
             ],
         };

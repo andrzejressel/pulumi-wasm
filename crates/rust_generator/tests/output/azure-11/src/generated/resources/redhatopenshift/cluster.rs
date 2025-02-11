@@ -260,47 +260,47 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiServerProfile".into(),
-                    value: api_server_profile_binding.get_id(),
+                    value: &api_server_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterProfile".into(),
-                    value: cluster_profile_binding.get_id(),
+                    value: &cluster_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressProfile".into(),
-                    value: ingress_profile_binding.get_id(),
+                    value: &ingress_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mainProfile".into(),
-                    value: main_profile_binding.get_id(),
+                    value: &main_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: network_profile_binding.get_id(),
+                    value: &network_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: service_principal_binding.get_id(),
+                    value: &service_principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerProfile".into(),
-                    value: worker_profile_binding.get_id(),
+                    value: &worker_profile_binding.drop_type(),
                 },
             ],
         };

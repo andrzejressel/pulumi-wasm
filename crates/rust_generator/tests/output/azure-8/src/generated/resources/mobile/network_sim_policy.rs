@@ -199,39 +199,39 @@ pub mod network_sim_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSliceId".into(),
-                    value: default_slice_id_binding.get_id(),
+                    value: &default_slice_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: mobile_network_id_binding.get_id(),
+                    value: &mobile_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ratFrequencySelectionPriorityIndex".into(),
-                    value: rat_frequency_selection_priority_index_binding.get_id(),
+                    value: &rat_frequency_selection_priority_index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationTimerInSeconds".into(),
-                    value: registration_timer_in_seconds_binding.get_id(),
+                    value: &registration_timer_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slices".into(),
-                    value: slices_binding.get_id(),
+                    value: &slices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentAggregateMaximumBitRate".into(),
-                    value: user_equipment_aggregate_maximum_bit_rate_binding.get_id(),
+                    value: &user_equipment_aggregate_maximum_bit_rate_binding.drop_type(),
                 },
             ],
         };

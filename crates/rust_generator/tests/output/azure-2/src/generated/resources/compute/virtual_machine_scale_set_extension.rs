@@ -218,55 +218,55 @@ pub mod virtual_machine_scale_set_extension {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpgradeMinorVersion".into(),
-                    value: auto_upgrade_minor_version_binding.get_id(),
+                    value: &auto_upgrade_minor_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticUpgradeEnabled".into(),
-                    value: automatic_upgrade_enabled_binding.get_id(),
+                    value: &automatic_upgrade_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureSuppressionEnabled".into(),
-                    value: failure_suppression_enabled_binding.get_id(),
+                    value: &failure_suppression_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdateTag".into(),
-                    value: force_update_tag_binding.get_id(),
+                    value: &force_update_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedSettings".into(),
-                    value: protected_settings_binding.get_id(),
+                    value: &protected_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedSettingsFromKeyVault".into(),
-                    value: protected_settings_from_key_vault_binding.get_id(),
+                    value: &protected_settings_from_key_vault_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionAfterExtensions".into(),
-                    value: provision_after_extensions_binding.get_id(),
+                    value: &provision_after_extensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: publisher_binding.get_id(),
+                    value: &publisher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeHandlerVersion".into(),
-                    value: type_handler_version_binding.get_id(),
+                    value: &type_handler_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineScaleSetId".into(),
-                    value: virtual_machine_scale_set_id_binding.get_id(),
+                    value: &virtual_machine_scale_set_id_binding.drop_type(),
                 },
             ],
         };

@@ -132,23 +132,23 @@ pub mod tag_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: purpose_binding.get_id(),
+                    value: &purpose_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purposeData".into(),
-                    value: purpose_data_binding.get_id(),
+                    value: &purpose_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: short_name_binding.get_id(),
+                    value: &short_name_binding.drop_type(),
                 },
             ],
         };

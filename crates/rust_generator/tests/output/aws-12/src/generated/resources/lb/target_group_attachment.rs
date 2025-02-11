@@ -148,19 +148,19 @@ pub mod target_group_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupArn".into(),
-                    value: target_group_arn_binding.get_id(),
+                    value: &target_group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: target_id_binding.get_id(),
+                    value: &target_id_binding.drop_type(),
                 },
             ],
         };

@@ -97,23 +97,23 @@ pub mod logically_air_gapped_vault {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRetentionDays".into(),
-                    value: max_retention_days_binding.get_id(),
+                    value: &max_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRetentionDays".into(),
-                    value: min_retention_days_binding.get_id(),
+                    value: &min_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

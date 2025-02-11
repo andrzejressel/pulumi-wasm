@@ -100,23 +100,23 @@ pub mod local_rulestack_prefix_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditComment".into(),
-                    value: audit_comment_binding.get_id(),
+                    value: &audit_comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixLists".into(),
-                    value: prefix_lists_binding.get_id(),
+                    value: &prefix_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulestackId".into(),
-                    value: rulestack_id_binding.get_id(),
+                    value: &rulestack_id_binding.drop_type(),
                 },
             ],
         };

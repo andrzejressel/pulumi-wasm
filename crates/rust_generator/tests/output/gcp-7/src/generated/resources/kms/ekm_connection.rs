@@ -138,31 +138,31 @@ pub mod ekm_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoSpacePath".into(),
-                    value: crypto_space_path_binding.get_id(),
+                    value: &crypto_space_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: etag_binding.get_id(),
+                    value: &etag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyManagementMode".into(),
-                    value: key_management_mode_binding.get_id(),
+                    value: &key_management_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceResolvers".into(),
-                    value: service_resolvers_binding.get_id(),
+                    value: &service_resolvers_binding.drop_type(),
                 },
             ],
         };

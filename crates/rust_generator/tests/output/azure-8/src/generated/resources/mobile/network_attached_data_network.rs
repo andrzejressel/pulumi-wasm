@@ -252,51 +252,52 @@ pub mod network_attached_data_network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsAddresses".into(),
-                    value: dns_addresses_binding.get_id(),
+                    value: &dns_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkDataNetworkName".into(),
-                    value: mobile_network_data_network_name_binding.get_id(),
+                    value: &mobile_network_data_network_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreDataPlaneId".into(),
-                    value: mobile_network_packet_core_data_plane_id_binding.get_id(),
+                    value: &mobile_network_packet_core_data_plane_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAddressPortTranslation".into(),
-                    value: network_address_port_translation_binding.get_id(),
+                    value: &network_address_port_translation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentAddressPoolPrefixes".into(),
-                    value: user_equipment_address_pool_prefixes_binding.get_id(),
+                    value: &user_equipment_address_pool_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentStaticAddressPoolPrefixes".into(),
-                    value: user_equipment_static_address_pool_prefixes_binding.get_id(),
+                    value: &user_equipment_static_address_pool_prefixes_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Address".into(),
-                    value: user_plane_access_ipv4_address_binding.get_id(),
+                    value: &user_plane_access_ipv4_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Gateway".into(),
-                    value: user_plane_access_ipv4_gateway_binding.get_id(),
+                    value: &user_plane_access_ipv4_gateway_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Subnet".into(),
-                    value: user_plane_access_ipv4_subnet_binding.get_id(),
+                    value: &user_plane_access_ipv4_subnet_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessName".into(),
-                    value: user_plane_access_name_binding.get_id(),
+                    value: &user_plane_access_name_binding.drop_type(),
                 },
             ],
         };

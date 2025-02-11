@@ -195,19 +195,19 @@ pub mod server_transparent_data_encryption {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRotationEnabled".into(),
-                    value: auto_rotation_enabled_binding.get_id(),
+                    value: &auto_rotation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: managed_hsm_key_id_binding.get_id(),
+                    value: &managed_hsm_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
             ],
         };

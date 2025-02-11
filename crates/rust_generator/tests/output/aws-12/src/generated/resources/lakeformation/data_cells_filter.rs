@@ -84,11 +84,11 @@ pub mod data_cells_filter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableData".into(),
-                    value: table_data_binding.get_id(),
+                    value: &table_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

@@ -215,23 +215,23 @@ pub mod multicast_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAcceptSharedAssociations".into(),
-                    value: auto_accept_shared_associations_binding.get_id(),
+                    value: &auto_accept_shared_associations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "igmpv2Support".into(),
-                    value: igmpv2_support_binding.get_id(),
+                    value: &igmpv2_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticSourcesSupport".into(),
-                    value: static_sources_support_binding.get_id(),
+                    value: &static_sources_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
             ],
         };

@@ -452,175 +452,175 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowVersionUpgrade".into(),
-                    value: allow_version_upgrade_binding.get_id(),
+                    value: &allow_version_upgrade_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: apply_immediately_binding.get_id(),
+                    value: &apply_immediately_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aquaConfigurationStatus".into(),
-                    value: aqua_configuration_status_binding.get_id(),
+                    value: &aqua_configuration_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatedSnapshotRetentionPeriod".into(),
-                    value: automated_snapshot_retention_period_binding.get_id(),
+                    value: &automated_snapshot_retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneRelocationEnabled".into(),
-                    value: availability_zone_relocation_enabled_binding.get_id(),
+                    value: &availability_zone_relocation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterParameterGroupName".into(),
-                    value: cluster_parameter_group_name_binding.get_id(),
+                    value: &cluster_parameter_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterPublicKey".into(),
-                    value: cluster_public_key_binding.get_id(),
+                    value: &cluster_public_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterRevisionNumber".into(),
-                    value: cluster_revision_number_binding.get_id(),
+                    value: &cluster_revision_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterSubnetGroupName".into(),
-                    value: cluster_subnet_group_name_binding.get_id(),
+                    value: &cluster_subnet_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterType".into(),
-                    value: cluster_type_binding.get_id(),
+                    value: &cluster_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: cluster_version_binding.get_id(),
+                    value: &cluster_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: default_iam_role_arn_binding.get_id(),
+                    value: &default_iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticIp".into(),
-                    value: elastic_ip_binding.get_id(),
+                    value: &elastic_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: encrypted_binding.get_id(),
+                    value: &encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedVpcRouting".into(),
-                    value: enhanced_vpc_routing_binding.get_id(),
+                    value: &enhanced_vpc_routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotIdentifier".into(),
-                    value: final_snapshot_identifier_binding.get_id(),
+                    value: &final_snapshot_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoles".into(),
-                    value: iam_roles_binding.get_id(),
+                    value: &iam_roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: logging_binding.get_id(),
+                    value: &logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceTrackName".into(),
-                    value: maintenance_track_name_binding.get_id(),
+                    value: &maintenance_track_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageMasterPassword".into(),
-                    value: manage_master_password_binding.get_id(),
+                    value: &manage_master_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualSnapshotRetentionPeriod".into(),
-                    value: manual_snapshot_retention_period_binding.get_id(),
+                    value: &manual_snapshot_retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterPassword".into(),
-                    value: master_password_binding.get_id(),
+                    value: &master_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterPasswordSecretKmsKeyId".into(),
-                    value: master_password_secret_kms_key_id_binding.get_id(),
+                    value: &master_password_secret_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterUsername".into(),
-                    value: master_username_binding.get_id(),
+                    value: &master_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: multi_az_binding.get_id(),
+                    value: &multi_az_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: node_type_binding.get_id(),
+                    value: &node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: number_of_nodes_binding.get_id(),
+                    value: &number_of_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccount".into(),
-                    value: owner_account_binding.get_id(),
+                    value: &owner_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: preferred_maintenance_window_binding.get_id(),
+                    value: &preferred_maintenance_window_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: publicly_accessible_binding.get_id(),
+                    value: &publicly_accessible_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalSnapshot".into(),
-                    value: skip_final_snapshot_binding.get_id(),
+                    value: &skip_final_snapshot_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArn".into(),
-                    value: snapshot_arn_binding.get_id(),
+                    value: &snapshot_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotClusterIdentifier".into(),
-                    value: snapshot_cluster_identifier_binding.get_id(),
+                    value: &snapshot_cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotCopy".into(),
-                    value: snapshot_copy_binding.get_id(),
+                    value: &snapshot_copy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotIdentifier".into(),
-                    value: snapshot_identifier_binding.get_id(),
+                    value: &snapshot_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: vpc_security_group_ids_binding.get_id(),
+                    value: &vpc_security_group_ids_binding.drop_type(),
                 },
             ],
         };

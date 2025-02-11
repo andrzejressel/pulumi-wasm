@@ -118,23 +118,23 @@ pub mod smart_detection_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalEmailRecipients".into(),
-                    value: additional_email_recipients_binding.get_id(),
+                    value: &additional_email_recipients_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: application_insights_id_binding.get_id(),
+                    value: &application_insights_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendEmailsToSubscriptionOwners".into(),
-                    value: send_emails_to_subscription_owners_binding.get_id(),
+                    value: &send_emails_to_subscription_owners_binding.drop_type(),
                 },
             ],
         };

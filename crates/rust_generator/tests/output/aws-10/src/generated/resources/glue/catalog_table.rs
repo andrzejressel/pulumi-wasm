@@ -215,63 +215,63 @@ pub mod catalog_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openTableFormatInput".into(),
-                    value: open_table_format_input_binding.get_id(),
+                    value: &open_table_format_input_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: owner_binding.get_id(),
+                    value: &owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionIndices".into(),
-                    value: partition_indices_binding.get_id(),
+                    value: &partition_indices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeys".into(),
-                    value: partition_keys_binding.get_id(),
+                    value: &partition_keys_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: retention_binding.get_id(),
+                    value: &retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageDescriptor".into(),
-                    value: storage_descriptor_binding.get_id(),
+                    value: &storage_descriptor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableType".into(),
-                    value: table_type_binding.get_id(),
+                    value: &table_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTable".into(),
-                    value: target_table_binding.get_id(),
+                    value: &target_table_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewExpandedText".into(),
-                    value: view_expanded_text_binding.get_id(),
+                    value: &view_expanded_text_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewOriginalText".into(),
-                    value: view_original_text_binding.get_id(),
+                    value: &view_original_text_binding.drop_type(),
                 },
             ],
         };

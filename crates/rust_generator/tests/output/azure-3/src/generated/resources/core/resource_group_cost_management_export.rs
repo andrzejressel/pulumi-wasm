@@ -140,35 +140,35 @@ pub mod resource_group_cost_management_export {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportDataOptions".into(),
-                    value: export_data_options_binding.get_id(),
+                    value: &export_data_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportDataStorageLocation".into(),
-                    value: export_data_storage_location_binding.get_id(),
+                    value: &export_data_storage_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrencePeriodEndDate".into(),
-                    value: recurrence_period_end_date_binding.get_id(),
+                    value: &recurrence_period_end_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrencePeriodStartDate".into(),
-                    value: recurrence_period_start_date_binding.get_id(),
+                    value: &recurrence_period_start_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrenceType".into(),
-                    value: recurrence_type_binding.get_id(),
+                    value: &recurrence_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupId".into(),
-                    value: resource_group_id_binding.get_id(),
+                    value: &resource_group_id_binding.drop_type(),
                 },
             ],
         };

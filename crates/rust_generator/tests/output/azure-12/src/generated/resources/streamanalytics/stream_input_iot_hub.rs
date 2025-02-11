@@ -146,39 +146,39 @@ pub mod stream_input_iot_hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: eventhub_consumer_group_name_binding.get_id(),
+                    value: &eventhub_consumer_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubNamespace".into(),
-                    value: iothub_namespace_binding.get_id(),
+                    value: &iothub_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: serialization_binding.get_id(),
+                    value: &serialization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyKey".into(),
-                    value: shared_access_policy_key_binding.get_id(),
+                    value: &shared_access_policy_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyName".into(),
-                    value: shared_access_policy_name_binding.get_id(),
+                    value: &shared_access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: stream_analytics_job_name_binding.get_id(),
+                    value: &stream_analytics_job_name_binding.drop_type(),
                 },
             ],
         };

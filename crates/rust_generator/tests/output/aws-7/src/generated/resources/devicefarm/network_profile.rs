@@ -152,55 +152,55 @@ pub mod network_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkBandwidthBits".into(),
-                    value: downlink_bandwidth_bits_binding.get_id(),
+                    value: &downlink_bandwidth_bits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkDelayMs".into(),
-                    value: downlink_delay_ms_binding.get_id(),
+                    value: &downlink_delay_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkJitterMs".into(),
-                    value: downlink_jitter_ms_binding.get_id(),
+                    value: &downlink_jitter_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkLossPercent".into(),
-                    value: downlink_loss_percent_binding.get_id(),
+                    value: &downlink_loss_percent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectArn".into(),
-                    value: project_arn_binding.get_id(),
+                    value: &project_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkBandwidthBits".into(),
-                    value: uplink_bandwidth_bits_binding.get_id(),
+                    value: &uplink_bandwidth_bits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkDelayMs".into(),
-                    value: uplink_delay_ms_binding.get_id(),
+                    value: &uplink_delay_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkJitterMs".into(),
-                    value: uplink_jitter_ms_binding.get_id(),
+                    value: &uplink_jitter_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkLossPercent".into(),
-                    value: uplink_loss_percent_binding.get_id(),
+                    value: &uplink_loss_percent_binding.drop_type(),
                 },
             ],
         };

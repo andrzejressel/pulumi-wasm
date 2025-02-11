@@ -234,35 +234,35 @@ pub mod packet_capture {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBytesPerPacket".into(),
-                    value: maximum_bytes_per_packet_binding.get_id(),
+                    value: &maximum_bytes_per_packet_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBytesPerSession".into(),
-                    value: maximum_bytes_per_session_binding.get_id(),
+                    value: &maximum_bytes_per_session_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumCaptureDurationInSeconds".into(),
-                    value: maximum_capture_duration_in_seconds_binding.get_id(),
+                    value: &maximum_capture_duration_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkWatcherId".into(),
-                    value: network_watcher_id_binding.get_id(),
+                    value: &network_watcher_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocation".into(),
-                    value: storage_location_binding.get_id(),
+                    value: &storage_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
             ],
         };

@@ -253,47 +253,47 @@ pub mod security_group_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlocks".into(),
-                    value: cidr_blocks_binding.get_id(),
+                    value: &cidr_blocks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fromPort".into(),
-                    value: from_port_binding.get_id(),
+                    value: &from_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlocks".into(),
-                    value: ipv6_cidr_blocks_binding.get_id(),
+                    value: &ipv6_cidr_blocks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListIds".into(),
-                    value: prefix_list_ids_binding.get_id(),
+                    value: &prefix_list_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: security_group_id_binding.get_id(),
+                    value: &security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "self".into(),
-                    value: self__binding.get_id(),
+                    value: &self__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSecurityGroupId".into(),
-                    value: source_security_group_id_binding.get_id(),
+                    value: &source_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "toPort".into(),
-                    value: to_port_binding.get_id(),
+                    value: &to_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

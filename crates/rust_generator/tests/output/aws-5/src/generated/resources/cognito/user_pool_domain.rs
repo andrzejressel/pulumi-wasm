@@ -121,15 +121,15 @@ pub mod user_pool_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
             ],
         };

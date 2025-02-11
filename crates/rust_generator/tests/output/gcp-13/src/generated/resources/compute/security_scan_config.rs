@@ -187,43 +187,43 @@ pub mod security_scan_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: authentication_binding.get_id(),
+                    value: &authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blacklistPatterns".into(),
-                    value: blacklist_patterns_binding.get_id(),
+                    value: &blacklist_patterns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportToSecurityCommandCenter".into(),
-                    value: export_to_security_command_center_binding.get_id(),
+                    value: &export_to_security_command_center_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxQps".into(),
-                    value: max_qps_binding.get_id(),
+                    value: &max_qps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startingUrls".into(),
-                    value: starting_urls_binding.get_id(),
+                    value: &starting_urls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetPlatforms".into(),
-                    value: target_platforms_binding.get_id(),
+                    value: &target_platforms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAgent".into(),
-                    value: user_agent_binding.get_id(),
+                    value: &user_agent_binding.drop_type(),
                 },
             ],
         };

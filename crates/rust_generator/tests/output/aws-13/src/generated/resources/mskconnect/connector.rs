@@ -214,55 +214,55 @@ pub mod connector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacity".into(),
-                    value: capacity_binding.get_id(),
+                    value: &capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorConfiguration".into(),
-                    value: connector_configuration_binding.get_id(),
+                    value: &connector_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaCluster".into(),
-                    value: kafka_cluster_binding.get_id(),
+                    value: &kafka_cluster_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusterClientAuthentication".into(),
-                    value: kafka_cluster_client_authentication_binding.get_id(),
+                    value: &kafka_cluster_client_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusterEncryptionInTransit".into(),
-                    value: kafka_cluster_encryption_in_transit_binding.get_id(),
+                    value: &kafka_cluster_encryption_in_transit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaconnectVersion".into(),
-                    value: kafkaconnect_version_binding.get_id(),
+                    value: &kafkaconnect_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDelivery".into(),
-                    value: log_delivery_binding.get_id(),
+                    value: &log_delivery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plugins".into(),
-                    value: plugins_binding.get_id(),
+                    value: &plugins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRoleArn".into(),
-                    value: service_execution_role_arn_binding.get_id(),
+                    value: &service_execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerConfiguration".into(),
-                    value: worker_configuration_binding.get_id(),
+                    value: &worker_configuration_binding.drop_type(),
                 },
             ],
         };

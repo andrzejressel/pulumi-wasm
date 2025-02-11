@@ -176,35 +176,35 @@ pub mod scheduled_action {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: enable_binding.get_id(),
+                    value: &enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: end_time_binding.get_id(),
+                    value: &end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRole".into(),
-                    value: iam_role_binding.get_id(),
+                    value: &iam_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: start_time_binding.get_id(),
+                    value: &start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAction".into(),
-                    value: target_action_binding.get_id(),
+                    value: &target_action_binding.drop_type(),
                 },
             ],
         };

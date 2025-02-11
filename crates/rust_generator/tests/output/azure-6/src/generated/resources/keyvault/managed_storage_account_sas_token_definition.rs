@@ -178,27 +178,27 @@ pub mod managed_storage_account_sas_token_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedStorageAccountId".into(),
-                    value: managed_storage_account_id_binding.get_id(),
+                    value: &managed_storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasTemplateUri".into(),
-                    value: sas_template_uri_binding.get_id(),
+                    value: &sas_template_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasType".into(),
-                    value: sas_type_binding.get_id(),
+                    value: &sas_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityPeriod".into(),
-                    value: validity_period_binding.get_id(),
+                    value: &validity_period_binding.drop_type(),
                 },
             ],
         };

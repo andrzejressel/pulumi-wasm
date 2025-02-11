@@ -423,47 +423,47 @@ pub mod slo {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicSli".into(),
-                    value: basic_sli_binding.get_id(),
+                    value: &basic_sli_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "calendarPeriod".into(),
-                    value: calendar_period_binding.get_id(),
+                    value: &calendar_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "goal".into(),
-                    value: goal_binding.get_id(),
+                    value: &goal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestBasedSli".into(),
-                    value: request_based_sli_binding.get_id(),
+                    value: &request_based_sli_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollingPeriodDays".into(),
-                    value: rolling_period_days_binding.get_id(),
+                    value: &rolling_period_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sloId".into(),
-                    value: slo_id_binding.get_id(),
+                    value: &slo_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: user_labels_binding.get_id(),
+                    value: &user_labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowsBasedSli".into(),
-                    value: windows_based_sli_binding.get_id(),
+                    value: &windows_based_sli_binding.drop_type(),
                 },
             ],
         };

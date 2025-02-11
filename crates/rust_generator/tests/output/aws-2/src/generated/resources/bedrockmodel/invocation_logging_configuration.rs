@@ -115,7 +115,7 @@ pub mod invocation_logging_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: logging_config_binding.get_id(),
+                    value: &logging_config_binding.drop_type(),
                 },
             ],
         };

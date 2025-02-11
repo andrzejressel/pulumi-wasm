@@ -163,67 +163,67 @@ pub mod account_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: account_name_binding.get_id(),
+                    value: &account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectoryName".into(),
-                    value: active_directory_name_binding.get_id(),
+                    value: &active_directory_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminGroups".into(),
-                    value: admin_groups_binding.get_id(),
+                    value: &admin_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMethod".into(),
-                    value: authentication_method_binding.get_id(),
+                    value: &authentication_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorGroups".into(),
-                    value: author_groups_binding.get_id(),
+                    value: &author_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactNumber".into(),
-                    value: contact_number_binding.get_id(),
+                    value: &contact_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: edition_binding.get_id(),
+                    value: &edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: email_address_binding.get_id(),
+                    value: &email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: first_name_binding.get_id(),
+                    value: &first_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamIdentityCenterInstanceArn".into(),
-                    value: iam_identity_center_instance_arn_binding.get_id(),
+                    value: &iam_identity_center_instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: last_name_binding.get_id(),
+                    value: &last_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmail".into(),
-                    value: notification_email_binding.get_id(),
+                    value: &notification_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readerGroups".into(),
-                    value: reader_groups_binding.get_id(),
+                    value: &reader_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "realm".into(),
-                    value: realm_binding.get_id(),
+                    value: &realm_binding.drop_type(),
                 },
             ],
         };

@@ -123,35 +123,35 @@ pub mod mlflow_tracking_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "artifactStoreUri".into(),
-                    value: artifact_store_uri_binding.get_id(),
+                    value: &artifact_store_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticModelRegistration".into(),
-                    value: automatic_model_registration_binding.get_id(),
+                    value: &automatic_model_registration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mlflowVersion".into(),
-                    value: mlflow_version_binding.get_id(),
+                    value: &mlflow_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingServerName".into(),
-                    value: tracking_server_name_binding.get_id(),
+                    value: &tracking_server_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingServerSize".into(),
-                    value: tracking_server_size_binding.get_id(),
+                    value: &tracking_server_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceWindowStart".into(),
-                    value: weekly_maintenance_window_start_binding.get_id(),
+                    value: &weekly_maintenance_window_start_binding.drop_type(),
                 },
             ],
         };

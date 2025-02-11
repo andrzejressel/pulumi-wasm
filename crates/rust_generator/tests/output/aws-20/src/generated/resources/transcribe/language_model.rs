@@ -145,23 +145,23 @@ pub mod language_model {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseModelName".into(),
-                    value: base_model_name_binding.get_id(),
+                    value: &base_model_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputDataConfig".into(),
-                    value: input_data_config_binding.get_id(),
+                    value: &input_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelName".into(),
-                    value: model_name_binding.get_id(),
+                    value: &model_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

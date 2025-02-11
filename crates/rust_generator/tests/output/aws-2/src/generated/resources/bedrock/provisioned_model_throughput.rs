@@ -105,27 +105,27 @@ pub mod provisioned_model_throughput {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commitmentDuration".into(),
-                    value: commitment_duration_binding.get_id(),
+                    value: &commitment_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelArn".into(),
-                    value: model_arn_binding.get_id(),
+                    value: &model_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelUnits".into(),
-                    value: model_units_binding.get_id(),
+                    value: &model_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedModelName".into(),
-                    value: provisioned_model_name_binding.get_id(),
+                    value: &provisioned_model_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

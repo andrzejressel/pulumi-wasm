@@ -47,15 +47,15 @@ pub mod get_outpost_instance_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceTypes".into(),
-                    value: preferred_instance_types_binding.get_id(),
+                    value: &preferred_instance_types_binding.drop_type(),
                 },
             ],
         };

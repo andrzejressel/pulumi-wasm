@@ -207,43 +207,43 @@ pub mod data_quality_job_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataQualityAppSpecification".into(),
-                    value: data_quality_app_specification_binding.get_id(),
+                    value: &data_quality_app_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataQualityBaselineConfig".into(),
-                    value: data_quality_baseline_config_binding.get_id(),
+                    value: &data_quality_baseline_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataQualityJobInput".into(),
-                    value: data_quality_job_input_binding.get_id(),
+                    value: &data_quality_job_input_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataQualityJobOutputConfig".into(),
-                    value: data_quality_job_output_config_binding.get_id(),
+                    value: &data_quality_job_output_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobResources".into(),
-                    value: job_resources_binding.get_id(),
+                    value: &job_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: network_config_binding.get_id(),
+                    value: &network_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stoppingCondition".into(),
-                    value: stopping_condition_binding.get_id(),
+                    value: &stopping_condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

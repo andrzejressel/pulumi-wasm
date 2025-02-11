@@ -84,19 +84,19 @@ pub mod resource_share {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowExternalPrincipals".into(),
-                    value: allow_external_principals_binding.get_id(),
+                    value: &allow_external_principals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionArns".into(),
-                    value: permission_arns_binding.get_id(),
+                    value: &permission_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

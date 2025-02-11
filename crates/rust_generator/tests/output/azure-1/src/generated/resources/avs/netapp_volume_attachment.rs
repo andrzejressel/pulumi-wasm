@@ -233,15 +233,15 @@ pub mod netapp_volume_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netappVolumeId".into(),
-                    value: netapp_volume_id_binding.get_id(),
+                    value: &netapp_volume_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmwareClusterId".into(),
-                    value: vmware_cluster_id_binding.get_id(),
+                    value: &vmware_cluster_id_binding.drop_type(),
                 },
             ],
         };

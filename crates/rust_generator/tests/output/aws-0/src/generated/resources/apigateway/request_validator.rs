@@ -84,19 +84,19 @@ pub mod request_validator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateRequestBody".into(),
-                    value: validate_request_body_binding.get_id(),
+                    value: &validate_request_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateRequestParameters".into(),
-                    value: validate_request_parameters_binding.get_id(),
+                    value: &validate_request_parameters_binding.drop_type(),
                 },
             ],
         };

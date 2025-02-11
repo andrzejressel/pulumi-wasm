@@ -99,27 +99,27 @@ pub mod web_analytics_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inclusive".into(),
-                    value: inclusive_binding.get_id(),
+                    value: &inclusive_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isPaused".into(),
-                    value: is_paused_binding.get_id(),
+                    value: &is_paused_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paths".into(),
-                    value: paths_binding.get_id(),
+                    value: &paths_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulesetId".into(),
-                    value: ruleset_id_binding.get_id(),
+                    value: &ruleset_id_binding.drop_type(),
                 },
             ],
         };

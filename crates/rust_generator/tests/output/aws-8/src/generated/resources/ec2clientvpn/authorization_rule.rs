@@ -95,23 +95,23 @@ pub mod authorization_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGroupId".into(),
-                    value: access_group_id_binding.get_id(),
+                    value: &access_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizeAllGroups".into(),
-                    value: authorize_all_groups_binding.get_id(),
+                    value: &authorize_all_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientVpnEndpointId".into(),
-                    value: client_vpn_endpoint_id_binding.get_id(),
+                    value: &client_vpn_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkCidr".into(),
-                    value: target_network_cidr_binding.get_id(),
+                    value: &target_network_cidr_binding.drop_type(),
                 },
             ],
         };

@@ -132,43 +132,43 @@ pub mod default_vpc {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignGeneratedIpv6CidrBlock".into(),
-                    value: assign_generated_ipv6_cidr_block_binding.get_id(),
+                    value: &assign_generated_ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDnsHostnames".into(),
-                    value: enable_dns_hostnames_binding.get_id(),
+                    value: &enable_dns_hostnames_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDnsSupport".into(),
-                    value: enable_dns_support_binding.get_id(),
+                    value: &enable_dns_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNetworkAddressUsageMetrics".into(),
-                    value: enable_network_address_usage_metrics_binding.get_id(),
+                    value: &enable_network_address_usage_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: ipv6_cidr_block_binding.get_id(),
+                    value: &ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlockNetworkBorderGroup".into(),
-                    value: ipv6_cidr_block_network_border_group_binding.get_id(),
+                    value: &ipv6_cidr_block_network_border_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6IpamPoolId".into(),
-                    value: ipv6_ipam_pool_id_binding.get_id(),
+                    value: &ipv6_ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NetmaskLength".into(),
-                    value: ipv6_netmask_length_binding.get_id(),
+                    value: &ipv6_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

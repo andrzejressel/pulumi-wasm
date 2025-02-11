@@ -101,15 +101,15 @@ pub mod file_system_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: bypass_policy_lockout_safety_check_binding.get_id(),
+                    value: &bypass_policy_lockout_safety_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
             ],
         };

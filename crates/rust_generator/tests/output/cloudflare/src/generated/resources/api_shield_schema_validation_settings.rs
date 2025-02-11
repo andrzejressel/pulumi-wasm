@@ -74,15 +74,15 @@ pub mod api_shield_schema_validation_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationDefaultMitigationAction".into(),
-                    value: validation_default_mitigation_action_binding.get_id(),
+                    value: &validation_default_mitigation_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationOverrideMitigationAction".into(),
-                    value: validation_override_mitigation_action_binding.get_id(),
+                    value: &validation_override_mitigation_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

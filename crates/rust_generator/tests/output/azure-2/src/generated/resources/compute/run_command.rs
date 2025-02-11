@@ -355,55 +355,55 @@ pub mod run_command {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorBlobManagedIdentity".into(),
-                    value: error_blob_managed_identity_binding.get_id(),
+                    value: &error_blob_managed_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorBlobUri".into(),
-                    value: error_blob_uri_binding.get_id(),
+                    value: &error_blob_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBlobManagedIdentity".into(),
-                    value: output_blob_managed_identity_binding.get_id(),
+                    value: &output_blob_managed_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBlobUri".into(),
-                    value: output_blob_uri_binding.get_id(),
+                    value: &output_blob_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedParameters".into(),
-                    value: protected_parameters_binding.get_id(),
+                    value: &protected_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsPassword".into(),
-                    value: run_as_password_binding.get_id(),
+                    value: &run_as_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsUser".into(),
-                    value: run_as_user_binding.get_id(),
+                    value: &run_as_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
             ],
         };

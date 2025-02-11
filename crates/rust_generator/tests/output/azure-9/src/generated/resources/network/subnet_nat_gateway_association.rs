@@ -99,11 +99,11 @@ pub mod subnet_nat_gateway_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natGatewayId".into(),
-                    value: nat_gateway_id_binding.get_id(),
+                    value: &nat_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

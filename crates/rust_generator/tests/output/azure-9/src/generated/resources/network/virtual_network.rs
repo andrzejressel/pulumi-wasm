@@ -187,51 +187,51 @@ pub mod virtual_network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressSpaces".into(),
-                    value: address_spaces_binding.get_id(),
+                    value: &address_spaces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpCommunity".into(),
-                    value: bgp_community_binding.get_id(),
+                    value: &bgp_community_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddosProtectionPlan".into(),
-                    value: ddos_protection_plan_binding.get_id(),
+                    value: &ddos_protection_plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: dns_servers_binding.get_id(),
+                    value: &dns_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: edge_zone_binding.get_id(),
+                    value: &edge_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: encryption_binding.get_id(),
+                    value: &encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowTimeoutInMinutes".into(),
-                    value: flow_timeout_in_minutes_binding.get_id(),
+                    value: &flow_timeout_in_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: subnets_binding.get_id(),
+                    value: &subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

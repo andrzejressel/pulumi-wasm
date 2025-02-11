@@ -123,15 +123,15 @@ pub mod mail_from {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "behaviorOnMxFailure".into(),
-                    value: behavior_on_mx_failure_binding.get_id(),
+                    value: &behavior_on_mx_failure_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mailFromDomain".into(),
-                    value: mail_from_domain_binding.get_id(),
+                    value: &mail_from_domain_binding.drop_type(),
                 },
             ],
         };

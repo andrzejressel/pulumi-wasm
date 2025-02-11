@@ -289,43 +289,43 @@ pub mod metric_stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeFilters".into(),
-                    value: exclude_filters_binding.get_id(),
+                    value: &exclude_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseArn".into(),
-                    value: firehose_arn_binding.get_id(),
+                    value: &firehose_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeFilters".into(),
-                    value: include_filters_binding.get_id(),
+                    value: &include_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeLinkedAccountsMetrics".into(),
-                    value: include_linked_accounts_metrics_binding.get_id(),
+                    value: &include_linked_accounts_metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputFormat".into(),
-                    value: output_format_binding.get_id(),
+                    value: &output_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statisticsConfigurations".into(),
-                    value: statistics_configurations_binding.get_id(),
+                    value: &statistics_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

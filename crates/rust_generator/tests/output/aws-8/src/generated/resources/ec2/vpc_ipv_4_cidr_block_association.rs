@@ -84,19 +84,19 @@ pub mod vpc_ipv_4_cidr_block_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: cidr_block_binding.get_id(),
+                    value: &cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4IpamPoolId".into(),
-                    value: ipv4_ipam_pool_id_binding.get_id(),
+                    value: &ipv4_ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4NetmaskLength".into(),
-                    value: ipv4_netmask_length_binding.get_id(),
+                    value: &ipv4_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

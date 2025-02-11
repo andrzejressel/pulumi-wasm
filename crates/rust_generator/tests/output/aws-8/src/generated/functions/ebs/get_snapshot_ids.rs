@@ -53,15 +53,15 @@ pub mod get_snapshot_ids {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owners".into(),
-                    value: owners_binding.get_id(),
+                    value: &owners_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorableByUserIds".into(),
-                    value: restorable_by_user_ids_binding.get_id(),
+                    value: &restorable_by_user_ids_binding.drop_type(),
                 },
             ],
         };

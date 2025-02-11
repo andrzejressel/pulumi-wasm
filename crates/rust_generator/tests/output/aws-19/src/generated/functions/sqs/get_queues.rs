@@ -33,7 +33,7 @@ pub mod get_queues {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueNamePrefix".into(),
-                    value: queue_name_prefix_binding.get_id(),
+                    value: &queue_name_prefix_binding.drop_type(),
                 },
             ],
         };

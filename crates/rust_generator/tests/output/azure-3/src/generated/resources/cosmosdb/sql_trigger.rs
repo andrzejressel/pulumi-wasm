@@ -105,23 +105,23 @@ pub mod sql_trigger {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: body_binding.get_id(),
+                    value: &body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerId".into(),
-                    value: container_id_binding.get_id(),
+                    value: &container_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operation".into(),
-                    value: operation_binding.get_id(),
+                    value: &operation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

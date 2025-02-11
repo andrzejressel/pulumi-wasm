@@ -185,15 +185,15 @@ pub mod app_check_play_integrity_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: app_id_binding.get_id(),
+                    value: &app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenTtl".into(),
-                    value: token_ttl_binding.get_id(),
+                    value: &token_ttl_binding.drop_type(),
                 },
             ],
         };

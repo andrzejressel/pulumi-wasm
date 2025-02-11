@@ -98,27 +98,27 @@ pub mod snapshot_schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definitions".into(),
-                    value: definitions_binding.get_id(),
+                    value: &definitions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: identifier_binding.get_id(),
+                    value: &identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifierPrefix".into(),
-                    value: identifier_prefix_binding.get_id(),
+                    value: &identifier_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

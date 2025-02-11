@@ -78,19 +78,19 @@ pub mod byo_ip_prefix {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisement".into(),
-                    value: advertisement_binding.get_id(),
+                    value: &advertisement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixId".into(),
-                    value: prefix_id_binding.get_id(),
+                    value: &prefix_id_binding.drop_type(),
                 },
             ],
         };

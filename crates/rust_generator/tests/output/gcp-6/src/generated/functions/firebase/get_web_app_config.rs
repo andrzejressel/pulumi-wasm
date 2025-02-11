@@ -61,11 +61,11 @@ pub mod get_web_app_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAppId".into(),
-                    value: web_app_id_binding.get_id(),
+                    value: &web_app_id_binding.drop_type(),
                 },
             ],
         };

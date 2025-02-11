@@ -191,35 +191,35 @@ pub mod customer_managed_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "federatedIdentityClientId".into(),
-                    value: federated_identity_client_id_binding.get_id(),
+                    value: &federated_identity_client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: key_name_binding.get_id(),
+                    value: &key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultUri".into(),
-                    value: key_vault_uri_binding.get_id(),
+                    value: &key_vault_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVersion".into(),
-                    value: key_version_binding.get_id(),
+                    value: &key_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: managed_hsm_key_id_binding.get_id(),
+                    value: &managed_hsm_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: user_assigned_identity_id_binding.get_id(),
+                    value: &user_assigned_identity_id_binding.drop_type(),
                 },
             ],
         };

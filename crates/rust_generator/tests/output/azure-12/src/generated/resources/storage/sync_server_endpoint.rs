@@ -180,39 +180,39 @@ pub mod sync_server_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudTieringEnabled".into(),
-                    value: cloud_tiering_enabled_binding.get_id(),
+                    value: &cloud_tiering_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialDownloadPolicy".into(),
-                    value: initial_download_policy_binding.get_id(),
+                    value: &initial_download_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localCacheMode".into(),
-                    value: local_cache_mode_binding.get_id(),
+                    value: &local_cache_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registeredServerId".into(),
-                    value: registered_server_id_binding.get_id(),
+                    value: &registered_server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverLocalPath".into(),
-                    value: server_local_path_binding.get_id(),
+                    value: &server_local_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSyncGroupId".into(),
-                    value: storage_sync_group_id_binding.get_id(),
+                    value: &storage_sync_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tierFilesOlderThanDays".into(),
-                    value: tier_files_older_than_days_binding.get_id(),
+                    value: &tier_files_older_than_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeFreeSpacePercent".into(),
-                    value: volume_free_space_percent_binding.get_id(),
+                    value: &volume_free_space_percent_binding.drop_type(),
                 },
             ],
         };

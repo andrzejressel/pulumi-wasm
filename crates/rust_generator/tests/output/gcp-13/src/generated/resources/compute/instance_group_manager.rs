@@ -449,95 +449,95 @@ pub mod instance_group_manager {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allInstancesConfig".into(),
-                    value: all_instances_config_binding.get_id(),
+                    value: &all_instances_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoHealingPolicies".into(),
-                    value: auto_healing_policies_binding.get_id(),
+                    value: &auto_healing_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseInstanceName".into(),
-                    value: base_instance_name_binding.get_id(),
+                    value: &base_instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceLifecyclePolicy".into(),
-                    value: instance_lifecycle_policy_binding.get_id(),
+                    value: &instance_lifecycle_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listManagedInstancesResults".into(),
-                    value: list_managed_instances_results_binding.get_id(),
+                    value: &list_managed_instances_results_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namedPorts".into(),
-                    value: named_ports_binding.get_id(),
+                    value: &named_ports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "params".into(),
-                    value: params_binding.get_id(),
+                    value: &params_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standbyPolicy".into(),
-                    value: standby_policy_binding.get_id(),
+                    value: &standby_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulDisks".into(),
-                    value: stateful_disks_binding.get_id(),
+                    value: &stateful_disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulExternalIps".into(),
-                    value: stateful_external_ips_binding.get_id(),
+                    value: &stateful_external_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulInternalIps".into(),
-                    value: stateful_internal_ips_binding.get_id(),
+                    value: &stateful_internal_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetPools".into(),
-                    value: target_pools_binding.get_id(),
+                    value: &target_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSize".into(),
-                    value: target_size_binding.get_id(),
+                    value: &target_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetStoppedSize".into(),
-                    value: target_stopped_size_binding.get_id(),
+                    value: &target_stopped_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSuspendedSize".into(),
-                    value: target_suspended_size_binding.get_id(),
+                    value: &target_suspended_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatePolicy".into(),
-                    value: update_policy_binding.get_id(),
+                    value: &update_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versions".into(),
-                    value: versions_binding.get_id(),
+                    value: &versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForInstances".into(),
-                    value: wait_for_instances_binding.get_id(),
+                    value: &wait_for_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForInstancesStatus".into(),
-                    value: wait_for_instances_status_binding.get_id(),
+                    value: &wait_for_instances_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

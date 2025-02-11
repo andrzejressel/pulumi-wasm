@@ -102,31 +102,31 @@ pub mod get_cluster_snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterIdentifier".into(),
-                    value: db_cluster_identifier_binding.get_id(),
+                    value: &db_cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterSnapshotIdentifier".into(),
-                    value: db_cluster_snapshot_identifier_binding.get_id(),
+                    value: &db_cluster_snapshot_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePublic".into(),
-                    value: include_public_binding.get_id(),
+                    value: &include_public_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeShared".into(),
-                    value: include_shared_binding.get_id(),
+                    value: &include_shared_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: most_recent_binding.get_id(),
+                    value: &most_recent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotType".into(),
-                    value: snapshot_type_binding.get_id(),
+                    value: &snapshot_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -91,19 +91,19 @@ pub mod upload {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: content_type_binding.get_id(),
+                    value: &content_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectArn".into(),
-                    value: project_arn_binding.get_id(),
+                    value: &project_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

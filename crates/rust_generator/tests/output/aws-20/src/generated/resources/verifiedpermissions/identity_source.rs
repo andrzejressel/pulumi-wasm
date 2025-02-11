@@ -158,15 +158,15 @@ pub mod identity_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyStoreId".into(),
-                    value: policy_store_id_binding.get_id(),
+                    value: &policy_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalEntityType".into(),
-                    value: principal_entity_type_binding.get_id(),
+                    value: &principal_entity_type_binding.drop_type(),
                 },
             ],
         };

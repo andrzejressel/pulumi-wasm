@@ -50,19 +50,19 @@ pub mod get_prebuilt_ecr_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSuffix".into(),
-                    value: dns_suffix_binding.get_id(),
+                    value: &dns_suffix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTag".into(),
-                    value: image_tag_binding.get_id(),
+                    value: &image_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: repository_name_binding.get_id(),
+                    value: &repository_name_binding.drop_type(),
                 },
             ],
         };

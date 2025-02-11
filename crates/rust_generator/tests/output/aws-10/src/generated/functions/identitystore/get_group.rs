@@ -70,19 +70,19 @@ pub mod get_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternateIdentifier".into(),
-                    value: alternate_identifier_binding.get_id(),
+                    value: &alternate_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: group_id_binding.get_id(),
+                    value: &group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: identity_store_id_binding.get_id(),
+                    value: &identity_store_id_binding.drop_type(),
                 },
             ],
         };

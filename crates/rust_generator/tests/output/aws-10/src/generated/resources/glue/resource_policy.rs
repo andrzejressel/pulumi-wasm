@@ -83,11 +83,11 @@ pub mod resource_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHybrid".into(),
-                    value: enable_hybrid_binding.get_id(),
+                    value: &enable_hybrid_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
             ],
         };

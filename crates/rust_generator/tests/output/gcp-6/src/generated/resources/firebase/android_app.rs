@@ -197,31 +197,31 @@ pub mod android_app {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeyId".into(),
-                    value: api_key_id_binding.get_id(),
+                    value: &api_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageName".into(),
-                    value: package_name_binding.get_id(),
+                    value: &package_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sha1Hashes".into(),
-                    value: sha1_hashes_binding.get_id(),
+                    value: &sha1_hashes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sha256Hashes".into(),
-                    value: sha256_hashes_binding.get_id(),
+                    value: &sha256_hashes_binding.drop_type(),
                 },
             ],
         };

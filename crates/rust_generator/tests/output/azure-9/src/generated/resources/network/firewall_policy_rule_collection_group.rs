@@ -186,27 +186,27 @@ pub mod firewall_policy_rule_collection_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationRuleCollections".into(),
-                    value: application_rule_collections_binding.get_id(),
+                    value: &application_rule_collections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyId".into(),
-                    value: firewall_policy_id_binding.get_id(),
+                    value: &firewall_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natRuleCollections".into(),
-                    value: nat_rule_collections_binding.get_id(),
+                    value: &nat_rule_collections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleCollections".into(),
-                    value: network_rule_collections_binding.get_id(),
+                    value: &network_rule_collections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
             ],
         };

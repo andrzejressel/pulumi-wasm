@@ -104,11 +104,11 @@ pub mod log_resource_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: policy_document_binding.get_id(),
+                    value: &policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: policy_name_binding.get_id(),
+                    value: &policy_name_binding.drop_type(),
                 },
             ],
         };

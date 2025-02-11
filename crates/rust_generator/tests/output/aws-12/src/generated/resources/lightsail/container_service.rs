@@ -222,31 +222,31 @@ pub mod container_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDisabled".into(),
-                    value: is_disabled_binding.get_id(),
+                    value: &is_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "power".into(),
-                    value: power_binding.get_id(),
+                    value: &power_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateRegistryAccess".into(),
-                    value: private_registry_access_binding.get_id(),
+                    value: &private_registry_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicDomainNames".into(),
-                    value: public_domain_names_binding.get_id(),
+                    value: &public_domain_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scale".into(),
-                    value: scale_binding.get_id(),
+                    value: &scale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

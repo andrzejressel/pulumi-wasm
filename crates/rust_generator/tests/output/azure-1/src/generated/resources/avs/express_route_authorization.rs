@@ -93,11 +93,11 @@ pub mod express_route_authorization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateCloudId".into(),
-                    value: private_cloud_id_binding.get_id(),
+                    value: &private_cloud_id_binding.drop_type(),
                 },
             ],
         };

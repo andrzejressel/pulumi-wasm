@@ -36,7 +36,7 @@ pub mod get_data_shares {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShares".into(),
-                    value: data_shares_binding.get_id(),
+                    value: &data_shares_binding.drop_type(),
                 },
             ],
         };

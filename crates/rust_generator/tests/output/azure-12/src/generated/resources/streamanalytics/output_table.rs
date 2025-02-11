@@ -145,43 +145,43 @@ pub mod output_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchSize".into(),
-                    value: batch_size_binding.get_id(),
+                    value: &batch_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnsToRemoves".into(),
-                    value: columns_to_removes_binding.get_id(),
+                    value: &columns_to_removes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: partition_key_binding.get_id(),
+                    value: &partition_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowKey".into(),
-                    value: row_key_binding.get_id(),
+                    value: &row_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: storage_account_key_binding.get_id(),
+                    value: &storage_account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: storage_account_name_binding.get_id(),
+                    value: &storage_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: stream_analytics_job_name_binding.get_id(),
+                    value: &stream_analytics_job_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: table_binding.get_id(),
+                    value: &table_binding.drop_type(),
                 },
             ],
         };

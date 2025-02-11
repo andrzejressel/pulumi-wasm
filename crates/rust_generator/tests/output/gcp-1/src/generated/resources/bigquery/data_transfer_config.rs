@@ -395,63 +395,63 @@ pub mod data_transfer_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRefreshWindowDays".into(),
-                    value: data_refresh_window_days_binding.get_id(),
+                    value: &data_refresh_window_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceId".into(),
-                    value: data_source_id_binding.get_id(),
+                    value: &data_source_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationDatasetId".into(),
-                    value: destination_dataset_id_binding.get_id(),
+                    value: &destination_dataset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailPreferences".into(),
-                    value: email_preferences_binding.get_id(),
+                    value: &email_preferences_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: encryption_configuration_binding.get_id(),
+                    value: &encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationPubsubTopic".into(),
-                    value: notification_pubsub_topic_binding.get_id(),
+                    value: &notification_pubsub_topic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "params".into(),
-                    value: params_binding.get_id(),
+                    value: &params_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleOptions".into(),
-                    value: schedule_options_binding.get_id(),
+                    value: &schedule_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveParams".into(),
-                    value: sensitive_params_binding.get_id(),
+                    value: &sensitive_params_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountName".into(),
-                    value: service_account_name_binding.get_id(),
+                    value: &service_account_name_binding.drop_type(),
                 },
             ],
         };

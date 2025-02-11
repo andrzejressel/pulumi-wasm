@@ -145,7 +145,7 @@ pub mod get_instance_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
             ],
         };

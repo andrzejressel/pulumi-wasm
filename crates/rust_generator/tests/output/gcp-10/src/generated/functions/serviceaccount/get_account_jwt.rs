@@ -50,19 +50,19 @@ pub mod get_account_jwt {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: delegates_binding.get_id(),
+                    value: &delegates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresIn".into(),
-                    value: expires_in_binding.get_id(),
+                    value: &expires_in_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payload".into(),
-                    value: payload_binding.get_id(),
+                    value: &payload_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: target_service_account_binding.get_id(),
+                    value: &target_service_account_binding.drop_type(),
                 },
             ],
         };

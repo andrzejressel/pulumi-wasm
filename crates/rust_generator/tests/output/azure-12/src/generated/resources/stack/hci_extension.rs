@@ -133,39 +133,39 @@ pub mod hci_extension {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcSettingId".into(),
-                    value: arc_setting_id_binding.get_id(),
+                    value: &arc_setting_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpgradeMinorVersionEnabled".into(),
-                    value: auto_upgrade_minor_version_enabled_binding.get_id(),
+                    value: &auto_upgrade_minor_version_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticUpgradeEnabled".into(),
-                    value: automatic_upgrade_enabled_binding.get_id(),
+                    value: &automatic_upgrade_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedSettings".into(),
-                    value: protected_settings_binding.get_id(),
+                    value: &protected_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: publisher_binding.get_id(),
+                    value: &publisher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeHandlerVersion".into(),
-                    value: type_handler_version_binding.get_id(),
+                    value: &type_handler_version_binding.drop_type(),
                 },
             ],
         };

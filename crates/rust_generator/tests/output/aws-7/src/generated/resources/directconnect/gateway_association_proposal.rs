@@ -98,19 +98,19 @@ pub mod gateway_association_proposal {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPrefixes".into(),
-                    value: allowed_prefixes_binding.get_id(),
+                    value: &allowed_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associatedGatewayId".into(),
-                    value: associated_gateway_id_binding.get_id(),
+                    value: &associated_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dxGatewayId".into(),
-                    value: dx_gateway_id_binding.get_id(),
+                    value: &dx_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dxGatewayOwnerAccountId".into(),
-                    value: dx_gateway_owner_account_id_binding.get_id(),
+                    value: &dx_gateway_owner_account_id_binding.drop_type(),
                 },
             ],
         };

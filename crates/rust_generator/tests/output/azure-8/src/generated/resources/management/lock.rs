@@ -131,19 +131,19 @@ pub mod lock {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockLevel".into(),
-                    value: lock_level_binding.get_id(),
+                    value: &lock_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: notes_binding.get_id(),
+                    value: &notes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

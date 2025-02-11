@@ -221,51 +221,51 @@ pub mod compute_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignToUser".into(),
-                    value: assign_to_user_binding.get_id(),
+                    value: &assign_to_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationType".into(),
-                    value: authorization_type_binding.get_id(),
+                    value: &authorization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: local_auth_enabled_binding.get_id(),
+                    value: &local_auth_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineLearningWorkspaceId".into(),
-                    value: machine_learning_workspace_id_binding.get_id(),
+                    value: &machine_learning_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpEnabled".into(),
-                    value: node_public_ip_enabled_binding.get_id(),
+                    value: &node_public_ip_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssh".into(),
-                    value: ssh_binding.get_id(),
+                    value: &ssh_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetResourceId".into(),
-                    value: subnet_resource_id_binding.get_id(),
+                    value: &subnet_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineSize".into(),
-                    value: virtual_machine_size_binding.get_id(),
+                    value: &virtual_machine_size_binding.drop_type(),
                 },
             ],
         };

@@ -428,55 +428,55 @@ pub mod vpc_flow_logs_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregationInterval".into(),
-                    value: aggregation_interval_binding.get_id(),
+                    value: &aggregation_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterExpr".into(),
-                    value: filter_expr_binding.get_id(),
+                    value: &filter_expr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowSampling".into(),
-                    value: flow_sampling_binding.get_id(),
+                    value: &flow_sampling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectAttachment".into(),
-                    value: interconnect_attachment_binding.get_id(),
+                    value: &interconnect_attachment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataFields".into(),
-                    value: metadata_fields_binding.get_id(),
+                    value: &metadata_fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcFlowLogsConfigId".into(),
-                    value: vpc_flow_logs_config_id_binding.get_id(),
+                    value: &vpc_flow_logs_config_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnTunnel".into(),
-                    value: vpn_tunnel_binding.get_id(),
+                    value: &vpn_tunnel_binding.drop_type(),
                 },
             ],
         };

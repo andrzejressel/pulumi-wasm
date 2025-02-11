@@ -135,31 +135,31 @@ pub mod folder_bucket_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketId".into(),
-                    value: bucket_id_binding.get_id(),
+                    value: &bucket_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmekSettings".into(),
-                    value: cmek_settings_binding.get_id(),
+                    value: &cmek_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexConfigs".into(),
-                    value: index_configs_binding.get_id(),
+                    value: &index_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDays".into(),
-                    value: retention_days_binding.get_id(),
+                    value: &retention_days_binding.drop_type(),
                 },
             ],
         };

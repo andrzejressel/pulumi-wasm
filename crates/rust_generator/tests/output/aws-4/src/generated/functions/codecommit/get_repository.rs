@@ -41,7 +41,7 @@ pub mod get_repository {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: repository_name_binding.get_id(),
+                    value: &repository_name_binding.drop_type(),
                 },
             ],
         };

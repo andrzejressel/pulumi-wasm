@@ -74,19 +74,19 @@ pub mod get_cloud_formation_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeName".into(),
-                    value: type_name_binding.get_id(),
+                    value: &type_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: version_id_binding.get_id(),
+                    value: &version_id_binding.drop_type(),
                 },
             ],
         };

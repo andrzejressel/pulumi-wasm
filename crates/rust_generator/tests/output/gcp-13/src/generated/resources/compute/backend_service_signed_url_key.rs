@@ -140,19 +140,19 @@ pub mod backend_service_signed_url_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendService".into(),
-                    value: backend_service_binding.get_id(),
+                    value: &backend_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValue".into(),
-                    value: key_value_binding.get_id(),
+                    value: &key_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

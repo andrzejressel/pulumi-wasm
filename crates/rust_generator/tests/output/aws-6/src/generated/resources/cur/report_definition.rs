@@ -148,51 +148,51 @@ pub mod report_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalArtifacts".into(),
-                    value: additional_artifacts_binding.get_id(),
+                    value: &additional_artifacts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalSchemaElements".into(),
-                    value: additional_schema_elements_binding.get_id(),
+                    value: &additional_schema_elements_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compression".into(),
-                    value: compression_binding.get_id(),
+                    value: &compression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: format_binding.get_id(),
+                    value: &format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshClosedReports".into(),
-                    value: refresh_closed_reports_binding.get_id(),
+                    value: &refresh_closed_reports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportName".into(),
-                    value: report_name_binding.get_id(),
+                    value: &report_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportVersioning".into(),
-                    value: report_versioning_binding.get_id(),
+                    value: &report_versioning_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: s3_bucket_binding.get_id(),
+                    value: &s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Prefix".into(),
-                    value: s3_prefix_binding.get_id(),
+                    value: &s3_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Region".into(),
-                    value: s3_region_binding.get_id(),
+                    value: &s3_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeUnit".into(),
-                    value: time_unit_binding.get_id(),
+                    value: &time_unit_binding.drop_type(),
                 },
             ],
         };

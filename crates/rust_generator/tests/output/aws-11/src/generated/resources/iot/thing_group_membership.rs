@@ -73,15 +73,15 @@ pub mod thing_group_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideDynamicGroup".into(),
-                    value: override_dynamic_group_binding.get_id(),
+                    value: &override_dynamic_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingGroupName".into(),
-                    value: thing_group_name_binding.get_id(),
+                    value: &thing_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingName".into(),
-                    value: thing_name_binding.get_id(),
+                    value: &thing_name_binding.drop_type(),
                 },
             ],
         };

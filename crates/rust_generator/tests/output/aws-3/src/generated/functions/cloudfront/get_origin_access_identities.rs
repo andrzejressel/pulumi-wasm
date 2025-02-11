@@ -38,7 +38,7 @@ pub mod get_origin_access_identities {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comments".into(),
-                    value: comments_binding.get_id(),
+                    value: &comments_binding.drop_type(),
                 },
             ],
         };

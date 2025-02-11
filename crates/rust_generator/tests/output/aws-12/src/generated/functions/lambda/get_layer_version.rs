@@ -73,19 +73,19 @@ pub mod get_layer_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleArchitecture".into(),
-                    value: compatible_architecture_binding.get_id(),
+                    value: &compatible_architecture_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleRuntime".into(),
-                    value: compatible_runtime_binding.get_id(),
+                    value: &compatible_runtime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: layer_name_binding.get_id(),
+                    value: &layer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

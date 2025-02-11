@@ -380,63 +380,63 @@ pub mod data_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnGroups".into(),
-                    value: column_groups_binding.get_id(),
+                    value: &column_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnLevelPermissionRules".into(),
-                    value: column_level_permission_rules_binding.get_id(),
+                    value: &column_level_permission_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: data_set_id_binding.get_id(),
+                    value: &data_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetUsageConfiguration".into(),
-                    value: data_set_usage_configuration_binding.get_id(),
+                    value: &data_set_usage_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fieldFolders".into(),
-                    value: field_folders_binding.get_id(),
+                    value: &field_folders_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importMode".into(),
-                    value: import_mode_binding.get_id(),
+                    value: &import_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicalTableMaps".into(),
-                    value: logical_table_maps_binding.get_id(),
+                    value: &logical_table_maps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalTableMaps".into(),
-                    value: physical_table_maps_binding.get_id(),
+                    value: &physical_table_maps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshProperties".into(),
-                    value: refresh_properties_binding.get_id(),
+                    value: &refresh_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowLevelPermissionDataSet".into(),
-                    value: row_level_permission_data_set_binding.get_id(),
+                    value: &row_level_permission_data_set_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowLevelPermissionTagConfiguration".into(),
-                    value: row_level_permission_tag_configuration_binding.get_id(),
+                    value: &row_level_permission_tag_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

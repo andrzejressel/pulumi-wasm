@@ -163,39 +163,39 @@ pub mod enterprise_database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientProtocol".into(),
-                    value: client_protocol_binding.get_id(),
+                    value: &client_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: cluster_id_binding.get_id(),
+                    value: &cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusteringPolicy".into(),
-                    value: clustering_policy_binding.get_id(),
+                    value: &clustering_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evictionPolicy".into(),
-                    value: eviction_policy_binding.get_id(),
+                    value: &eviction_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedDatabaseGroupNickname".into(),
-                    value: linked_database_group_nickname_binding.get_id(),
+                    value: &linked_database_group_nickname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedDatabaseIds".into(),
-                    value: linked_database_ids_binding.get_id(),
+                    value: &linked_database_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modules".into(),
-                    value: modules_binding.get_id(),
+                    value: &modules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
             ],
         };

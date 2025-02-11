@@ -144,15 +144,15 @@ pub mod certificate_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: certificate_id_binding.get_id(),
+                    value: &certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnameBindingId".into(),
-                    value: hostname_binding_id_binding.get_id(),
+                    value: &hostname_binding_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslState".into(),
-                    value: ssl_state_binding.get_id(),
+                    value: &ssl_state_binding.drop_type(),
                 },
             ],
         };

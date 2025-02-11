@@ -385,83 +385,83 @@ pub mod workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureDevopsRepo".into(),
-                    value: azure_devops_repo_binding.get_id(),
+                    value: &azure_devops_repo_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureadAuthenticationOnly".into(),
-                    value: azuread_authentication_only_binding.get_id(),
+                    value: &azuread_authentication_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeSubnetId".into(),
-                    value: compute_subnet_id_binding.get_id(),
+                    value: &compute_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: customer_managed_key_binding.get_id(),
+                    value: &customer_managed_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataExfiltrationProtectionEnabled".into(),
-                    value: data_exfiltration_protection_enabled_binding.get_id(),
+                    value: &data_exfiltration_protection_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubRepo".into(),
-                    value: github_repo_binding.get_id(),
+                    value: &github_repo_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkingAllowedForAadTenantIds".into(),
-                    value: linking_allowed_for_aad_tenant_ids_binding.get_id(),
+                    value: &linking_allowed_for_aad_tenant_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroupName".into(),
-                    value: managed_resource_group_name_binding.get_id(),
+                    value: &managed_resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedVirtualNetworkEnabled".into(),
-                    value: managed_virtual_network_enabled_binding.get_id(),
+                    value: &managed_virtual_network_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purviewId".into(),
-                    value: purview_id_binding.get_id(),
+                    value: &purview_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlAdministratorLogin".into(),
-                    value: sql_administrator_login_binding.get_id(),
+                    value: &sql_administrator_login_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlAdministratorLoginPassword".into(),
-                    value: sql_administrator_login_password_binding.get_id(),
+                    value: &sql_administrator_login_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlIdentityControlEnabled".into(),
-                    value: sql_identity_control_enabled_binding.get_id(),
+                    value: &sql_identity_control_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageDataLakeGen2FilesystemId".into(),
-                    value: storage_data_lake_gen2_filesystem_id_binding.get_id(),
+                    value: &storage_data_lake_gen2_filesystem_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

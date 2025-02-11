@@ -182,23 +182,23 @@ pub mod certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateVirtualPath".into(),
-                    value: certificate_virtual_path_binding.get_id(),
+                    value: &certificate_virtual_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultSecretId".into(),
-                    value: key_vault_secret_id_binding.get_id(),
+                    value: &key_vault_secret_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVirtualPath".into(),
-                    value: key_virtual_path_binding.get_id(),
+                    value: &key_virtual_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nginxDeploymentId".into(),
-                    value: nginx_deployment_id_binding.get_id(),
+                    value: &nginx_deployment_id_binding.drop_type(),
                 },
             ],
         };

@@ -90,15 +90,15 @@ pub mod group_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: group_id_binding.get_id(),
+                    value: &group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: identity_store_id_binding.get_id(),
+                    value: &identity_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberId".into(),
-                    value: member_id_binding.get_id(),
+                    value: &member_id_binding.drop_type(),
                 },
             ],
         };
