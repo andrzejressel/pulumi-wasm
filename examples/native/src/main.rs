@@ -1,15 +1,14 @@
 use anyhow::Result;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, Context, Output};
 use pulumi_gestalt_rust::GestaltContext;
 use pulumi_gestalt_rust::GestaltOutput;
 use pulumi_gestalt_rust::ToOutput;
+use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, Context, Output};
 
 pulumi_gestalt_rust::pulumi_main!();
 
 fn pulumi_main(context: &Context) -> Result<()> {
-
     let length: Output<i32> = context.new_output(&12).map(|i: i32| i * 3);
 
     let random_string = random_string::create(

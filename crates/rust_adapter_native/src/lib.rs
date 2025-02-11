@@ -1,28 +1,31 @@
-use std::marker::PhantomData;
-use serde::Serialize;
-use pulumi_gestalt_rust_adapter::{GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest, RegisterResourceRequest};
+use pulumi_gestalt_rust_adapter::{
+    GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
+    RegisterResourceRequest,
+};
 use pulumi_gestalt_rust_adapter_native_simple as simple;
+use serde::Serialize;
+use std::marker::PhantomData;
 
 pub struct NativeOutput<T> {
     inner: simple::CustomOutputId,
-    tpe: PhantomData<T>
+    tpe: PhantomData<T>,
 }
 
-impl <T> Clone for NativeOutput<T> {
+impl<T> Clone for NativeOutput<T> {
     fn clone(&self) -> Self {
         NativeOutput {
             inner: self.inner.clone(),
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 }
 
 pub struct NativeContext {
-    inner: simple::PulumiEngine
+    inner: simple::PulumiEngine,
 }
 
 pub struct NativeCompositeOutput {
-    inner: simple::CustomRegisterOutputId
+    inner: simple::CustomRegisterOutputId,
 }
 
 impl GestaltCompositeOutput for NativeCompositeOutput {
@@ -32,15 +35,21 @@ impl GestaltCompositeOutput for NativeCompositeOutput {
         let res = self.inner.get_output(key.to_string());
         NativeOutput {
             inner: res,
-            tpe: PhantomData
+            tpe: PhantomData,
         }
+    }
+}
+
+impl Default for NativeContext {
+    fn default() -> Self {
+        Self::new()
     }
 }
 
 impl NativeContext {
     pub fn new() -> NativeContext {
         NativeContext {
-            inner: simple::PulumiEngine::create_engine()
+            inner: simple::PulumiEngine::create_engine(),
         }
     }
 
@@ -57,7 +66,7 @@ impl GestaltContext for NativeContext {
         let json = serde_json::to_string(value).unwrap();
         NativeOutput {
             inner: self.inner.create_output(json, false),
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 
@@ -65,53 +74,71 @@ impl GestaltContext for NativeContext {
         let json = serde_json::to_string(value).unwrap();
         NativeOutput {
             inner: self.inner.create_output(json, true),
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 
-    fn register_resource(&self, request: RegisterResourceRequest<Self::Output<()>>) -> Self::CompositeOutput {
+    fn register_resource(
+        &self,
+        request: RegisterResourceRequest<Self::Output<()>>,
+    ) -> Self::CompositeOutput {
+        let result = self
+            .inner
+            .pulumi_register_resource(simple::RegisterResourceRequest {
+                type_: request.type_,
+                name: request.name,
+                version: request.version,
+                objects: request
+                    .object
+                    .iter()
+                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
+                    .collect(),
+            });
 
-        let result = self.inner.pulumi_register_resource(simple::RegisterResourceRequest {
-            type_: request.type_,
-            name: request.name,
-            version: request.version,
-            objects: request.object.iter().map(|k| {
-                (k.name.clone().into(), k.value.inner.get_id().clone())
-            }).collect()
-        });
-
-        NativeCompositeOutput {
-            inner: result
-        }
-
+        NativeCompositeOutput { inner: result }
     }
 
-    fn invoke_resource(&self, request: InvokeResourceRequest<Self::Output<()>>) -> Self::CompositeOutput {
+    fn invoke_resource(
+        &self,
+        request: InvokeResourceRequest<Self::Output<()>>,
+    ) -> Self::CompositeOutput {
+        let result = self
+            .inner
+            .pulumi_invoke_resource(simple::InvokeResourceRequest {
+                token: request.token,
+                version: request.version,
+                objects: request
+                    .object
+                    .iter()
+                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
+                    .collect(),
+            });
 
-        let result = self.inner.pulumi_invoke_resource(simple::InvokeResourceRequest {
-            token: request.token,
-            version: request.version,
-            objects: request.object.iter().map(|k| {
-                (k.name.clone().into(), k.value.inner.get_id().clone())
-            }).collect()
-        });
-
-        NativeCompositeOutput {
-            inner: result
-        }
+        NativeCompositeOutput { inner: result }
     }
 }
 
-impl <T> GestaltOutput<T> for NativeOutput<T> {
+impl<T: Serialize> NativeOutput<T> {
+    #[deprecated(note = "Use `Context::new_output` instead")]
+    pub fn new(context: &NativeContext, value: &T) -> NativeOutput<T> {
+        context.new_output(value)
+    }
+
+    #[deprecated(note = "Use `Context::new_secret` instead")]
+    pub fn new_secret(context: &NativeContext, value: &T) -> NativeOutput<T> {
+        context.new_secret(value)
+    }
+}
+
+impl<T> GestaltOutput<T> for NativeOutput<T> {
     type Me<A> = NativeOutput<A>;
 
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
         F: Fn(T) -> B + Send + 'static,
         T: serde::de::DeserializeOwned,
-        B: serde::ser::Serialize
+        B: serde::ser::Serialize,
     {
-
         let function = move |v: String| {
             let v: T = serde_json::from_str(&v).unwrap();
             let v = f(v);
@@ -122,7 +149,7 @@ impl <T> GestaltOutput<T> for NativeOutput<T> {
 
         NativeOutput {
             inner: res,
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 
@@ -137,14 +164,14 @@ impl <T> GestaltOutput<T> for NativeOutput<T> {
 
         NativeOutput {
             inner: combined,
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 
     unsafe fn transmute<F>(self) -> Self::Me<F> {
         NativeOutput {
             inner: self.inner,
-            tpe: PhantomData
+            tpe: PhantomData,
         }
     }
 }
