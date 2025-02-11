@@ -10,6 +10,7 @@ use std::ops::Deref;
 use std::rc::Rc;
 use uuid::Uuid;
 
+#[derive(Clone)]
 pub struct CustomOutputId {
     output_id: OutputId,
     engine: Rc<RefCell<Engine>>,

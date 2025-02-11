@@ -2592,7 +2592,9 @@ dependencies = [
  "pulumi_gestalt_core",
  "pulumi_gestalt_grpc_connection",
  "pulumi_gestalt_proto",
+ "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_adapter_native_simple",
+ "serde",
  "serde_json",
  "uuid",
 ]
