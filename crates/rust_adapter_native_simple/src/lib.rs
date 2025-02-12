@@ -10,6 +10,7 @@ use std::ops::Deref;
 use std::rc::Rc;
 use uuid::Uuid;
 
+#[derive(Clone)]
 pub struct CustomOutputId {
     output_id: OutputId,
     engine: Rc<RefCell<InnerPulumiEngine>>,
@@ -53,6 +54,12 @@ pub struct RegisterResourceResultField {
 pub struct RegisterResourceRequest {
     pub type_: String,
     pub name: String,
+    pub version: String,
+    pub objects: HashMap<FieldName, OutputId>,
+}
+
+pub struct InvokeResourceRequest {
+    pub token: String,
     pub version: String,
     pub objects: HashMap<FieldName, OutputId>,
 }
@@ -103,6 +110,20 @@ impl PulumiEngine {
             .borrow_mut()
             .engine
             .create_register_resource_node(type_, name, request.objects, version);
+
+        CustomRegisterOutputId {
+            output_id,
+            engine: Rc::clone(&self.inner),
+        }
+    }
+
+    pub fn pulumi_invoke_resource(&self, request: InvokeResourceRequest) -> CustomRegisterOutputId {
+        let output_id = self
+            .inner
+            .deref()
+            .borrow_mut()
+            .engine
+            .create_resource_invoke_node(request.token, request.objects, request.version);
 
         CustomRegisterOutputId {
             output_id,
@@ -174,6 +195,25 @@ impl CustomOutputId {
         inner.functions.insert(function_name, function);
 
         output
+    }
+
+    pub fn combine(&self, others: &[&CustomOutputId]) -> CustomOutputId {
+        let pulumi_engine = &self.engine;
+        let mut outputs = Vec::with_capacity(others.len() + 1);
+        outputs.push(self.output_id);
+        for o in others {
+            outputs.push(o.output_id);
+        }
+
+        let output = pulumi_engine
+            .borrow_mut()
+            .engine
+            .create_combine_outputs(outputs);
+
+        CustomOutputId {
+            output_id: output,
+            engine: Rc::clone(pulumi_engine),
+        }
     }
 }
 

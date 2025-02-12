@@ -21,6 +21,7 @@ members = [
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",
+    "examples/native",
     "examples/plugins",
     "examples/secret",
     "examples/simple",
@@ -35,7 +36,8 @@ members = [
     "regenerator",
     "crates/rust_adapter",
     "crates/rust_adapter_wasm",
-    "crates/rust_adapter_native", "crates/rust_adapter_native_simple",
+    "crates/rust_adapter_native",
+    "crates/rust_adapter_native_simple"
 ]
 
 [workspace.package]
@@ -60,6 +62,7 @@ pulumi_gestalt_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc",
 pulumi_gestalt_rust_adapter = { version = "=0.0.0-DEV", path = "crates/rust_adapter", registry = "cloudsmith" }
 pulumi_gestalt_rust_adapter_wasm = { version = "=0.0.0-DEV", path = "crates/rust_adapter_wasm", registry = "cloudsmith" }
 pulumi_gestalt_rust_adapter_native_simple = { version = "=0.0.0-DEV", path = "crates/rust_adapter_native_simple", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter_native = { version = "=0.0.0-DEV", path = "crates/rust_adapter_native", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"

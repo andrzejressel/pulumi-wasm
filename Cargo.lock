@@ -2394,6 +2394,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_gestalt_example_native"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_examples_common",
+ "pulumi_gestalt_providers_random",
+ "pulumi_gestalt_rust",
+]
+
+[[package]]
 name = "pulumi_gestalt_example_plugins"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2572,6 +2582,7 @@ dependencies = [
  "bon",
  "pulumi_gestalt_build",
  "pulumi_gestalt_rust_adapter",
+ "pulumi_gestalt_rust_adapter_native",
  "pulumi_gestalt_rust_adapter_wasm",
  "serde",
  "serde_json",
@@ -2592,7 +2603,9 @@ dependencies = [
  "pulumi_gestalt_core",
  "pulumi_gestalt_grpc_connection",
  "pulumi_gestalt_proto",
+ "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_adapter_native_simple",
+ "serde",
  "serde_json",
  "uuid",
 ]

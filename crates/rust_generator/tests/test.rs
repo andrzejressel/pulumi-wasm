@@ -1225,7 +1225,7 @@ pub fn run_pulumi_generator_test(
         .context("Cannot set times")?;
 
     Command::new("cargo")
-        .args(["component", "build"])
+        .args(["build"])
         .env_remove("CARGO_LLVM_COV")
         .env_remove("RUSTFLAGS")
         .env("CARGO_TARGET_DIR", "../__target/target")

@@ -27,6 +27,8 @@ generator-ci-flow COMPILATION_NAME:
 
 cpp-ci-flow: build-language-plugin build-static-library test-cpp
 
+native-ci-flow: build-language-plugin build-native-examples test-native
+
 # Test docs examples and creates docs
 test-docs-ci-flow: test-docs
 
@@ -49,6 +51,9 @@ install-requirements:
     cargo binstall --no-confirm sd@{{SD_VERSION}}
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
     cargo binstall --no-confirm cargo-hack@{{CARGO_HACK_VERSION}}
+
+build-native-examples:
+    cargo build -p pulumi_gestalt_example_native
 
 # Compiling everything together causes linking issues
 build-wasm-components:
@@ -130,6 +135,11 @@ test-examples:
 test-cpp:
     cargo llvm-cov nextest \
         -p pulumi_gestalt_example_cpp \
+        --cobertura --output-path covertura.xml --features example_test
+
+test-native:
+    cargo llvm-cov nextest \
+        -p pulumi_gestalt_example_native \
         --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:
