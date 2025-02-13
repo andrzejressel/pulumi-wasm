@@ -6,7 +6,6 @@ use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
-use pulumi_gestalt_proto::grpc;
 use pulumi_gestalt_wasm_component_creator::source::GithubWasmComponentSource;
 use pulumi_gestalt_wasm_component_creator::source::WasmComponentSource;
 use std::fs;

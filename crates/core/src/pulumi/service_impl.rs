@@ -1,18 +1,17 @@
 use std::cell::RefCell;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use log::error;
-use prost::Message;
-use prost_types::value::Kind;
-use prost_types::{ListValue, Struct};
-use pulumi_gestalt_proto::grpc;
-use serde_json::{Number, Value};
-
 use crate::model::{FieldName, OutputId};
 use crate::nodes::ResourceRequestOperation;
 use crate::pulumi::service::{PulumiService, RegisterResourceResponse};
 use crate::pulumi::service_impl::RequestType::{Invoke, Register};
 use crate::{PerformResourceRequest, PulumiConnector};
+use log::error;
+use prost::Message;
+use prost_types::value::Kind;
+use prost_types::{ListValue, Struct};
+use pulumi_gestalt_proto::mini::pulumirpc;
+use serde_json::{Number, Value};
 
 enum RequestType {
     Invoke,
@@ -63,7 +62,7 @@ impl PulumiService for PulumiServiceImpl {
                 outputs.into_iter().map(|(k, v)| (k, Some(v))).collect(),
             );
 
-            let request = grpc::RegisterResourceOutputsRequest {
+            let request = pulumirpc::RegisterResourceOutputsRequest {
                 urn: "INVALID".to_string(), // Will be fixed in grpc_connection
                 outputs: Some(object),
             };
@@ -83,7 +82,7 @@ impl PulumiService for PulumiServiceImpl {
 
                 let object = Self::create_protobuf_struct(request.object);
 
-                let req = grpc::RegisterResourceRequest {
+                let req = pulumirpc::RegisterResourceRequest {
                     r#type: register.r#type.clone(),
                     name: register.name.clone(),
                     parent: "".to_string(),
@@ -117,6 +116,9 @@ impl PulumiService for PulumiServiceImpl {
                     deleted_with: "".to_string(),
                     alias_specs: true,
                     source_position: None,
+                    supports_result_reporting: false,
+                    transforms: vec![],
+                    package_ref: "".to_string(),
                 };
 
                 self.connector.register_resource(output_id.to_string(), req);
@@ -130,7 +132,7 @@ impl PulumiService for PulumiServiceImpl {
 
                 let object = Self::create_protobuf_struct(request.object);
 
-                let req = grpc::ResourceInvokeRequest {
+                let req = pulumirpc::ResourceInvokeRequest {
                     tok: invoke.token,
                     args: Some(object),
                     provider: "".to_string(),
@@ -139,6 +141,7 @@ impl PulumiService for PulumiServiceImpl {
                     plugin_download_url: "".to_string(),
                     plugin_checksums: Default::default(),
                     source_position: None,
+                    package_ref: "".to_string(),
                 };
 
                 self.connector.resource_invoke(output_id.to_string(), req);
@@ -161,12 +164,12 @@ impl PulumiService for PulumiServiceImpl {
 
             let object = match expected_results.request_type {
                 Invoke => {
-                    let response = grpc::InvokeResponse::decode(&*response).unwrap();
+                    let response = pulumirpc::InvokeResponse::decode(&*response).unwrap();
                     // TODO: Failures
                     response.r#return.unwrap_or(Struct::default())
                 }
                 Register => {
-                    let response = grpc::RegisterResourceResponse::decode(&*response).unwrap();
+                    let response = pulumirpc::RegisterResourceResponse::decode(&*response).unwrap();
                     response.object.unwrap_or(Struct::default())
                 }
             };

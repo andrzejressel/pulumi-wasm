@@ -1,7 +1,9 @@
 use crate::output_id::OutputId;
 use crate::pulumi_state::PulumiState;
-use pulumi_gestalt_proto::grpc::ResourceInvokeRequest;
-use pulumi_gestalt_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest};
+use pulumi_gestalt_proto::mini::pulumirpc::ResourceInvokeRequest;
+use pulumi_gestalt_proto::mini::pulumirpc::{
+    RegisterResourceOutputsRequest, RegisterResourceRequest,
+};
 use tokio::runtime::{Builder, Runtime};
 
 pub struct PulumiStateSync {
@@ -68,7 +70,7 @@ impl PulumiStateSync {
 #[cfg(test)]
 mod tests {
     use crate::output_id::OutputId;
-    use pulumi_gestalt_proto::grpc::engine_server::EngineServer;
+    use pulumi_gestalt_proto::full::pulumirpc::engine_server::EngineServer;
     use std::time::Instant;
     use tokio::net::TcpListener;
 
@@ -77,8 +79,9 @@ mod tests {
 
     use crate::sync_pulumi_state::PulumiStateSync;
     use crate::test_server::{MyResourceEngineServer, MyResourceMonitorServer};
-    use pulumi_gestalt_proto::grpc::resource_monitor_server::ResourceMonitorServer;
-    use pulumi_gestalt_proto::grpc::RegisterResourceRequest;
+    use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_server::ResourceMonitorServer;
+    use pulumi_gestalt_proto::full::pulumirpc::RegisterResourceRequest;
+    use pulumi_gestalt_proto::IntoMini;
 
     #[test]
     fn test() -> Result<(), anyhow::Error> {
@@ -115,9 +118,12 @@ mod tests {
         let output_id_2 = OutputId::new("2".into());
         let output_id_3 = OutputId::new("3".into());
 
-        pulumi_state.send_register_resource_request(output_id_1, create_request("test1"));
-        pulumi_state.send_register_resource_request(output_id_2, create_request("test2"));
-        pulumi_state.send_register_resource_request(output_id_3, create_request("test3"));
+        pulumi_state
+            .send_register_resource_request(output_id_1, create_request("test1").into_mini());
+        pulumi_state
+            .send_register_resource_request(output_id_2, create_request("test2").into_mini());
+        pulumi_state
+            .send_register_resource_request(output_id_3, create_request("test3").into_mini());
 
         std::thread::sleep(std::time::Duration::from_secs(2));
 
@@ -172,6 +178,9 @@ mod tests {
             deleted_with: "".to_string(),
             alias_specs: false,
             source_position: None,
+            transforms: vec![],
+            supports_result_reporting: false,
+            package_ref: "".to_string(),
         }
     }
 }

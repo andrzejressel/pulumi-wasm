@@ -12,6 +12,3 @@ connectivity = ["dep:tonic"]
 prost.workspace = true
 prost-types.workspace = true
 tonic = { workspace = true, default-features = true, optional = true }
-
-[build-dependencies]
-tonic-build.workspace = true

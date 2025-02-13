@@ -2485,7 +2485,6 @@ dependencies = [
  "prost",
  "prost-types",
  "tonic",
- "tonic-build",
 ]
 
 [[package]]
@@ -2805,6 +2804,7 @@ dependencies = [
  "itertools 0.14.0",
  "serde",
  "serde_json",
+ "tonic-build",
 ]
 
 [[package]]

@@ -8,3 +8,4 @@ itertools.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 anyhow.workspace = true
+tonic-build.workspace = true

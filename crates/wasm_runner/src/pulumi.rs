@@ -1,6 +1,3 @@
-use crate::grpc::{
-    RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse,
-};
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world;
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world::Host;
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world::RegisteredResource;
@@ -9,7 +6,10 @@ use anyhow::Error;
 use log::info;
 use prost::Message;
 use pulumi_gestalt_grpc_connection::pulumi_state::PulumiState;
-use pulumi_gestalt_proto::grpc::ResourceInvokeRequest;
+use pulumi_gestalt_proto::mini::pulumirpc::{
+    RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse,
+    ResourceInvokeRequest,
+};
 use pulumi_gestalt_wit::bindings_runner as runner;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
