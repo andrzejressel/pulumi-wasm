@@ -109,21 +109,21 @@ impl ResourceMonitor for MyResourceMonitorServer {
 
     async fn register_stack_transform(
         &self,
-        request: Request<Callback>,
+        _request: Request<Callback>,
     ) -> Result<Response<()>, Status> {
         unimplemented!("register_stack_transform")
     }
 
     async fn register_stack_invoke_transform(
         &self,
-        request: Request<Callback>,
+        _request: Request<Callback>,
     ) -> Result<Response<()>, Status> {
         unimplemented!("register_stack_invoke_transform")
     }
 
     async fn register_package(
         &self,
-        request: Request<RegisterPackageRequest>,
+        _request: Request<RegisterPackageRequest>,
     ) -> Result<Response<RegisterPackageResponse>, Status> {
         unimplemented!("register_package")
     }
@@ -131,13 +131,13 @@ impl ResourceMonitor for MyResourceMonitorServer {
 
 #[tonic::async_trait]
 impl Engine for MyResourceEngineServer {
-    async fn log(&self, request: Request<LogRequest>) -> Result<Response<()>, Status> {
+    async fn log(&self, _request: Request<LogRequest>) -> Result<Response<()>, Status> {
         unimplemented!("log")
     }
 
     async fn get_root_resource(
         &self,
-        request: Request<GetRootResourceRequest>,
+        _request: Request<GetRootResourceRequest>,
     ) -> Result<Response<GetRootResourceResponse>, Status> {
         Ok(Response::new(GetRootResourceResponse {
             urn: "root".to_string(),
@@ -146,14 +146,14 @@ impl Engine for MyResourceEngineServer {
 
     async fn set_root_resource(
         &self,
-        request: Request<SetRootResourceRequest>,
+        _request: Request<SetRootResourceRequest>,
     ) -> Result<Response<SetRootResourceResponse>, Status> {
         Ok(Response::new(SetRootResourceResponse {}))
     }
 
     async fn start_debugging(
         &self,
-        request: Request<StartDebuggingRequest>,
+        _request: Request<StartDebuggingRequest>,
     ) -> Result<Response<()>, Status> {
         unimplemented!("start_debugging")
     }
