@@ -1,12 +1,11 @@
 #![allow(clippy::all)]
 #![allow(clippy::pedantic)]
+#![cfg(not(doctest))]
 
 use prost::Message;
 
 #[cfg(feature = "connectivity")]
-#[cfg(not(doctest))]
 pub mod full;
-#[cfg(not(doctest))]
 pub mod mini;
 
 pub trait IntoFull<T> {
