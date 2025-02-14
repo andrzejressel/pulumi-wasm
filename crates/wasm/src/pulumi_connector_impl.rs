@@ -4,7 +4,7 @@ use crate::bindings::component::pulumi_gestalt_external::external_world::{
 };
 use prost::Message;
 use pulumi_gestalt_core::PulumiConnector;
-use pulumi_gestalt_proto::grpc::{
+use pulumi_gestalt_proto::mini::pulumirpc::{
     RegisterResourceOutputsRequest as GrpcRegisterResourceOutputsRequest,
     RegisterResourceRequest as GrpcRegisterResourceRequest,
     ResourceInvokeRequest as GrpcResourceInvokeRequest,

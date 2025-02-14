@@ -1,3 +1,4 @@
+mod generate_proto;
 mod provider;
 
 use itertools::Itertools;
@@ -128,6 +129,7 @@ fn main() {
 
     update_tests(&tests, &filtered_tests);
     update_generator_cargo_toml(&tests, &filtered_tests);
+    generate_proto::regenerate_proto().expect("Failed to regenerate proto");
 }
 
 fn update_tests(tests: &[&str], filtered_tests: &[FilteredTest]) {

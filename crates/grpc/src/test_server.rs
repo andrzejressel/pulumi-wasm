@@ -1,10 +1,11 @@
-use pulumi_gestalt_proto::grpc::engine_server::Engine;
-use pulumi_gestalt_proto::grpc::resource_monitor_server::ResourceMonitor;
-use pulumi_gestalt_proto::grpc::{
-    CallRequest, CallResponse, GetRootResourceRequest, GetRootResourceResponse, InvokeResponse,
-    LogRequest, ReadResourceRequest, ReadResourceResponse, RegisterResourceOutputsRequest,
-    RegisterResourceRequest, RegisterResourceResponse, ResourceInvokeRequest,
-    SetRootResourceRequest, SetRootResourceResponse, SupportsFeatureRequest,
+use pulumi_gestalt_proto::full::pulumirpc::engine_server::Engine;
+use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_server::ResourceMonitor;
+use pulumi_gestalt_proto::full::pulumirpc::{
+    CallResponse, Callback, GetRootResourceRequest, GetRootResourceResponse, InvokeResponse,
+    LogRequest, ReadResourceRequest, ReadResourceResponse, RegisterPackageRequest,
+    RegisterPackageResponse, RegisterResourceOutputsRequest, RegisterResourceRequest,
+    RegisterResourceResponse, ResourceCallRequest, ResourceInvokeRequest, SetRootResourceRequest,
+    SetRootResourceResponse, StartDebuggingRequest, SupportsFeatureRequest,
     SupportsFeatureResponse,
 };
 use tonic::codegen::tokio_stream::wrappers::ReceiverStream;
@@ -38,7 +39,10 @@ impl ResourceMonitor for MyResourceMonitorServer {
         unimplemented!("stream_invoke")
     }
 
-    async fn call(&self, _request: Request<CallRequest>) -> Result<Response<CallResponse>, Status> {
+    async fn call(
+        &self,
+        _request: Request<ResourceCallRequest>,
+    ) -> Result<Response<CallResponse>, Status> {
         unimplemented!("call")
     }
 
@@ -102,17 +106,38 @@ impl ResourceMonitor for MyResourceMonitorServer {
     ) -> Result<Response<()>, Status> {
         unimplemented!("register_resource_outputs")
     }
+
+    async fn register_stack_transform(
+        &self,
+        _request: Request<Callback>,
+    ) -> Result<Response<()>, Status> {
+        unimplemented!("register_stack_transform")
+    }
+
+    async fn register_stack_invoke_transform(
+        &self,
+        _request: Request<Callback>,
+    ) -> Result<Response<()>, Status> {
+        unimplemented!("register_stack_invoke_transform")
+    }
+
+    async fn register_package(
+        &self,
+        _request: Request<RegisterPackageRequest>,
+    ) -> Result<Response<RegisterPackageResponse>, Status> {
+        unimplemented!("register_package")
+    }
 }
 
 #[tonic::async_trait]
 impl Engine for MyResourceEngineServer {
-    async fn log(&self, request: Request<LogRequest>) -> Result<Response<()>, Status> {
+    async fn log(&self, _request: Request<LogRequest>) -> Result<Response<()>, Status> {
         unimplemented!("log")
     }
 
     async fn get_root_resource(
         &self,
-        request: Request<GetRootResourceRequest>,
+        _request: Request<GetRootResourceRequest>,
     ) -> Result<Response<GetRootResourceResponse>, Status> {
         Ok(Response::new(GetRootResourceResponse {
             urn: "root".to_string(),
@@ -121,8 +146,15 @@ impl Engine for MyResourceEngineServer {
 
     async fn set_root_resource(
         &self,
-        request: Request<SetRootResourceRequest>,
+        _request: Request<SetRootResourceRequest>,
     ) -> Result<Response<SetRootResourceResponse>, Status> {
         Ok(Response::new(SetRootResourceResponse {}))
+    }
+
+    async fn start_debugging(
+        &self,
+        _request: Request<StartDebuggingRequest>,
+    ) -> Result<Response<()>, Status> {
+        unimplemented!("start_debugging")
     }
 }

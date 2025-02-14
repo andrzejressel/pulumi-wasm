@@ -1,6 +1,6 @@
 use pulumi_gestalt_core::PulumiConnector;
 use pulumi_gestalt_grpc_connection::sync_pulumi_state::PulumiStateSync;
-use pulumi_gestalt_proto::grpc::{
+use pulumi_gestalt_proto::mini::pulumirpc::{
     RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest,
 };
 use std::sync::RwLock;
