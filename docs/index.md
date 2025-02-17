@@ -1,6 +1,19 @@
-# Getting started
+# Overview
 
-## Requirements
+**Pulumi Gestalt** is a framework that simplifies adding new language support to the Pulumi ecosystem. It provides APIs for **WebAssembly (Wasm)**, **C FFI (Foreign Function Interface)**, and **Rust**, enabling seamless integration of new languages with Pulumi.
 
-- [Rust](https://rustup.rs/)
-- [just](https://github.com/casey/just)
+## Motivation
+
+Pulumi currently supports a limited number of programming languages. Adding support for a new language typically requires significant effort to bridge the language with Pulumi's core infrastructure. Pulumi Gestalt aims to reduce this effort by providing a common set of tools and APIs for language integration.
+
+The framework is designed to work with high-level and low-level languages, allowing developers to focus on writing infrastructure code without needing to deeply understand Pulumi's internals.
+
+## User Guide
+
+- [Rust](languages/rust/index.md)
+
+## Integration Guide
+
+- [Rust](integrations/rust.md)
+- [C FFI](integrations/c-ffi.md)
+- [WebAssembly](integrations/wasm.md)

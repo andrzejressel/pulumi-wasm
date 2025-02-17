@@ -2,7 +2,7 @@
 
 ## Types of Output
 
-Pulumi Wasm has 5 types of outputs (represented as `EngineNode` in `engine.rs`):
+Pulumi Wasm has five types of outputs (represented as `EngineNode` in `engine.rs`):
 1. Done
 2. NativeFunction
 3. RegisterResource
@@ -11,7 +11,7 @@ Pulumi Wasm has 5 types of outputs (represented as `EngineNode` in `engine.rs`):
 
 ### Done
 
-This is output for which value is known. Internally it's represented as JSON's `Value`.
+This is the output for which the value is known. Internally it's represented as JSON's `Value`.
 
 ### NativeFunction
 

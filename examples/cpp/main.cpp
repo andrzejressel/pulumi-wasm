@@ -1,5 +1,5 @@
 #include <cstdio>
-#include <pulumi_native.h>
+#include <pulumi_gestalt.h>
 #include <vector>
 #include <string>
 #include <cstring>

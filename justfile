@@ -158,7 +158,7 @@ test:
     cargo llvm-cov nextest --cobertura --output-path covertura.xml
 
 docs:
-    docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+    docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:9.6.4
 
 test-docs:
     cargo test --doc

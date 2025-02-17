@@ -1,4 +1,4 @@
-site_name: Pulumi Wasm
+site_name: Pulumi Gestalt
 repo_url: https://github.com/andrzejressel/pulumi-gestalt
 theme:
   palette:
@@ -7,14 +7,26 @@ theme:
   search: true
   features:
     - navigation.sections
+    - navigation.indexes
+    - content.tabs.link
   custom_dir: !ENV [MKDOCS_OVERRIDE, "docs_additions/overrides/dev"]
 
 nav:
   - index.md
   - crates.md
-  - rustdoc: "/pulumi-gestalt/rust-docs/pulumi_gestalt_rust/index.html"
-  - rustdoc (Wasm): "/pulumi-gestalt/rust-docs-wasm/pulumi_gestalt_rust/index.html"
   - DevBlog: https://dev.to/andrzejressel/series/30425
+  - Languages:
+      - Rust:
+          - languages/rust/index.md
+#          - Native: languages/rust/native.md
+#          - rustdoc (Native): "/pulumi-gestalt/rust-docs/pulumi_gestalt_rust/index.html"
+#          - Wasm: languages/rust/wasm.md
+#          - rustdoc (Wasm): "/pulumi-gestalt/rust-docs-wasm/pulumi_gestalt_rust/index.html"
+  - Integrations:
+      - Overview: integrations/overview.md
+      - C FFI: integrations/c-ffi.md
+      - Rust: integrations/rust.md
+      - Wasm: integrations/wasm.md
   - Internal:
       - Internal/Output.md
       - Internal/Serialization formats.md
@@ -22,7 +34,7 @@ nav:
       - Internal/Supporting new language.md
 
 copyright: >
-  Copyright &copy; 2024 - 2025 Pulumi Wasm project
+  Copyright &copy; 2024 - 2025 Pulumi Gestalt project
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -31,3 +43,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true

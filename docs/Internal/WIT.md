@@ -13,7 +13,7 @@
 ### Output
 
 Allow working with Outputs (so maybe not yet set values managed by Pulumi). Interface allows creating and mapping underlying values.
-It also allows to combine list of outputs into output of list
+It also allows combining lists of outputs into output of a list
 
 ### Stack
 
