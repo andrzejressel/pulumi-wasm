@@ -1,17 +1,28 @@
 # Rust
 
-Support for Rust is provided in two flavors:
-
-- [Native](native.md)
-- [Wasm](wasm.md)
-
-If you don't know which one to choose, go with the native version. Currently, Wasm doesn’t give any benefits and is more complex to use.
-
-# Quick start
+!!! note "Please Read First"
+    Before processing, make sure to learn about [Pulumi](https://www.pulumi.com/tutorials/)
 
 !!! note "TL/DR"
     Example project is available at [pulumi-gestalt-example](https://github.com/andrzejressel/pulumi-gestalt-example)
 
+
+Support for Rust is provided in two flavors:
+
+- native
+- Wasm
+
+If you don't know which one to choose, go with the native version. Currently, Wasm doesn’t give any benefits and is more complex to use.
+
+## Requirements
+
+- [Rust](https://www.rust-lang.org/tools/install)
+- [Just](https://github.com/casey/just)
+- Pulumi Gestalt language plugin: `pulumi plugin install language gestalt "<PULUMI_GESTALT_VERSION>" --server github://api.github.com/andrzejressel/pulumi-gestalt-releases`
+- (Wasm only) [Cargo component](https://github.com/bytecodealliance/cargo-component)
+- (Wasm only) Pulumi Gestalt Wasm Runner: `cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/" pulumi_gestalt_wasm_runner@<PULUMI_GESTALT_VERSION>`
+
+## Project setup
 
 * Add repository
 
@@ -140,3 +151,33 @@ pulumi_gestalt_rust::include_provider!("random");
     ```
 
 (the difference is in the `main.rs` vs `lib.rs` file name)
+
+* Add Pulumi.yaml
+
+
+```yaml title="Pulumi.yaml"
+name: Pulumi-Gestalt-Example
+runtime: gestalt
+```
+
+* Add justfile
+
+=== "Native"
+
+    ```justfile title="justfile" 
+    run:
+        cargo run
+    ```
+
+=== "Wasm"
+    ```justfile title="justfile" 
+    binary := "pulumi_gestalt_wasm_runner"
+    wasm := "target/wasm32-wasip1/debug/<PROJECT_NAME>.wasm"
+    
+    run:
+        cargo component build
+        {{binary}} run --debug "{{wasm}}"
+    ```
+
+
+You can now setup Pulumi stack using `pulumi stack` and run program using `pulumi up`

@@ -1,5 +1,6 @@
 site_name: Pulumi Gestalt
 repo_url: https://github.com/andrzejressel/pulumi-gestalt
+edit_uri: edit/main/docs/
 theme:
   palette:
     scheme: slate
@@ -9,11 +10,13 @@ theme:
     - navigation.sections
     - navigation.indexes
     - content.tabs.link
+    - content.action.edit
+    - content.action.view
   custom_dir: !ENV [MKDOCS_OVERRIDE, "docs_additions/overrides/dev"]
 
 nav:
   - index.md
-  - crates.md
+#  - crates.md
   - DevBlog: https://dev.to/andrzejressel/series/30425
   - Languages:
       - Rust:
@@ -27,11 +30,11 @@ nav:
       - C FFI: integrations/c-ffi.md
       - Rust: integrations/rust.md
       - Wasm: integrations/wasm.md
-  - Internal:
-      - Internal/Output.md
-      - Internal/Serialization formats.md
-      - Internal/WIT.md
-      - Internal/Supporting new language.md
+#  - Internal:
+#      - Internal/Output.md
+#      - Internal/Serialization formats.md
+#      - Internal/WIT.md
+#      - Internal/Supporting new language.md
 
 copyright: >
   Copyright &copy; 2024 - 2025 Pulumi Gestalt project

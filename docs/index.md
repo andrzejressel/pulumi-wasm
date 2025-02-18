@@ -14,6 +14,6 @@ The framework is designed to work with high-level and low-level languages, allow
 
 ## Integration Guide
 
-- [Rust](integrations/rust.md)
 - [C FFI](integrations/c-ffi.md)
-- [WebAssembly](integrations/wasm.md)
+- [Rust](integrations/rust.md)
+- [Wasm](integrations/wasm.md)
