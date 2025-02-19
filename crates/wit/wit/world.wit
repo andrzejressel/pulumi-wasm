@@ -1,4 +1,4 @@
-package component:pulumi-gestalt@0.0.0-DEV;
+package component:pulumi-gestalt@25.2.19-081e579;
 
 world pulumi-gestalt {
     export output-interface;
