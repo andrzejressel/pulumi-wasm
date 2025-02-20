@@ -1204,15 +1204,15 @@ pub fn run_pulumi_generator_test(
 
     if let Some(env) = std::env::var_os("DO_NOT_COMPILE") {
         if env == "true" {
-            if !root.join("Cargo.lock").exists() {
-                Command::new("cargo")
-                    .args(["generate-lockfile"])
-                    .env_remove("CARGO_LLVM_COV")
-                    .env_remove("RUSTFLAGS")
-                    .current_dir(root)
-                    .assert()
-                    .success();
-            }
+            // if !root.join("Cargo.lock").exists() {
+            Command::new("cargo")
+                .args(["generate-lockfile"])
+                .env_remove("CARGO_LLVM_COV")
+                .env_remove("RUSTFLAGS")
+                .current_dir(root)
+                .assert()
+                .success();
+            // }
             return Ok(());
         }
     }

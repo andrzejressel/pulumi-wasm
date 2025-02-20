@@ -2,7 +2,7 @@ use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
 };
-use pulumi_gestalt_rust_adapter_native_integration as simple;
+use pulumi_gestalt_rust_integration as simple;
 use serde::Serialize;
 use std::marker::PhantomData;
 

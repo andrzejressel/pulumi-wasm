@@ -1,5 +1,5 @@
 use pulumi_gestalt_core::{FieldName, OutputId};
-use pulumi_gestalt_rust_adapter_native_integration as simple;
+use pulumi_gestalt_rust_integration as simple;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::ffi::{c_char, c_void, CStr, CString};
