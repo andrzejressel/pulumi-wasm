@@ -2,12 +2,12 @@ use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
 };
-use pulumi_gestalt_rust_integration as simple;
+use pulumi_gestalt_rust_integration as integration;
 use serde::Serialize;
 use std::marker::PhantomData;
 
 pub struct NativeOutput<T> {
-    inner: simple::CustomOutputId,
+    inner: integration::CustomOutputId,
     tpe: PhantomData<T>,
 }
 
@@ -21,11 +21,11 @@ impl<T> Clone for NativeOutput<T> {
 }
 
 pub struct NativeContext {
-    inner: simple::PulumiEngine,
+    inner: integration::PulumiEngine,
 }
 
 pub struct NativeCompositeOutput {
-    inner: simple::CustomRegisterOutputId,
+    inner: integration::CustomRegisterOutputId,
 }
 
 impl GestaltCompositeOutput for NativeCompositeOutput {
@@ -49,7 +49,7 @@ impl Default for NativeContext {
 impl NativeContext {
     pub fn new() -> NativeContext {
         NativeContext {
-            inner: simple::PulumiEngine::create_engine(),
+            inner: integration::PulumiEngine::create_engine(),
         }
     }
 
@@ -84,7 +84,7 @@ impl GestaltContext for NativeContext {
     ) -> Self::CompositeOutput {
         let result = self
             .inner
-            .pulumi_register_resource(simple::RegisterResourceRequest {
+            .pulumi_register_resource(integration::RegisterResourceRequest {
                 type_: request.type_,
                 name: request.name,
                 version: request.version,
@@ -104,7 +104,7 @@ impl GestaltContext for NativeContext {
     ) -> Self::CompositeOutput {
         let result = self
             .inner
-            .pulumi_invoke_resource(simple::InvokeResourceRequest {
+            .pulumi_invoke_resource(integration::InvokeResourceRequest {
                 token: request.token,
                 version: request.version,
                 objects: request
