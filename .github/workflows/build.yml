@@ -57,7 +57,7 @@ jobs:
       - run: pulumi login --local
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
       - name: Cache Pulumi providers
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
+        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -74,7 +74,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@44ecb3a270cd942bdf0fa8f2ce14cb32493e810a # v1
+        uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
@@ -132,7 +132,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@44ecb3a270cd942bdf0fa8f2ce14cb32493e810a # v1
+        uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
@@ -183,7 +183,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: protoc --version
       - name: Cache Pulumi providers
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
+        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -232,7 +232,7 @@ jobs:
       - run: protoc --version
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
       - name: Cache Pulumi providers
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
+        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -308,7 +308,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@44ecb3a270cd942bdf0fa8f2ce14cb32493e810a # v1
+        uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
