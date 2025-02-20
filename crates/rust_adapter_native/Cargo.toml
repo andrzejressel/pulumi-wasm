@@ -10,7 +10,7 @@ serde_json.workspace = true
 pulumi_gestalt_grpc_connection.workspace = true
 pulumi_gestalt_proto.workspace = true
 uuid.workspace = true
-pulumi_gestalt_rust_adapter_native_simple.workspace = true
+pulumi_gestalt_rust_adapter_native_integration.workspace = true
 pulumi_gestalt_rust_adapter.workspace = true
 serde.workspace = true
 

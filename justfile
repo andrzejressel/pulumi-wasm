@@ -110,7 +110,7 @@ publish:
     cargo hack publish -p pulumi_gestalt_grpc_connection --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_adapter --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_adapter_wasm --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_adapter_native_simple --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_rust_adapter_native_integration --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_adapter_native --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_generator --all-features --no-dev-deps --allow-dirty
@@ -171,7 +171,7 @@ rust-docs:
         -p pulumi_gestalt_build \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_native \
-        -p pulumi_gestalt_rust_adapter_native_simple \
+        -p pulumi_gestalt_rust_adapter_native_integration \
         -p pulumi_gestalt_providers_aws_mini \
         -p pulumi_gestalt_providers_azure_mini \
         -p pulumi_gestalt_providers_cloudflare \

@@ -983,14 +983,14 @@ dependencies = [
  "pulumi_gestalt_grpc_connection",
  "pulumi_gestalt_proto",
  "pulumi_gestalt_rust_adapter",
- "pulumi_gestalt_rust_adapter_native_simple",
+ "pulumi_gestalt_rust_adapter_native_integration",
  "serde",
  "serde_json",
  "uuid",
 ]
 
 [[package]]
-name = "pulumi_gestalt_rust_adapter_native_simple"
+name = "pulumi_gestalt_rust_adapter_native_integration"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
