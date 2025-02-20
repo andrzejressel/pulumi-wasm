@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_gestalt_rust_adapter_native_simple"
+name = "pulumi_gestalt_rust_integration"
 version.workspace = true
 edition.workspace = true
 
