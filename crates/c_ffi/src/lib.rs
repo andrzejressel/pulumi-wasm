@@ -1,22 +1,22 @@
 use pulumi_gestalt_core::{FieldName, OutputId};
-use pulumi_gestalt_rust_adapter_native_simple as simple;
+use pulumi_gestalt_rust_integration as integration;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::ffi::{c_char, c_void, CStr, CString};
 use std::rc::{Rc, Weak};
 
 pub struct CustomOutputId {
-    native: simple::CustomOutputId,
+    native: integration::CustomOutputId,
     engine: Weak<RefCell<InnerPulumiEngine>>,
 }
 
 pub struct CustomRegisterOutputId {
-    native: simple::CustomRegisterOutputId,
+    native: integration::CustomRegisterOutputId,
     engine: Weak<RefCell<InnerPulumiEngine>>,
 }
 
 pub struct InnerPulumiEngine {
-    engine: simple::PulumiEngine,
+    engine: integration::PulumiEngine,
     outputs: Vec<*mut CustomOutputId>,
     context: *const c_void,
 }
@@ -64,7 +64,7 @@ type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char
 
 #[no_mangle]
 extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
-    let engine = simple::PulumiEngine::create_engine();
+    let engine = integration::PulumiEngine::create_engine();
     let t = InnerPulumiEngine {
         engine,
         outputs: Vec::new(),
@@ -221,7 +221,7 @@ extern "C" fn pulumi_register_resource(
 
     let inner = &pulumi_engine.inner;
     let inner_engine = pulumi_engine.inner.borrow_mut();
-    let request = simple::RegisterResourceRequest {
+    let request = integration::RegisterResourceRequest {
         type_,
         name,
         objects,

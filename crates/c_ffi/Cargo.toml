@@ -10,7 +10,7 @@ crate-type = ["cdylib", "staticlib"]
 anyhow.workspace = true
 pulumi_gestalt_core.workspace = true
 libc.workspace = true
-pulumi_gestalt_rust_adapter_native_simple.workspace = true
+pulumi_gestalt_rust_integration.workspace = true
 
 [build-dependencies]
 cbindgen.workspace = true
