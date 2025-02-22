@@ -54,4 +54,4 @@ The `Output::map` function is implemented at different levels of abstraction dep
 For example [Docker image](https://www.pulumi.com/registry/packages/docker/api-docs/image/) will have 7 - `baseImageName`, `context`, `dockerfile`, `id`, `registryServer`, `repoDigest` and `platform`.
 Object has the following methods:
  
-- **`get_field`**: Get value of a field from the map.
+- **`get_field`**: Get output of map field value
