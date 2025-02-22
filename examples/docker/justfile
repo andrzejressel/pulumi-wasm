@@ -1,7 +1,7 @@
 set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/release/pulumi_gestalt_wasm_runner"
-wasm := "../../target/wasm32-wasip1/release/pulumi_gestalt_example_docker.wasm"
-pulumi_gestalt := "../../target/wasm32-wasip1/release/pulumi_gestalt.wasm"
+wasm := "../../target/wasm32-wasip2/release/pulumi_gestalt_example_docker.wasm"
+pulumi_gestalt := "../../target/wasm32-wasip2/release/pulumi_gestalt.wasm"
 
 run:
     {{binary}} run --pulumi-gestalt "{{pulumi_gestalt}}" "{{wasm}}"

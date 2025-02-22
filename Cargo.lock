@@ -2329,6 +2329,7 @@ dependencies = [
  "pulumi_gestalt_core",
  "pulumi_gestalt_proto",
  "pulumi_gestalt_rust_common",
+ "pulumi_gestalt_wit",
  "serde",
  "serde_json",
  "wit-bindgen",

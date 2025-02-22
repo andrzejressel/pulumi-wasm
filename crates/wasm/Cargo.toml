@@ -17,6 +17,7 @@ log.workspace = true
 pulumi_gestalt_core.workspace = true
 pulumi_gestalt_proto.workspace = true
 prost.workspace = true
+pulumi_gestalt_wit = { workspace = true, features = ["pulumi_gestalt"] }
 
 #pulumi_gestalt_wit = { workspace = true, features = ["pulumi_gestalt"] }
 #

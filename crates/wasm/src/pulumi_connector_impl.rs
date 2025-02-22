@@ -1,5 +1,5 @@
-use crate::bindings::component::pulumi_gestalt_external::external_world;
-use crate::bindings::component::pulumi_gestalt_external::external_world::{
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::component::pulumi_gestalt_external::external_world;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::component::pulumi_gestalt_external::external_world::{
     RegisterResourceRequest, ResourceInvokeRequest,
 };
 use prost::Message;

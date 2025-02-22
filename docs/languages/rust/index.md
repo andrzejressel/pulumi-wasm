@@ -172,7 +172,7 @@ runtime: gestalt
 === "Wasm"
     ```justfile title="justfile" 
     binary := "pulumi_gestalt_wasm_runner"
-    wasm := "target/wasm32-wasip1/debug/<PROJECT_NAME>.wasm"
+    wasm := "target/wasm32-wasip2/debug/<PROJECT_NAME>.wasm"
     
     run:
         cargo component build
