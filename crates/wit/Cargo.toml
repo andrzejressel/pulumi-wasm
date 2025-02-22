@@ -9,6 +9,7 @@ edition.workspace = true
 client = []
 logger = []
 runner = ["dep:wasmtime"]
+pulumi_gestalt = []
 
 [dependencies]
 wit-bindgen.workspace = true

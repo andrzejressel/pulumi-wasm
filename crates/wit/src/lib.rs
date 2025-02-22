@@ -30,6 +30,22 @@ pub mod bindings_logger {
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_unsafe)]
+#[cfg(feature = "pulumi_gestalt")]
+pub mod pulumi_gestalt_bindings {
+    wit_bindgen::generate!({
+        world: "pulumi-gestalt",
+        with: {
+            "component:pulumi-gestalt-external/log@0.0.0-STABLE-DEV": generate,
+            "component:pulumi-gestalt-external/external-world@0.0.0-STABLE-DEV": generate,
+        }
+    });
+}
+
+
+#[allow(clippy::all)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused_unsafe)]
 #[cfg(feature = "runner")]
 pub mod bindings_runner {
     wasmtime::component::bindgen!({

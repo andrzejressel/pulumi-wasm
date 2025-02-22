@@ -1,14 +1,14 @@
 set windows-shell := ["pwsh.exe", "-c"]
 # renovate: datasource=crate depName=cargo-nextest packageName=cargo-nextest
 NEXTEST_VERSION := "0.9.72"
-# renovate: datasource=crate depName=cargo-component packageName=cargo-component
-CARGO_COMPONENT_VERSION := "0.20.0"
 # renovate: datasource=crate depName=sd packageName=sd
 SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
 # renovate: datasource=crate depName=cargo-hack packageName=cargo-hack
 CARGO_HACK_VERSION := "0.6.33"
+
+WASI_TARGET_NAME := "wasm32-wasip2"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
@@ -34,7 +34,6 @@ test-docs-ci-flow: test-docs
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
-    cargo component check
     cargo check
 
 build-language-plugin:
@@ -47,7 +46,6 @@ install-requirements:
     rustup component add rustfmt
     rustup component add llvm-tools-preview
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
-    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
     cargo binstall --no-confirm cargo-hack@{{CARGO_HACK_VERSION}}
@@ -58,23 +56,23 @@ build-native-examples:
 # Compiling everything together causes linking issues
 build-wasm-components:
     cargo build -p pulumi_gestalt_wasm_runner
-    cargo component build -p pulumi_gestalt
-    cargo component build -p pulumi_gestalt_example_simple
-    cargo component build -p pulumi_gestalt_example_docker
-    cargo component build -p pulumi_gestalt_example_dependencies
-    cargo component build -p pulumi_gestalt_example_multiple_providers
-    cargo component build -p pulumi_gestalt_example_plugins
-    cargo component build -p pulumi_gestalt_example_secret
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET_NAME}}
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET_NAME}}
 
 build-wasm-components-release:
     cargo build -p pulumi_gestalt_wasm_runner --release
-    cargo component build -p pulumi_gestalt --release
-    cargo component build -p pulumi_gestalt_example_simple --release
-    cargo component build -p pulumi_gestalt_example_docker --release
-    cargo component build -p pulumi_gestalt_example_dependencies --release
-    cargo component build -p pulumi_gestalt_example_multiple_providers --release
-    cargo component build -p pulumi_gestalt_example_plugins --release
-    cargo component build -p pulumi_gestalt_example_secret --release
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET_NAME}} --release
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET_NAME}} --release
 
 build-static-library:
     cargo build -p pulumi_native_c

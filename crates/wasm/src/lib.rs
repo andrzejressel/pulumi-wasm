@@ -17,15 +17,8 @@ use crate::bindings::exports::component::pulumi_gestalt::{
     output_interface, pulumi_engine, register_interface, stack_interface,
 };
 
-bindings::export!(Component with_types_in bindings);
-
-#[allow(clippy::all)]
-#[allow(unused_braces)]
-#[allow(static_mut_refs)]
-#[rustfmt::skip]
-mod bindings;
-
 mod pulumi_connector_impl;
+mod bindings;
 
 struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
 struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);

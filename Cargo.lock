@@ -2331,7 +2331,7 @@ dependencies = [
  "pulumi_gestalt_rust_common",
  "serde",
  "serde_json",
- "wit-bindgen-rt 0.39.0",
+ "wit-bindgen",
 ]
 
 [[package]]

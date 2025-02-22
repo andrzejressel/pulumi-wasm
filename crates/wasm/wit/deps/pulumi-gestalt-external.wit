@@ -1,0 +1,50 @@
+package component:pulumi-gestalt-external@0.0.0-STABLE-DEV;
+
+interface external-world {
+    register-resource-outputs: func(request: list<u8>);
+
+    record resource-invoke-request {
+        output-id: string,
+        body: list<u8>
+    }
+
+    record register-resource-request {
+        output-id: string,
+        body: list<u8>
+    }
+
+    record registered-resource {
+        output-id: string,
+        body: list<u8>
+    }
+
+    resource-invoke: func(request: resource-invoke-request);
+    register-resource: func(request: register-resource-request);
+    wait-for-resource-operations: func() -> list<registered-resource>;
+}
+
+interface log {
+    enum level {
+        TRACE,
+        DEBUG,
+        INFO,
+        WARN,
+        ERROR
+    }
+
+    record content {
+        level: level,
+        target: string,
+        args: string,
+        module-path: option<string>,
+        file: option<string>,
+        line: option<u32>,
+        key-values: list<tuple<string, string>>
+    }
+
+    log: func(content: content);
+}
+
+interface pulumi-main {
+    main: func(in-preview: bool);
+}
