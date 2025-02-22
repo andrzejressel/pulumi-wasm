@@ -13,7 +13,7 @@ use pulumi_gestalt_proto::mini::pulumirpc::{
 use pulumi_gestalt_wit::bindings_runner as runner;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
-use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
+use wasmtime_wasi::{IoView, WasiCtx, WasiCtxBuilder, WasiView};
 
 pub struct Pulumi {
     plugin: Runner,
@@ -130,11 +130,13 @@ impl MyState {
     }
 }
 
-impl WasiView for SimplePluginCtx {
+impl IoView for SimplePluginCtx {
     fn table(&mut self) -> &mut ResourceTable {
         &mut self.table
     }
+}
 
+impl WasiView for SimplePluginCtx {
     fn ctx(&mut self) -> &mut WasiCtx {
         &mut self.context
     }
