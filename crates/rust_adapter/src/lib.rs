@@ -28,6 +28,7 @@ pub trait GestaltOutput<T>: Clone {
 
     fn add_to_export(&self, key: &str);
 
+    #[doc(hidden)]
     fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT>;
 
     /// Forcefully changes the visible type of underlying Output
