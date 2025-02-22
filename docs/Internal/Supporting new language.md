@@ -17,8 +17,8 @@ only create abstration over Wasm calls.
 When generating glue code for providers, it is possible to save provider metadata in binary. This is done by adding custom section to binary.
 
 ```text
-(@custom "pulumi_gestalt_provider::random" (after data) "{\22version\22:\224.15.0\22,\22pluginDownloadURL\22:null}")
-(@custom "pulumi_gestalt_provider::docker" (after data) "{\22version\22:\224.5.3\22,\22pluginDownloadURL\22:null}")
+(@custom "pulumi_gestalt_provider::random" (after data) "{\"version\":\"4.15.0\",\"pluginDownloadURL\":null}")
+(@custom "pulumi_gestalt_provider::docker" (after data) "{\"version\":\"4.5.3\",\"pluginDownloadURL\":null}")
 ```
 
 In Rust, it looks like this:

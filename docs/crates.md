@@ -19,4 +19,4 @@ Rust library with `pulumi_main` macro. Addon to `Pulumi Wasm Rust`
 
 ### Pulumi Wasm Common
 
-Library used in Wasm components of Pulumi providers. Currently provides logging facilities.
+Library used in Wasm components of Pulumi providers. Currently, provides logging facilities.
