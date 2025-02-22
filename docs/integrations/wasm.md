@@ -1,56 +1,57 @@
 # Wasm
 
 !!! note "Please Read First"
-    Before proceeding, make sure to read this [Overview](overview.md) page to get a better understanding of the documentation.
+Before proceeding, make sure to read this [Overview](overview.md) page to get a better understanding of the
+documentation.
 
-In Pulumi Gestalt Wasm support is based on [Component Model](https://component-model.bytecodealliance.org/)
+In Pulumi Gestalt, Wasm support is based on the [Component Model](https://component-model.bytecodealliance.org/).
 
 ## Artifacts
 
-There are multiple artifacts related to Wasm support on the [releases](https://github.com/andrzejressel/pulumi-gestalt-releases/releases/) page:
+Several artifacts related to Wasm support can be found on
+the [releases](https://github.com/andrzejressel/pulumi-gestalt-releases/releases/) page:
 
-- Wasm implementation (`pulumi_gestalt-debug.wasm`/`pulumi_gestalt-release.wasm`)
-- Runner (`pulumi_gestalt_wasm_runner`)
-- WIT files (`world.wit`, `pulumi-gestalt-external.wit`)
+- **Wasm implementation** (`pulumi_gestalt-debug.wasm` / `pulumi_gestalt-release.wasm`)
+- **Runner** (`pulumi_gestalt_wasm_runner`)
+- **WIT files** (`world.wit`, `pulumi-gestalt-external.wit`)
 
-The most important artifacts are Runner and WIT files. 
-Runner will automatically download corresponding wasm implementation from releases page when program is run.
+The key artifacts are the **Runner** and **WIT files**. The Runner automatically downloads the corresponding Wasm
+implementation from the releases page when the program is executed.
 
 ## Versioning
 
-Currently, WIT files are versioned with nightly versions. That means that integration should select a nightly version of Pulumi Gestalt that it wants to integrate with.
-Runner will automatically download the corresponding Wasm implementation and merge them to create a single Wasm file.
+Currently, WIT files follow nightly versioning. Integrations should select a nightly version of Pulumi Gestalt to ensure
+compatibility. The Runner downloads the corresponding Wasm implementation and merges them into a single Wasm file.
 
 ## Entrypoint
 
-Entrypoint is managed by `component:pulumi-gestalt-external/pulumi-main` interface. It is a function that is called by `pulumi-gestalt-runner` and is responsible for executing the program.
-It contains single argument `in-preview` which should be passed to context constructor.
+The entry point is managed by the `component:pulumi-gestalt-external/pulumi-main` interface. This function is invoked by
+`pulumi-gestalt-runner`. It takes a single argument, `in-preview`, which should be passed to
+the context constructor.
 
-## Callback emulation
+## Callback Emulation
 
+```TODO```
 
+## Runner Quick Start
 
-## Runner quick start
+To execute a Pulumi Gestalt Wasm program using the Runner, use:
 
-The simplest to run Pulumi Gestalt Wasm program with runner would be:
-
-```
+```sh
 pulumi_wasm_runner run <WASM_FILE>
 ```
 
-It will download corresponding Wasm implementation, merge it with Wasm file and run the program.
-If debug version of Wasm is needed, `--debug` flag can be passed.
+This downloads the corresponding Wasm implementation, merges it with the specified Wasm file, and runs the program. To
+use the debug version of Wasm, add the `--debug` flag.
 
+## WIT Files
 
-## WIT files
-
-``` title="world.wit"
+```title="world.wit"
 --8<-- "crates/wit/wit/world.wit"
 ```
 
-``` title="pulumi-gestalt-external.wit"
+```title="pulumi-gestalt-external.wit"
 --8<-- "crates/wit/wit/deps/pulumi-gestalt-external.wit"
 ```
 
-
-World that is relevant for integration with Pulumi Gestalt is `client`
+The relevant integration world for Pulumi Gestalt is `client`.

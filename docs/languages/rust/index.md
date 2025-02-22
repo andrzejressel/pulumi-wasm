@@ -9,8 +9,8 @@
 
 Support for Rust is provided in two flavors:
 
-- native
-- Wasm
+- **Native**
+- **Wasm**
 
 If you don't know which one to choose, go with the native version. Currently, Wasm doesn’t give any benefits and is more complex to use.
 
@@ -24,14 +24,14 @@ If you don't know which one to choose, go with the native version. Currently, Wa
 
 ## Project setup
 
-* Add repository
+### Add Repository
 
 ```toml title=".cargo/config.toml"
 [registries.pulumi-gestalt]
 index = "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/"
 ```
 
-* Add required dependencies
+### Add dependencies
 
 ```toml title="Cargo.toml"
 [dependencies]
@@ -43,7 +43,7 @@ bon = "3.3.1"
 pulumi_gestalt_build = { version = "=<PULUMI_GESTALT_VERSION>", registry = "pulumi-gestalt" }
 ```
 
-* Generate provider code
+### Generate provider code
 
 ```rust title="build.rs"
 use std::error::Error;
@@ -53,13 +53,13 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
-* Include provider code
+### Include provider code
 
 ```rust title="src/random.rs"
 pulumi_gestalt_rust::include_provider!("random");
 ```
 
-* Use provider
+### Use provider
 
 === "Native"
 
@@ -152,7 +152,7 @@ pulumi_gestalt_rust::include_provider!("random");
 
 (the difference is in the `main.rs` vs `lib.rs` file name)
 
-* Add Pulumi.yaml
+### Add Pulumi.yaml
 
 
 ```yaml title="Pulumi.yaml"
@@ -160,7 +160,7 @@ name: Pulumi-Gestalt-Example
 runtime: gestalt
 ```
 
-* Add justfile
+### Add justfile
 
 === "Native"
 
