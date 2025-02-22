@@ -27,7 +27,7 @@ pub struct CustomRegisterOutputId {
     engine: Rc<RefCell<InnerPulumiEngine>>,
 }
 
-pub struct InnerPulumiEngine {
+pub(crate) struct InnerPulumiEngine {
     engine: Engine,
     functions: HashMap<FunctionName, Box<dyn Fn(String) -> String>>,
     in_preview: bool,
@@ -35,20 +35,6 @@ pub struct InnerPulumiEngine {
 
 pub struct PulumiEngine {
     inner: Rc<RefCell<InnerPulumiEngine>>,
-}
-
-pub struct ObjectField {
-    name: String,
-    value: CustomOutputId,
-}
-
-pub struct ResultField {
-    name: String,
-}
-
-pub struct RegisterResourceResultField {
-    name: String,
-    output: CustomOutputId,
 }
 
 pub struct RegisterResourceRequest {
