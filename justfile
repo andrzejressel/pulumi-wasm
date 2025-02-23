@@ -180,7 +180,6 @@ rust-docs:
 rust-docs-wasm:
     cargo doc --no-deps --target wasm32-wasip2 \
         -p pulumi_gestalt_rust \
-        -p pulumi_gestalt_build \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_wasm \
         -p pulumi_gestalt_providers_aws_mini \
