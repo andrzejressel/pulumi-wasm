@@ -19,7 +19,6 @@ If you don't know which one to choose, go with the native version. Currently, Wa
 - [Rust](https://www.rust-lang.org/tools/install)
 - [Just](https://github.com/casey/just)
 - Pulumi Gestalt language plugin: `pulumi plugin install language gestalt "<PULUMI_GESTALT_VERSION>" --server github://api.github.com/andrzejressel/pulumi-gestalt-releases`
-- (Wasm only) [Cargo component](https://github.com/bytecodealliance/cargo-component)
 - (Wasm only) Pulumi Gestalt Wasm Runner: `cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/" pulumi_gestalt_wasm_runner@<PULUMI_GESTALT_VERSION>`
 
 ## Project setup
@@ -173,9 +172,10 @@ runtime: gestalt
     ```justfile title="justfile" 
     binary := "pulumi_gestalt_wasm_runner"
     wasm := "target/wasm32-wasip2/debug/<PROJECT_NAME>.wasm"
+    wasi_target_name := "wasm32-wasip2"
     
     run:
-        cargo component build
+        cargo build --target={{wasi_target_name}}
         {{binary}} run --debug "{{wasm}}"
     ```
 
