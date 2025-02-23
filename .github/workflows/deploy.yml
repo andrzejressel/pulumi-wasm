@@ -120,8 +120,8 @@ jobs:
           just build-wasm-components
           just build-wasm-components-release
 
-          cp target/wasm32-wasip1/debug/pulumi_gestalt.wasm target/wasm32-wasip1/debug/pulumi_gestalt-debug.wasm
-          cp target/wasm32-wasip1/release/pulumi_gestalt.wasm target/wasm32-wasip1/release/pulumi_gestalt-release.wasm
+          cp target/wasm32-wasip2/debug/pulumi_gestalt.wasm target/wasm32-wasip2/debug/pulumi_gestalt-debug.wasm
+          cp target/wasm32-wasip2/release/pulumi_gestalt.wasm target/wasm32-wasip2/release/pulumi_gestalt-release.wasm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -136,8 +136,8 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            target/wasm32-wasip1/release/*-release.wasm
-            target/wasm32-wasip1/debug/*-debug.wasm
+            target/wasm32-wasip2/release/*-release.wasm
+            target/wasm32-wasip2/debug/*-debug.wasm
 
   deploy_language_plugin:
     runs-on: ubuntu-24.04

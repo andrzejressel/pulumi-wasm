@@ -3,28 +3,21 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
-use crate::bindings::exports::component::pulumi_gestalt::output_interface::{
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::output_interface::{
     GuestOutput, GuestRegisterOutput, Output, RegisterOutput,
 };
-use crate::bindings::exports::component::pulumi_gestalt::pulumi_engine::EngineBorrow;
-use crate::bindings::exports::component::pulumi_gestalt::register_interface::{
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::pulumi_engine::EngineBorrow;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::register_interface::{
     ObjectField, RegisterResourceRequest, ResourceInvokeRequest,
 };
-use crate::bindings::exports::component::pulumi_gestalt::stack_interface::{
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
 };
-use crate::bindings::exports::component::pulumi_gestalt::{
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::{
     output_interface, pulumi_engine, register_interface, stack_interface,
 };
 
-bindings::export!(Component with_types_in bindings);
-
-#[allow(clippy::all)]
-#[allow(unused_braces)]
-#[allow(static_mut_refs)]
-#[rustfmt::skip]
 mod bindings;
-
 mod pulumi_connector_impl;
 
 struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);

@@ -47,7 +47,7 @@ jobs:
       - run: just rust-docs-release
       - run: just rust-docs-wasm-release
       - run: cp -R target/doc site/rust-docs
-      - run: cp -R target/wasm32-wasip1/doc site/rust-docs-wasm
+      - run: cp -R target/wasm32-wasip2/doc site/rust-docs-wasm
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Upload artifact
