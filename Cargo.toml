@@ -41,28 +41,28 @@ members = [
 ]
 
 [workspace.package]
-version = "0.0.0-DEV"
+version = "25.2.23-6fcb7fa"
 edition = "2021"
 repository = "https://github.com/andrzejressel/pulumi-gestalt-releases"
 
 [workspace.dependencies]
-pulumi_gestalt_core = { version = "=0.0.0-DEV", path = "crates/core", registry = "cloudsmith" }
-pulumi_gestalt_build = { version = "=0.0.0-DEV", path = "crates/rust_build", registry = "cloudsmith" }
-pulumi_gestalt_generator = { version = "=0.0.0-DEV", path = "crates/rust_generator", registry = "cloudsmith" }
-pulumi_gestalt_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry = "cloudsmith" }
-pulumi_gestalt_rust_common = { version = "=0.0.0-DEV", path = "crates/rust_common", registry = "cloudsmith" }
-pulumi_gestalt_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
-pulumi_gestalt_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
-pulumi_gestalt_wasm_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_component_creator", registry = "cloudsmith" }
-pulumi_gestalt_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
-pulumi_gestalt_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
-pulumi_gestalt_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
-pulumi_gestalt_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
-pulumi_gestalt_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc", registry = "cloudsmith" }
-pulumi_gestalt_rust_adapter = { version = "=0.0.0-DEV", path = "crates/rust_adapter", registry = "cloudsmith" }
-pulumi_gestalt_rust_adapter_wasm = { version = "=0.0.0-DEV", path = "crates/rust_adapter_wasm", registry = "cloudsmith" }
-pulumi_gestalt_rust_integration = { version = "=0.0.0-DEV", path = "crates/rust_integration", registry = "cloudsmith" }
-pulumi_gestalt_rust_adapter_native = { version = "=0.0.0-DEV", path = "crates/rust_adapter_native", registry = "cloudsmith" }
+pulumi_gestalt_core = { version = "=25.2.23-6fcb7fa", path = "crates/core", registry = "cloudsmith" }
+pulumi_gestalt_build = { version = "=25.2.23-6fcb7fa", path = "crates/rust_build", registry = "cloudsmith" }
+pulumi_gestalt_generator = { version = "=25.2.23-6fcb7fa", path = "crates/rust_generator", registry = "cloudsmith" }
+pulumi_gestalt_rust = { version = "=25.2.23-6fcb7fa", path = "crates/rust", registry = "cloudsmith" }
+pulumi_gestalt_rust_common = { version = "=25.2.23-6fcb7fa", path = "crates/rust_common", registry = "cloudsmith" }
+pulumi_gestalt_proto = { version = "=25.2.23-6fcb7fa", path = "crates/proto", registry = "cloudsmith" }
+pulumi_gestalt_wit = { version = "=25.2.23-6fcb7fa", path = "crates/wit", registry = "cloudsmith" }
+pulumi_gestalt_wasm_component_creator = { version = "=25.2.23-6fcb7fa", path = "crates/wasm_component_creator", registry = "cloudsmith" }
+pulumi_gestalt_providers_docker = { version = "=25.2.23-6fcb7fa", path = "providers/docker", registry = "cloudsmith" }
+pulumi_gestalt_providers_random = { version = "=25.2.23-6fcb7fa", path = "providers/random", registry = "cloudsmith" }
+pulumi_gestalt_providers_typesystem = { version = "=25.2.23-6fcb7fa", path = "providers/typesystem", registry = "cloudsmith" }
+pulumi_gestalt_examples_common = { version = "=25.2.23-6fcb7fa", path = "examples/common", registry = "cloudsmith" }
+pulumi_gestalt_grpc_connection = { version = "=25.2.23-6fcb7fa", path = "crates/grpc", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter = { version = "=25.2.23-6fcb7fa", path = "crates/rust_adapter", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter_wasm = { version = "=25.2.23-6fcb7fa", path = "crates/rust_adapter_wasm", registry = "cloudsmith" }
+pulumi_gestalt_rust_integration = { version = "=25.2.23-6fcb7fa", path = "crates/rust_integration", registry = "cloudsmith" }
+pulumi_gestalt_rust_adapter_native = { version = "=25.2.23-6fcb7fa", path = "crates/rust_adapter_native", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
