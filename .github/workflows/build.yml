@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "use-deploy-key" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -32,6 +32,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           submodules: true
+          ssh-key: ${{ secrets.PUSH_KEY }}
 #      - uses: testspace-com/setup-testspace@v1
 #        with:
 #          domain: ${{github.repository_owner}}
