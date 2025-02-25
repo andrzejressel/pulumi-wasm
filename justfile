@@ -5,8 +5,6 @@ NEXTEST_VERSION := "0.9.72"
 SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
-# renovate: datasource=crate depName=cargo-hack packageName=cargo-hack
-CARGO_HACK_VERSION := "0.6.33"
 
 wasi_target_name := "wasm32-wasip2"
 
@@ -48,7 +46,6 @@ install-requirements:
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
-    cargo binstall --no-confirm cargo-hack@{{CARGO_HACK_VERSION}}
 
 build-native-examples:
     cargo build -p pulumi_gestalt_example_native
@@ -100,21 +97,24 @@ regenerator:
 regenerate-generator-tests $DO_NOT_COMPILE="true":
     cargo nextest run -p pulumi_gestalt_generator --all-features --test '*' --profile all_cores
 
+publish-app APP_NAME:
+    cargo publish -p {{APP_NAME}}
+
 publish:
-    cargo hack publish -p pulumi_gestalt_wit --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_proto --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_core --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_common --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_grpc_connection --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_adapter --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_adapter_wasm --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_integration --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust_adapter_native --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_rust --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_generator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_build --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_wasm_component_creator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_wasm_runner --all-features --no-dev-deps --allow-dirty
+    just publish-app pulumi_gestalt_wit
+    just publish-app pulumi_gestalt_proto
+    just publish-app pulumi_gestalt_core
+    just publish-app pulumi_gestalt_rust_common
+    just publish-app pulumi_gestalt_grpc_connection
+    just publish-app pulumi_gestalt_rust_adapter
+    just publish-app pulumi_gestalt_rust_adapter_wasm
+    just publish-app pulumi_gestalt_rust_integration
+    just publish-app pulumi_gestalt_rust_adapter_native
+    just publish-app pulumi_gestalt_rust
+    just publish-app pulumi_gestalt_generator
+    just publish-app pulumi_gestalt_build
+    just publish-app pulumi_gestalt_wasm_component_creator
+    just publish-app pulumi_gestalt_wasm_runner
 
 test-provider-compilation COMPILATION_NAME:
     cargo llvm-cov nextest -p pulumi_gestalt_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
