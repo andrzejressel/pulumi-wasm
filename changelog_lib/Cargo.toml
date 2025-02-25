@@ -1,0 +1,10 @@
+[package]
+name = "changelog_lib"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+gix.workspace = true
+tempfile.workspace = true
+serde.workspace = true
