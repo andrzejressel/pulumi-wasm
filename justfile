@@ -98,7 +98,7 @@ regenerate-generator-tests $DO_NOT_COMPILE="true":
     cargo nextest run -p pulumi_gestalt_generator --all-features --test '*' --profile all_cores
 
 publish-app APP_NAME:
-    cargo publish -p {{APP_NAME}}
+    cargo publish -p {{APP_NAME}} --all-features
 
 publish:
     just publish-app pulumi_gestalt_wit
