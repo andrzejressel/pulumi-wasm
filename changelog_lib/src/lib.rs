@@ -3,7 +3,6 @@ use anyhow::{Context, Result};
 use bon::Builder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
-use std::error::Error;
 use std::fs;
 use std::path::Path;
 
@@ -18,8 +17,7 @@ pub struct Options<'a> {
 }
 
 pub fn generate_changelog(options: &Options) -> Result<String> {
-    let history = generate_history(options)
-        .context("Failed to generate history")?;
+    let history = generate_history(options).context("Failed to generate history")?;
     let s = generate_changelog_content(history, options)
         .context("Failed to generate changelog content")?;
     Ok(s)
@@ -34,7 +32,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
         let current_version = version
             .name
             .clone()
-            .map(|v| format!("{v}"))
+            .map(|v| v.to_string())
             .unwrap_or("HEAD".to_string());
         let previous_version = history
             .versions
@@ -70,7 +68,6 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
             let version_dir = changelog_dir.join(version_dir);
 
             if version_dir.exists() {
-
                 let mut added = vec![];
                 let mut changed = vec![];
                 let mut deprecated = vec![];
@@ -78,17 +75,26 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                 let mut fixed = vec![];
                 let mut security = vec![];
 
-                let files =  fs::read_dir(&version_dir)
-                    .with_context(|| format!("Failed to read directory {}", version_dir.display()))?;
+                let files = fs::read_dir(&version_dir).with_context(|| {
+                    format!("Failed to read directory {}", version_dir.display())
+                })?;
 
                 for file in files {
-                    let file = file.with_context(|| format!("Failed to read file from directory {}", version_dir.display()))?;
+                    let file = file.with_context(|| {
+                        format!(
+                            "Failed to read file from directory {}",
+                            version_dir.display()
+                        )
+                    })?;
                     let path = file.path();
 
-                    let content = fs::read_to_string(&path)
-                        .with_context(|| format!("Failed to read file {}", file.path().display()))?;
-                    let entry: ChangelogEntry = serde_yaml::from_str(&content)
-                        .with_context(|| format!("Failed to parse file {}", file.path().display()))?;
+                    let content = fs::read_to_string(&path).with_context(|| {
+                        format!("Failed to read file {}", file.path().display())
+                    })?;
+                    let entry: ChangelogEntry =
+                        serde_yaml::from_str(&content).with_context(|| {
+                            format!("Failed to parse file {}", file.path().display())
+                        })?;
 
                     match entry.r#type {
                         ChangelogType::Added => {
@@ -112,7 +118,6 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     }
 
                     // s.push_str(&format!("- {}\n", entry.title));
-
                 }
 
                 if !added.is_empty() {
@@ -120,7 +125,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in added {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
 
                 if !changed.is_empty() {
@@ -128,7 +133,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in changed {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
 
                 if !deprecated.is_empty() {
@@ -136,7 +141,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in deprecated {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
 
                 if !removed.is_empty() {
@@ -144,7 +149,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in removed {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
 
                 if !fixed.is_empty() {
@@ -152,7 +157,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in fixed {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
 
                 if !security.is_empty() {
@@ -160,18 +165,17 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     for entry in security {
                         s.push_str(&format!("- {}\n", entry.title));
                     }
-                    s.push_str("\n");
+                    s.push('\n');
                 }
-
             }
         }
 
         // let version_dir = changelog_dir
 
-        if version.renovate_bot_commits.len() > 0 {
+        if !version.renovate_bot_commits.is_empty() {
             s.push_str("<details>\n");
             s.push_str("<summary><h3>🤖 Dependency updates</h3></summary>\n");
-            s.push_str("\n");
+            s.push('\n');
 
             for commit in &version.renovate_bot_commits {
                 s.push_str(&format!(
@@ -184,12 +188,12 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
             }
 
             s.push_str("</details>\n");
-            s.push_str("\n");
+            s.push('\n');
         }
 
         s.push_str("<details>\n");
         s.push_str("<summary><h3>Commits</h3></summary>\n");
-        s.push_str("\n");
+        s.push('\n');
 
         for commit in &version.commits {
             s.push_str(&format!(
@@ -202,7 +206,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
         }
 
         s.push_str("</details>\n");
-        s.push_str("\n");
+        s.push('\n');
     }
     Ok(s)
 }

@@ -1,13 +1,12 @@
+use anyhow::Context;
+use anyhow::Result;
 use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
-use anyhow::Context;
 use tempfile::{tempdir, TempDir};
-use anyhow::Result;
 
 #[test]
 fn test() -> Result<()> {
-
     let repository = Repository::new()?;
 
     let repository = repository
@@ -35,30 +34,26 @@ fn test() -> Result<()> {
         repository_path: repository.dir.path(),
         start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
         repository: "andrzejressel/pulumi-gestalt",
-        changelog_dir: "tests/example/.changelog"
+        changelog_dir: "tests/example/.changelog",
     };
 
     let result = changelog_lib::generate_changelog(&options)?;
 
-    let expected = fs::read("tests/example/expected.md")
-        .context("Failed to read expected.md")?;
+    let expected = fs::read("tests/example/expected.md").context("Failed to read expected.md")?;
     let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
 
     assert_eq!(result, expected);
 
     Ok(())
-
 }
 
-
 struct Repository {
-    dir: TempDir
+    dir: TempDir,
 }
 
 impl Repository {
     fn new() -> Result<Self> {
-        let temp_dir = tempdir()
-            .context("Failed to create temporary directory")?;
+        let temp_dir = tempdir().context("Failed to create temporary directory")?;
         std::process::Command::new("git")
             .arg("init")
             .current_dir(temp_dir.path())
@@ -77,8 +72,13 @@ impl Repository {
         let parent_dir = destination.parent().unwrap();
         fs::create_dir_all(parent_dir)
             .with_context(|| format!("Failed to create directory {}", parent_dir.display()))?;
-        fs::copy(&source, &destination)
-            .with_context(|| format!("Failed to copy {} to {}", source.display(), destination.display()))?;
+        fs::copy(&source, &destination).with_context(|| {
+            format!(
+                "Failed to copy {} to {}",
+                source.display(),
+                destination.display()
+            )
+        })?;
         Ok(self)
     }
 
@@ -172,11 +172,23 @@ impl Repository {
 
         // Insert the environment variables into the HashMap
         env_vars.insert("GIT_AUTHOR_NAME".to_string(), "Your Name".to_string());
-        env_vars.insert("GIT_AUTHOR_EMAIL".to_string(), "your.email@example.com".to_string());
+        env_vars.insert(
+            "GIT_AUTHOR_EMAIL".to_string(),
+            "your.email@example.com".to_string(),
+        );
         env_vars.insert("GIT_COMMITTER_NAME".to_string(), "Your Name".to_string());
-        env_vars.insert("GIT_COMMITTER_EMAIL".to_string(), "your.email@example.com".to_string());
-        env_vars.insert("GIT_AUTHOR_DATE".to_string(), "2023-10-01T12:00:00+0000".to_string());
-        env_vars.insert("GIT_COMMITTER_DATE".to_string(), "2023-10-01T12:00:00+0000".to_string());
+        env_vars.insert(
+            "GIT_COMMITTER_EMAIL".to_string(),
+            "your.email@example.com".to_string(),
+        );
+        env_vars.insert(
+            "GIT_AUTHOR_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
+        env_vars.insert(
+            "GIT_COMMITTER_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
 
         env_vars
     }
@@ -184,11 +196,23 @@ impl Repository {
     fn renovate_bot_envs(&self) -> HashMap<String, String> {
         let mut env_vars = HashMap::new();
         env_vars.insert("GIT_AUTHOR_NAME".to_string(), "Your Name".to_string());
-        env_vars.insert("GIT_AUTHOR_EMAIL".to_string(), "29139614+renovate[bot]@users.noreply.github.com".to_string());
+        env_vars.insert(
+            "GIT_AUTHOR_EMAIL".to_string(),
+            "29139614+renovate[bot]@users.noreply.github.com".to_string(),
+        );
         env_vars.insert("GIT_COMMITTER_NAME".to_string(), "Your Name".to_string());
-        env_vars.insert("GIT_COMMITTER_EMAIL".to_string(), "29139614+renovate[bot]@users.noreply.github.com".to_string());
-        env_vars.insert("GIT_AUTHOR_DATE".to_string(), "2023-10-01T12:00:00+0000".to_string());
-        env_vars.insert("GIT_COMMITTER_DATE".to_string(), "2023-10-01T12:00:00+0000".to_string());
+        env_vars.insert(
+            "GIT_COMMITTER_EMAIL".to_string(),
+            "29139614+renovate[bot]@users.noreply.github.com".to_string(),
+        );
+        env_vars.insert(
+            "GIT_AUTHOR_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
+        env_vars.insert(
+            "GIT_COMMITTER_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
 
         env_vars
     }
