@@ -6,3 +6,4 @@ edition.workspace = true
 [dependencies]
 clap.workspace = true
 changelog_lib.workspace = true
+anyhow.workspace = true

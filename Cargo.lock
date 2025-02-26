@@ -480,6 +480,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 name = "changelog"
 version = "0.0.0-DEV"
 dependencies = [
+ "anyhow",
  "changelog_lib",
  "clap",
 ]
@@ -492,6 +493,7 @@ dependencies = [
  "bon",
  "gix",
  "serde",
+ "serde_yaml",
  "tempfile",
 ]
 

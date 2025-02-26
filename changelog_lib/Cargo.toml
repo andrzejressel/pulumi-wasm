@@ -9,3 +9,4 @@ gix.workspace = true
 tempfile.workspace = true
 serde.workspace = true
 bon.workspace = true
+serde_yaml.workspace = true
