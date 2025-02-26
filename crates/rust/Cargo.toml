@@ -22,4 +22,4 @@ pulumi_gestalt_rust_adapter_wasm.workspace = true
 pulumi_gestalt_rust_adapter_native.workspace = true
 
 [dev-dependencies]
-pulumi_gestalt_build.workspace = true
+pulumi_gestalt_build = { path = "../rust_build" }
