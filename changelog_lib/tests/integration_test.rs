@@ -2,16 +2,31 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use anyhow::Context;
 use tempfile::{tempdir, TempDir};
+use anyhow::Result;
 
 #[test]
-fn test() {
+fn test() -> Result<()> {
 
-    let repository = Repository::new();
+    let repository = Repository::new()?;
 
-    repository
-        .copy_file("tests/example/.changelog/0.1.0/1_added.yaml")
-        .add_and_commit("Add 1_added.yaml")
-        .print_log();
+    let repository = repository
+        .add_and_commit("Initial commit")?
+        .copy_file("tests/example/.changelog/0.1.0/1_added.yaml")?
+        .add_and_commit("Add 1_added.yaml")?
+        .copy_file("tests/example/.changelog/0.1.0/2_changed.yaml")?
+        .add_and_commit("Add 2_changed.yaml")?
+        .copy_file("tests/example/.changelog/0.1.0/3_deprecated.yaml")?
+        .add_and_commit("Add 3_deprecated.yaml")?
+        .copy_file("tests/example/.changelog/0.1.0/4_removed.yaml")?
+        .add_and_commit("Add 4_removed.yaml")?
+        .copy_file("tests/example/.changelog/0.1.0/5_fixed.yaml")?
+        .add_and_commit("Add 5_fixed.yaml")?
+        .copy_file("tests/example/.changelog/0.1.0/6_security.yaml")?
+        .add_and_commit("Add 6_security.yaml")?;
+
+    changelog_lib::generate_changelog("test", &repository.dir.path())?;
+
+    Ok(())
 
 }
 
@@ -21,54 +36,60 @@ struct Repository {
 }
 
 impl Repository {
-    fn new() -> Self {
+    fn new() -> Result<Self> {
         let temp_dir = tempdir().unwrap();
         std::process::Command::new("git")
             .arg("init")
             .current_dir(temp_dir.path())
             .output()
-            .unwrap();
-        Repository { dir: temp_dir }
+            .context("Failed to initialize git repository")?;
+        Ok(Repository { dir: temp_dir })
     }
 
-    fn copy_file(self, file_name: &str) -> Self {
+    fn get_dir(&self) -> &TempDir {
+        &self.dir
+    }
+
+    fn copy_file(self, file_name: &str) -> Result<Self> {
         let source = PathBuf::from(file_name);
         let destination = self.dir.path().join(file_name);
         let parent_dir = destination.parent().unwrap();
         std::fs::create_dir_all(parent_dir)
-            .with_context(|| format!("Failed to create directory {}", parent_dir.display()))
-            .unwrap();
+            .with_context(|| format!("Failed to create directory {}", parent_dir.display()))?;
         std::fs::copy(&source, &destination)
-            .with_context(|| format!("Failed to copy {} to {}", source.display(), destination.display()))
-            .unwrap();
-        self
+            .with_context(|| format!("Failed to copy {} to {}", source.display(), destination.display()))?;
+        Ok(self)
     }
 
-    fn add_and_commit(self, message: &str) -> Self {
+    fn add_and_commit(self, message: &str) -> Result<Self> {
         let output = std::process::Command::new("git")
             .arg("add")
             .arg(".")
             .current_dir(self.dir.path())
             .envs(self.deterministic_envs())
             .output()
-            .unwrap();
+            .context("Failed to add")?;
 
-        if (!output.status.success()) {
-            // println!("Error: {:?}", output);
-            panic!("Error: {:?}", output);
+        if !output.status.success() {
+            anyhow::bail!("Error: {:?}", output);
         }
 
-        // assert!(output.status.success());
         let output = std::process::Command::new("git")
             .arg("commit")
+            .arg("--allow-empty")
             .arg("-m")
             .arg(message)
             .current_dir(self.dir.path())
             .envs(self.deterministic_envs())
             .output()
-            .unwrap();
-        assert!(output.status.success());
-        self
+            .context("Failed to commit")?;
+
+        if !output.status.success() {
+            anyhow::bail!("Error: {:?}", output);
+        }
+
+        // assert!(output.status.success());
+        Ok(self)
     }
 
     fn print_log(self) -> Self {
