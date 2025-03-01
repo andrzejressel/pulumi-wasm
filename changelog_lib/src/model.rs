@@ -1,4 +1,5 @@
 use serde::Deserialize;
+use crate::TagName;
 
 #[derive(Debug, Deserialize)]
 pub(crate) enum ChangelogType {
@@ -23,8 +24,7 @@ pub(crate) struct GitHistory {
 
 #[derive(Clone, Debug)]
 pub(crate) struct Version {
-    pub(crate) name: Option<String>, // None for the unreleased version
-    pub(crate) first_commit_id: String,
+    pub(crate) tag_name: Option<TagName>, // None for the unreleased version
     pub(crate) renovate_bot_commits: Vec<Commit>,
     pub(crate) commits: Vec<Commit>,
 }

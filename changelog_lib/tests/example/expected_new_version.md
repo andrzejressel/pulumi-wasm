@@ -1,11 +1,11 @@
-## [0.3.0](https://github.com/andrzejressel/pulumi-gestalt/compare/0.2.0...0.3.0)
+## [0.3.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.2.0...0.3.0)
 <details>
 <summary><h3>Commits</h3></summary>
 
 - Some other feature [f44072f](https://github.com/andrzejressel/pulumi-gestalt/commit/f44072f143c25dc642eb18daece467de75a53fa9)
 </details>
 
-## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/0.1.0...0.2.0)
+## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.1.0...v0.2.0)
 <details>
 <summary><h3>🤖 Dependency updates</h3></summary>
 
