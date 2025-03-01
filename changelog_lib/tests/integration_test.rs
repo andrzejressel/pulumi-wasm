@@ -114,7 +114,8 @@ fn create_repository() -> Result<Repository> {
         .add_and_commit("Some feature")?
         .add_and_commit_renovate("Some renovate bot commit")?
         .create_tag("v0.2.0")?
-        .add_and_commit("Some other feature")?;
+        .copy_file("tests/example/.changelog/unreleased/1_added.yaml")?
+        .add_and_commit("Some yet unreleased feature")?;
 
     Ok(repository)
 }
