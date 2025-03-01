@@ -21,7 +21,7 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: main
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
     steps:
@@ -40,13 +40,13 @@ jobs:
         with:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: just changelog-generate-for-docs
       - run: protoc --version
       - run: mkdocs build
         env:
           GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
       - run: just rust-docs-release
       - run: just rust-docs-wasm-release
-      - run: just changelog-generate-for-docs
       - run: cp -R target/doc site/rust-docs
       - run: cp -R target/wasm32-wasip2/doc site/rust-docs-wasm
       - name: Setup Pages
