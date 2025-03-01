@@ -1,4 +1,3 @@
-use std::fmt::Display;
 use crate::model::{ChangelogEntry, ChangelogType, GitHistory};
 use anyhow::{Context, Result};
 use bon::Builder;
@@ -77,7 +76,9 @@ pub fn generate_changelog_for_github_changelog(options: &Options, version: &str)
     let version = history
         .versions
         .into_iter()
-        .find(|v| v.tag_name.clone().map(|t| t.get_version_name().clone()) == Some(version_name.clone()))
+        .find(|v| {
+            v.tag_name.clone().map(|t| t.get_version_name().clone()) == Some(version_name.clone())
+        })
         .context(format!("Failed to find version [{}]", version))?;
     let new_history = GitHistory {
         versions: vec![version.clone()],
@@ -96,7 +97,6 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
         let current_version = version
             .tag_name
             .clone()
-            .map(|v| v)
             .unwrap_or(TagName::new("HEAD".to_string()));
         let previous_version = history
             .versions
@@ -111,7 +111,9 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                 Some(prev) => {
                     s.push_str(&format!(
                         "## [Unreleased](https://github.com/{}/compare/{}...{})\n",
-                        options.repository, prev.get_value(), current_version.get_value()
+                        options.repository,
+                        prev.get_value(),
+                        current_version.get_value()
                     ));
                 }
             },
@@ -122,7 +124,10 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                 Some(prev) => {
                     s.push_str(&format!(
                         "## [{}](https://github.com/{}/compare/{}...{})\n",
-                        v.get_version_name().get_value(), options.repository, prev.get_value(), current_version.get_value()
+                        v.get_version_name().get_value(),
+                        options.repository,
+                        prev.get_value(),
+                        current_version.get_value()
                     ));
                 }
             },
@@ -321,7 +326,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
     let mut history = model::GitHistory { versions: vec![] };
 
     let mut version = model::Version {
-        tag_name: new_version_name.map(|s| TagName::new(s)),
+        tag_name: new_version_name.map(TagName::new),
         renovate_bot_commits: vec![],
         commits: vec![],
     };

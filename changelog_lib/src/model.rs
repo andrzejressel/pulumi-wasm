@@ -1,5 +1,5 @@
-use serde::Deserialize;
 use crate::TagName;
+use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub(crate) enum ChangelogType {
