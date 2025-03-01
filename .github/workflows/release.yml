@@ -112,9 +112,16 @@ jobs:
           git commit -m "Update version to ${{ github.event.inputs.version }}"
           git push
 
+      - name: Copy changelog to new version directory
+        run: |
+          mv .changelog/unreleased .changelog/${{ github.event.inputs.version }}
+          rm .changelog/${{ github.event.inputs.version }}/.gitkeep
+          mkdir .changelog/unreleased
+          touch .changelog/unreleased/.gitkeep
+
       - name: Generate and commit new changelog
         run: |
-          just generate_repo_changelog
+          just generate_repo_changelog "${{ github.event.inputs.version }}"
           git add -A
           git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
           git push

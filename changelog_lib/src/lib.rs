@@ -87,6 +87,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
             },
         }
 
+        // TODO: Implement unreleased
         if let Some(version_dir) = &version.name {
             let version_dir = changelog_dir.join(version_dir);
 
