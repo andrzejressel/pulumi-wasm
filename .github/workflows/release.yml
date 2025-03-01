@@ -41,6 +41,7 @@ jobs:
         with:
           submodules: true
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+          fetch-depth: '0'
       - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -94,11 +95,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Create release Commit
-        run: |
-          cd /tmp/repo
-          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
-          git push origin main
+#      - name: Create release Commit
+#        run: |
+#          cd /tmp/repo
+#          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
+#          git push origin main
 
       - name: Push version change
         run: |
