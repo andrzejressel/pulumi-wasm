@@ -1,10 +1,19 @@
-## [0.0.0-test15](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.0.0-test13...0.0.0-test15)
-### Added
-- Add a new unreleased feature
-
+## [v0.0.0-test17](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.0.0-test15...v0.0.0-test17)
 <details>
 <summary><h3>Commits</h3></summary>
 
+- Update version to 0.0.0-test17 [6d8836f](https://github.com/andrzejressel/pulumi-gestalt/commit/6d8836f593659ba36a61273b8ed09ea36c61b798)
+- Changelog generator [b888424](https://github.com/andrzejressel/pulumi-gestalt/commit/b88842453f7b3d509d25d5d5052f657e4f3e61d0)
+- Changelog generator [26c1c0c](https://github.com/andrzejressel/pulumi-gestalt/commit/26c1c0c48251d476b27b75a8e3fb7103a35ce3b6)
+- Restore version to 0.0.0-DEV [ee50f50](https://github.com/andrzejressel/pulumi-gestalt/commit/ee50f501042faef2ef43474f119fdae87f3e5ff8)
+</details>
+
+## [v0.0.0-test15](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.0.0-test13...v0.0.0-test15)
+<details>
+<summary><h3>Commits</h3></summary>
+
+- Release v0.0.0-test15 [d112b50](https://github.com/andrzejressel/pulumi-gestalt/commit/d112b509b92f7f1ea94e9a3dc8fb0624b74d15ee)
+- Update changelog for version 0.0.0-test15 [8d3cc0f](https://github.com/andrzejressel/pulumi-gestalt/commit/8d3cc0f8a65832ace1fcea971ebb2834171056e9)
 - Update version to 0.0.0-test15 [42f37bd](https://github.com/andrzejressel/pulumi-gestalt/commit/42f37bdd6ef783f4273ece336120ecd58994db31)
 - Revert "Update version to  0.0.0-test14" [b5d9e72](https://github.com/andrzejressel/pulumi-gestalt/commit/b5d9e7227e21b1e8044253601f5e68913c8f1546)
 - Update version to  0.0.0-test14 [52c0cc6](https://github.com/andrzejressel/pulumi-gestalt/commit/52c0cc65ef7012e3f9ff6e728d71b29c9357132b)
