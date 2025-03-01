@@ -1,5 +1,6 @@
-use crate::model::{ChangelogEntry, ChangelogType, GitHistory};
-use anyhow::{Context, Result};
+use std::fmt::format;
+use crate::model::{ChangelogEntry, ChangelogType, GitHistory, Version};
+use anyhow::{ensure, Context, Result};
 use bon::Builder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
@@ -17,8 +18,30 @@ pub struct Options<'a> {
 }
 
 pub fn generate_changelog(options: &Options) -> Result<String> {
-    let history = generate_history(options).context("Failed to generate history")?;
+    let history = generate_history(options, None).context("Failed to generate history")?;
     let s = generate_changelog_content(history, options)
+        .context("Failed to generate changelog content")?;
+    Ok(s)
+}
+
+pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) -> Result<String> {
+    let history = generate_history(options, Some(new_version.to_string())).context("Failed to generate history")?;
+    let s = generate_changelog_content(history, options)
+        .context("Failed to generate changelog content")?;
+    Ok(s)
+}
+
+pub fn generate_changelog_for_github_changelog(options: &Options, version: &str) -> Result<String> {
+    let history = generate_history(options, None).context("Failed to generate history")?;
+    let version = history
+        .versions
+        .iter()
+        .find(|v| v.name.as_deref() == Some(version))
+        .context(format!("Failed to find version [{}]", version))?;
+    let new_history = GitHistory {
+        versions: vec![version.clone()],
+    };
+    let s = generate_changelog_content(new_history, options)
         .context("Failed to generate changelog content")?;
     Ok(s)
 }
@@ -211,7 +234,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
     Ok(s)
 }
 
-fn generate_history(options: &Options) -> Result<GitHistory> {
+fn generate_history(options: &Options, new_version_name: Option<String>) -> Result<GitHistory> {
     let repo = gix::open(options.repository_path).with_context(|| {
         format!(
             "Failed to open git repository in {}",
@@ -256,7 +279,7 @@ fn generate_history(options: &Options) -> Result<GitHistory> {
     let mut history = model::GitHistory { versions: vec![] };
 
     let mut version = model::Version {
-        name: None,
+        name: new_version_name,
         first_commit_id: head_commit.id().to_string(),
         renovate_bot_commits: vec![],
         commits: vec![],
@@ -322,5 +345,3 @@ fn generate_history(options: &Options) -> Result<GitHistory> {
 
     Ok(history)
 }
-
-fn prepare_changelog_directory() {}

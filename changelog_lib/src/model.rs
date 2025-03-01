@@ -21,7 +21,7 @@ pub(crate) struct GitHistory {
     pub(crate) versions: Vec<Version>,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub(crate) struct Version {
     pub(crate) name: Option<String>, // None for the unreleased version
     pub(crate) first_commit_id: String,

@@ -6,7 +6,98 @@ use std::path::PathBuf;
 use tempfile::{tempdir, TempDir};
 
 #[test]
-fn test() -> Result<()> {
+fn generate_changelog_test() -> Result<()> {
+
+    let repository = create_repository()
+        .context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_changelog(&options)?;
+
+    let expected = fs::read("tests/example/expected.md").context("Failed to read expected.md")?;
+    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+
+    assert_eq!(result, expected);
+
+    Ok(())
+}
+
+#[test]
+fn generate_changelog_for_new_version() -> Result<()> {
+    let repository = create_repository()
+        .context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_changelog_for_new_version(&options, "0.3.0")?;
+
+    let expected = fs::read("tests/example/expected_new_version.md")
+        .context("Failed to read expected_new_version.md")?;
+    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+
+    assert_eq!(result, expected);
+
+    Ok(())
+}
+
+#[test]
+fn generate_github_changelog_for_0_1_0() -> Result<()> {
+    let repository = create_repository()
+        .context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.1.0")?;
+
+    let expected = fs::read("tests/example/expected_github_0.1.0.md")
+        .context("Failed to read expected_github_0.1.0.md")?;
+    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+
+    assert_eq!(result, expected);
+
+    Ok(())
+}
+
+#[test]
+fn generate_github_changelog_for_0_2_0() -> Result<()> {
+    let repository = create_repository()
+        .context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.2.0")?;
+
+    let expected = fs::read("tests/example/expected_github_0.2.0.md")
+        .context("Failed to read expected_github_0.2.0.md")?;
+    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+
+    assert_eq!(result, expected);
+
+    Ok(())
+}
+
+fn create_repository() -> Result<Repository> {
     let repository = Repository::new()?;
 
     let repository = repository
@@ -30,21 +121,7 @@ fn test() -> Result<()> {
         .create_tag("0.2.0")?
         .add_and_commit("Some other feature")?;
 
-    let options = changelog_lib::Options {
-        repository_path: repository.dir.path(),
-        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
-        repository: "andrzejressel/pulumi-gestalt",
-        changelog_dir: "tests/example/.changelog",
-    };
-
-    let result = changelog_lib::generate_changelog(&options)?;
-
-    let expected = fs::read("tests/example/expected.md").context("Failed to read expected.md")?;
-    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
-
-    assert_eq!(result, expected);
-
-    Ok(())
+    Ok(repository)
 }
 
 struct Repository {
@@ -60,10 +137,6 @@ impl Repository {
             .output()
             .context("Failed to initialize git repository")?;
         Ok(Repository { dir: temp_dir })
-    }
-
-    fn get_dir(&self) -> &TempDir {
-        &self.dir
     }
 
     fn copy_file(self, file_name: &str) -> Result<Self> {
@@ -155,16 +228,6 @@ impl Repository {
         }
 
         Ok(self)
-    }
-
-    fn print_log(self) -> Self {
-        let output = std::process::Command::new("git")
-            .arg("log")
-            .current_dir(self.dir.path())
-            .output()
-            .unwrap();
-        println!("{}", String::from_utf8_lossy(&output.stdout));
-        self
     }
 
     fn deterministic_envs(&self) -> HashMap<String, String> {
