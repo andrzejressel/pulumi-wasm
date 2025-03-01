@@ -5,6 +5,7 @@ use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use std::fs;
 use std::path::Path;
+use model::Version;
 
 mod model;
 
@@ -52,13 +53,7 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
     let changelog_dir = options.repository_path.join(options.changelog_dir);
 
     for (index, version) in history.versions.iter().enumerate() {
-        // let current_version = version.tag_name.clone().unwrap_or(TagName::new("HEAD".to_string()));
-        // let current_version = version
-        //     .tag_name
-        //     .clone()
-        //     .unwrap_or(TagName::new("HEAD".to_string()));
         let previous_version = history.versions.get(index + 1).map(|v| v.tag_name.clone());
-        //     .map(|v| v.tag_name.clone().unwrap());
 
         match (&version.tag_name, previous_version) {
             (TagName::NotYetReleased, None) => {
@@ -132,8 +127,6 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                         security.push(entry);
                     }
                 }
-
-                // s.push_str(&format!("- {}\n", entry.title));
             }
 
             if !added.is_empty() {
@@ -246,7 +239,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
     {
         let mut reference = match reference {
             Ok(r) => r,
-            Err(e) => anyhow::bail!("Failed to get reference: {}", e),
+            Err(e) => bail!("Failed to get reference: {}", e),
         };
 
         if reference.name().category() == Some(Category::Tag) {
@@ -266,9 +259,9 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
 
     let rev_walk = repo.rev_walk(vec![head_commit.id]);
 
-    let mut history = model::GitHistory { versions: vec![] };
+    let mut history = GitHistory { versions: vec![] };
 
-    let mut version = model::Version {
+    let mut version = Version {
         tag_name: match new_version_name {
             None => TagName::not_yet_released(),
             Some(v) => TagName::not_yet_released_with_version(v),
@@ -288,7 +281,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
 
         if let Some(tag) = commit_id_to_tag.get(&id) {
             history.versions.push(version);
-            version = model::Version {
+            version = Version {
                 tag_name: TagName::real_tag(tag.clone()),
                 renovate_bot_commits: vec![],
                 commits: vec![],
