@@ -120,7 +120,7 @@ jobs:
 
       - name: Generate and commit new changelog
         run: |
-          just generate_repo_changelog "${{ github.event.inputs.version }}"
+          just generate_repo_changelog "v${{ github.event.inputs.version }}"
           git add -A
           git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
 
