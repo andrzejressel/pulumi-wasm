@@ -92,6 +92,28 @@ fn generate_github_changelog_for_0_2_0() -> Result<()> {
     Ok(())
 }
 
+#[test]
+fn generate_mkdocs_changelog() -> Result<()> {
+    let repository = create_repository().context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_mkdocs_changelog(&options)?;
+
+    let expected = fs::read("tests/example/expected_mkdocs.md")
+        .context("Failed to read expected_mkdocs.md")?;
+    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+
+    assert_eq!(result, expected);
+
+    Ok(())
+}
+
 fn create_repository() -> Result<Repository> {
     let repository = Repository::new()?;
 

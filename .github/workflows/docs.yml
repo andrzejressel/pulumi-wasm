@@ -3,7 +3,7 @@ name: Docs
 
 on:
   push:
-    tags:
+    branches:
       - '*'
 
 permissions:
@@ -21,7 +21,7 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: main
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
     steps:
@@ -46,6 +46,7 @@ jobs:
           GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
       - run: just rust-docs-release
       - run: just rust-docs-wasm-release
+      - run: just changelog-generate-for-docs
       - run: cp -R target/doc site/rust-docs
       - run: cp -R target/wasm32-wasip2/doc site/rust-docs-wasm
       - name: Setup Pages

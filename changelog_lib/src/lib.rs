@@ -5,8 +5,11 @@ use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use std::fs;
 use std::path::Path;
+use encoders::Encoder;
+use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 
 mod model;
+mod encoders;
 
 #[derive(Builder)]
 pub struct Options<'a> {
@@ -55,9 +58,16 @@ impl<'a> VersionName {
     }
 }
 
+pub fn generate_mkdocs_changelog(options: &Options) -> Result<String> {
+    let history = generate_history(options, None).context("Failed to generate history")?;
+    let s = generate_changelog_content(history, options, MkdocsEncoder {})
+        .context("Failed to generate changelog content")?;
+    Ok(s)
+}
+
 pub fn generate_changelog(options: &Options) -> Result<String> {
     let history = generate_history(options, None).context("Failed to generate history")?;
-    let s = generate_changelog_content(history, options)
+    let s = generate_changelog_content(history, options, GithubFlavorEncoder {})
         .context("Failed to generate changelog content")?;
     Ok(s)
 }
@@ -65,7 +75,7 @@ pub fn generate_changelog(options: &Options) -> Result<String> {
 pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) -> Result<String> {
     let history = generate_history(options, Some(new_version.to_string()))
         .context("Failed to generate history")?;
-    let s = generate_changelog_content(history, options)
+    let s = generate_changelog_content(history, options, GithubFlavorEncoder {})
         .context("Failed to generate changelog content")?;
     Ok(s)
 }
@@ -83,12 +93,12 @@ pub fn generate_changelog_for_github_changelog(options: &Options, version: &str)
     let new_history = GitHistory {
         versions: vec![version.clone()],
     };
-    let s = generate_changelog_content(new_history, options)
+    let s = generate_changelog_content(new_history, options, GithubFlavorEncoder {})
         .context("Failed to generate changelog content")?;
     Ok(s)
 }
 
-fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<String> {
+fn generate_changelog_content(history: GitHistory, options: &Options, encoder: impl Encoder) -> Result<String> {
     let mut s = String::new();
 
     let changelog_dir = options.repository_path.join(options.changelog_dir);
@@ -243,40 +253,39 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
         // let version_dir = changelog_dir
 
         if !version.renovate_bot_commits.is_empty() {
-            s.push_str("<details>\n");
-            s.push_str("<summary><h3>🤖 Dependency updates</h3></summary>\n");
-            s.push('\n');
+
+            s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency updates"));
 
             for commit in &version.renovate_bot_commits {
-                s.push_str(&format!(
-                    "- {} [{}](https://github.com/{}/commit/{})\n",
+
+                let line = format!(
+                    "- {} [{}](https://github.com/{}/commit/{})",
                     commit.title,
                     commit.id.chars().take(7).collect::<String>(),
                     options.repository,
                     commit.id
-                ));
+                );
+
+                s.push_str(&encoder.encode_collapsible_block_element(&line));
             }
 
-            s.push_str("</details>\n");
-            s.push('\n');
+            s.push_str(&encoder.encode_collapsible_block_end());
         }
 
-        s.push_str("<details>\n");
-        s.push_str("<summary><h3>Commits</h3></summary>\n");
-        s.push('\n');
+        s.push_str(&encoder.encode_collapsible_block_start("Commits"));
 
         for commit in &version.commits {
-            s.push_str(&format!(
-                "- {} [{}](https://github.com/{}/commit/{})\n",
+            let line = format!(
+                "- {} [{}](https://github.com/{}/commit/{})",
                 commit.title,
                 commit.id.chars().take(7).collect::<String>(),
                 options.repository,
                 commit.id
-            ));
+            );
+            s.push_str(&encoder.encode_collapsible_block_element(&line));
         }
 
-        s.push_str("</details>\n");
-        s.push('\n');
+        s.push_str(&encoder.encode_collapsible_block_end());
     }
     Ok(s)
 }

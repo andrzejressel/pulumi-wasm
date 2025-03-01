@@ -18,6 +18,7 @@ nav:
   - index.md
 #  - crates.md
   - DevBlog: https://dev.to/andrzejressel/series/30425
+  - Changelog: CHANGELOG.md
   - Languages:
       - Rust:
           - languages/rust/index.md
