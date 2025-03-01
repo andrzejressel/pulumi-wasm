@@ -1,8 +1,11 @@
 ## [Unreleased](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.2.0...HEAD)
+### Added
+- Add a new unreleased feature
+
 <details>
 <summary><h3>Commits</h3></summary>
 
-- Some other feature [f44072f](https://github.com/andrzejressel/pulumi-gestalt/commit/f44072f143c25dc642eb18daece467de75a53fa9)
+- Some yet unreleased feature [fcc0736](https://github.com/andrzejressel/pulumi-gestalt/commit/fcc0736f821af0645e9cc429dad6bef022eb7d6c)
 </details>
 
 ## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.1.0...v0.2.0)
