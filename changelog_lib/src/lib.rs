@@ -56,11 +56,8 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
         let previous_version = history.versions.get(index + 1).map(|v| v.tag_name.clone());
 
         match (&version.tag_name, previous_version) {
-            (TagName::NotYetReleased, None) => {
-                s.push_str("## Unreleased\n");
-            }
-            (TagName::WithVersion(v), None) => {
-                s.push_str(&format!("## {}\n", v.get_version_name()));
+            (new_version, None) => {
+                s.push_str(&format!("## {}\n", new_version.get_version_name()));
             }
             (new_version, Some(prev_version)) => {
                 s.push_str(&format!(
