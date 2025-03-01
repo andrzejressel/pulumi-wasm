@@ -4,6 +4,8 @@ panic = "warn"
 [workspace]
 resolver = "2"
 members = [
+    "changelog",
+    "changelog_lib",
     "crates/c_ffi",
     "crates/core",
     "crates/grpc",
@@ -63,6 +65,7 @@ pulumi_gestalt_rust_adapter = { version = "=0.0.0-DEV", path = "crates/rust_adap
 pulumi_gestalt_rust_adapter_wasm = { version = "=0.0.0-DEV", path = "crates/rust_adapter_wasm", registry = "cloudsmith" }
 pulumi_gestalt_rust_integration = { version = "=0.0.0-DEV", path = "crates/rust_integration", registry = "cloudsmith" }
 pulumi_gestalt_rust_adapter_native = { version = "=0.0.0-DEV", path = "crates/rust_adapter_native", registry = "cloudsmith" }
+changelog_lib = { version = "=0.0.0-DEV", path = "changelog_lib", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
@@ -106,3 +109,4 @@ wat = "1.223.0"
 wasmparser = "0.226.0"
 cbindgen = "0.28.0"
 libc = "0.2.169"
+gix = "0.70.0"

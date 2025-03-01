@@ -198,3 +198,6 @@ rust-docs-wasm-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "crates/wit/wit/world.wit" "crates/rust/src/lib.rs" \
     "Cargo.toml"
+
+generate_repo_changelog NEW_VERSION:
+    cargo run -p changelog -- generate-repo-changelog {{NEW_VERSION}}

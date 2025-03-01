@@ -41,6 +41,7 @@ jobs:
         with:
           submodules: true
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+          fetch-depth: '0'
       - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,6 +101,29 @@ jobs:
           git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
           git push origin main
 
+      - name: Setup git name and email
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Push version change
+        run: |
+          git add -A
+          git commit -m "Update version to ${{ github.event.inputs.version }}"
+
+      - name: Copy changelog to new version directory
+        run: |
+          mv .changelog/unreleased .changelog/${{ github.event.inputs.version }}
+          rm .changelog/${{ github.event.inputs.version }}/.gitkeep
+          mkdir .changelog/unreleased
+          touch .changelog/unreleased/.gitkeep
+
+      - name: Generate and commit new changelog
+        run: |
+          just generate_repo_changelog "v${{ github.event.inputs.version }}"
+          git add -A
+          git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
+
       - name: Release
         uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
         with:
@@ -112,9 +136,9 @@ jobs:
 
       - name: Create commit
         run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Release v${{ github.event.inputs.version }}"
+          git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
           git tag "v${{ github.event.inputs.version }}"
           git push origin "v${{ github.event.inputs.version }}"
+          git revert HEAD~2 # Revert renaming
+          git commit --amend -m "Restore version to 0.0.0-DEV"
+          git push
