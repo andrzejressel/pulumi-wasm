@@ -47,3 +47,7 @@ build/
 .vs
 out
 .vscode
+
+docs/CHANGELOG.md
+docs/rust-docs/*
+!docs/rust-docs/.gitkeep
