@@ -104,6 +104,7 @@ jobs:
       - name: Push version change
         run: |
           git add -A
+          git commit -m "Update version to ${{ github.event.inputs.version }}"
           git push
 
       - name: Setup git name and email
@@ -130,9 +131,8 @@ jobs:
 
       - name: Create commit
         run: |
-          git add -A
-          git commit -m "Release v${{ github.event.inputs.version }}"
+          git commit -m --allow-empty "Release v${{ github.event.inputs.version }}"
           git tag "v${{ github.event.inputs.version }}"
           git push origin "v${{ github.event.inputs.version }}"
-          git revert HEAD~1 # Revert renaming
+          git revert HEAD~2 # Revert renaming
           git push
