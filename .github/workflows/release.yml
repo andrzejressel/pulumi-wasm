@@ -83,10 +83,10 @@ jobs:
       - name: Replace version
         run: just update-version "${{ github.event.inputs.version }}"
 
-#      - name: Base and e2e tests
-#        run: just base-ci-flow examples-ci-flow
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Base and e2e tests
+        run: just base-ci-flow examples-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clone Repository
         run: |
@@ -95,11 +95,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-#      - name: Create release Commit
-#        run: |
-#          cd /tmp/repo
-#          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
-#          git push origin main
+      - name: Create release Commit
+        run: |
+          cd /tmp/repo
+          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
+          git push origin main
 
       - name: Setup git name and email
         run: |
@@ -110,7 +110,6 @@ jobs:
         run: |
           git add -A
           git commit -m "Update version to ${{ github.event.inputs.version }}"
-          git push
 
       - name: Copy changelog to new version directory
         run: |
@@ -124,7 +123,6 @@ jobs:
           just generate_repo_changelog "${{ github.event.inputs.version }}"
           git add -A
           git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
-          git push
 
       - name: Release
         uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
