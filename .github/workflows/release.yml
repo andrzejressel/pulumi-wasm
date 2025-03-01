@@ -107,7 +107,7 @@ jobs:
 
       - name: Generate and commit new changelog
         run: |
-          just changelog
+          just generate_repo_changelog
           git add -A
           git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
           git push origin main
