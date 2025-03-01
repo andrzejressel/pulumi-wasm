@@ -3,9 +3,9 @@ use anyhow::{bail, Context, Result};
 use bon::Builder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
+use model::Version;
 use std::fs;
 use std::path::Path;
-use model::Version;
 
 mod model;
 
