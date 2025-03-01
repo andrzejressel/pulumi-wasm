@@ -101,16 +101,16 @@ jobs:
 #          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
 #          git push origin main
 
+      - name: Setup git name and email
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Push version change
         run: |
           git add -A
           git commit -m "Update version to ${{ github.event.inputs.version }}"
           git push
-
-      - name: Setup git name and email
-        run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Generate and commit new changelog
         run: |
