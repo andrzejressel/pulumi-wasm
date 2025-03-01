@@ -71,13 +71,6 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                     new_version.get_tag()
                 ));
             }
-            (new_version, previous_version) => {
-                bail!(
-                    "Invalid versions: [{:?}] [{:?}]",
-                    new_version,
-                    previous_version
-                );
-            }
         }
 
         let version_dir = changelog_dir.join(version.tag_name.get_changelog_yaml_directory());
