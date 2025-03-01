@@ -1,6 +1,5 @@
-use std::fmt::format;
-use crate::model::{ChangelogEntry, ChangelogType, GitHistory, Version};
-use anyhow::{ensure, Context, Result};
+use crate::model::{ChangelogEntry, ChangelogType, GitHistory};
+use anyhow::{Context, Result};
 use bon::Builder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
@@ -25,7 +24,8 @@ pub fn generate_changelog(options: &Options) -> Result<String> {
 }
 
 pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) -> Result<String> {
-    let history = generate_history(options, Some(new_version.to_string())).context("Failed to generate history")?;
+    let history = generate_history(options, Some(new_version.to_string()))
+        .context("Failed to generate history")?;
     let s = generate_changelog_content(history, options)
         .context("Failed to generate changelog content")?;
     Ok(s)

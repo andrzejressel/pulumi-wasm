@@ -7,9 +7,7 @@ use tempfile::{tempdir, TempDir};
 
 #[test]
 fn generate_changelog_test() -> Result<()> {
-
-    let repository = create_repository()
-        .context("Failed to create repository")?;
+    let repository = create_repository().context("Failed to create repository")?;
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
@@ -30,8 +28,7 @@ fn generate_changelog_test() -> Result<()> {
 
 #[test]
 fn generate_changelog_for_new_version() -> Result<()> {
-    let repository = create_repository()
-        .context("Failed to create repository")?;
+    let repository = create_repository().context("Failed to create repository")?;
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
@@ -53,8 +50,7 @@ fn generate_changelog_for_new_version() -> Result<()> {
 
 #[test]
 fn generate_github_changelog_for_0_1_0() -> Result<()> {
-    let repository = create_repository()
-        .context("Failed to create repository")?;
+    let repository = create_repository().context("Failed to create repository")?;
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
@@ -76,8 +72,7 @@ fn generate_github_changelog_for_0_1_0() -> Result<()> {
 
 #[test]
 fn generate_github_changelog_for_0_2_0() -> Result<()> {
-    let repository = create_repository()
-        .context("Failed to create repository")?;
+    let repository = create_repository().context("Failed to create repository")?;
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),

@@ -1,8 +1,8 @@
 use anyhow::Context;
 use anyhow::Result;
+use clap::{Parser, Subcommand};
 use std::fs;
 use std::path::Path;
-use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -13,9 +13,7 @@ struct App {
 
 #[derive(Debug, Subcommand)]
 enum Command {
-    GenerateRepoChangelog {
-        new_version: String,
-    }
+    GenerateRepoChangelog { new_version: String },
 }
 
 fn main() -> Result<()> {
@@ -29,7 +27,8 @@ fn main() -> Result<()> {
                 repository: "andrzejressel/pulumi-gestalt",
                 changelog_dir: ".changelog",
             };
-            let s = changelog_lib::generate_changelog_for_new_version(&options, &new_version).context("Failed to generate changelog")?;
+            let s = changelog_lib::generate_changelog_for_new_version(&options, &new_version)
+                .context("Failed to generate changelog")?;
             fs::write("CHANGELOG.md", &s).context("Failed to write changelog")?;
         }
     }
