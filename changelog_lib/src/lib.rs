@@ -16,6 +16,45 @@ pub struct Options<'a> {
     pub changelog_dir: &'a str,
 }
 
+#[derive(Clone, Debug)]
+struct TagName(String);
+
+impl TagName {
+    fn new(name: String) -> TagName {
+        TagName(name)
+    }
+    fn get_version_name(&self) -> VersionName {
+        if self.0.starts_with("v") {
+            VersionName(self.0[1..].to_string())
+        } else {
+            VersionName(self.0.to_string())
+        }
+    }
+
+    fn get_value(&self) -> &str {
+        &self.0
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct VersionName(String);
+
+impl VersionName {
+    pub(crate) fn get_value(&self) -> &str {
+        &self.0
+    }
+}
+
+impl<'a> VersionName {
+    fn new(name: String) -> VersionName {
+        VersionName(name)
+    }
+
+    fn get_directory(&self) -> &Path {
+        self.0.as_ref()
+    }
+}
+
 pub fn generate_changelog(options: &Options) -> Result<String> {
     let history = generate_history(options, None).context("Failed to generate history")?;
     let s = generate_changelog_content(history, options)
@@ -33,10 +72,13 @@ pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) 
 
 pub fn generate_changelog_for_github_changelog(options: &Options, version: &str) -> Result<String> {
     let history = generate_history(options, None).context("Failed to generate history")?;
+    let version_name = VersionName::new(version.to_string());
     let version = history
         .versions
-        .iter()
-        .find(|v| v.name.as_deref() == Some(version))
+        .into_iter()
+        .find(|v| {
+            v.tag_name.clone().map(|t| t.get_version_name().clone()) == Some(version_name.clone())
+        })
         .context(format!("Failed to find version [{}]", version))?;
     let new_history = GitHistory {
         versions: vec![version.clone()],
@@ -53,16 +95,15 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
 
     for (index, version) in history.versions.iter().enumerate() {
         let current_version = version
-            .name
+            .tag_name
             .clone()
-            .map(|v| v.to_string())
-            .unwrap_or("HEAD".to_string());
+            .unwrap_or(TagName::new("HEAD".to_string()));
         let previous_version = history
             .versions
             .get(index + 1)
-            .map(|v| v.name.clone().unwrap());
+            .map(|v| v.tag_name.clone().unwrap());
 
-        match &version.name {
+        match &version.tag_name {
             None => match previous_version {
                 None => {
                     s.push_str("## Unreleased\n");
@@ -70,26 +111,31 @@ fn generate_changelog_content(history: GitHistory, options: &Options) -> Result<
                 Some(prev) => {
                     s.push_str(&format!(
                         "## [Unreleased](https://github.com/{}/compare/{}...{})\n",
-                        options.repository, prev, current_version
+                        options.repository,
+                        prev.get_value(),
+                        current_version.get_value()
                     ));
                 }
             },
             Some(v) => match previous_version {
                 None => {
-                    s.push_str(&format!("## {}\n", v));
+                    s.push_str(&format!("## {}\n", v.get_version_name().get_value()));
                 }
                 Some(prev) => {
                     s.push_str(&format!(
                         "## [{}](https://github.com/{}/compare/{}...{})\n",
-                        v, options.repository, prev, current_version
+                        v.get_version_name().get_value(),
+                        options.repository,
+                        prev.get_value(),
+                        current_version.get_value()
                     ));
                 }
             },
         }
 
         // TODO: Implement unreleased
-        if let Some(version_dir) = &version.name {
-            let version_dir = changelog_dir.join(version_dir);
+        if let Some(tag_name) = &version.tag_name {
+            let version_dir = changelog_dir.join(tag_name.get_version_name().get_directory());
 
             if version_dir.exists() {
                 let mut added = vec![];
@@ -280,8 +326,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
     let mut history = model::GitHistory { versions: vec![] };
 
     let mut version = model::Version {
-        name: new_version_name,
-        first_commit_id: head_commit.id().to_string(),
+        tag_name: new_version_name.map(TagName::new),
         renovate_bot_commits: vec![],
         commits: vec![],
     };
@@ -298,8 +343,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         if let Some(tag) = commit_id_to_tag.get(&id) {
             history.versions.push(version);
             version = model::Version {
-                name: Some(tag.clone()),
-                first_commit_id: id,
+                tag_name: Some(TagName(tag.clone())),
                 renovate_bot_commits: vec![],
                 commits: vec![],
             };

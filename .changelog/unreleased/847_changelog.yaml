@@ -1,2 +1,4 @@
 type: Added
 title: Add changelog generator
+additional_pull_requests:
+  - 857

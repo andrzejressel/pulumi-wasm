@@ -109,11 +109,11 @@ fn create_repository() -> Result<Repository> {
         .add_and_commit("Add 5_fixed.yaml")?
         .copy_file("tests/example/.changelog/0.1.0/6_security.yaml")?
         .add_and_commit("Add 6_security.yaml")?
-        .create_tag("0.1.0")?
+        .create_tag("v0.1.0")?
         .add_and_commit("[no-changelog] Do not include in changelog")?
         .add_and_commit("Some feature")?
         .add_and_commit_renovate("Some renovate bot commit")?
-        .create_tag("0.2.0")?
+        .create_tag("v0.2.0")?
         .add_and_commit("Some other feature")?;
 
     Ok(repository)
