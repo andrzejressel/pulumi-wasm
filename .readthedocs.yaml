@@ -15,6 +15,9 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow
+    pre_build:
+      - just changelog-generate-for-docs
+
     post_build:
       - curl -fsSL https://get.pulumi.com | sh
       - /home/docs/.pulumi/bin/pulumi version
@@ -26,8 +29,6 @@ build:
 
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
       - mv target/wasm32-wasip2/doc site/rust-docs/wasm
-
-      - just changelog-generate-for-docs
 
 mkdocs:
   configuration: mkdocs.yml
