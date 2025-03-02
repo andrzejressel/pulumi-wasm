@@ -6,7 +6,7 @@ use std::path::{Path, PathBuf};
 use tempfile::{tempdir, TempDir};
 
 pub(crate) fn replace_files() -> bool {
-    false
+    true
 }
 
 pub(crate) fn compare_with_file(content: &str, file: &Path) -> Result<()> {

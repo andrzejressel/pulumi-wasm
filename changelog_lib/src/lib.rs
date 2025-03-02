@@ -1,4 +1,3 @@
-use std::fmt::format;
 use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
 use anyhow::{bail, Context, Result};
@@ -7,9 +6,9 @@ use encoders::Encoder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use model::Version;
+use regex::Regex;
 use std::fs;
 use std::path::Path;
-use regex::Regex;
 
 mod encoders;
 mod model;
@@ -331,7 +330,10 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
 fn generate_commit_line(options: &Options, commit: &Commit) -> String {
     let commit_message = &commit.title;
     let pr_id_regex = Regex::new(r"\(#(\d+)\)").unwrap();
-    let commit_message = pr_id_regex.replace_all(commit_message, format!("([#$1](https://github.com/{}/pull/$1))", options.repository));
+    let commit_message = pr_id_regex.replace_all(
+        commit_message,
+        format!("([#$1](https://github.com/{}/pull/$1))", options.repository),
+    );
 
     format!(
         "- {} [{}](https://github.com/{}/commit/{})",
@@ -342,17 +344,19 @@ fn generate_commit_line(options: &Options, commit: &Commit) -> String {
     )
 }
 
-
 fn generate_commit_message(entry: ChangelogEntry, options: &Options) -> String {
     let pr_id_regex = Regex::new(r"\(#(\d+)\)$").unwrap();
 
-    let title = pr_id_regex.replace_all(&entry.title, format!("[#$1](https://github.com/{}/pull/$1)", options.repository));
+    let title = pr_id_regex.replace_all(
+        &entry.title,
+        format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
+    );
 
     // if let Some(captures) = pr_id_regex.captures(&entry.title) {
     //     if let Some(number) = captures.get(1) {
 
-            // return format!("- {} [#{}]({})", entry.title, number.as_str(), entry.url);
-        // }
+    // return format!("- {} [#{}]({})", entry.title, number.as_str(), entry.url);
+    // }
     // }
 
     format!("- {}\n", title)
