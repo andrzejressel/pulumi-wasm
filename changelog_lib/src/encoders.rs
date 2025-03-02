@@ -4,9 +4,7 @@ pub(crate) trait Encoder {
     fn encode_collapsible_block_end(&self) -> String;
 }
 
-pub(crate) struct GithubFlavorEncoder {
-
-}
+pub(crate) struct GithubFlavorEncoder {}
 
 impl Encoder for GithubFlavorEncoder {
     fn encode_collapsible_block_start(&self, title: &str) -> String {
@@ -26,8 +24,7 @@ impl Encoder for GithubFlavorEncoder {
     }
 }
 
-pub(crate) struct MkdocsEncoder {
-}
+pub(crate) struct MkdocsEncoder {}
 
 impl Encoder for MkdocsEncoder {
     fn encode_collapsible_block_start(&self, title: &str) -> String {

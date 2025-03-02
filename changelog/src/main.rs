@@ -14,7 +14,7 @@ struct App {
 #[derive(Debug, Subcommand)]
 enum Command {
     GenerateRepoChangelog { new_version: String },
-    GenerateForDocs {}
+    GenerateForDocs {},
 }
 
 fn main() -> Result<()> {
@@ -31,7 +31,7 @@ fn main() -> Result<()> {
             let s = changelog_lib::generate_changelog_for_new_version(&options, &new_version)
                 .context("Failed to generate changelog")?;
             fs::write("CHANGELOG.md", &s).context("Failed to write changelog")?;
-        },
+        }
         Command::GenerateForDocs {} => {
             let s = changelog_lib::generate_mkdocs_changelog(&options)
                 .context("Failed to generate changelog")?;

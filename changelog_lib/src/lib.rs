@@ -1,16 +1,16 @@
+use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 use crate::model::{ChangelogEntry, ChangelogType, GitHistory, TagName};
 use anyhow::{bail, Context, Result};
 use bon::Builder;
+use encoders::Encoder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use model::Version;
 use std::fs;
 use std::path::Path;
-use encoders::Encoder;
-use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 
-mod model;
 mod encoders;
+mod model;
 
 #[derive(Builder)]
 pub struct Options<'a> {
@@ -57,7 +57,11 @@ pub fn generate_changelog_for_github_changelog(options: &Options, version: &str)
     Ok(s)
 }
 
-fn generate_changelog_content(history: GitHistory, options: &Options, encoder: impl Encoder) -> Result<String> {
+fn generate_changelog_content(
+    history: GitHistory,
+    options: &Options,
+    encoder: impl Encoder,
+) -> Result<String> {
     let mut s = String::new();
 
     let changelog_dir = options.repository_path.join(options.changelog_dir);
@@ -179,11 +183,9 @@ fn generate_changelog_content(history: GitHistory, options: &Options, encoder: i
         }
 
         if !version.renovate_bot_commits.is_empty() {
-
             s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency updates"));
 
             for commit in &version.renovate_bot_commits {
-
                 let line = format!(
                     "- {} [{}](https://github.com/{}/commit/{})",
                     commit.title,
