@@ -2,13 +2,13 @@
 <details>
 <summary><h3>🤖 Dependency updates</h3></summary>
 
-- Some renovate bot commit [41cf76d](https://github.com/andrzejressel/pulumi-gestalt/commit/41cf76d1c95a37f9d90cf32563fdbbecd09096b2)
+- Some renovate bot commit [874197c](https://github.com/andrzejressel/pulumi-gestalt/commit/874197cbc4f5280d2afb82b13b94ec0804943097)
 </details>
 
 <details>
 <summary><h3>Commits</h3></summary>
 
-- Some renovate bot commit [41cf76d](https://github.com/andrzejressel/pulumi-gestalt/commit/41cf76d1c95a37f9d90cf32563fdbbecd09096b2)
-- Some feature [7a9e812](https://github.com/andrzejressel/pulumi-gestalt/commit/7a9e8120dbb9b89a7be404ae1c944961d7e18947)
+- Some renovate bot commit [874197c](https://github.com/andrzejressel/pulumi-gestalt/commit/874197cbc4f5280d2afb82b13b94ec0804943097)
+- Some feature [64ff3c4](https://github.com/andrzejressel/pulumi-gestalt/commit/64ff3c48450faef2911173a319da3fe67e46ae9d)
 </details>
 

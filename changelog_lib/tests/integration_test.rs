@@ -2,8 +2,14 @@ use anyhow::Context;
 use anyhow::Result;
 use std::collections::HashMap;
 use std::fs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use tempfile::{tempdir, TempDir};
+
+fn replace_files() -> bool {
+    false
+}
+
+const INITIAL_COMMIT_ID: &str = "145c01c05387eaa60cf2bfa61a2e81b11c6ef57d";
 
 #[test]
 fn generate_changelog_test() -> Result<()> {
@@ -11,17 +17,14 @@ fn generate_changelog_test() -> Result<()> {
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
-        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        start_commit_id: INITIAL_COMMIT_ID,
         repository: "andrzejressel/pulumi-gestalt",
         changelog_dir: "tests/example/.changelog",
     };
 
     let result = changelog_lib::generate_changelog(&options)?;
 
-    let expected = fs::read("tests/example/expected.md").context("Failed to read expected.md")?;
-    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
-
-    assert_eq!(result, expected);
+    compare_with_file(&result, Path::new("tests/example/expected.md"))?;
 
     Ok(())
 }
@@ -32,18 +35,14 @@ fn generate_changelog_for_new_version() -> Result<()> {
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
-        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        start_commit_id: INITIAL_COMMIT_ID,
         repository: "andrzejressel/pulumi-gestalt",
         changelog_dir: "tests/example/.changelog",
     };
 
     let result = changelog_lib::generate_changelog_for_new_version(&options, "0.3.0")?;
 
-    let expected = fs::read("tests/example/expected_new_version.md")
-        .context("Failed to read expected_new_version.md")?;
-    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
-
-    assert_eq!(result, expected);
+    compare_with_file(&result, Path::new("tests/example/expected_new_version.md"))?;
 
     Ok(())
 }
@@ -54,18 +53,14 @@ fn generate_github_changelog_for_0_1_0() -> Result<()> {
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
-        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        start_commit_id: INITIAL_COMMIT_ID,
         repository: "andrzejressel/pulumi-gestalt",
         changelog_dir: "tests/example/.changelog",
     };
 
     let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.1.0")?;
 
-    let expected = fs::read("tests/example/expected_github_0.1.0.md")
-        .context("Failed to read expected_github_0.1.0.md")?;
-    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
-
-    assert_eq!(result, expected);
+    compare_with_file(&result, Path::new("tests/example/expected_github_0.1.0.md"))?;
 
     Ok(())
 }
@@ -76,19 +71,43 @@ fn generate_github_changelog_for_0_2_0() -> Result<()> {
 
     let options = changelog_lib::Options {
         repository_path: repository.dir.path(),
-        start_commit_id: "e6f61d90d87238305276618124d965b0aa750a06",
+        start_commit_id: INITIAL_COMMIT_ID,
         repository: "andrzejressel/pulumi-gestalt",
         changelog_dir: "tests/example/.changelog",
     };
 
     let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.2.0")?;
 
-    let expected = fs::read("tests/example/expected_github_0.2.0.md")
-        .context("Failed to read expected_github_0.2.0.md")?;
-    let expected = String::from_utf8(expected)?.replace("\r\n", "\n");
+    compare_with_file(&result, Path::new("tests/example/expected_github_0.2.0.md"))?;
 
-    assert_eq!(result, expected);
+    Ok(())
+}
 
+#[test]
+fn generate_mkdocs_changelog() -> Result<()> {
+    let repository = create_repository().context("Failed to create repository")?;
+
+    let options = changelog_lib::Options {
+        repository_path: repository.dir.path(),
+        start_commit_id: INITIAL_COMMIT_ID,
+        repository: "andrzejressel/pulumi-gestalt",
+        changelog_dir: "tests/example/.changelog",
+    };
+
+    let result = changelog_lib::generate_mkdocs_changelog(&options)?;
+
+    compare_with_file(&result, Path::new("tests/example/expected_mkdocs.md"))?;
+
+    Ok(())
+}
+
+fn compare_with_file(content: &str, file: &Path) -> Result<()> {
+    if replace_files() {
+        fs::write(file, content)?;
+    }
+    let expected = fs::read(file).with_context(|| format!("Failed to read {}", file.display()))?;
+    let expected = String::from_utf8(expected).context("Failed to convert to string")?;
+    assert_eq!(content, expected);
     Ok(())
 }
 
@@ -96,7 +115,8 @@ fn create_repository() -> Result<Repository> {
     let repository = Repository::new()?;
 
     let repository = repository
-        .add_and_commit("Initial commit")?
+        .copy_file("tests/example/.changelog/0.1.0/.gitkeep")?
+        .add_and_commit("Initial commit (MUST NOT BE INCLUDED)")?
         .copy_file("tests/example/.changelog/0.1.0/1_added.yaml")?
         .add_and_commit("Add 1_added.yaml")?
         .copy_file("tests/example/.changelog/0.1.0/2_changed.yaml")?

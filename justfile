@@ -204,3 +204,6 @@ update-version NEW_VERSION:
 
 generate_repo_changelog NEW_VERSION:
     cargo run -p changelog -- generate-repo-changelog {{NEW_VERSION}}
+
+changelog-generate-for-docs:
+    cargo run -p changelog -- generate-for-docs

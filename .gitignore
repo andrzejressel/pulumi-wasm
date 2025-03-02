@@ -47,3 +47,5 @@ build/
 .vs
 out
 .vscode
+
+docs/CHANGELOG.md
