@@ -3,16 +3,17 @@
 - Add a new unreleased feature
 
 ??? "Commits"
-    - Some yet unreleased feature [265db74](https://github.com/andrzejressel/pulumi-gestalt/commit/265db7456ab3f0c08a86477f5a8242b9b2a782d7)
+    - Some yet unreleased feature [a3b84bd](https://github.com/andrzejressel/pulumi-gestalt/commit/a3b84bd7d5f741441b63fe64e7dce03c09ead748)
 
 
 ## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.1.0...v0.2.0)
 ??? "🤖 Dependency updates"
-    - Some renovate bot commit [f1b0807](https://github.com/andrzejressel/pulumi-gestalt/commit/f1b08079d5e646829a389852ed99172abccac4fd)
+    - Some renovate bot commit ([#1](https://github.com/andrzejressel/pulumi-gestalt/pull/1)) [ca2eedf](https://github.com/andrzejressel/pulumi-gestalt/commit/ca2eedf9bd62e59799d43a8fbe50beff86ba09c7)
 
 
 ??? "Commits"
-    - Some renovate bot commit [f1b0807](https://github.com/andrzejressel/pulumi-gestalt/commit/f1b08079d5e646829a389852ed99172abccac4fd)
+    - Some PR feature ([#2](https://github.com/andrzejressel/pulumi-gestalt/pull/2)) [11dcb02](https://github.com/andrzejressel/pulumi-gestalt/commit/11dcb02d796d0121c52cb287f0ce1e54c1a1932b)
+    - Some renovate bot commit ([#1](https://github.com/andrzejressel/pulumi-gestalt/pull/1)) [ca2eedf](https://github.com/andrzejressel/pulumi-gestalt/commit/ca2eedf9bd62e59799d43a8fbe50beff86ba09c7)
     - Some feature [97d09a1](https://github.com/andrzejressel/pulumi-gestalt/commit/97d09a1bf4594d2248b929626c655ba14cb74320)
 
 

@@ -1,11 +1,12 @@
 use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
-use crate::model::{ChangelogEntry, ChangelogType, GitHistory, TagName};
+use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
 use anyhow::{bail, Context, Result};
 use bon::Builder;
 use encoders::Encoder;
 use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use model::Version;
+use regex::Regex;
 use std::fs;
 use std::path::Path;
 
@@ -140,7 +141,7 @@ fn generate_changelog_content(
             if !added.is_empty() {
                 s.push_str("### Added\n");
                 for entry in added {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -148,7 +149,7 @@ fn generate_changelog_content(
             if !changed.is_empty() {
                 s.push_str("### Changed\n");
                 for entry in changed {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -156,7 +157,7 @@ fn generate_changelog_content(
             if !deprecated.is_empty() {
                 s.push_str("### Deprecated\n");
                 for entry in deprecated {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -164,7 +165,7 @@ fn generate_changelog_content(
             if !removed.is_empty() {
                 s.push_str("### Removed\n");
                 for entry in removed {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -172,7 +173,7 @@ fn generate_changelog_content(
             if !fixed.is_empty() {
                 s.push_str("### Fixed\n");
                 for entry in fixed {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -180,7 +181,7 @@ fn generate_changelog_content(
             if !security.is_empty() {
                 s.push_str("### Security\n");
                 for entry in security {
-                    s.push_str(&format!("- {}\n", entry.title));
+                    s.push_str(generate_commit_message(entry, options).as_str());
                 }
                 s.push('\n');
             }
@@ -190,14 +191,7 @@ fn generate_changelog_content(
             s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency updates"));
 
             for commit in &version.renovate_bot_commits {
-                let line = format!(
-                    "- {} [{}](https://github.com/{}/commit/{})",
-                    commit.title,
-                    commit.id.chars().take(7).collect::<String>(),
-                    options.repository,
-                    commit.id
-                );
-
+                let line = generate_commit_line(options, commit);
                 s.push_str(&encoder.encode_collapsible_block_element(&line));
             }
 
@@ -207,13 +201,7 @@ fn generate_changelog_content(
         s.push_str(&encoder.encode_collapsible_block_start("Commits"));
 
         for commit in &version.commits {
-            let line = format!(
-                "- {} [{}](https://github.com/{}/commit/{})",
-                commit.title,
-                commit.id.chars().take(7).collect::<String>(),
-                options.repository,
-                commit.id
-            );
+            let line = generate_commit_line(options, commit);
             s.push_str(&encoder.encode_collapsible_block_element(&line));
         }
 
@@ -337,4 +325,39 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
     println!("History: {:?}", history);
 
     Ok(history)
+}
+
+fn generate_commit_line(options: &Options, commit: &Commit) -> String {
+    let commit_message = &commit.title;
+    let pr_id_regex = Regex::new(r"\(#(\d+)\)").unwrap();
+    let commit_message = pr_id_regex.replace_all(
+        commit_message,
+        format!("([#$1](https://github.com/{}/pull/$1))", options.repository),
+    );
+
+    format!(
+        "- {} [{}](https://github.com/{}/commit/{})",
+        commit_message,
+        commit.id.chars().take(7).collect::<String>(),
+        options.repository,
+        commit.id
+    )
+}
+
+fn generate_commit_message(entry: ChangelogEntry, options: &Options) -> String {
+    let pr_id_regex = Regex::new(r"\(#(\d+)\)$").unwrap();
+
+    let title = pr_id_regex.replace_all(
+        &entry.title,
+        format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
+    );
+
+    // if let Some(captures) = pr_id_regex.captures(&entry.title) {
+    //     if let Some(number) = captures.get(1) {
+
+    // return format!("- {} [#{}]({})", entry.title, number.as_str(), entry.url);
+    // }
+    // }
+
+    format!("- {}\n", title)
 }

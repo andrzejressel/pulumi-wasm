@@ -17,6 +17,8 @@ pub(crate) enum ChangelogType {
 pub(crate) struct ChangelogEntry {
     pub(crate) r#type: ChangelogType,
     pub(crate) title: String,
+    #[serde(default)]
+    pub(crate) additional_pull_requests: Vec<i64>,
 }
 
 #[derive(Debug)]
