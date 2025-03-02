@@ -1,4 +1,12 @@
-## v0.0.0-test18
+## [v0.0.0-test2](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.0.0-test1...vv0.0.0-test2)
+<details>
+<summary><h3>Commits</h3></summary>
+
+- Update version to 0.0.0-test2 [2c5a47e](https://github.com/andrzejressel/pulumi-gestalt/commit/2c5a47e1913f99b283e07d3dcd7990f7d7af510a)
+- Restore version to 0.0.0-DEV [c8cc9b3](https://github.com/andrzejressel/pulumi-gestalt/commit/c8cc9b3f54d6c01c0d69164052572b22c5c1926d)
+</details>
+
+## 0.0.0-test1
 <details>
 <summary><h3>🤖 Dependency updates</h3></summary>
 
@@ -12,6 +20,8 @@
 <details>
 <summary><h3>Commits</h3></summary>
 
+- Release v0.0.0-test18 [972c45d](https://github.com/andrzejressel/pulumi-gestalt/commit/972c45d28605dc78d3a4946c8b21d030d1785213)
+- Update changelog for version 0.0.0-test18 [15a34ef](https://github.com/andrzejressel/pulumi-gestalt/commit/15a34efa331e4a879f900dc6004e5dafe7cd923a)
 - Update version to 0.0.0-test18 [155e666](https://github.com/andrzejressel/pulumi-gestalt/commit/155e6666fb1b3f02a0ef04359b7dd3a017b80972)
 - Readthedocs [624c62d](https://github.com/andrzejressel/pulumi-gestalt/commit/624c62dac9aaac2ee41a0fa709f23d212ffdef7f)
 - Merge branch 'main' into readthedocs [fdc31ab](https://github.com/andrzejressel/pulumi-gestalt/commit/fdc31ab29146d8883844f4ed536dc02d07e2fee7)
