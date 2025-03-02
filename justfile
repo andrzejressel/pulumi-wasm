@@ -173,6 +173,7 @@ rust-docs:
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_native \
         -p pulumi_gestalt_rust_integration \
+        -p pulumi_gestalt_providers_aws_mini \
         -p pulumi_gestalt_providers_cloudflare \
         -p pulumi_gestalt_providers_docker \
         -p pulumi_gestalt_providers_random
@@ -182,6 +183,7 @@ rust-docs-wasm:
         -p pulumi_gestalt_rust \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_wasm \
+        -p pulumi_gestalt_providers_aws_mini \
         -p pulumi_gestalt_providers_cloudflare \
         -p pulumi_gestalt_providers_docker \
         -p pulumi_gestalt_providers_random
