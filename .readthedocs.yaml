@@ -16,8 +16,8 @@ build:
     post_checkout:
       - git fetch --unshallow
       - curl -fsSL https://get.pulumi.com | sh
-      - mv /home/docs/.pulumi/bin /bin/pulumi
-      - chmod +x /bin/pulumi
+      - sudo mv ~/.pulumi/bin/pulumi /bin/pulumi
+      - sudo chmod +x /bin/pulumi
     pre_build:
       - just changelog-generate-for-docs
       - just rust-docs
