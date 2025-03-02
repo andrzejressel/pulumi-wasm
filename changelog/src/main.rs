@@ -15,6 +15,7 @@ struct App {
 enum Command {
     GenerateRepoChangelog { new_version: String },
     GenerateForDocs {},
+    DryRun {},
 }
 
 fn main() -> Result<()> {
@@ -36,6 +37,16 @@ fn main() -> Result<()> {
             let s = changelog_lib::generate_mkdocs_changelog(&options)
                 .context("Failed to generate changelog")?;
             fs::write("docs/CHANGELOG.md", &s).context("Failed to write changelog")?;
+        }
+        Command::DryRun {} => {
+            changelog_lib::generate_changelog(&options)
+                .context("Failed to generate repo changelog")?;
+            changelog_lib::generate_mkdocs_changelog(&options)
+                .context("Failed to generate mkdocs changelog")?;
+            // changelog_lib::generate_changelog_for_github_changelog(&options, "9999.0.0")
+            //     .context("Failed to generate github changelog")?;
+            changelog_lib::generate_changelog_for_new_version(&options, "9999.0.0")
+                .context("Failed to generate new version changelog")?;
         }
     }
 
