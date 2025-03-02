@@ -172,10 +172,10 @@ runtime: gestalt
     ```justfile title="justfile" 
     binary := "pulumi_gestalt_wasm_runner"
     wasm := "target/wasm32-wasip2/debug/<PROJECT_NAME>.wasm"
-    wasi_target_name := "wasm32-wasip2"
+    WASI_TARGET := "wasm32-wasip2"
     
     run:
-        cargo build --target={{wasi_target_name}}
+        cargo build --target={{WASI_TARGET}}
         {{binary}} run --debug "{{wasm}}"
     ```
 

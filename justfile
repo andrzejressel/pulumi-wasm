@@ -6,7 +6,7 @@ SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
 
-wasi_target_name := "wasm32-wasip2"
+WASI_TARGET := "wasm32-wasip2"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
@@ -53,23 +53,23 @@ build-native-examples:
 # Compiling everything together causes linking issues
 build-wasm-components:
     cargo build -p pulumi_gestalt_wasm_runner
-    cargo build -p pulumi_gestalt --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_simple --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_docker --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_dependencies --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_multiple_providers --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_plugins --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_secret --target={{wasi_target_name}}
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET}}
 
 build-wasm-components-release:
     cargo build -p pulumi_gestalt_wasm_runner --release
-    cargo build -p pulumi_gestalt --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_simple --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_docker --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_dependencies --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_multiple_providers --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_plugins --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_secret --target={{wasi_target_name}} --release
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET}} --release
 
 build-static-library:
     cargo build -p pulumi_native_c
@@ -178,7 +178,7 @@ rust-docs:
         -p pulumi_gestalt_providers_random
 
 rust-docs-wasm:
-    cargo doc --no-deps --target wasm32-wasip2 \
+    cargo doc --no-deps --target {{WASI_TARGET}} \
         -p pulumi_gestalt_rust \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_wasm \

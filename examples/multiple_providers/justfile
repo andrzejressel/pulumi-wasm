@@ -2,7 +2,7 @@ set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/release/pulumi_gestalt_wasm_runner"
 wasm := "../../target/wasm32-wasip2/release/pulumi_gestalt_example_multiple_providers.wasm"
 pulumi_gestalt := "../../target/wasm32-wasip2/release/pulumi_gestalt.wasm"
-wasi_target_name := "wasm32-wasip2"
+WASI_TARGET := "wasm32-wasip2"
 
 run:
     {{binary}} run --pulumi-gestalt "{{pulumi_gestalt}}" "{{wasm}}"
@@ -18,8 +18,8 @@ local-test:
     $PSNativeCommandUseErrorActionPreference = $true
 
     cargo build -p pulumi_gestalt_wasm_runner --release
-    cargo build -p pulumi_gestalt --release --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_multiple_providers --release --target={{wasi_target_name}}
+    cargo build -p pulumi_gestalt --release --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_multiple_providers --release --target={{WASI_TARGET}}
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y
