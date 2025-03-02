@@ -28,7 +28,7 @@ build:
       - mv target/doc $READTHEDOCS_OUTPUT/html/rust-docs/native
 
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
-      - mv target/wasm32-wasip2/doc site/rust-docs/wasm
+      - mv target/wasm32-wasip2/doc $READTHEDOCS_OUTPUT/html/rust-docs/wasm
 
 mkdocs:
   configuration: mkdocs.yml
