@@ -10,8 +10,8 @@ WASI_TARGET := "wasm32-wasip2"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
-# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project
-housekeeping-ci-flow: regenerator regenerate-generator-tests fmt
+# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project, check changelog
+housekeeping-ci-flow: regenerator regenerate-generator-tests changelog-dry-run fmt
 
 # Runs all amd64 unit and doc tests tests
 base-ci-flow: test
@@ -196,8 +196,11 @@ update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "crates/wit/wit/world.wit" "crates/rust/src/lib.rs" \
     "Cargo.toml"
 
-generate_repo_changelog NEW_VERSION:
+changelog-generate-for-repo NEW_VERSION:
     cargo run -p changelog -- generate-repo-changelog {{NEW_VERSION}}
 
 changelog-generate-for-docs:
     cargo run -p changelog -- generate-for-docs
+
+changelog-dry-run:
+    cargo run -p changelog -- dry-run
