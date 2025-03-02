@@ -12,6 +12,7 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow
+      - cargo run -p changelog -- generate-for-docs
 
 mkdocs:
   configuration: mkdocs.yml
