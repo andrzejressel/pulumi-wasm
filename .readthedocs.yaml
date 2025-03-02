@@ -17,8 +17,8 @@ build:
       - git fetch --unshallow
       - curl -fsSL https://get.pulumi.com | sh
     pre_build:
-      - PATH="$PATH:~/.pulumi/bin" just rust-docs
-      - PATH="$PATH:~/.pulumi/bin" just rust-docs-wasm
+      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs
+      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
       - just changelog-generate-for-docs
 
 mkdocs:
