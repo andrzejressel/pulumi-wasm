@@ -8,7 +8,7 @@ use gix::reference::Category;
 use model::Version;
 use once_cell::unsync::Lazy;
 use regex::Regex;
-use std::{fs, io};
+use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
@@ -106,7 +106,6 @@ fn generate_changelog_content(
             entries.sort();
 
             for path in entries {
-
                 if path.extension().and_then(|f| f.to_str()) != Some("yaml") {
                     continue;
                 }
@@ -331,8 +330,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
 
     Ok(history)
 }
-
-const PR_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"\(#(\d+)\)$").unwrap());
+static PR_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"\(#(\d+)\)$").unwrap());
 
 fn generate_commit_line(options: &Options, commit: &Commit) -> String {
     let commit_message = &commit.title;
