@@ -17,6 +17,8 @@ build:
       - git fetch --unshallow
     pre_build:
       - just changelog-generate-for-docs
+      - just rust-docs
+      - just rust-docs-wasm
 
 mkdocs:
   configuration: mkdocs.yml
