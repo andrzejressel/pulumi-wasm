@@ -16,12 +16,10 @@ build:
     post_checkout:
       - git fetch --unshallow
       - curl -fsSL https://get.pulumi.com | sh
-      - sudo mv ~/.pulumi/bin/pulumi /bin/pulumi
-      - sudo chmod +x /bin/pulumi
     pre_build:
+      - PATH="$PATH:~/.pulumi/bin" just rust-docs
+      - PATH="$PATH:~/.pulumi/bin" just rust-docs-wasm
       - just changelog-generate-for-docs
-      - just rust-docs
-      - just rust-docs-wasm
 
 mkdocs:
   configuration: mkdocs.yml
