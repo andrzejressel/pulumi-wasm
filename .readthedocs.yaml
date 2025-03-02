@@ -15,11 +15,17 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow
-    pre_build:
+    post_build:
       - curl -fsSL https://get.pulumi.com | sh
       - /home/docs/.pulumi/bin/pulumi version
+
+      - mkdir $READTHEDOCS_OUTPUT/html/rust-docs
+
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs
-      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
+      - mv target/doc $READTHEDOCS_OUTPUT/html/rust-docs/native
+
+#      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
+#      - mv target/wasm32-wasip2/doc site/rust-docs/wasm
       - just changelog-generate-for-docs
 
 mkdocs:
