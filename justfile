@@ -6,7 +6,7 @@ SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
 
-wasi_target_name := "wasm32-wasip2"
+WASI_TARGET := "wasm32-wasip2"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
@@ -53,23 +53,23 @@ build-native-examples:
 # Compiling everything together causes linking issues
 build-wasm-components:
     cargo build -p pulumi_gestalt_wasm_runner
-    cargo build -p pulumi_gestalt --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_simple --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_docker --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_dependencies --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_multiple_providers --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_plugins --target={{wasi_target_name}}
-    cargo build -p pulumi_gestalt_example_secret --target={{wasi_target_name}}
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET}}
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET}}
 
 build-wasm-components-release:
     cargo build -p pulumi_gestalt_wasm_runner --release
-    cargo build -p pulumi_gestalt --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_simple --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_docker --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_dependencies --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_multiple_providers --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_plugins --target={{wasi_target_name}} --release
-    cargo build -p pulumi_gestalt_example_secret --target={{wasi_target_name}} --release
+    cargo build -p pulumi_gestalt --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_simple --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_docker --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_dependencies --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_multiple_providers --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_plugins --target={{WASI_TARGET}} --release
+    cargo build -p pulumi_gestalt_example_secret --target={{WASI_TARGET}} --release
 
 build-static-library:
     cargo build -p pulumi_native_c
@@ -168,28 +168,22 @@ test-docs:
 
 rust-docs:
     cargo doc --no-deps \
-        -p pulumi_gestalt_rust \
         -p pulumi_gestalt_build \
+        -p pulumi_gestalt_rust \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_native \
         -p pulumi_gestalt_rust_integration \
-        -p pulumi_gestalt_providers_aws_mini \
-        -p pulumi_gestalt_providers_azure_mini \
         -p pulumi_gestalt_providers_cloudflare \
         -p pulumi_gestalt_providers_docker \
-        -p pulumi_gestalt_providers_gcp_mini \
         -p pulumi_gestalt_providers_random
 
 rust-docs-wasm:
-    cargo doc --no-deps --target wasm32-wasip2 \
+    cargo doc --no-deps --target {{WASI_TARGET}} \
         -p pulumi_gestalt_rust \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_wasm \
-        -p pulumi_gestalt_providers_aws_mini \
-        -p pulumi_gestalt_providers_azure_mini \
         -p pulumi_gestalt_providers_cloudflare \
         -p pulumi_gestalt_providers_docker \
-        -p pulumi_gestalt_providers_gcp_mini \
         -p pulumi_gestalt_providers_random
 
 rust-docs-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html":

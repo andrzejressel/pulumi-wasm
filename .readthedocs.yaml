@@ -1,0 +1,38 @@
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 2
+
+# Set the OS, Python version, and other tools you might need
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+    rust: "latest"
+  apt_packages:
+    - just
+  jobs:
+    post_checkout:
+      - git fetch --unshallow
+    pre_build:
+      - just changelog-generate-for-docs
+
+    post_build:
+      - curl -fsSL https://get.pulumi.com | sh
+      - /home/docs/.pulumi/bin/pulumi version
+
+      - mkdir $READTHEDOCS_OUTPUT/html/rust-docs
+
+      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs
+      - mv target/doc $READTHEDOCS_OUTPUT/html/rust-docs/native
+
+      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
+      - mv target/wasm32-wasip2/doc $READTHEDOCS_OUTPUT/html/rust-docs/wasm
+
+mkdocs:
+  configuration: mkdocs.yml
+
+python:
+  install:
+  - requirements: docs/requirements.txt

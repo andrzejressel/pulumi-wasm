@@ -1,5 +1,6 @@
 site_name: Pulumi Gestalt
 repo_url: https://github.com/andrzejressel/pulumi-gestalt
+site_url: !ENV READTHEDOCS_CANONICAL_URL
 edit_uri: edit/main/docs/
 theme:
   palette:
