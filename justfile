@@ -10,8 +10,8 @@ wasi_target_name := "wasm32-wasip2"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
-# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project
-housekeeping-ci-flow: regenerator regenerate-generator-tests changelog-test fmt
+# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project, check changelog
+housekeeping-ci-flow: regenerator regenerate-generator-tests changelog-dry-run fmt
 
 # Runs all amd64 unit and doc tests tests
 base-ci-flow: test
