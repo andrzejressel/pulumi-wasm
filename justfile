@@ -168,8 +168,8 @@ test-docs:
 
 rust-docs:
     cargo doc --no-deps \
-        -p pulumi_gestalt_rust \
         -p pulumi_gestalt_build \
+        -p pulumi_gestalt_rust \
         -p pulumi_gestalt_rust_adapter \
         -p pulumi_gestalt_rust_adapter_native \
         -p pulumi_gestalt_rust_integration \
