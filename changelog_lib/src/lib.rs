@@ -207,7 +207,7 @@ fn print_changelog_entries(
 ) -> Result<()> {
     for ChangelogEntryWithPath { entry, path } in entries {
         s.push_str(
-            generate_commit_message(entry, &path, options)
+            generate_commit_message(entry, path, options)
                 .with_context(|| {
                     format!("Failed to generate changelog entry [{}]", path.display())
                 })?
@@ -357,25 +357,44 @@ fn generate_commit_message(
     path: &Path,
     options: &Options,
 ) -> Result<String> {
-    let mut title = PR_ID_REGEX.replace_all(
-        &entry.title,
-        format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
-    ).to_string();
+    let mut title = PR_ID_REGEX
+        .replace_all(
+            &entry.title,
+            format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
+        )
+        .to_string();
 
     let (commit_sha, commit_message) = get_file_creation_commit(path, options)?;
 
     if let Some(captures) = PR_ID_REGEX.captures(&commit_message) {
         if let Some(number) = captures.get(1) {
-            title.push_str(format!(" ([#{}](https://github.com/{}/pull/{}))", number.as_str(), options.repository, number.as_str()).as_str());
+            title.push_str(
+                format!(
+                    " ([#{}](https://github.com/{}/pull/{}))",
+                    number.as_str(),
+                    options.repository,
+                    number.as_str()
+                )
+                .as_str(),
+            );
         }
     }
 
     for pr_id in &entry.additional_pull_requests {
-        title.push_str(format!(" ([#{}](https://github.com/{}/pull/{}))", pr_id, options.repository, pr_id).as_str());
+        title.push_str(
+            format!(
+                " ([#{}](https://github.com/{}/pull/{}))",
+                pr_id, options.repository, pr_id
+            )
+            .as_str(),
+        );
     }
 
     let short_sha = commit_sha.chars().take(7).collect::<String>();
-    title.push_str(&format!(" [{}](https://github.com/{}/commit/{})", short_sha, options.repository, commit_sha));
+    title.push_str(&format!(
+        " [{}](https://github.com/{}/commit/{})",
+        short_sha, options.repository, commit_sha
+    ));
 
     Ok(format!("- {}\n", title))
 }
@@ -383,10 +402,10 @@ fn generate_commit_message(
 fn get_file_creation_commit(file_path: &Path, options: &Options) -> Result<(String, String)> {
     // Execute the git log --follow command
     let output = Command::new("git")
-        .args(&[
+        .args([
             "log",
             "--follow",
-            "--diff-filter=A", // Only show commits where the file was added
+            "--diff-filter=A",       // Only show commits where the file was added
             "--pretty=format:%H %s", // Include both the commit SHA and the commit message
             "--",
             file_path.to_str().unwrap(),
@@ -397,20 +416,32 @@ fn get_file_creation_commit(file_path: &Path, options: &Options) -> Result<(Stri
 
     // Check if the command was successful
     if !output.status.success() {
-        bail!("Git command failed [{}]", String::from_utf8_lossy(&output.stderr));
+        bail!(
+            "Git command failed [{}]",
+            String::from_utf8_lossy(&output.stderr)
+        );
     }
 
     // Convert the output to a string
     let output_str = std::str::from_utf8(&output.stdout)?.trim();
 
     if output_str.is_empty() {
-        bail!("No commit found for the given file [{}]", file_path.display());
+        bail!(
+            "No commit found for the given file [{}]",
+            file_path.display()
+        );
     }
 
     // Split the output into commit SHA and commit message
     let mut parts = output_str.splitn(2, ' ');
-    let commit_sha = parts.next().ok_or(format_err!("Failed to parse commit SHA"))?.to_string();
-    let commit_message = parts.next().ok_or(format_err!("Failed to parse commit message"))?.to_string();
+    let commit_sha = parts
+        .next()
+        .ok_or(format_err!("Failed to parse commit SHA"))?
+        .to_string();
+    let commit_message = parts
+        .next()
+        .ok_or(format_err!("Failed to parse commit message"))?
+        .to_string();
 
     Ok((commit_sha, commit_message))
 }

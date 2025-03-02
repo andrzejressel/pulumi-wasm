@@ -66,7 +66,10 @@ fn create_repository() -> Result<Repository> {
         .add_and_commit("Add 6_security.yaml")?
         .copy_file("tests/example_released/.changelog/invalid_dir/7_file_move_test.yaml")?
         .add_and_commit("Add 7_pr.yaml")?
-        .move_file("tests/example_released/.changelog/invalid_dir/7_file_move_test.yaml", "tests/example_released/.changelog/0.1.0/7_file_move_test.yaml")?
+        .move_file(
+            "tests/example_released/.changelog/invalid_dir/7_file_move_test.yaml",
+            "tests/example_released/.changelog/0.1.0/7_file_move_test.yaml",
+        )?
         .add_and_commit("Move 7_pr.yaml")?
         .copy_file("tests/example_released/.changelog/0.1.0/8_added_pr.yaml")?
         .add_and_commit("Add 8_pr.yaml (#1)")?
