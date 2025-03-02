@@ -8,7 +8,7 @@ use gix::reference::Category;
 use model::Version;
 use once_cell::unsync::Lazy;
 use regex::Regex;
-use std::fs;
+use std::{fs, io};
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
@@ -97,26 +97,24 @@ fn generate_changelog_content(
             let mut fixed = vec![];
             let mut security = vec![];
 
-            let files = fs::read_dir(&version_dir)
-                .with_context(|| format!("Failed to read directory {}", version_dir.display()))?;
+            let mut entries = fs::read_dir(&version_dir)
+                .with_context(|| format!("Failed to read directory {}", version_dir.display()))?
+                .map(|res| res.map(|e| e.path()))
+                .collect::<Result<Vec<_>, _>>()
+                .context("Failed to obtain entries paths")?;
 
-            for file in files {
-                let file = file.with_context(|| {
-                    format!(
-                        "Failed to read file from directory {}",
-                        version_dir.display()
-                    )
-                })?;
+            entries.sort();
 
-                let path = file.path();
+            for path in entries {
+
                 if path.extension().and_then(|f| f.to_str()) != Some("yaml") {
                     continue;
                 }
 
                 let content = fs::read_to_string(&path)
-                    .with_context(|| format!("Failed to read file {}", file.path().display()))?;
+                    .with_context(|| format!("Failed to read file {}", path.display()))?;
                 let entry: ChangelogEntry = serde_yaml::from_str(&content)
-                    .with_context(|| format!("Failed to parse file {}", file.path().display()))?;
+                    .with_context(|| format!("Failed to parse file {}", path.display()))?;
 
                 match entry.r#type {
                     ChangelogType::Added => {
