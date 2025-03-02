@@ -104,7 +104,11 @@ fn generate_changelog_content(
                         version_dir.display()
                     )
                 })?;
+
                 let path = file.path();
+                if path.extension().and_then(|f| f.to_str()) != Some("yaml") {
+                    continue;
+                }
 
                 let content = fs::read_to_string(&path)
                     .with_context(|| format!("Failed to read file {}", file.path().display()))?;

@@ -5,21 +5,21 @@
 <details>
 <summary><h3>Commits</h3></summary>
 
-- Some yet unreleased feature [fcc0736](https://github.com/andrzejressel/pulumi-gestalt/commit/fcc0736f821af0645e9cc429dad6bef022eb7d6c)
+- Some yet unreleased feature [9ae857d](https://github.com/andrzejressel/pulumi-gestalt/commit/9ae857de1775a93f3b26d932f8ee1e039e23fad6)
 </details>
 
 ## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.1.0...v0.2.0)
 <details>
 <summary><h3>🤖 Dependency updates</h3></summary>
 
-- Some renovate bot commit [41cf76d](https://github.com/andrzejressel/pulumi-gestalt/commit/41cf76d1c95a37f9d90cf32563fdbbecd09096b2)
+- Some renovate bot commit [874197c](https://github.com/andrzejressel/pulumi-gestalt/commit/874197cbc4f5280d2afb82b13b94ec0804943097)
 </details>
 
 <details>
 <summary><h3>Commits</h3></summary>
 
-- Some renovate bot commit [41cf76d](https://github.com/andrzejressel/pulumi-gestalt/commit/41cf76d1c95a37f9d90cf32563fdbbecd09096b2)
-- Some feature [7a9e812](https://github.com/andrzejressel/pulumi-gestalt/commit/7a9e8120dbb9b89a7be404ae1c944961d7e18947)
+- Some renovate bot commit [874197c](https://github.com/andrzejressel/pulumi-gestalt/commit/874197cbc4f5280d2afb82b13b94ec0804943097)
+- Some feature [64ff3c4](https://github.com/andrzejressel/pulumi-gestalt/commit/64ff3c48450faef2911173a319da3fe67e46ae9d)
 </details>
 
 ## 0.1.0
@@ -44,11 +44,11 @@
 <details>
 <summary><h3>Commits</h3></summary>
 
-- Add 6_security.yaml [fef18e8](https://github.com/andrzejressel/pulumi-gestalt/commit/fef18e8dcf942f01d4652f86c79a7d45a9b294ee)
-- Add 5_fixed.yaml [0ab227e](https://github.com/andrzejressel/pulumi-gestalt/commit/0ab227e1a27be298977999a0f15141a07ccb2613)
-- Add 4_removed.yaml [8e0bf6e](https://github.com/andrzejressel/pulumi-gestalt/commit/8e0bf6e2707a419feab6df2b871c7066f7aa84b6)
-- Add 3_deprecated.yaml [b35f8d8](https://github.com/andrzejressel/pulumi-gestalt/commit/b35f8d8e5bf876fadcbee9267b593c4d5bbe7fb6)
-- Add 2_changed.yaml [fb1e4e5](https://github.com/andrzejressel/pulumi-gestalt/commit/fb1e4e572703119391ab69bfb9557e52d0bd7d99)
-- Add 1_added.yaml [6efea6a](https://github.com/andrzejressel/pulumi-gestalt/commit/6efea6a3d782a8bfabca304f79095bed0b20bfa9)
+- Add 6_security.yaml [e848825](https://github.com/andrzejressel/pulumi-gestalt/commit/e8488255ad089ffc42d081d7ac1f91cc63f19ba0)
+- Add 5_fixed.yaml [7fe6211](https://github.com/andrzejressel/pulumi-gestalt/commit/7fe6211b23ba5e41805df22c593cc74664a494ef)
+- Add 4_removed.yaml [f384333](https://github.com/andrzejressel/pulumi-gestalt/commit/f384333abfd03aba66600f7541efb8e7d3f0051a)
+- Add 3_deprecated.yaml [9c19160](https://github.com/andrzejressel/pulumi-gestalt/commit/9c19160b5bc3363619423f1303a94586707eb6b8)
+- Add 2_changed.yaml [2ce4174](https://github.com/andrzejressel/pulumi-gestalt/commit/2ce4174aae61dfa7a4e8fa93e853adb6aa65e66a)
+- Add 1_added.yaml [fe6fde9](https://github.com/andrzejressel/pulumi-gestalt/commit/fe6fde93fbf4428791fa04829db9c542aeb29b03)
 </details>
 
