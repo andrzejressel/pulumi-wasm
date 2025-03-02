@@ -15,6 +15,7 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow
+    pre_build:
       - just changelog-generate-for-docs
 
 mkdocs:
