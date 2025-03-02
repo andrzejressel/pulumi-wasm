@@ -24,8 +24,9 @@ build:
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs
       - mv target/doc $READTHEDOCS_OUTPUT/html/rust-docs/native
 
-#      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
-#      - mv target/wasm32-wasip2/doc site/rust-docs/wasm
+      - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
+      - mv target/wasm32-wasip2/doc site/rust-docs/wasm
+
       - just changelog-generate-for-docs
 
 mkdocs:
