@@ -22,8 +22,8 @@ nav:
   - Languages:
       - Rust:
           - languages/rust/index.md
-          - rustdoc (Native): "/pulumi-gestalt/rust-docs/pulumi_gestalt_rust/index.html"
-          - rustdoc (Wasm): "/pulumi-gestalt/rust-docs-wasm/pulumi_gestalt_rust/index.html"
+          - rustdoc (Native): rust-docs/native/pulumi_gestalt_rust/index.html
+          - rustdoc (Wasm): rust-docs/wasm/pulumi_gestalt_rust/index.html
   - Integrations:
       - Overview: integrations/overview.md
       - C FFI: integrations/c-ffi.md
