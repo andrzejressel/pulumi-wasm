@@ -11,3 +11,4 @@ serde.workspace = true
 bon.workspace = true
 serde_yaml.workspace = true
 regex.workspace = true
+once_cell = "1.20.3"
