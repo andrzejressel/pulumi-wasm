@@ -9,10 +9,13 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
+    rust: "1.85"
+  apt_packages:
+    - just
   jobs:
     post_checkout:
       - git fetch --unshallow
-      - cargo run -p changelog -- generate-for-docs
+      - just changelog-generate-for-docs
 
 mkdocs:
   configuration: mkdocs.yml
