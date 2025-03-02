@@ -285,7 +285,11 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         }
 
         if let Some(tag) = commit_id_to_tag.get(&id) {
-            history.versions.push(version);
+            // We don't want an empty `unreleased` section
+            if !(matches!(version.tag_name, TagName::NotYetReleased) && version.commits.is_empty())
+            {
+                history.versions.push(version);
+            }
             version = Version {
                 tag_name: TagName::real_tag(tag.clone()),
                 renovate_bot_commits: vec![],
