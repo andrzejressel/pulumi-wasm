@@ -489,6 +489,7 @@ dependencies = [
  "anyhow",
  "bon",
  "gix",
+ "regex",
  "serde",
  "serde_yaml",
  "tempfile",

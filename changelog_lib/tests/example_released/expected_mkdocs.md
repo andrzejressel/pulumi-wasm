@@ -1,10 +1,11 @@
 ## [0.2.0](https://github.com/andrzejressel/pulumi-gestalt/compare/v0.1.0...v0.2.0)
 ??? "🤖 Dependency updates"
-    - Some renovate bot commit [9fc2cdb](https://github.com/andrzejressel/pulumi-gestalt/commit/9fc2cdbfde680c7583362ee4f5457b08ede0d079)
+    - Some renovate bot commit ([#1](https://github.com/andrzejressel/pulumi-gestalt/pull/1)) [72546f5](https://github.com/andrzejressel/pulumi-gestalt/commit/72546f5e718cc8660c3b77f63b1cb6c7af32d963)
 
 
 ??? "Commits"
-    - Some renovate bot commit [9fc2cdb](https://github.com/andrzejressel/pulumi-gestalt/commit/9fc2cdbfde680c7583362ee4f5457b08ede0d079)
+    - Some PR feature ([#2](https://github.com/andrzejressel/pulumi-gestalt/pull/2)) [50e6383](https://github.com/andrzejressel/pulumi-gestalt/commit/50e6383d774e5333f7d7d086242bfce312e3790c)
+    - Some renovate bot commit ([#1](https://github.com/andrzejressel/pulumi-gestalt/pull/1)) [72546f5](https://github.com/andrzejressel/pulumi-gestalt/commit/72546f5e718cc8660c3b77f63b1cb6c7af32d963)
     - Some feature [d3fc750](https://github.com/andrzejressel/pulumi-gestalt/commit/d3fc750a94a6dca55b5e76dfabb257c4b8cb47c6)
 
 
