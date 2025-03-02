@@ -15,8 +15,8 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow
-      - curl -fsSL https://get.pulumi.com | sh
     pre_build:
+      - curl -fsSL https://get.pulumi.com | sh
       - /home/docs/.pulumi/bin/pulumi version
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs
       - PATH="$PATH:/home/docs/.pulumi/bin" just rust-docs-wasm
