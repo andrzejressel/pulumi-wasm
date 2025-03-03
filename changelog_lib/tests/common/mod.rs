@@ -50,6 +50,20 @@ impl Repository {
         Ok(self)
     }
 
+    pub(crate) fn move_file(self, source: &str, destination: &str) -> Result<Self> {
+        let source = self.dir.path().join(source);
+        let destination = self.dir.path().join(destination);
+        fs::rename(&source, &destination).with_context(|| {
+            format!(
+                "Failed to move {} to {}",
+                source.display(),
+                destination.display()
+            )
+        })?;
+
+        Ok(self)
+    }
+
     pub(crate) fn add_and_commit(self, message: &str) -> Result<Self> {
         let output = std::process::Command::new("git")
             .arg("add")

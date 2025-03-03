@@ -64,11 +64,20 @@ fn create_repository() -> Result<Repository> {
         .add_and_commit("Add 5_fixed.yaml")?
         .copy_file("tests/example_released/.changelog/0.1.0/6_security.yaml")?
         .add_and_commit("Add 6_security.yaml")?
+        .copy_file("tests/example_released/.changelog/invalid_dir/7_file_move_test.yaml")?
+        .add_and_commit("Add 7_pr.yaml")?
+        .move_file(
+            "tests/example_released/.changelog/invalid_dir/7_file_move_test.yaml",
+            "tests/example_released/.changelog/0.1.0/7_file_move_test.yaml",
+        )?
+        .add_and_commit("Move 7_pr.yaml")?
+        .copy_file("tests/example_released/.changelog/0.1.0/8_added_pr.yaml")?
+        .add_and_commit("Add 8_pr.yaml (#1)")?
         .create_tag("v0.1.0")?
         .add_and_commit("[no-changelog] Do not include in changelog")?
         .add_and_commit("Some feature")?
-        .add_and_commit_renovate("Some renovate bot commit (#1)")?
-        .add_and_commit("Some PR feature (#2)")?
+        .add_and_commit_renovate("Some renovate bot commit (#3)")?
+        .add_and_commit("Some PR feature (#4)")?
         .create_tag("v0.2.0")?;
 
     Ok(repository)

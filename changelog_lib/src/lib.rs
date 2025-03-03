@@ -1,6 +1,6 @@
 use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
-use anyhow::{bail, Context, Result};
+use anyhow::{bail, format_err, Context, Result};
 use bon::Builder;
 use encoders::Encoder;
 use gix::bstr::ByteSlice;
@@ -8,7 +8,9 @@ use gix::reference::Category;
 use model::Version;
 use regex::Regex;
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
+use std::process::Command;
+use std::sync::LazyLock;
 
 mod encoders;
 mod model;
@@ -95,94 +97,79 @@ fn generate_changelog_content(
             let mut fixed = vec![];
             let mut security = vec![];
 
-            let files = fs::read_dir(&version_dir)
-                .with_context(|| format!("Failed to read directory {}", version_dir.display()))?;
+            let mut entries = fs::read_dir(&version_dir)
+                .with_context(|| format!("Failed to read directory {}", version_dir.display()))?
+                .map(|res| res.map(|e| e.path()))
+                .collect::<Result<Vec<_>, _>>()
+                .context("Failed to obtain entries paths")?;
 
-            for file in files {
-                let file = file.with_context(|| {
-                    format!(
-                        "Failed to read file from directory {}",
-                        version_dir.display()
-                    )
-                })?;
+            entries.sort();
 
-                let path = file.path();
+            for path in entries {
                 if path.extension().and_then(|f| f.to_str()) != Some("yaml") {
                     continue;
                 }
 
                 let content = fs::read_to_string(&path)
-                    .with_context(|| format!("Failed to read file {}", file.path().display()))?;
+                    .with_context(|| format!("Failed to read file {}", path.display()))?;
                 let entry: ChangelogEntry = serde_yaml::from_str(&content)
-                    .with_context(|| format!("Failed to parse file {}", file.path().display()))?;
+                    .with_context(|| format!("Failed to parse file {}", path.display()))?;
 
                 match entry.r#type {
                     ChangelogType::Added => {
-                        added.push(entry);
+                        added.push(ChangelogEntryWithPath { entry, path });
                     }
                     ChangelogType::Changed => {
-                        changed.push(entry);
+                        changed.push(ChangelogEntryWithPath { entry, path });
                     }
                     ChangelogType::Deprecated => {
-                        deprecated.push(entry);
+                        deprecated.push(ChangelogEntryWithPath { entry, path });
                     }
                     ChangelogType::Removed => {
-                        removed.push(entry);
+                        removed.push(ChangelogEntryWithPath { entry, path });
                     }
                     ChangelogType::Fixed => {
-                        fixed.push(entry);
+                        fixed.push(ChangelogEntryWithPath { entry, path });
                     }
                     ChangelogType::Security => {
-                        security.push(entry);
+                        security.push(ChangelogEntryWithPath { entry, path });
                     }
                 }
             }
 
             if !added.is_empty() {
                 s.push_str("### Added\n");
-                for entry in added {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &added)?;
                 s.push('\n');
             }
 
             if !changed.is_empty() {
                 s.push_str("### Changed\n");
-                for entry in changed {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &changed)?;
                 s.push('\n');
             }
 
             if !deprecated.is_empty() {
                 s.push_str("### Deprecated\n");
-                for entry in deprecated {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &deprecated)?;
                 s.push('\n');
             }
 
             if !removed.is_empty() {
                 s.push_str("### Removed\n");
-                for entry in removed {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &removed)?;
                 s.push('\n');
             }
 
             if !fixed.is_empty() {
                 s.push_str("### Fixed\n");
-                for entry in fixed {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &fixed)?;
                 s.push('\n');
             }
 
             if !security.is_empty() {
                 s.push_str("### Security\n");
-                for entry in security {
-                    s.push_str(generate_commit_message(entry, options).as_str());
-                }
+                print_changelog_entries(options, &mut s, &security)?;
                 s.push('\n');
             }
         }
@@ -208,6 +195,23 @@ fn generate_changelog_content(
         s.push_str(&encoder.encode_collapsible_block_end());
     }
     Ok(s)
+}
+
+fn print_changelog_entries(
+    options: &Options,
+    s: &mut String,
+    entries: &Vec<ChangelogEntryWithPath>,
+) -> Result<()> {
+    for ChangelogEntryWithPath { entry, path } in entries {
+        s.push_str(
+            generate_commit_message(entry, path, options)
+                .with_context(|| {
+                    format!("Failed to generate changelog entry [{}]", path.display())
+                })?
+                .as_str(),
+        );
+    }
+    Ok(())
 }
 
 fn generate_history(options: &Options, new_version_name: Option<String>) -> Result<GitHistory> {
@@ -327,10 +331,11 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
     Ok(history)
 }
 
+static PR_ID_REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"\(#(\d+)\)$").unwrap());
+
 fn generate_commit_line(options: &Options, commit: &Commit) -> String {
     let commit_message = &commit.title;
-    let pr_id_regex = Regex::new(r"\(#(\d+)\)").unwrap();
-    let commit_message = pr_id_regex.replace_all(
+    let commit_message = PR_ID_REGEX.replace_all(
         commit_message,
         format!("([#$1](https://github.com/{}/pull/$1))", options.repository),
     );
@@ -344,20 +349,101 @@ fn generate_commit_line(options: &Options, commit: &Commit) -> String {
     )
 }
 
-fn generate_commit_message(entry: ChangelogEntry, options: &Options) -> String {
-    let pr_id_regex = Regex::new(r"\(#(\d+)\)$").unwrap();
+fn generate_commit_message(
+    entry: &ChangelogEntry,
+    path: &Path,
+    options: &Options,
+) -> Result<String> {
+    let mut title = PR_ID_REGEX
+        .replace_all(
+            &entry.title,
+            format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
+        )
+        .to_string();
 
-    let title = pr_id_regex.replace_all(
-        &entry.title,
-        format!("[#$1](https://github.com/{}/pull/$1)", options.repository),
-    );
+    let (commit_sha, commit_message) = get_file_creation_commit(path, options)?;
 
-    // if let Some(captures) = pr_id_regex.captures(&entry.title) {
-    //     if let Some(number) = captures.get(1) {
+    if let Some(captures) = PR_ID_REGEX.captures(&commit_message) {
+        if let Some(number) = captures.get(1) {
+            title.push_str(
+                format!(
+                    " ([#{}](https://github.com/{}/pull/{}))",
+                    number.as_str(),
+                    options.repository,
+                    number.as_str()
+                )
+                .as_str(),
+            );
+        }
+    }
 
-    // return format!("- {} [#{}]({})", entry.title, number.as_str(), entry.url);
-    // }
-    // }
+    for pr_id in &entry.additional_pull_requests {
+        title.push_str(
+            format!(
+                " ([#{}](https://github.com/{}/pull/{}))",
+                pr_id, options.repository, pr_id
+            )
+            .as_str(),
+        );
+    }
 
-    format!("- {}\n", title)
+    let short_sha = commit_sha.chars().take(7).collect::<String>();
+    title.push_str(&format!(
+        " [{}](https://github.com/{}/commit/{})",
+        short_sha, options.repository, commit_sha
+    ));
+
+    Ok(format!("- {}\n", title))
+}
+
+fn get_file_creation_commit(file_path: &Path, options: &Options) -> Result<(String, String)> {
+    // Execute the git log --follow command
+    let output = Command::new("git")
+        .args([
+            "log",
+            "--follow",
+            "--diff-filter=A",       // Only show commits where the file was added
+            "--pretty=format:%H %s", // Include both the commit SHA and the commit message
+            "--",
+            file_path.to_str().unwrap(),
+        ])
+        .current_dir(options.repository_path)
+        .output()
+        .context("Failed to execute git log command")?;
+
+    // Check if the command was successful
+    if !output.status.success() {
+        bail!(
+            "Git command failed [{}]",
+            String::from_utf8_lossy(&output.stderr)
+        );
+    }
+
+    // Convert the output to a string
+    let output_str = std::str::from_utf8(&output.stdout)?.trim();
+
+    if output_str.is_empty() {
+        bail!(
+            "No commit found for the given file [{}]",
+            file_path.display()
+        );
+    }
+
+    // Split the output into commit SHA and commit message
+    let mut parts = output_str.splitn(2, ' ');
+    let commit_sha = parts
+        .next()
+        .ok_or(format_err!("Failed to parse commit SHA"))?
+        .to_string();
+    let commit_message = parts
+        .next()
+        .ok_or(format_err!("Failed to parse commit message"))?
+        .to_string();
+
+    Ok((commit_sha, commit_message))
+}
+
+struct ChangelogEntryWithPath {
+    entry: ChangelogEntry,
+    path: PathBuf,
 }
