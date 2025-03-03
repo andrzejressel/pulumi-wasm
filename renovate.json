@@ -4,6 +4,8 @@
     "config:recommended",
     "github>andrzejressel/renovate-config//rust/updateToolchain"
   ],
+  "prConcurrentLimit": 1,
+  "prHourlyLimit": 0,
   "labels": ["dependencies"],
   "packageRules": [
     {
