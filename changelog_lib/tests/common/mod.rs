@@ -21,7 +21,7 @@ pub(crate) fn compare_with_file(content: &str, file: &Path) -> Result<()> {
     Ok(())
 }
 
-pub struct Repository {
+pub(crate) struct Repository {
     pub dir: TempDir,
 }
 
