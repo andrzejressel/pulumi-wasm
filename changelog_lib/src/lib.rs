@@ -175,7 +175,7 @@ fn generate_changelog_content(
         }
 
         if !version.renovate_bot_commits.is_empty() {
-            s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency updates"));
+            s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency Update Commits"));
 
             for commit in &version.renovate_bot_commits {
                 let line = generate_commit_line(options, commit);
@@ -185,7 +185,7 @@ fn generate_changelog_content(
             s.push_str(&encoder.encode_collapsible_block_end());
         }
 
-        s.push_str(&encoder.encode_collapsible_block_start("Commits"));
+        s.push_str(&encoder.encode_collapsible_block_start("📝 Other Commits"));
 
         for commit in &version.commits {
             let line = generate_commit_line(options, commit);
@@ -312,22 +312,14 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         };
 
         if author_email == "29139614+renovate[bot]@users.noreply.github.com" {
-            version.renovate_bot_commits.push(commit_model.clone());
-        }
-
-        if !message.starts_with("[no-changelog]") {
+            version.renovate_bot_commits.push(commit_model);
+        } else if !message.starts_with("[no-changelog]") {
             version.commits.push(commit_model);
         }
 
-        println!("commit: {}", commit.id);
     }
 
     history.versions.push(version);
-
-    println!("Mapping: {:?}", commit_id_to_tag);
-
-    println!("History: {:?}", history);
-
     Ok(history)
 }
 
