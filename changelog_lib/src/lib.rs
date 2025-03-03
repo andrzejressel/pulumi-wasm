@@ -240,7 +240,6 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         };
 
         if reference.name().category() == Some(Category::Tag) {
-            println!("tag: {}", reference.name().shorten());
             commit_id_to_tag.insert(
                 reference.peel_to_commit()?.id().to_string(),
                 reference.name().shorten().to_string(),
@@ -306,7 +305,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
             .email
             .to_string();
 
-        let commit_model = model::Commit {
+        let commit_model = Commit {
             id: commit.id().to_string(),
             title: message.clone(),
         };
@@ -316,7 +315,6 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         } else if !message.starts_with("[no-changelog]") {
             version.commits.push(commit_model);
         }
-
     }
 
     history.versions.push(version);
