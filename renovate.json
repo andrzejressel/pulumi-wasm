@@ -42,6 +42,13 @@
         "wit-bindgen-rt"
       ],
       "groupName": "wit-bindgen"
+    },
+    {
+      "matchPackageNames": [
+        "mkdocs-material",
+        "squidfunk/mkdocs-material"
+      ],
+      "groupName": "mkdocs-material"
     }
   ],
   "customManagers": [
