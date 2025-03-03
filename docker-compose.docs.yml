@@ -1,0 +1,8 @@
+services:
+  pulumi-gestalt-docker:
+    build:
+      context: docs
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
