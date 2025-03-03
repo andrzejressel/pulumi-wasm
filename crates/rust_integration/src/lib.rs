@@ -30,7 +30,6 @@ pub struct CustomRegisterOutputId {
 pub(crate) struct InnerPulumiEngine {
     engine: Engine,
     functions: HashMap<FunctionName, Box<dyn Fn(String) -> String>>,
-    in_preview: bool,
 }
 
 pub struct PulumiEngine {
@@ -53,15 +52,9 @@ pub struct InvokeResourceRequest {
 impl PulumiEngine {
     pub fn create_engine() -> PulumiEngine {
         let engine = get_engine();
-        let in_preview = match std::env::var("PULUMI_DRY_RUN") {
-            Ok(preview) if preview == "true" => true,
-            Ok(preview) if preview == "false" => false,
-            _ => false,
-        };
         let inner = InnerPulumiEngine {
             engine,
             functions: HashMap::new(),
-            in_preview,
         };
         PulumiEngine {
             inner: Rc::new(RefCell::new(inner)),

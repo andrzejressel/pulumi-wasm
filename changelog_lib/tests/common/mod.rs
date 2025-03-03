@@ -1,3 +1,6 @@
+#![cfg(test)]
+#![allow(dead_code)]
+
 use anyhow::Context;
 use anyhow::Result;
 use std::collections::HashMap;
@@ -19,8 +22,8 @@ pub(crate) fn compare_with_file(content: &str, file: &Path) -> Result<()> {
     Ok(())
 }
 
-pub(crate) struct Repository {
-    pub(crate) dir: TempDir,
+pub struct Repository {
+    pub dir: TempDir,
 }
 
 impl Repository {

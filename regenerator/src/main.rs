@@ -24,7 +24,7 @@ fn main() {
 
     let mut grouped_gcp = gcp_modules
         .into_iter()
-        .filter(|s| s != &"compute")
+        .filter(|s| s != "compute")
         .chunks(10)
         .into_iter()
         .map(|a| a.collect_vec())

@@ -149,17 +149,6 @@ fn generate_expression(expr: Expression) -> String {
         Expression::Integer(i) => format!("{}", i),
         Expression::Boolean(b) => format!("{}", b),
         Expression::Object(element_id, expr) => generate_object(element_id, expr),
-        Expression::HashMap(map) => {
-            let mut str = String::new();
-            str.push_str("HashMap::new([");
-
-            for (key, value) in map {
-                str.push_str(format!("({}, {}),", key, generate_expression(value)).as_str());
-            }
-
-            str.push_str("])");
-            str
-        }
         Expression::Array(arr) => {
             let mut str = String::new();
             str.push_str("vec![");
