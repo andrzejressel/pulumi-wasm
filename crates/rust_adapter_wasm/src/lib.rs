@@ -233,18 +233,6 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
     }
 }
 
-impl<T: Serialize> WasmOutput<T> {
-    #[deprecated(note = "Use `Context::new_output` instead")]
-    pub fn new(context: &WasmContext, value: &T) -> WasmOutput<T> {
-        context.new_output(value)
-    }
-
-    #[deprecated(note = "Use `Context::new_secret` instead")]
-    pub fn new_secret(context: &WasmContext, value: &T) -> WasmOutput<T> {
-        context.new_secret(value)
-    }
-}
-
 pub struct WasmCompositeOutput {
     context: Rc<RwLock<InnerWasmContext>>,
     wasm_output: output_interface::RegisterOutput,
