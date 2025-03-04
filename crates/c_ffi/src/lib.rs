@@ -7,7 +7,6 @@ use std::rc::{Rc, Weak};
 
 pub struct CustomOutputId {
     native: integration::CustomOutputId,
-    engine: Weak<RefCell<InnerPulumiEngine>>,
 }
 
 pub struct CustomRegisterOutputId {
@@ -97,13 +96,9 @@ extern "C" fn create_output(
         .unwrap()
         .to_string();
     let pulumi_engine = unsafe { &mut *pulumi_engine };
-    let inner = &pulumi_engine.inner;
     let mut inner_engine = pulumi_engine.inner.borrow_mut();
     let output_id = inner_engine.engine.create_output(value, secret);
-    let output = CustomOutputId {
-        native: output_id,
-        engine: Rc::downgrade(inner),
-    };
+    let output = CustomOutputId { native: output_id };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
     raw
@@ -152,7 +147,6 @@ extern "C" fn pulumi_map(
 
     let output = CustomOutputId {
         native: second_output,
-        engine: Rc::downgrade(&engine.inner),
     };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
@@ -174,10 +168,7 @@ extern "C" fn pulumi_get_output(
     let binding = custom_register_output_id.engine.upgrade().unwrap();
     let mut engine = binding.borrow_mut();
 
-    let output = CustomOutputId {
-        native: output,
-        engine: custom_register_output_id.engine.clone(),
-    };
+    let output = CustomOutputId { native: output };
     let raw = Box::into_raw(Box::new(output));
     engine.outputs.push(raw);
     raw

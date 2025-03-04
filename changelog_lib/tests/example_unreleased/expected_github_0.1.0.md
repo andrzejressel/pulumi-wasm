@@ -20,7 +20,7 @@
 - Security fix [e15ee78](https://github.com/andrzejressel/pulumi-gestalt/commit/e15ee780e73b146bd54549c789d10a7d803bab22)
 
 <details>
-<summary><h3>Commits</h3></summary>
+<summary><h3>📝 Other Commits</h3></summary>
 
 - Add 8_pr.yaml ([#1](https://github.com/andrzejressel/pulumi-gestalt/pull/1)) [bf054fd](https://github.com/andrzejressel/pulumi-gestalt/commit/bf054fd2258fc31bb1dea97c0b2da028fb47c152)
 - Move 7_pr.yaml [d26f710](https://github.com/andrzejressel/pulumi-gestalt/commit/d26f7106f5364fc59479717d543ec71e7f83405e)

@@ -503,60 +503,6 @@ impl Engine {
     }
 
     #[cfg(test)]
-    fn get_extract_field(&self, output_id: OutputId) -> Ref<ExtractFieldNode> {
-        Self::get_extract_field_free(&self.nodes, output_id)
-    }
-
-    #[cfg(test)]
-    fn get_extract_field_free(nodes: &NodesMap, output_id: OutputId) -> Ref<ExtractFieldNode> {
-        match nodes.get(&output_id) {
-            None => {
-                error!("Cannot find node with id {}", output_id);
-                panic!("Cannot find node with id {}", output_id)
-                // Maybe in the future?
-                // unsafe { unreachable_unchecked() }
-            }
-            Some(r) => r.map(|t| match t {
-                EngineNode::ExtractField(node) => node,
-                EngineNode::NativeFunction(_) => {
-                    error!(
-                        "Node with id [{}] is native function, not extract field",
-                        output_id
-                    );
-                    panic!(
-                        "Node with id [{}] is native function, not extract field",
-                        output_id
-                    )
-                }
-                EngineNode::Done(_) => {
-                    error!("Node with id [{}] is done, not extract field", output_id);
-                    panic!("Node with id [{}] is done, not extract field", output_id)
-                }
-                EngineNode::RegisterResource(_) => {
-                    error!(
-                        "Node with id [{}] is register resource, not extract field",
-                        output_id
-                    );
-                    panic!(
-                        "Node with id [{}] is register resource, not extract field",
-                        output_id
-                    )
-                }
-                EngineNode::CombineOutputs(_) => {
-                    error!(
-                        "Node with id [{}] is combine outputs, not extract field",
-                        output_id
-                    );
-                    panic!(
-                        "Node with id [{}] is combine outputs, not extract field",
-                        output_id
-                    )
-                }
-            }),
-        }
-    }
-
-    #[cfg(test)]
     fn get_extract_field_mut(&self, output_id: OutputId) -> RefMut<ExtractFieldNode> {
         Self::get_extract_field_free_mut(&self.nodes, output_id)
     }

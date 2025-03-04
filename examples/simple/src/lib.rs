@@ -1,15 +1,15 @@
 use anyhow::Result;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format};
+use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, GestaltContext};
 use pulumi_gestalt_rust::{Context, Output};
 use pulumi_gestalt_rust::{GestaltOutput, ToOutput};
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();
-
+#[allow(dead_code)]
 fn pulumi_main(context: &Context) -> Result<()> {
-    let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
+    let length: Output<i32> = context.new_output(&12).map(|i: i32| i * 3);
 
     let random_string = random_string::create(
         context,
@@ -26,8 +26,8 @@ fn pulumi_main(context: &Context) -> Result<()> {
     // Optional values are deserialized as None
     let keepers = random_string.keepers.map(|map| format!("Keepers: {map:?}"));
 
-    let val1 = Output::new(context, &1);
-    let val2 = Output::new(context, &"abc".to_string());
+    let val1 = context.new_output(&1);
+    let val2 = context.new_output(&"abc".to_string());
 
     // Outputs can be reused
     let combined = pulumi_combine!(val1.clone(), val2.clone());

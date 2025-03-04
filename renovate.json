@@ -4,6 +4,8 @@
     "config:recommended",
     "github>andrzejressel/renovate-config//rust/updateToolchain"
   ],
+  "prConcurrentLimit": 1,
+  "prHourlyLimit": 0,
   "labels": ["dependencies"],
   "packageRules": [
     {
@@ -42,6 +44,13 @@
         "wit-bindgen-rt"
       ],
       "groupName": "wit-bindgen"
+    },
+    {
+      "matchPackageNames": [
+        "mkdocs-material",
+        "squidfunk/mkdocs-material"
+      ],
+      "groupName": "mkdocs-material"
     }
   ],
   "customManagers": [

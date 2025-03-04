@@ -103,11 +103,3 @@ pub(crate) fn generate_single_function_source_code(
         .render_template(TEMPLATE, &json!({"function": function}))
         .unwrap()
 }
-
-pub(crate) fn generate_docs(
-    package: &crate::model::Package,
-    element_id: &ElementId,
-) -> Vec<String> {
-    let resource = convert_function(package, element_id);
-    resource.description_lines
-}

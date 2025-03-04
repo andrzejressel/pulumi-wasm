@@ -7,7 +7,7 @@ use pulumi_gestalt_rust::ToOutput;
 use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, Context, Output};
 
 pulumi_gestalt_rust::pulumi_main!();
-
+#[allow(dead_code)]
 fn pulumi_main(context: &Context) -> Result<()> {
     let length: Output<i32> = context.new_output(&12).map(|i: i32| i * 3);
 

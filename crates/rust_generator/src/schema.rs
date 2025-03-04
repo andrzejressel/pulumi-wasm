@@ -67,6 +67,7 @@ struct OneOfTypePrimitive {
 #[derive(Deserialize, Debug)]
 struct OneOfTypeArray {
     #[serde(rename = "type")]
+    #[allow(dead_code)]
     type_: ArrayConstant,
     items: OneOfTypePrimitive,
 }
@@ -74,6 +75,7 @@ struct OneOfTypeArray {
 #[derive(Deserialize, Debug)]
 struct OneOfTypeObject {
     #[serde(rename = "type")]
+    #[allow(dead_code)]
     type_: ObjectConstant,
     #[serde(rename = "additionalProperties")]
     additional_properties: OneOfTypePrimitive,
@@ -295,7 +297,7 @@ fn resource_to_model(
                     if !resource.required_inputs.contains(input_name) {
                         type_ = crate::model::Type::Option(Box::new(type_));
                     }
-                    Ok(crate::model::InputProperty {
+                    Ok(InputProperty {
                         name: input_name.clone(),
                         r#type: type_,
                         description: input_property.r#type.description.clone(),
@@ -367,7 +369,7 @@ fn convert_output_property_object_type(
             {
                 type_ = crate::model::Type::Option(Box::new(type_));
             }
-            Ok(crate::model::OutputProperty {
+            Ok(OutputProperty {
                 name: output_name.clone(),
                 r#type: type_,
                 description: output_property.r#type.description.clone(),
