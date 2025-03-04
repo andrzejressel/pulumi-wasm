@@ -7,7 +7,7 @@ use pulumi_gestalt_rust::{add_export, Context};
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();
-
+#[allow(dead_code)]
 fn pulumi_main(context: &Context) -> anyhow::Result<()> {
     let cont = container::create(
         context,

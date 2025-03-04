@@ -13,7 +13,6 @@ pub(crate) mod functions;
 mod main;
 pub(crate) mod resources;
 pub(crate) mod types;
-pub(crate) mod wit;
 
 #[derive(Debug)]
 enum TreeNode {

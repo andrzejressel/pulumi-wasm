@@ -1,5 +1,4 @@
 use crate::model::Package;
-use crate::utils::get_main_version;
 use anyhow::Context;
 use rinja::Template;
 use serde::Serialize;
@@ -11,7 +10,6 @@ struct TemplateModel<'a> {
     resources: String,
     types: String,
     constants: Vec<String>,
-    pulumi_gestalt_version: &'a str,
     provider_name: &'a str,
     provider_version: &'a str,
     provider_metadata: &'a str,
@@ -43,7 +41,6 @@ pub(crate) fn generate(
         resources,
         types,
         constants,
-        pulumi_gestalt_version: get_main_version(),
         provider_name: &package.name,
         provider_version: &package.version,
         provider_metadata: &provider,
