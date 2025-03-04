@@ -4,13 +4,10 @@ use itertools::Itertools;
 use log::info;
 use regex::Regex;
 use std::collections::BTreeSet;
-use std::hash::Hash;
 use wac_graph::types::{Package, SubtypeChecker};
 use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
 
 pub mod source;
-
-const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)--(.*)";
 
 pub async fn create(
     pulumi_gestalt: &dyn WasmComponentSource,
@@ -110,54 +107,4 @@ fn plug_into_socket(
         graph.set_instantiation_argument(socket_instantiation, &plug_name, export)?;
     }
     Ok(())
-}
-
-fn extract_provider_info(import_name: impl AsRef<str>) -> Option<ProviderInfo> {
-    let regex = Regex::new(PROVIDER_REGEX).unwrap();
-    regex
-        .captures(import_name.as_ref())
-        .map(|captures| ProviderInfo {
-            name: captures.get(1).unwrap().as_str().to_string(),
-            version: captures.get(2).unwrap().as_str().to_string(),
-            pulumi_gestalt_version: captures.get(3).unwrap().as_str().to_string(),
-        })
-}
-
-#[derive(Eq, Debug, PartialOrd, PartialEq, Hash, Ord)]
-struct ProviderInfo {
-    name: String,
-    version: String,
-    pulumi_gestalt_version: String,
-}
-
-#[cfg(test)]
-mod tests {
-
-    use anyhow::*;
-
-    mod provider_regex {
-        use super::*;
-        use crate::{extract_provider_info, ProviderInfo};
-
-        #[test]
-        fn provider_regex_should_work() -> Result<()> {
-            assert_eq!(
-                extract_provider_info("pulumi:docker/container@4.5.3--0.0.0-DEV"),
-                Some(ProviderInfo {
-                    name: "docker".to_string(),
-                    version: "4.5.3".to_string(),
-                    pulumi_gestalt_version: "0.0.0-DEV".to_string(),
-                })
-            );
-
-            Ok(())
-        }
-
-        #[test]
-        fn extract_provider_info_return_none_if_does_not_match() -> Result<()> {
-            assert_eq!(extract_provider_info("test"), None);
-
-            Ok(())
-        }
-    }
 }

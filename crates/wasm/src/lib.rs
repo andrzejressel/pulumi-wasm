@@ -23,7 +23,7 @@ mod pulumi_connector_impl;
 struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
 struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);
 
-struct LocalPulumiEngine(Rc<RefCell<Engine>>, bool);
+struct LocalPulumiEngine(Rc<RefCell<Engine>>);
 
 impl pulumi_engine::GuestEngine for LocalPulumiEngine {
     fn new(in_preview: bool) -> Self {
@@ -31,7 +31,7 @@ impl pulumi_engine::GuestEngine for LocalPulumiEngine {
             pulumi_connector_impl::PulumiConnectorImpl {},
             in_preview,
         ))));
-        LocalPulumiEngine(rc, in_preview)
+        LocalPulumiEngine(rc)
     }
 }
 

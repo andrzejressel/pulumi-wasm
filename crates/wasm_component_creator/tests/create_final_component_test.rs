@@ -187,7 +187,7 @@ struct TestProgramSource {}
 
 #[async_trait]
 impl WasmComponentSource for TestProgramSource {
-    async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
+    async fn get(&self, version: &str, _debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         resolve.add_pulumi_gestalt_stable().unwrap();
         let pkg = resolve.add_pulumi_gestalt(version).unwrap();

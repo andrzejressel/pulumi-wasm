@@ -118,18 +118,6 @@ impl GestaltContext for NativeContext {
     }
 }
 
-impl<T: Serialize> NativeOutput<T> {
-    #[deprecated(note = "Use `Context::new_output` instead")]
-    pub fn new(context: &NativeContext, value: &T) -> NativeOutput<T> {
-        context.new_output(value)
-    }
-
-    #[deprecated(note = "Use `Context::new_secret` instead")]
-    pub fn new_secret(context: &NativeContext, value: &T) -> NativeOutput<T> {
-        context.new_secret(value)
-    }
-}
-
 impl<T> GestaltOutput<T> for NativeOutput<T> {
     type Me<A> = NativeOutput<A>;
 

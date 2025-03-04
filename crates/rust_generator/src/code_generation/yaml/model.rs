@@ -69,7 +69,6 @@ pub(crate) enum Expression {
     Number(f64),
     Boolean(bool),
     Object(ElementId, BTreeMap<String, Expression>),
-    HashMap(BTreeMap<String, Expression>),
     Array(Vec<Expression>),
 }
 
@@ -182,7 +181,7 @@ enum TypeWithoutOption {
     Number,
     String,
     Array(Box<TypeWithoutOption>),
-    Object(Box<TypeWithoutOption>),
+    Object,
     Ref(Ref),
 }
 
@@ -194,7 +193,7 @@ fn remove_option(type_: &Type) -> Result<TypeWithoutOption> {
         Type::String => Ok(TypeWithoutOption::String),
         Type::ConstString(_) => Ok(TypeWithoutOption::String),
         Type::Array(a) => Ok(TypeWithoutOption::Array(Box::new(remove_option(a)?))),
-        Type::Object(o) => Ok(TypeWithoutOption::Object(Box::new(remove_option(o)?))),
+        Type::Object(_) => Ok(TypeWithoutOption::Object),
         Type::Ref(r) => Ok(TypeWithoutOption::Ref(r.clone())),
         Type::Option(o) => remove_option(o),
         Type::DiscriminatedUnion(_) => Err(anyhow!("Discriminated union are not supported")),

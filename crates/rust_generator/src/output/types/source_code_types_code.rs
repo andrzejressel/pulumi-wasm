@@ -77,12 +77,6 @@ struct NumberEnumValue {
     value: f64,
 }
 
-#[derive(Serialize)]
-struct AliasType {
-    name: String,
-    type_: String,
-}
-
 enum GenerateResource {
     RealType(RefType),
     StringEnum(StringEnum),
