@@ -71,14 +71,12 @@ jobs:
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
@@ -129,14 +127,12 @@ jobs:
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ provider/${{ matrix.provider }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
@@ -305,14 +301,12 @@ jobs:
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
