@@ -70,13 +70,13 @@ jobs:
       - run: protoc --version
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
 
+      - run: just build-static-library
+
       - name: Initialize CodeQL for C/C++
         uses: github/codeql-action/init@v3
         with:
           languages: c-cpp
           build-mode: manual
-
-      - run: just build-static-library
 
       - name: Build
         working-directory: examples/cpp
