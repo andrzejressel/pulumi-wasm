@@ -84,7 +84,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make
+          cmake --build .
 
       - name: Perform CodeQL Analysis for C/C++
         uses: github/codeql-action/analyze@v3
