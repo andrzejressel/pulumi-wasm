@@ -60,10 +60,7 @@ impl context::GuestContext for LocalPulumiContext {
             request.version.to_string(),
         );
 
-        CompositeOutput::new(CustomCompositeOutputId(
-            output_id,
-            self.0.clone(),
-        ))
+        CompositeOutput::new(CustomCompositeOutputId(output_id, self.0.clone()))
     }
 
     fn invoke_resource(&self, request: ResourceInvokeRequest<'_>) -> CompositeOutput {
@@ -84,16 +81,10 @@ impl context::GuestContext for LocalPulumiContext {
             request.version.to_string(),
         );
 
-        CompositeOutput::new(CustomCompositeOutputId(
-            output_id,
-            self.0.clone(),
-        ))
+        CompositeOutput::new(CustomCompositeOutputId(output_id, self.0.clone()))
     }
 
-    fn finish(
-        &self,
-        functions: Vec<FunctionInvocationResult>,
-    ) -> Vec<FunctionInvocationRequest> {
+    fn finish(&self, functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
         pulumi_gestalt_rust_common::setup_logger();
 
         let refcell: &RefCell<Engine> = &self.0;
@@ -112,10 +103,7 @@ impl context::GuestContext for LocalPulumiContext {
             .into_iter()
             .map(|result| {
                 let vec = result.value.to_string();
-                let id: CustomOutputId = CustomOutputId(
-                    result.output_id,
-                    self.0.clone(),
-                );
+                let id: CustomOutputId = CustomOutputId(result.output_id, self.0.clone());
                 FunctionInvocationRequest {
                     id: Output::new(id),
                     function_id: result.function_name.into(),
@@ -124,7 +112,6 @@ impl context::GuestContext for LocalPulumiContext {
             })
             .collect()
     }
-    
 }
 
 struct Component;
@@ -147,7 +134,6 @@ impl context::Guest for Component {
 impl output_interface::Guest for Component {
     type Output = CustomOutputId;
     type CompositeOutput = CustomCompositeOutputId;
-
 }
 
 impl GuestOutput for CustomOutputId {
@@ -160,12 +146,16 @@ impl GuestOutput for CustomOutputId {
             .create_native_function_node(function_name.into(), self.0);
         Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
     }
-    
+
     fn combine(&self, outputs: Vec<OutputBorrow>) -> Output {
         pulumi_gestalt_rust_common::setup_logger();
         let mut all_outputs = Vec::with_capacity(outputs.len() + 1);
         all_outputs.push(self.0);
-        all_outputs.extend(outputs.iter().map(|output| output.get::<CustomOutputId>().0));
+        all_outputs.extend(
+            outputs
+                .iter()
+                .map(|output| output.get::<CustomOutputId>().0),
+        );
 
         let output_id = self.1.borrow_mut().create_combine_outputs(all_outputs);
         Output::new::<CustomOutputId>(CustomOutputId(output_id, self.1.clone()))
@@ -173,11 +163,9 @@ impl GuestOutput for CustomOutputId {
 
     fn add_to_export(&self, name: String) {
         pulumi_gestalt_rust_common::setup_logger();
-        self.1
-            .borrow_mut()
-            .add_output(name.into(), self.0);
+        self.1.borrow_mut().add_output(name.into(), self.0);
     }
-    
+
     fn clone(&self) -> Output {
         Output::new::<CustomOutputId>(CustomOutputId(self.0, self.1.clone()))
     }

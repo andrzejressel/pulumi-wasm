@@ -1,15 +1,16 @@
 pub mod runner;
 
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::{FunctionInvocationRequest, ObjectField, ResourceInvokeRequest as WitResourceInvokeRequest, RegisterResourceRequest as WitRegisterResourceRequest};
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::FunctionInvocationResult;
 use anyhow::{anyhow, Error, Result};
 use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
 };
 use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::context::Context as WitContext;
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::{
-    output_interface,
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface;
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::FunctionInvocationResult;
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::{
+    FunctionInvocationRequest, ObjectField, RegisterResourceRequest as WitRegisterResourceRequest,
+    ResourceInvokeRequest as WitResourceInvokeRequest,
 };
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -79,8 +80,8 @@ impl GestaltContext for WasmContext {
         let context = self.context.clone();
         let context = context.read().unwrap();
 
-        let result = (&context.wit_context).register_resource(&request);
-        
+        let result = context.wit_context.register_resource(&request);
+
         WasmCompositeOutput {
             context: self.context.clone(),
             wasm_output: result,
@@ -107,7 +108,7 @@ impl GestaltContext for WasmContext {
         let context = self.context.clone();
         let context = context.read().unwrap();
 
-        let result = (&context.wit_context).invoke_resource(&request);
+        let result = context.wit_context.invoke_resource(&request);
 
         WasmCompositeOutput {
             context: self.context.clone(),
@@ -133,7 +134,9 @@ impl WasmContext {
         let binding = serde_json::to_string(&value).unwrap();
         let context = self.context.clone();
         let inner_context = context.read().unwrap();
-        let resource = inner_context.wit_context.create_output(binding.as_str(), secret);
+        let resource = inner_context
+            .wit_context
+            .create_output(binding.as_str(), secret);
         WasmOutput {
             context: self.context.clone(),
             wasm_output: resource,
@@ -158,7 +161,7 @@ impl WasmContext {
     ) -> Result<Vec<FunctionInvocationRequest>> {
         let context = self.context.clone();
         let context = context.read().unwrap();
-        let functions = (&context.wit_context).finish(&results);
+        let functions = context.wit_context.finish(&results);
         Ok(functions)
     }
 }
@@ -211,7 +214,10 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
     }
 
     fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT> {
-        let other_outputs = others.iter().map(|other| &other.wasm_output).collect::<Vec<_>>();
+        let other_outputs = others
+            .iter()
+            .map(|other| &other.wasm_output)
+            .collect::<Vec<_>>();
         let result = self.wasm_output.combine(&other_outputs);
         WasmOutput {
             context: self.context.clone(),
