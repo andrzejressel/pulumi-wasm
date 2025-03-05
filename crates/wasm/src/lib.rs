@@ -117,7 +117,7 @@ impl context::GuestContext for LocalPulumiContext {
 struct Component;
 
 impl GuestCompositeOutput for CustomCompositeOutputId {
-    fn extract_field(&self, field_name: String) -> Output {
+    fn get_field(&self, field_name: String) -> Output {
         let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
         let field_name = field_name.into();
         let output_id = refcell

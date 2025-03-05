@@ -6,16 +6,16 @@ use std::ffi::{c_char, c_void, CStr, CString};
 use std::rc::{Rc, Weak};
 
 pub struct CustomOutputId {
-    native: integration::CustomOutputId,
+    native: integration::Output,
 }
 
 pub struct CustomRegisterOutputId {
-    native: integration::CustomRegisterOutputId,
+    native: integration::CompositeOutput,
     engine: Weak<RefCell<InnerPulumiEngine>>,
 }
 
 pub struct InnerPulumiEngine {
-    engine: integration::PulumiEngine,
+    engine: integration::Context,
     outputs: Vec<*mut CustomOutputId>,
     context: *const c_void,
 }
@@ -63,7 +63,7 @@ type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char
 
 #[no_mangle]
 extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
-    let engine = integration::PulumiEngine::create_engine();
+    let engine = integration::Context::create_context();
     let t = InnerPulumiEngine {
         engine,
         outputs: Vec::new(),
@@ -163,7 +163,7 @@ extern "C" fn pulumi_get_output(
         .unwrap()
         .to_string();
     let custom_register_output_id = unsafe { &*custom_register_output_id };
-    let output = custom_register_output_id.native.get_output(field_name);
+    let output = custom_register_output_id.native.get_field(field_name);
 
     let binding = custom_register_output_id.engine.upgrade().unwrap();
     let mut engine = binding.borrow_mut();
@@ -218,7 +218,7 @@ extern "C" fn pulumi_register_resource(
         objects,
         version,
     };
-    let output_id = inner_engine.engine.pulumi_register_resource(request);
+    let output_id = inner_engine.engine.register_resource(request);
 
     let output = CustomRegisterOutputId {
         native: output_id,
