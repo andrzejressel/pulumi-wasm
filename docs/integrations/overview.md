@@ -188,7 +188,7 @@ The `Context` abstraction manages the lifecycle of Pulumi operations. It include
     | Name     | Type                                                        | Description                            |
     |----------|-------------------------------------------------------------|----------------------------------------|
     | `output` | `Output`                                                    | An `Output` object to transform        |
-    | `func`   | One of:<br />`A => B`<br />`string => string`<br />`string` | Function to apply to <br/>the `Output` |
+    | `func`   | One of:<br />`A => B`<br />`string => string`<br />`string` | Function to apply to the `Output`      |
 
     **📤 Returns:**
 
