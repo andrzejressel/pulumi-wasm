@@ -1,16 +1,15 @@
 pub mod runner;
 
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::{FunctionInvocationRequest, ObjectField, ResourceInvokeRequest as WitResourceInvokeRequest, RegisterResourceRequest as WitRegisterResourceRequest};
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::FunctionInvocationResult;
 use anyhow::{anyhow, Error, Result};
 use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
 };
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::pulumi_engine::Engine as WitEngine;
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::stack_interface::{
-    add_export, finish, FunctionInvocationRequest, FunctionInvocationResult,
-};
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::context::Context as WitContext;
 use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::{
-    output_interface, register_interface,
+    output_interface,
 };
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -39,7 +38,7 @@ impl<T> Clone for WasmOutput<T> {
 }
 
 pub(crate) struct InnerWasmContext {
-    wit_context: WitEngine,
+    wit_context: WitContext,
     functions: HashMap<String, Function>,
 }
 
@@ -65,12 +64,12 @@ impl GestaltContext for WasmContext {
     ) -> Self::CompositeOutput {
         let mut object_fields = Vec::new();
         for object in request.object {
-            object_fields.push(register_interface::ObjectField {
+            object_fields.push(ObjectField {
                 name: object.name.clone(),
                 value: &object.value.wasm_output,
             });
         }
-        let request = register_interface::RegisterResourceRequest {
+        let request = WitRegisterResourceRequest {
             type_: request.type_,
             name: request.name,
             version: request.version,
@@ -80,8 +79,8 @@ impl GestaltContext for WasmContext {
         let context = self.context.clone();
         let context = context.read().unwrap();
 
-        let result = register_interface::register(&context.wit_context, &request);
-
+        let result = (&context.wit_context).register_resource(&request);
+        
         WasmCompositeOutput {
             context: self.context.clone(),
             wasm_output: result,
@@ -94,12 +93,12 @@ impl GestaltContext for WasmContext {
     ) -> Self::CompositeOutput {
         let mut object_fields = Vec::new();
         for object in request.object {
-            object_fields.push(register_interface::ObjectField {
+            object_fields.push(ObjectField {
                 name: object.name.clone(),
                 value: &object.value.wasm_output,
             });
         }
-        let request = register_interface::ResourceInvokeRequest {
+        let request = WitResourceInvokeRequest {
             token: request.token,
             version: request.version,
             object: object_fields,
@@ -108,7 +107,7 @@ impl GestaltContext for WasmContext {
         let context = self.context.clone();
         let context = context.read().unwrap();
 
-        let result = register_interface::invoke(&context.wit_context, &request);
+        let result = (&context.wit_context).invoke_resource(&request);
 
         WasmCompositeOutput {
             context: self.context.clone(),
@@ -119,7 +118,7 @@ impl GestaltContext for WasmContext {
 
 impl WasmContext {
     fn new(in_preview: bool) -> WasmContext {
-        let wit_context = WitEngine::new(in_preview);
+        let wit_context = WitContext::new(in_preview);
         let context = InnerWasmContext {
             wit_context,
             functions: HashMap::new(),
@@ -134,8 +133,7 @@ impl WasmContext {
         let binding = serde_json::to_string(&value).unwrap();
         let context = self.context.clone();
         let inner_context = context.read().unwrap();
-        let resource =
-            output_interface::Output::new(&inner_context.wit_context, binding.as_str(), secret);
+        let resource = inner_context.wit_context.create_output(binding.as_str(), secret);
         WasmOutput {
             context: self.context.clone(),
             wasm_output: resource,
@@ -160,7 +158,7 @@ impl WasmContext {
     ) -> Result<Vec<FunctionInvocationRequest>> {
         let context = self.context.clone();
         let context = context.read().unwrap();
-        let functions = finish(&context.wit_context, &results);
+        let functions = (&context.wit_context).finish(&results);
         Ok(functions)
     }
 }
@@ -209,14 +207,12 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
     }
 
     fn add_to_export(&self, key: &str) {
-        add_export(key, &self.wasm_output);
+        self.wasm_output.add_to_export(key);
     }
 
     fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT> {
-        let mut all_outputs = Vec::with_capacity(others.len() + 1);
-        all_outputs.push(&self.wasm_output);
-        all_outputs.extend(others.iter().map(|other| &other.wasm_output));
-        let result = output_interface::combine(&all_outputs);
+        let other_outputs = others.iter().map(|other| &other.wasm_output).collect::<Vec<_>>();
+        let result = self.wasm_output.combine(&other_outputs);
         WasmOutput {
             context: self.context.clone(),
             wasm_output: result,
@@ -235,7 +231,7 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
 
 pub struct WasmCompositeOutput {
     context: Rc<RwLock<InnerWasmContext>>,
-    wasm_output: output_interface::RegisterOutput,
+    wasm_output: output_interface::CompositeOutput,
 }
 
 impl GestaltCompositeOutput for WasmCompositeOutput {
