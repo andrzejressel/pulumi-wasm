@@ -74,10 +74,7 @@ impl Context {
         }
     }
 
-    pub fn register_resource(
-        &self,
-        request: RegisterResourceRequest,
-    ) -> CompositeOutput {
+    pub fn register_resource(&self, request: RegisterResourceRequest) -> CompositeOutput {
         let type_ = request.type_;
         let name = request.name;
         let version = request.version;
@@ -86,7 +83,7 @@ impl Context {
         for object in request.inputs {
             objects_map.insert(FieldName::from(&object.name), object.value.output_id);
         }
-        
+
         let output_id = self
             .inner
             .deref()
@@ -101,12 +98,11 @@ impl Context {
     }
 
     pub fn invoke_resource(&self, request: InvokeResourceRequest) -> CompositeOutput {
-
         let mut objects_map = HashMap::new();
         for object in request.inputs {
             objects_map.insert(FieldName::from(&object.name), object.value.output_id);
         }
-        
+
         let output_id = self
             .inner
             .deref()

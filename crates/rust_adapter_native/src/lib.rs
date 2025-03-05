@@ -89,14 +89,14 @@ impl GestaltContext for NativeContext {
                 value: &object.value.inner,
             });
         }
-        
+
         let result = self
             .inner
             .register_resource(integration::RegisterResourceRequest {
                 type_: request.type_,
                 name: request.name,
                 version: request.version,
-                inputs: &objects
+                inputs: &objects,
             });
 
         NativeCompositeOutput { inner: result }
@@ -113,7 +113,7 @@ impl GestaltContext for NativeContext {
                 value: &object.value.inner,
             });
         }
-        
+
         let result = self
             .inner
             .invoke_resource(integration::InvokeResourceRequest {
