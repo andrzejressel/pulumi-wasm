@@ -82,17 +82,21 @@ impl GestaltContext for NativeContext {
         &self,
         request: RegisterResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
+        let mut objects = Vec::new();
+        for object in request.object {
+            objects.push(integration::ObjectField {
+                name: object.name.clone(),
+                value: &object.value.inner,
+            });
+        }
+        
         let result = self
             .inner
             .register_resource(integration::RegisterResourceRequest {
                 type_: request.type_,
                 name: request.name,
                 version: request.version,
-                objects: request
-                    .object
-                    .iter()
-                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
-                    .collect(),
+                inputs: &objects
             });
 
         NativeCompositeOutput { inner: result }
@@ -102,16 +106,20 @@ impl GestaltContext for NativeContext {
         &self,
         request: InvokeResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
+        let mut objects = Vec::new();
+        for object in request.object {
+            objects.push(integration::ObjectField {
+                name: object.name.clone(),
+                value: &object.value.inner,
+            });
+        }
+        
         let result = self
             .inner
             .invoke_resource(integration::InvokeResourceRequest {
                 token: request.token,
                 version: request.version,
-                objects: request
-                    .object
-                    .iter()
-                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
-                    .collect(),
+                inputs: &objects,
             });
 
         NativeCompositeOutput { inner: result }

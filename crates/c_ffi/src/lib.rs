@@ -1,7 +1,5 @@
-use pulumi_gestalt_core::{FieldName, OutputId};
 use pulumi_gestalt_rust_integration as integration;
 use std::cell::RefCell;
-use std::collections::HashMap;
 use std::ffi::{c_char, c_void, CStr, CString};
 use std::rc::{Rc, Weak};
 
@@ -197,16 +195,19 @@ extern "C" fn pulumi_register_resource(
         .unwrap()
         .to_owned();
 
-    let mut objects: HashMap<FieldName, OutputId> = HashMap::new();
+    let mut objects = Vec::new();
 
     unsafe {
         std::slice::from_raw_parts(request.object, request.object_len)
             .iter()
             .for_each(|field| {
                 let name = CStr::from_ptr(field.name).to_str().unwrap().to_owned();
-                let output = &(*field.value).native.get_id().clone();
+                let output = &(*field.value).native;
 
-                objects.insert(name.into(), *output);
+                objects.push(integration::ObjectField {
+                    name,
+                    value: output,
+                });
             });
     }
 
@@ -215,7 +216,7 @@ extern "C" fn pulumi_register_resource(
     let request = integration::RegisterResourceRequest {
         type_,
         name,
-        objects,
+        inputs: &objects,
         version,
     };
     let output_id = inner_engine.engine.register_resource(request);

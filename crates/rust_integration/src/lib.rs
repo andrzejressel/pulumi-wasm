@@ -16,10 +16,9 @@ pub struct Output {
     engine: Rc<RefCell<InnerPulumiEngine>>,
 }
 
-impl Output {
-    pub fn get_id(&self) -> &OutputId {
-        &self.output_id
-    }
+pub struct ObjectField<'a> {
+    pub name: String,
+    pub value: &'a Output,
 }
 
 pub struct CompositeOutput {
@@ -36,17 +35,17 @@ pub struct Context {
     inner: Rc<RefCell<InnerPulumiEngine>>,
 }
 
-pub struct RegisterResourceRequest {
+pub struct RegisterResourceRequest<'a> {
     pub type_: String,
     pub name: String,
     pub version: String,
-    pub objects: HashMap<FieldName, OutputId>,
+    pub inputs: &'a [ObjectField<'a>],
 }
 
-pub struct InvokeResourceRequest {
+pub struct InvokeResourceRequest<'a> {
     pub token: String,
     pub version: String,
-    pub objects: HashMap<FieldName, OutputId>,
+    pub inputs: &'a [ObjectField<'a>],
 }
 
 impl Context {
@@ -83,12 +82,17 @@ impl Context {
         let name = request.name;
         let version = request.version;
 
+        let mut objects_map = HashMap::new();
+        for object in request.inputs {
+            objects_map.insert(FieldName::from(&object.name), object.value.output_id);
+        }
+        
         let output_id = self
             .inner
             .deref()
             .borrow_mut()
             .engine
-            .create_register_resource_node(type_, name, request.objects, version);
+            .create_register_resource_node(type_, name, objects_map, version);
 
         CompositeOutput {
             output_id,
@@ -97,12 +101,18 @@ impl Context {
     }
 
     pub fn invoke_resource(&self, request: InvokeResourceRequest) -> CompositeOutput {
+
+        let mut objects_map = HashMap::new();
+        for object in request.inputs {
+            objects_map.insert(FieldName::from(&object.name), object.value.output_id);
+        }
+        
         let output_id = self
             .inner
             .deref()
             .borrow_mut()
             .engine
-            .create_resource_invoke_node(request.token, request.objects, request.version);
+            .create_resource_invoke_node(request.token, objects_map, request.version);
 
         CompositeOutput {
             output_id,
