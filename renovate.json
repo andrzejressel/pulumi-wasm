@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "github>andrzejressel/renovate-config//rust/updateToolchain"
+    "github>andrzejressel/renovate-config//rust/updateToolchain",
+    ":automergeMajor"
   ],
   "prConcurrentLimit": 1,
   "prHourlyLimit": 0,
