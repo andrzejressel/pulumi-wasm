@@ -1,128 +1,49 @@
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::types::RegisterResourceRequest;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::types::ObjectField;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::types::ResourceInvokeRequest;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::context::FunctionInvocationResult;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::types::FunctionInvocationRequest;
+use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::output_interface::OutputBorrow;
 use pulumi_gestalt_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
 use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::output_interface::{
-    GuestOutput, GuestRegisterOutput, Output, RegisterOutput,
-};
-use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::pulumi_engine::EngineBorrow;
-use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::register_interface::{
-    ObjectField, RegisterResourceRequest, ResourceInvokeRequest,
-};
-use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::stack_interface::{
-    FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
+    GuestOutput, GuestCompositeOutput, Output, CompositeOutput,
 };
 use pulumi_gestalt_wit::pulumi_gestalt_bindings::exports::component::pulumi_gestalt::{
-    output_interface, pulumi_engine, register_interface, stack_interface,
+    output_interface, context,
 };
 
 mod bindings;
 mod pulumi_connector_impl;
 
 struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
-struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);
+struct CustomCompositeOutputId(OutputId, Rc<RefCell<Engine>>);
 
-struct LocalPulumiEngine(Rc<RefCell<Engine>>);
+struct LocalPulumiContext(Rc<RefCell<Engine>>);
 
-impl pulumi_engine::GuestEngine for LocalPulumiEngine {
+impl context::GuestContext for LocalPulumiContext {
     fn new(in_preview: bool) -> Self {
         let rc = Rc::new(RefCell::new(Engine::new(PulumiServiceImpl::new(
             pulumi_connector_impl::PulumiConnectorImpl {},
             in_preview,
         ))));
-        LocalPulumiEngine(rc)
+        LocalPulumiContext(rc)
     }
-}
-
-struct Component;
-
-impl GuestRegisterOutput for CustomRegisterOutputId {
-    fn extract_field(&self, field_name: String) -> Output {
-        let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
-        let field_name = field_name.into();
-        let output_id = refcell
-            .borrow_mut()
-            .create_extract_field(field_name, self.0);
-        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
-    }
-}
-
-impl pulumi_engine::Guest for Component {
-    type Engine = LocalPulumiEngine;
-}
-
-impl stack_interface::Guest for Component {
-    fn add_export(name: String, value: OutputBorrow<'_>) {
+    fn create_output(&self, value: String, secret: bool) -> Output {
         pulumi_gestalt_rust_common::setup_logger();
-        let rc = value.get::<CustomOutputId>().1.clone();
-        let refcell: &RefCell<Engine> = &rc;
-        refcell
-            .borrow_mut()
-            .add_output(name.into(), value.get::<CustomOutputId>().0);
+        let value = serde_json::from_str(&value).unwrap();
+        let refcell: &RefCell<Engine> = &self.0;
+
+        let output_id = refcell.borrow_mut().create_done_node(value, secret);
+        Output::new(CustomOutputId(output_id, self.0.clone()))
     }
 
-    fn finish(
-        engine: EngineBorrow<'_>,
-        functions: Vec<FunctionInvocationResult>,
-    ) -> Vec<FunctionInvocationRequest> {
+    fn register_resource(&self, request: RegisterResourceRequest<'_>) -> CompositeOutput {
         pulumi_gestalt_rust_common::setup_logger();
-
-        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
-
-        let v = functions
-            .iter()
-            .map(|function_invocation_result| {
-                let v = serde_json::from_str(function_invocation_result.value.as_str()).unwrap();
-                (function_invocation_result.id.get::<CustomOutputId>().0, v)
-            })
-            .collect();
-
-        let results = refcell.borrow_mut().run(v).unwrap_or_default();
-
-        results
-            .into_iter()
-            .map(|result| {
-                let vec = result.value.to_string();
-                let id: CustomOutputId = CustomOutputId(
-                    result.output_id,
-                    engine.get::<LocalPulumiEngine>().0.clone(),
-                );
-                FunctionInvocationRequest {
-                    id: Output::new(id),
-                    function_id: result.function_name.into(),
-                    value: vec,
-                }
-            })
-            .collect()
-    }
-}
-
-impl output_interface::Guest for Component {
-    type Output = CustomOutputId;
-    type RegisterOutput = CustomRegisterOutputId;
-
-    fn combine(outputs: Vec<OutputBorrow>) -> Output {
-        if outputs.is_empty() {
-            panic!("combine must have at least one output");
-        }
-        let refcell = &outputs.first().unwrap().get::<CustomOutputId>().1.clone();
-        pulumi_gestalt_rust_common::setup_logger();
-
-        let output_id = refcell.borrow_mut().create_combine_outputs(
-            outputs
-                .into_iter()
-                .map(|output| output.get::<CustomOutputId>().0)
-                .collect(),
-        );
-        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
-    }
-}
-
-impl register_interface::Guest for Component {
-    fn register(engine: EngineBorrow<'_>, request: RegisterResourceRequest<'_>) -> RegisterOutput {
-        pulumi_gestalt_rust_common::setup_logger();
-        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
+        let refcell: &RefCell<Engine> = &self.0;
 
         let object = request
             .object
@@ -139,15 +60,12 @@ impl register_interface::Guest for Component {
             request.version.to_string(),
         );
 
-        RegisterOutput::new(CustomRegisterOutputId(
-            output_id,
-            engine.get::<LocalPulumiEngine>().0.clone(),
-        ))
+        CompositeOutput::new(CustomCompositeOutputId(output_id, self.0.clone()))
     }
 
-    fn invoke(engine: EngineBorrow<'_>, request: ResourceInvokeRequest<'_>) -> RegisterOutput {
+    fn invoke_resource(&self, request: ResourceInvokeRequest<'_>) -> CompositeOutput {
         pulumi_gestalt_rust_common::setup_logger();
-        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
+        let refcell: &RefCell<Engine> = &self.0;
 
         let object = request
             .object
@@ -163,23 +81,62 @@ impl register_interface::Guest for Component {
             request.version.to_string(),
         );
 
-        RegisterOutput::new(CustomRegisterOutputId(
-            output_id,
-            engine.get::<LocalPulumiEngine>().0.clone(),
-        ))
+        CompositeOutput::new(CustomCompositeOutputId(output_id, self.0.clone()))
+    }
+
+    fn finish(&self, functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
+        pulumi_gestalt_rust_common::setup_logger();
+
+        let refcell: &RefCell<Engine> = &self.0;
+
+        let v = functions
+            .iter()
+            .map(|function_invocation_result| {
+                let v = serde_json::from_str(function_invocation_result.value.as_str()).unwrap();
+                (function_invocation_result.id.get::<CustomOutputId>().0, v)
+            })
+            .collect();
+
+        let results = refcell.borrow_mut().run(v).unwrap_or_default();
+
+        results
+            .into_iter()
+            .map(|result| {
+                let vec = result.value.to_string();
+                let id: CustomOutputId = CustomOutputId(result.output_id, self.0.clone());
+                FunctionInvocationRequest {
+                    id: Output::new(id),
+                    function_id: result.function_name.into(),
+                    value: vec,
+                }
+            })
+            .collect()
     }
 }
 
-impl GuestOutput for CustomOutputId {
-    fn new(engine: EngineBorrow<'_>, value: String, secret: bool) -> CustomOutputId {
-        pulumi_gestalt_rust_common::setup_logger();
-        let value = serde_json::from_str(&value).unwrap();
-        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
+struct Component;
 
-        let output_id = refcell.borrow_mut().create_done_node(value, secret);
-        CustomOutputId(output_id, engine.get::<LocalPulumiEngine>().0.clone())
+impl GuestCompositeOutput for CustomCompositeOutputId {
+    fn extract_field(&self, field_name: String) -> Output {
+        let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
+        let field_name = field_name.into();
+        let output_id = refcell
+            .borrow_mut()
+            .create_extract_field(field_name, self.0);
+        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
     }
+}
 
+impl context::Guest for Component {
+    type Context = LocalPulumiContext;
+}
+
+impl output_interface::Guest for Component {
+    type Output = CustomOutputId;
+    type CompositeOutput = CustomCompositeOutputId;
+}
+
+impl GuestOutput for CustomOutputId {
     fn map(&self, function_name: String) -> Output {
         pulumi_gestalt_rust_common::setup_logger();
         let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
@@ -188,6 +145,25 @@ impl GuestOutput for CustomOutputId {
             .borrow_mut()
             .create_native_function_node(function_name.into(), self.0);
         Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
+    }
+
+    fn combine(&self, outputs: Vec<OutputBorrow>) -> Output {
+        pulumi_gestalt_rust_common::setup_logger();
+        let mut all_outputs = Vec::with_capacity(outputs.len() + 1);
+        all_outputs.push(self.0);
+        all_outputs.extend(
+            outputs
+                .iter()
+                .map(|output| output.get::<CustomOutputId>().0),
+        );
+
+        let output_id = self.1.borrow_mut().create_combine_outputs(all_outputs);
+        Output::new::<CustomOutputId>(CustomOutputId(output_id, self.1.clone()))
+    }
+
+    fn add_to_export(&self, name: String) {
+        pulumi_gestalt_rust_common::setup_logger();
+        self.1.borrow_mut().add_output(name.into(), self.0);
     }
 
     fn clone(&self) -> Output {

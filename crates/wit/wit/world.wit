@@ -2,9 +2,8 @@ package component:pulumi-gestalt@0.0.0-DEV;
 
 world pulumi-gestalt {
     export output-interface;
-    export register-interface;
-    export stack-interface;
-    export pulumi-engine;
+    export types;
+    export context;
 
     import component:pulumi-gestalt-external/log@0.0.0-STABLE-DEV;
     import component:pulumi-gestalt-external/external-world@0.0.0-STABLE-DEV;
@@ -12,9 +11,8 @@ world pulumi-gestalt {
 
 world client {
     import output-interface;
-    import stack-interface;
-    import register-interface;
-    import pulumi-engine;
+    import types;
+    import context;
     export component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV; // Used by macro
 }
 
@@ -28,29 +26,22 @@ world runner {
     import component:pulumi-gestalt-external/log@0.0.0-STABLE-DEV;
 }
 
-interface pulumi-engine {
-    resource engine {
-        constructor(in-preview: bool);
-    }
-}
 
 interface output-interface {
-    use pulumi-engine.{engine};
 
     resource output {
-        constructor(engine: borrow<engine>, value: string, secret: bool);
         map: func(function-name: string) -> output;
         clone: func() -> output;
+        combine: func(outputs: list<borrow<output>>) -> output;
+        add-to-export: func(name: string);
     }
-    combine: func(outputs: list<borrow<output>>) -> output;
 
-    resource register-output {
+    resource composite-output {
         extract-field: func(field-name: string) -> output;
     }
 }
 
-interface stack-interface {
-    use pulumi-engine.{engine};
+interface types {
     use output-interface.{output};
 
     record function-invocation-request {
@@ -62,14 +53,7 @@ interface stack-interface {
         id: borrow<output>,
         value: string,
     }
-    add-export: func(name: string, value: borrow<output>);
-    finish: func(engine: borrow<engine>, functions: list<function-invocation-result>) -> list<function-invocation-request>;
-}
-
-interface register-interface {
-    use pulumi-engine.{engine};
-    use output-interface.{output, register-output};
-
+    
     record object-field {
         name: string,
         value: borrow<output>
@@ -82,13 +66,24 @@ interface register-interface {
         object: list<object-field>,
     }
 
-    register: func(engine: borrow<engine>, request: register-resource-request) -> register-output;
 
     record resource-invoke-request {
         token: string,
         version: string,
         object: list<object-field>,
     }
+    
+}
 
-    invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> register-output;
+interface context {
+    use output-interface.{output, composite-output};
+    use types.{register-resource-request, resource-invoke-request, function-invocation-result, function-invocation-request};
+
+    resource context {
+        constructor(in-preview: bool);
+        create-output: func(value: string, secret:bool) -> output;
+        register-resource: func(request: register-resource-request) -> composite-output;
+        invoke-resource: func(request: resource-invoke-request) -> composite-output;
+        finish: func(functions: list<function-invocation-result>) -> list<function-invocation-request>;
+    }
 }
