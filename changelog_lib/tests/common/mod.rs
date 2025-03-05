@@ -125,6 +125,36 @@ impl Repository {
 
         Ok(self)
     }
+    
+    pub(crate) fn add_and_commit_dependabot(self, message: &str) -> Result<Self> {
+        let output = std::process::Command::new("git")
+            .arg("add")
+            .arg(".")
+            .current_dir(self.dir.path())
+            .envs(self.dependabot_bot_envs())
+            .output()
+            .context("Failed to add")?;
+
+        if !output.status.success() {
+            anyhow::bail!("Error: {:?}", output);
+        }
+
+        let output = std::process::Command::new("git")
+            .arg("commit")
+            .arg("--allow-empty")
+            .arg("-m")
+            .arg(message)
+            .current_dir(self.dir.path())
+            .envs(self.dependabot_bot_envs())
+            .output()
+            .context("Failed to commit")?;
+
+        if !output.status.success() {
+            anyhow::bail!("Error: {:?}", output);
+        }
+
+        Ok(self)
+    }
 
     pub(crate) fn create_tag(self, tag_name: &str) -> Result<Self> {
         let output = std::process::Command::new("git")
@@ -178,6 +208,30 @@ impl Repository {
         env_vars.insert(
             "GIT_COMMITTER_EMAIL".to_string(),
             "29139614+renovate[bot]@users.noreply.github.com".to_string(),
+        );
+        env_vars.insert(
+            "GIT_AUTHOR_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
+        env_vars.insert(
+            "GIT_COMMITTER_DATE".to_string(),
+            "2023-10-01T12:00:00+0000".to_string(),
+        );
+
+        env_vars
+    }
+    
+    fn dependabot_bot_envs(&self) -> HashMap<String, String> {
+        let mut env_vars = HashMap::new();
+        env_vars.insert("GIT_AUTHOR_NAME".to_string(), "Your Name".to_string());
+        env_vars.insert(
+            "GIT_AUTHOR_EMAIL".to_string(),
+            "49699333+dependabot[bot]@users.noreply.github.com".to_string(),
+        );
+        env_vars.insert("GIT_COMMITTER_NAME".to_string(), "Your Name".to_string());
+        env_vars.insert(
+            "GIT_COMMITTER_EMAIL".to_string(),
+            "49699333+dependabot[bot]@users.noreply.github.com".to_string(),
         );
         env_vars.insert(
             "GIT_AUTHOR_DATE".to_string(),

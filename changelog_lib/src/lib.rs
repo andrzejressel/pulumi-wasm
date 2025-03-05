@@ -174,10 +174,10 @@ fn generate_changelog_content(
             }
         }
 
-        if !version.renovate_bot_commits.is_empty() {
+        if !version.dependency_update_commits.is_empty() {
             s.push_str(&encoder.encode_collapsible_block_start("🤖 Dependency Update Commits"));
 
-            for commit in &version.renovate_bot_commits {
+            for commit in &version.dependency_update_commits {
                 let line = generate_commit_line(options, commit);
                 s.push_str(&encoder.encode_collapsible_block_element(&line));
             }
@@ -262,7 +262,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
             None => TagName::not_yet_released(),
             Some(v) => TagName::not_yet_released_with_version(v),
         },
-        renovate_bot_commits: vec![],
+        dependency_update_commits: vec![],
         commits: vec![],
     };
 
@@ -283,7 +283,7 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
             }
             version = Version {
                 tag_name: TagName::real_tag(tag.clone()),
-                renovate_bot_commits: vec![],
+                dependency_update_commits: vec![],
                 commits: vec![],
             };
         }
@@ -311,7 +311,9 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
         };
 
         if author_email == "29139614+renovate[bot]@users.noreply.github.com" {
-            version.renovate_bot_commits.push(commit_model);
+            version.dependency_update_commits.push(commit_model);
+        } else if author_email == "49699333+dependabot[bot]@users.noreply.github.com" {
+            version.dependency_update_commits.push(commit_model);
         } else if !message.starts_with("[no-changelog]") {
             version.commits.push(commit_model);
         }

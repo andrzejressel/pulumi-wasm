@@ -2,13 +2,14 @@
 <details>
 <summary><h3>🤖 Dependency Update Commits</h3></summary>
 
+- Some dependabot commit ([#4](https://github.com/andrzejressel/pulumi-gestalt/pull/4)) [65e2203](https://github.com/andrzejressel/pulumi-gestalt/commit/65e2203c3193b49bf1569e0ff668e10ecf4b0f71)
 - Some renovate bot commit ([#3](https://github.com/andrzejressel/pulumi-gestalt/pull/3)) [ad24e8b](https://github.com/andrzejressel/pulumi-gestalt/commit/ad24e8bebef4ec45eef210f7e0fee3a1b11573e5)
 </details>
 
 <details>
 <summary><h3>📝 Other Commits</h3></summary>
 
-- Some PR feature ([#4](https://github.com/andrzejressel/pulumi-gestalt/pull/4)) [5d26c34](https://github.com/andrzejressel/pulumi-gestalt/commit/5d26c34d881636cb5c6eb0968ce83f5028540366)
+- Some PR feature ([#5](https://github.com/andrzejressel/pulumi-gestalt/pull/5)) [4b48329](https://github.com/andrzejressel/pulumi-gestalt/commit/4b48329684aec943deb753c20ccc0ab866aa9edb)
 - Some feature [bc50f26](https://github.com/andrzejressel/pulumi-gestalt/commit/bc50f26d9f08f990a2359452d6ec9a71986f2957)
 </details>
 

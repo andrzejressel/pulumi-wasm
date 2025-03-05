@@ -29,7 +29,7 @@ pub(crate) struct GitHistory {
 #[derive(Clone, Debug)]
 pub(crate) struct Version {
     pub(crate) tag_name: TagName,
-    pub(crate) renovate_bot_commits: Vec<Commit>,
+    pub(crate) dependency_update_commits: Vec<Commit>,
     pub(crate) commits: Vec<Commit>,
 }
 
