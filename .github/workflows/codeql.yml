@@ -81,7 +81,9 @@ jobs:
       - name: Build
         working-directory: examples/cpp
         run: |
-          cmake .
+          mkdir build
+          cd build
+          cmake ..
           make
 
       - name: Perform CodeQL Analysis for C/C++
