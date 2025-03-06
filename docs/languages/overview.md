@@ -13,7 +13,7 @@ pulumi plugin install language gestalt "VERSION" --server github://api.github.co
 
 Currently there are no configuration options for the plugin. It can be used in following way:
 
-```yaml
+```yaml title="Pulumi.yaml"
 name: Some_name
 runtime: gestalt
 ```
@@ -43,7 +43,7 @@ run:
 #### Rust (Wasm)
 
 ```just title="Justfile"
-binary := "pulumi_gestalt_wasm_runner" # Runner described in Wasm section
+binary := "pulumi_gestalt_wasm_runner" # Runner described in Rust language section
 wasm := "../target/wasm32-wasip2/debug/pulumi_gestalt_example_wasm.wasm"
 
 run:
