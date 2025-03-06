@@ -161,7 +161,7 @@ The `Context` abstraction manages the lifecycle of Pulumi operations. It include
     | Name      | Type                | Description                                                       |
     |-----------|---------------------|-------------------------------------------------------------------|
     | `ctx`     | `Context`           | Instance of context                                               |
-    | `token`   | `string`            | Resource token (i.e `docker:index/getNetwork:getNetwork`) |
+    | `token`   | `string`            | Resource token (i.e [`docker:index/getNetwork:getNetwork`](https://github.com/pulumi/pulumi-docker/blob/v4.6.1/provider/cmd/pulumi-resource-docker/schema.json#L4395)) |
     | `version` | `string`            | Resource provider version                                         |
     | `inputs`  | `List[ObjectField]` | Resource inputs                                                   |
 
@@ -185,10 +185,10 @@ The `Context` abstraction manages the lifecycle of Pulumi operations. It include
 
     **📥 Parameters:**
 
-    | Name     | Type                                                                    | Description                       |
-    |----------|-------------------------------------------------------------------------|-----------------------------------|
-    | `output` | `Output`                                                                | An `Output` object to transform   |
-    | `func`   | One of (check abstration level section below):<br />`A => B`<br />`string => string`<br />`string`| Function to apply to the `Output` |
+    | Name     | Type                                                        | Description                            |
+    |----------|-------------------------------------------------------------|----------------------------------------|
+    | `output` | `Output`                                                    | An `Output` object to transform        |
+    | `func`   | One of:<br />`A => B`<br />`string => string`<br />`string` | Function to apply to the `Output`      |
 
     **📤 Returns:**
 
