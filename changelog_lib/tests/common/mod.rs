@@ -125,7 +125,7 @@ impl Repository {
 
         Ok(self)
     }
-    
+
     pub(crate) fn add_and_commit_dependabot(self, message: &str) -> Result<Self> {
         let output = std::process::Command::new("git")
             .arg("add")
@@ -220,7 +220,7 @@ impl Repository {
 
         env_vars
     }
-    
+
     fn dependabot_bot_envs(&self) -> HashMap<String, String> {
         let mut env_vars = HashMap::new();
         env_vars.insert("GIT_AUTHOR_NAME".to_string(), "Your Name".to_string());

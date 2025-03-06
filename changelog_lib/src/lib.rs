@@ -310,9 +310,9 @@ fn generate_history(options: &Options, new_version_name: Option<String>) -> Resu
             title: message.clone(),
         };
 
-        if author_email == "29139614+renovate[bot]@users.noreply.github.com" {
-            version.dependency_update_commits.push(commit_model);
-        } else if author_email == "49699333+dependabot[bot]@users.noreply.github.com" {
+        if author_email == "29139614+renovate[bot]@users.noreply.github.com"
+            || author_email == "49699333+dependabot[bot]@users.noreply.github.com"
+        {
             version.dependency_update_commits.push(commit_model);
         } else if !message.starts_with("[no-changelog]") {
             version.commits.push(commit_model);
