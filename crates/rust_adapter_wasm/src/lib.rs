@@ -243,7 +243,7 @@ pub struct WasmCompositeOutput {
 impl GestaltCompositeOutput for WasmCompositeOutput {
     type Output<T> = WasmOutput<T>;
     fn get_field<T>(&self, key: &str) -> Self::Output<T> {
-        let output_id = self.wasm_output.extract_field(key);
+        let output_id = self.wasm_output.get_field(key);
 
         WasmOutput {
             context: self.context.clone(),

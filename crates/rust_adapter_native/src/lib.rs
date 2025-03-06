@@ -7,7 +7,7 @@ use serde::Serialize;
 use std::marker::PhantomData;
 
 pub struct NativeOutput<T> {
-    inner: integration::CustomOutputId,
+    inner: integration::Output,
     tpe: PhantomData<T>,
 }
 
@@ -21,18 +21,18 @@ impl<T> Clone for NativeOutput<T> {
 }
 
 pub struct NativeContext {
-    inner: integration::PulumiEngine,
+    inner: integration::Context,
 }
 
 pub struct NativeCompositeOutput {
-    inner: integration::CustomRegisterOutputId,
+    inner: integration::CompositeOutput,
 }
 
 impl GestaltCompositeOutput for NativeCompositeOutput {
     type Output<T> = NativeOutput<T>;
 
     fn get_field<T>(&self, key: &str) -> Self::Output<T> {
-        let res = self.inner.get_output(key.to_string());
+        let res = self.inner.get_field(key.to_string());
         NativeOutput {
             inner: res,
             tpe: PhantomData,
@@ -49,7 +49,7 @@ impl Default for NativeContext {
 impl NativeContext {
     pub fn new() -> NativeContext {
         NativeContext {
-            inner: integration::PulumiEngine::create_engine(),
+            inner: integration::Context::create_context(),
         }
     }
 
@@ -82,17 +82,21 @@ impl GestaltContext for NativeContext {
         &self,
         request: RegisterResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
+        let mut objects = Vec::new();
+        for object in request.object {
+            objects.push(integration::ObjectField {
+                name: object.name.clone(),
+                value: &object.value.inner,
+            });
+        }
+
         let result = self
             .inner
-            .pulumi_register_resource(integration::RegisterResourceRequest {
+            .register_resource(integration::RegisterResourceRequest {
                 type_: request.type_,
                 name: request.name,
                 version: request.version,
-                objects: request
-                    .object
-                    .iter()
-                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
-                    .collect(),
+                inputs: &objects,
             });
 
         NativeCompositeOutput { inner: result }
@@ -102,16 +106,20 @@ impl GestaltContext for NativeContext {
         &self,
         request: InvokeResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
+        let mut objects = Vec::new();
+        for object in request.object {
+            objects.push(integration::ObjectField {
+                name: object.name.clone(),
+                value: &object.value.inner,
+            });
+        }
+
         let result = self
             .inner
-            .pulumi_invoke_resource(integration::InvokeResourceRequest {
+            .invoke_resource(integration::InvokeResourceRequest {
                 token: request.token,
                 version: request.version,
-                objects: request
-                    .object
-                    .iter()
-                    .map(|k| (k.name.clone().into(), *k.value.inner.get_id()))
-                    .collect(),
+                inputs: &objects,
             });
 
         NativeCompositeOutput { inner: result }
