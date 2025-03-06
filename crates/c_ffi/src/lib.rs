@@ -1,22 +1,19 @@
-use pulumi_gestalt_core::{FieldName, OutputId};
 use pulumi_gestalt_rust_integration as integration;
 use std::cell::RefCell;
-use std::collections::HashMap;
 use std::ffi::{c_char, c_void, CStr, CString};
 use std::rc::{Rc, Weak};
 
 pub struct CustomOutputId {
-    native: integration::CustomOutputId,
-    engine: Weak<RefCell<InnerPulumiEngine>>,
+    native: integration::Output,
 }
 
 pub struct CustomRegisterOutputId {
-    native: integration::CustomRegisterOutputId,
+    native: integration::CompositeOutput,
     engine: Weak<RefCell<InnerPulumiEngine>>,
 }
 
 pub struct InnerPulumiEngine {
-    engine: integration::PulumiEngine,
+    engine: integration::Context,
     outputs: Vec<*mut CustomOutputId>,
     context: *const c_void,
 }
@@ -64,7 +61,7 @@ type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char
 
 #[no_mangle]
 extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
-    let engine = integration::PulumiEngine::create_engine();
+    let engine = integration::Context::create_context();
     let t = InnerPulumiEngine {
         engine,
         outputs: Vec::new(),
@@ -97,13 +94,9 @@ extern "C" fn create_output(
         .unwrap()
         .to_string();
     let pulumi_engine = unsafe { &mut *pulumi_engine };
-    let inner = &pulumi_engine.inner;
     let mut inner_engine = pulumi_engine.inner.borrow_mut();
     let output_id = inner_engine.engine.create_output(value, secret);
-    let output = CustomOutputId {
-        native: output_id,
-        engine: Rc::downgrade(inner),
-    };
+    let output = CustomOutputId { native: output_id };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
     raw
@@ -152,7 +145,6 @@ extern "C" fn pulumi_map(
 
     let output = CustomOutputId {
         native: second_output,
-        engine: Rc::downgrade(&engine.inner),
     };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
@@ -169,15 +161,12 @@ extern "C" fn pulumi_get_output(
         .unwrap()
         .to_string();
     let custom_register_output_id = unsafe { &*custom_register_output_id };
-    let output = custom_register_output_id.native.get_output(field_name);
+    let output = custom_register_output_id.native.get_field(field_name);
 
     let binding = custom_register_output_id.engine.upgrade().unwrap();
     let mut engine = binding.borrow_mut();
 
-    let output = CustomOutputId {
-        native: output,
-        engine: custom_register_output_id.engine.clone(),
-    };
+    let output = CustomOutputId { native: output };
     let raw = Box::into_raw(Box::new(output));
     engine.outputs.push(raw);
     raw
@@ -206,16 +195,19 @@ extern "C" fn pulumi_register_resource(
         .unwrap()
         .to_owned();
 
-    let mut objects: HashMap<FieldName, OutputId> = HashMap::new();
+    let mut objects = Vec::new();
 
     unsafe {
         std::slice::from_raw_parts(request.object, request.object_len)
             .iter()
             .for_each(|field| {
                 let name = CStr::from_ptr(field.name).to_str().unwrap().to_owned();
-                let output = &(*field.value).native.get_id().clone();
+                let output = &(*field.value).native;
 
-                objects.insert(name.into(), *output);
+                objects.push(integration::ObjectField {
+                    name,
+                    value: output,
+                });
             });
     }
 
@@ -224,10 +216,10 @@ extern "C" fn pulumi_register_resource(
     let request = integration::RegisterResourceRequest {
         type_,
         name,
-        objects,
+        inputs: &objects,
         version,
     };
-    let output_id = inner_engine.engine.pulumi_register_resource(request);
+    let output_id = inner_engine.engine.register_resource(request);
 
     let output = CustomRegisterOutputId {
         native: output_id,

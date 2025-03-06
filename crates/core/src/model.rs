@@ -9,10 +9,7 @@ pub(crate) enum MaybeNodeValue {
 }
 
 impl MaybeNodeValue {
-    fn set(value: NodeValue) -> Self {
-        Self::Set(value)
-    }
-
+    #[cfg(test)]
     pub(crate) fn set_value(value: Value, secret: bool) -> Self {
         Self::Set(NodeValue::exists(value, secret))
     }

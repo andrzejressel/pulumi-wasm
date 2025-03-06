@@ -57,7 +57,7 @@ jobs:
       - run: pulumi login --local
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
       - name: Cache Pulumi providers
-        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -67,18 +67,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5
+        uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
@@ -125,18 +123,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5
+        uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ provider/${{ matrix.provider }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
@@ -183,7 +179,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: protoc --version
       - name: Cache Pulumi providers
-        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -232,7 +228,7 @@ jobs:
       - run: protoc --version
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
       - name: Cache Pulumi providers
-        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4
         with:
           path: ~/.pulumi/plugins
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
@@ -274,7 +270,7 @@ jobs:
       - run: pulumi login --local
       - name: Pull required docker images
         if: runner.os == 'Linux'
-        uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 10
           max_attempts: 10
@@ -301,18 +297,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5
+        uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@5c441a7bcc06f8706cde90192857d337c5dab8a6 # v1
         with:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
 #      - name: Publish Results to Testspace
 #        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
@@ -413,114 +407,3 @@ jobs:
       - run: git diff --cached
       - name: Ensure no files have changed
         run: git add . && git diff --quiet && git diff --cached --quiet
-
-  deploy:
-    runs-on: ubuntu-24.04
-    needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs,  build-cpp]
-    if: success() && github.ref == 'refs/heads/main'
-    steps:
-    - name: Cleanup unused stuff
-      run: |
-        df -h /
-        sudo rm -rf \
-        "$AGENT_TOOLSDIRECTORY" \
-        /opt/google/chrome \
-        /opt/microsoft/msedge \
-        /opt/microsoft/powershell \
-        /opt/pipx \
-        /usr/lib/mono \
-        /usr/local/julia* \
-        /usr/local/lib/android \
-        /usr/local/lib/node_modules \
-        /usr/local/share/chromium \
-        /usr/local/share/powershell \
-        /usr/share/dotnet \
-        /usr/share/swift
-        df -h /
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      with:
-        submodules: true
-        token: ${{ secrets.PAT }}
-    - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: cargo-bins/cargo-binstall@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install requirements
-      run: just install-requirements
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Pull required docker images
-      if: runner.os == 'Linux'
-      uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3
-      with:
-        timeout_minutes: 10
-        max_attempts: 10
-        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-    - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
-      with:
-        go-version: '^1.22.0'
-        cache-dependency-path: "**/go.sum"
-    - run: go version
-    - name: Install Protoc
-      uses: arduino/setup-protoc@v3
-      with:
-        version: "25.3"
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: protoc --version
-    - run: brew install pulumi
-      if: runner.os == 'macOS'
-    - run: pulumi version
-    - run: pulumi login --local
-
-    - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
-      with:
-        shared-key: build-examples
-        save-if: false
-    - uses: benjlevesque/short-sha@599815c8ee942a9616c92bcfb4f947a3b670ab0b # v3.0
-      id: short-sha
-      with:
-        length: 7
-    - name: Generate new version
-      run: |
-        echo "new_version=$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}" >> $GITHUB_ENV
-    - name: Replace version
-      run: just update-version "${{ env.new_version }}"
-
-    - name: Base and e2e tests
-      run: just base-ci-flow examples-ci-flow
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Clone Repository
-      run: |
-        git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-gestalt-releases /tmp/repo
-        cd /tmp/repo
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Create release Commit
-      run: |
-        cd /tmp/repo
-        git commit --allow-empty -m "Commit for version ${{ env.new_version }}"
-        git push origin main
-
-    - name: Release
-      uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
-      with:
-        name: ${{ env.new_version }}
-        tag_name: "v${{ env.new_version }}"
-        prerelease: true
-        repository: andrzejressel/pulumi-gestalt-releases
-        token: ${{ secrets.RELEASE_TOKEN }}
-        body: ""
-
-    - name: Create commit
-      run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add -A
-        git commit -m "Release v${{ env.new_version }}"
-        git tag "v${{ env.new_version }}"
-        git push origin "v${{ env.new_version }}"

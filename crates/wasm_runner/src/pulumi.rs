@@ -199,27 +199,6 @@ impl Pulumi {
         Ok(Pulumi { plugin, store })
     }
 
-    pub fn compile(pulumi_gestalt_file: &str) -> Result<Vec<u8>, Error> {
-        let mut engine_config = wasmtime::Config::new();
-        engine_config.wasm_component_model(true);
-        engine_config.async_support(true);
-        engine_config.wasm_backtrace_details(wasmtime::WasmBacktraceDetails::Enable);
-        engine_config.debug_info(true);
-
-        let engine = wasmtime::Engine::new(&engine_config).unwrap();
-
-        let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
-        Runner::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
-            &mut state.my_state
-        })?;
-
-        wasmtime_wasi::add_to_linker_sync(&mut linker).unwrap();
-
-        let component = Component::from_file(&engine, pulumi_gestalt_file)?;
-
-        component.serialize()
-    }
-
     pub async fn start(&mut self, in_preview: bool) -> Result<(), Error> {
         self.plugin
             .component_pulumi_gestalt_external_pulumi_main()

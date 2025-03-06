@@ -6,9 +6,7 @@
 pub mod client_bindings {
     wit_bindgen::generate!({
         world: "client",
-        with: {
-            "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV": generate
-        }
+        generate_all
     });
 }
 
@@ -20,9 +18,20 @@ pub mod client_bindings {
 pub mod bindings_logger {
     wit_bindgen::generate!({
         world: "logger",
-        with: {
-            "component:pulumi-gestalt-external/log@0.0.0-STABLE-DEV": generate
-        }
+        generate_all
+    });
+}
+
+#[allow(clippy::all)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused_unsafe)]
+#[cfg(feature = "pulumi_gestalt")]
+pub mod pulumi_gestalt_bindings {
+    wit_bindgen::generate!({
+        world: "pulumi-gestalt",
+        generate_all,
+        pub_export_macro: true
     });
 }
 

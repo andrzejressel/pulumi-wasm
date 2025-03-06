@@ -1,9 +1,8 @@
 use crate::WasmContext;
 use anyhow::{Context, Error, Result};
 use log::{error, info};
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::stack_interface::{
-    FunctionInvocationRequest, FunctionInvocationResult,
-};
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::FunctionInvocationRequest;
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::FunctionInvocationResult;
 
 pub fn run<F>(in_preview_u8: u8, f: F) -> Result<(), Error>
 where

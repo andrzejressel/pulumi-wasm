@@ -101,11 +101,3 @@ pub(crate) fn generate_single_resource_source_code(
         .render_template(TEMPLATE, &json!({"resource": resource}))
         .unwrap()
 }
-
-pub(crate) fn generate_docs(
-    package: &crate::model::Package,
-    element_id: &ElementId,
-) -> Vec<String> {
-    let resource = convert_resource(package, element_id);
-    resource.description_lines
-}
