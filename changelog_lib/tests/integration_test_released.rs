@@ -77,7 +77,8 @@ fn create_repository() -> Result<Repository> {
         .add_and_commit("[no-changelog] Do not include in changelog")?
         .add_and_commit("Some feature")?
         .add_and_commit_renovate("Some renovate bot commit (#3)")?
-        .add_and_commit("Some PR feature (#4)")?
+        .add_and_commit_dependabot("Some dependabot commit (#4)")?
+        .add_and_commit("Some PR feature (#5)")?
         .create_tag("v0.2.0")?;
 
     Ok(repository)
