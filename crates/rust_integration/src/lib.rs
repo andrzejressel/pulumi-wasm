@@ -11,18 +11,17 @@ use std::rc::Rc;
 use uuid::Uuid;
 
 #[derive(Clone)]
-pub struct CustomOutputId {
+pub struct Output {
     output_id: OutputId,
     engine: Rc<RefCell<InnerPulumiEngine>>,
 }
 
-impl CustomOutputId {
-    pub fn get_id(&self) -> &OutputId {
-        &self.output_id
-    }
+pub struct ObjectField<'a> {
+    pub name: String,
+    pub value: &'a Output,
 }
 
-pub struct CustomRegisterOutputId {
+pub struct CompositeOutput {
     output_id: OutputId,
     engine: Rc<RefCell<InnerPulumiEngine>>,
 }
@@ -32,36 +31,36 @@ pub(crate) struct InnerPulumiEngine {
     functions: HashMap<FunctionName, Box<dyn Fn(String) -> String>>,
 }
 
-pub struct PulumiEngine {
+pub struct Context {
     inner: Rc<RefCell<InnerPulumiEngine>>,
 }
 
-pub struct RegisterResourceRequest {
+pub struct RegisterResourceRequest<'a> {
     pub type_: String,
     pub name: String,
     pub version: String,
-    pub objects: HashMap<FieldName, OutputId>,
+    pub inputs: &'a [ObjectField<'a>],
 }
 
-pub struct InvokeResourceRequest {
+pub struct InvokeResourceRequest<'a> {
     pub token: String,
     pub version: String,
-    pub objects: HashMap<FieldName, OutputId>,
+    pub inputs: &'a [ObjectField<'a>],
 }
 
-impl PulumiEngine {
-    pub fn create_engine() -> PulumiEngine {
+impl Context {
+    pub fn create_context() -> Context {
         let engine = get_engine();
         let inner = InnerPulumiEngine {
             engine,
             functions: HashMap::new(),
         };
-        PulumiEngine {
+        Context {
             inner: Rc::new(RefCell::new(inner)),
         }
     }
 
-    pub fn create_output(&self, value: String, secret: bool) -> CustomOutputId {
+    pub fn create_output(&self, value: String, secret: bool) -> Output {
         let value = serde_json::from_str(&value).unwrap();
         let output_id = self
             .inner
@@ -69,42 +68,49 @@ impl PulumiEngine {
             .borrow_mut()
             .engine
             .create_done_node(value, secret);
-        CustomOutputId {
+        Output {
             output_id,
             engine: Rc::clone(&self.inner),
         }
     }
 
-    pub fn pulumi_register_resource(
-        &self,
-        request: RegisterResourceRequest,
-    ) -> CustomRegisterOutputId {
+    pub fn register_resource(&self, request: RegisterResourceRequest) -> CompositeOutput {
         let type_ = request.type_;
         let name = request.name;
         let version = request.version;
 
+        let mut objects_map = HashMap::new();
+        for object in request.inputs {
+            objects_map.insert(FieldName::from(&object.name), object.value.output_id);
+        }
+
         let output_id = self
             .inner
             .deref()
             .borrow_mut()
             .engine
-            .create_register_resource_node(type_, name, request.objects, version);
+            .create_register_resource_node(type_, name, objects_map, version);
 
-        CustomRegisterOutputId {
+        CompositeOutput {
             output_id,
             engine: Rc::clone(&self.inner),
         }
     }
 
-    pub fn pulumi_invoke_resource(&self, request: InvokeResourceRequest) -> CustomRegisterOutputId {
+    pub fn invoke_resource(&self, request: InvokeResourceRequest) -> CompositeOutput {
+        let mut objects_map = HashMap::new();
+        for object in request.inputs {
+            objects_map.insert(FieldName::from(&object.name), object.value.output_id);
+        }
+
         let output_id = self
             .inner
             .deref()
             .borrow_mut()
             .engine
-            .create_resource_invoke_node(request.token, request.objects, request.version);
+            .create_resource_invoke_node(request.token, objects_map, request.version);
 
-        CustomRegisterOutputId {
+        CompositeOutput {
             output_id,
             engine: Rc::clone(&self.inner),
         }
@@ -145,7 +151,7 @@ impl PulumiEngine {
     }
 }
 
-impl CustomOutputId {
+impl Output {
     pub fn add_export(&self, name: String) {
         let pulumi_engine = &self.engine;
         let output_id = self.output_id;
@@ -156,7 +162,7 @@ impl CustomOutputId {
             .add_output(name.into(), output_id);
     }
 
-    pub fn map(&self, function: Box<dyn Fn(String) -> String>) -> CustomOutputId {
+    pub fn map(&self, function: Box<dyn Fn(String) -> String>) -> Output {
         let output_id = self.output_id;
         let function_uuid = Uuid::new_v4();
         let function_name: FunctionName = function_uuid.to_string().into();
@@ -166,7 +172,7 @@ impl CustomOutputId {
         let output = inner
             .engine
             .create_native_function_node(function_name.clone(), output_id);
-        let output = CustomOutputId {
+        let output = Output {
             output_id: output,
             engine: Rc::clone(&self.engine),
         };
@@ -176,7 +182,7 @@ impl CustomOutputId {
         output
     }
 
-    pub fn combine(&self, others: &[&CustomOutputId]) -> CustomOutputId {
+    pub fn combine(&self, others: &[&Output]) -> Output {
         let pulumi_engine = &self.engine;
         let mut outputs = Vec::with_capacity(others.len() + 1);
         outputs.push(self.output_id);
@@ -189,15 +195,15 @@ impl CustomOutputId {
             .engine
             .create_combine_outputs(outputs);
 
-        CustomOutputId {
+        Output {
             output_id: output,
             engine: Rc::clone(pulumi_engine),
         }
     }
 }
 
-impl CustomRegisterOutputId {
-    pub fn get_output(&self, field_name: String) -> CustomOutputId {
+impl CompositeOutput {
+    pub fn get_field(&self, field_name: String) -> Output {
         let pulumi_engine = &self.engine;
         let output_id = &self.output_id;
 
@@ -206,7 +212,7 @@ impl CustomRegisterOutputId {
             .engine
             .create_extract_field(field_name.into(), *output_id);
 
-        CustomOutputId {
+        Output {
             output_id: output,
             engine: Rc::clone(pulumi_engine),
         }

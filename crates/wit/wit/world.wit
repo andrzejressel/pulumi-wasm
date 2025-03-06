@@ -37,7 +37,7 @@ interface output-interface {
     }
 
     resource composite-output {
-        extract-field: func(field-name: string) -> output;
+        get-field: func(field-name: string) -> output;
     }
 }
 
