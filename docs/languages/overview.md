@@ -16,7 +16,7 @@ Currently there are no configuration options for the plugin. It can be used in f
 ```yaml
 name: Some_name
 runtime: gestalt
-````
+```
 
 The plugin will run `just` recipies only when `Justfile` is located in the same directory as the Pulumi program. On other case 
 the error will be thrown.
