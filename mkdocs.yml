@@ -21,6 +21,7 @@ nav:
   - DevBlog: https://dev.to/andrzejressel/series/30425
   - Changelog: CHANGELOG.md
   - Languages:
+      - Overview: languages/overview.md
       - Rust:
           - languages/rust/index.md
           - rustdoc (Native): rust-docs/native/pulumi_gestalt_rust/index.html

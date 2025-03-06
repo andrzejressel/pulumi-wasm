@@ -1,7 +1,7 @@
 # Rust
 
 !!! note "Please Read First"
-    Before proceeding, make sure to read this [Overview](overview.md) page to get a better understanding of the documentation.
+    Before proceeding, make sure to read [Pulumi Gestalt integrations Overview](overview.md) page to get a better understanding of the documentation.
 
 
 Rust integration is available as `pulumi_gestalt_rust_integration` package in project's custom crate repository.
