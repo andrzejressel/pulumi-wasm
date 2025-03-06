@@ -1,7 +1,7 @@
 # Rust
 
 !!! note "Please Read First"
-    Before processing, make sure to learn about [Pulumi](https://www.pulumi.com/tutorials/)
+    Before processing, make sure to learn about [Pulumi](https://www.pulumi.com/tutorials/) and read [Pulumi Gestalt overview](../overview.md)
 
 !!! note "TL/DR"
     Example project is available at [pulumi-gestalt-example](https://github.com/andrzejressel/pulumi-gestalt-example)
