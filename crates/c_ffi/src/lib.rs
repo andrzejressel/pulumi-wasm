@@ -192,7 +192,7 @@ extern "C" fn pulumi_register_resource(
         .to_owned();
 
     let objects = extract_field(request.inputs, request.inputs_len);
-    
+
     let inner = &pulumi_context.inner;
     let inner_engine = pulumi_context.inner.borrow_mut();
     let request = integration::RegisterResourceRequest {
@@ -250,7 +250,10 @@ extern "C" fn pulumi_invoke_resource(
     Box::into_raw(Box::new(output))
 }
 
-fn extract_field<'a>(inputs: *const ObjectField, inputs_len: usize) -> Vec<integration::ObjectField<'a>> {
+fn extract_field<'a>(
+    inputs: *const ObjectField,
+    inputs_len: usize,
+) -> Vec<integration::ObjectField<'a>> {
     let mut objects = Vec::new();
     unsafe {
         std::slice::from_raw_parts(inputs, inputs_len)
