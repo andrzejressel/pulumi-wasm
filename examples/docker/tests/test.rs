@@ -22,12 +22,12 @@ fn test_integration() -> Result<(), anyhow::Error> {
     let logs = stack.get_string("/logs")?;
     let image_id = stack.get_string("/image_id")?;
     let labels = stack.get_string("/labels")?;
-    let remote_image_id = stack.get_string("/remote_image_id")?;
+    let repo_digest = stack.get_string("/repo_digest")?;
 
     assert!(logs.contains("Hello World!"));
     assert!(!image_id.is_empty());
     assert!(labels.contains("value_1"));
-    assert!(remote_image_id.starts_with("public.ecr.aws/ubuntu/ubuntu@sha256:"));
+    assert!(repo_digest.starts_with("public.ecr.aws/ubuntu/ubuntu@sha256:"));
 
     Ok(())
 }

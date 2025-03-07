@@ -18,10 +18,12 @@ fn test_integration() -> Result<(), anyhow::Error> {
     let result = stack.get_string("/result")?;
     let double_length = stack.get_i64("/double_length")?;
     let static_string = stack.get_string("/static_string")?;
+    let repo_digest = stack.get_string("/repo_digest")?;
 
     assert_eq!(result.len(), 16);
     assert_eq!(double_length, 32);
     assert_eq!(static_string, "my_string");
+    assert!(repo_digest.starts_with("public.ecr.aws/ubuntu/ubuntu@sha256:"));
 
     Ok(())
 }

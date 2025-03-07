@@ -3810,10 +3810,8 @@ dependencies = [
 name = "pulumi_native_c"
 version = "0.0.0-DEV"
 dependencies = [
- "anyhow",
  "cbindgen",
  "libc",
- "pulumi_gestalt_core",
  "pulumi_gestalt_rust_integration",
 ]
 

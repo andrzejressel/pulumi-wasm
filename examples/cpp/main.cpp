@@ -26,35 +26,64 @@ static char* mapper(const void*, const void* context, const char* content) {
 	exit(2);
 }
 
-int main()
-{
-	auto engine = create_engine(nullptr);
+static void generate_random_value(pulumi_context_t* ctx) {
 
-	auto output = create_output(engine, "16", false);
+	auto output = pulumi_create_output(ctx, "16", false);
 
 	std::vector<pulumi_object_field_t> inputs = {
 		{"length", output}
 	};
 
-	auto const register_resource_request = pulumi_register_resource_request_t {
+	auto const register_resource_request = pulumi_register_resource_request_t{
 		.type_ = "random:index/randomString:RandomString",
 		.name = "my_name",
 		.version = "4.15.1",
-		.object = inputs.data(),
-		.object_len = inputs.size(),
+		.inputs = inputs.data(),
+		.inputs_len = inputs.size(),
 	};
 
-	auto output_2 = pulumi_register_resource(engine, &register_resource_request);
+	auto output_2 = pulumi_register_resource(ctx, &register_resource_request);
 
-	auto output_result = pulumi_get_output(output_2, "result");
+	auto output_result = pulumi_composite_output_get_field(output_2, "result");
 
-	auto double_length = pulumi_map(engine, output, "double", &mapper);
-	auto static_string = pulumi_map(engine, output, "static", &mapper);
+	auto double_length = pulumi_output_map(ctx, output, "double", &mapper);
+	auto static_string = pulumi_output_map(ctx, output, "static", &mapper);
 
-	add_export(output_result, "result");
-	add_export(double_length, "double_length");
-	add_export(static_string, "static_string");
+	pulumi_output_add_to_export(output_result, "result");
+	pulumi_output_add_to_export(double_length, "double_length");
+	pulumi_output_add_to_export(static_string, "static_string");
 
-	finish(engine);
-	free_engine(engine);
+}
+
+
+static void get_ubuntu_image(pulumi_context_t* ctx) {
+	auto output = pulumi_create_output(ctx, "\"public.ecr.aws/ubuntu/ubuntu:latest\"", false);
+
+	std::vector<pulumi_object_field_t> inputs = {
+		{"name", output}
+	};
+
+	auto const register_resource_request = pulumi_invoke_resource_request_t{
+		.token = "docker:index/getRemoteImage:getRemoteImage",
+		.version = "4.5.3",
+		.inputs = inputs.data(),
+		.inputs_len = inputs.size(),
+	};
+
+	auto output_2 = pulumi_invoke_resource(ctx, &register_resource_request);
+
+	auto digest_output = pulumi_composite_output_get_field(output_2, "repoDigest");
+
+	pulumi_output_add_to_export(digest_output, "repo_digest");
+}
+
+int main()
+{
+	auto ctx = pulumi_create_context(nullptr);
+
+	generate_random_value(ctx);
+	get_ubuntu_image(ctx);
+
+	pulumi_finish(ctx);
+	pulumi_destroy_context(ctx);
 }
