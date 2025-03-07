@@ -56,25 +56,25 @@ static void generate_random_value(pulumi_context_t* ctx) {
 }
 
 
-static void get_ubuntu_image(pulumi_context_t* ctx) {
-	auto output = pulumi_create_output(ctx, "\"public.ecr.aws/ubuntu/ubuntu:latest\"", false);
+static void run_command(pulumi_context_t* ctx) {
+	auto output = pulumi_create_output(ctx, "\"whoami\"", false);
 
 	std::vector<pulumi_object_field_t> inputs = {
-		{"name", output}
+		{"command", output}
 	};
 
 	auto const register_resource_request = pulumi_invoke_resource_request_t{
-		.token = "docker:index/getRemoteImage:getRemoteImage",
-		.version = "4.5.3",
+		.token = "command:local:run",
+		.version = "1.0.2",
 		.inputs = inputs.data(),
 		.inputs_len = inputs.size(),
 	};
 
 	auto output_2 = pulumi_invoke_resource(ctx, &register_resource_request);
 
-	auto digest_output = pulumi_composite_output_get_field(output_2, "repoDigest");
+	auto stdout_output = pulumi_composite_output_get_field(output_2, "stdout");
 
-	pulumi_output_add_to_export(digest_output, "repo_digest");
+	pulumi_output_add_to_export(stdout_output, "whoami_stdout");
 }
 
 int main()
@@ -82,7 +82,7 @@ int main()
 	auto ctx = pulumi_create_context(nullptr);
 
 	generate_random_value(ctx);
-	get_ubuntu_image(ctx);
+	run_command(ctx);
 
 	pulumi_finish(ctx);
 	pulumi_destroy_context(ctx);
