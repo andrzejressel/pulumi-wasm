@@ -1,5 +1,6 @@
-use std::cmp::PartialEq;
 use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
+use crate::model::TagName::WithVersion;
+use crate::model::TagNameWithVersion::NotYetReleasedWithVersion;
 use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
 use anyhow::{bail, format_err, Context, Result};
 use bon::Builder;
@@ -8,12 +9,11 @@ use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use model::Version;
 use regex::Regex;
+use std::cmp::PartialEq;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::sync::LazyLock;
-use crate::model::TagName::{NotYetReleased, WithVersion};
-use crate::model::TagNameWithVersion::NotYetReleasedWithVersion;
 
 mod encoders;
 mod model;
