@@ -7,7 +7,9 @@ license.workspace = true
 readme.workspace = true
 description = "Common Rust utilities for Pulumi Gestalt"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[package.metadata.docs.rs]
+default-target = "x86_64-unknown-linux-gnu"
+targets = ["x86_64-apple-darwin", "x86_64-pc-windows-msvc", "i686-unknown-linux-gnu", "i686-pc-windows-msvc", "wasm32-wasip2"]
 
 [dependencies]
 log.workspace = true

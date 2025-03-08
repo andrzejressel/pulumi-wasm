@@ -7,6 +7,10 @@ license.workspace = true
 readme.workspace = true
 description = "Wasm Rust adapter for Pulumi Gestalt"
 
+[package.metadata.docs.rs]
+default-target = "x86_64-unknown-linux-gnu"
+targets = ["x86_64-apple-darwin", "x86_64-pc-windows-msvc", "i686-unknown-linux-gnu", "i686-pc-windows-msvc", "wasm32-wasip2"]
+
 [dependencies]
 pulumi_gestalt_rust_adapter.workspace = true
 pulumi_gestalt_wit = { workspace = true, features = ["client"] }
