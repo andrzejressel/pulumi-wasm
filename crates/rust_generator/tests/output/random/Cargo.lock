@@ -999,15 +999,10 @@ dependencies = [
 name = "pulumi_gestalt_rust_adapter_native"
 version = "0.0.0-DEV"
 dependencies = [
- "anyhow",
- "pulumi_gestalt_core",
- "pulumi_gestalt_grpc_connection",
- "pulumi_gestalt_proto",
  "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_integration",
  "serde",
  "serde_json",
- "uuid",
 ]
 
 [[package]]
@@ -1036,7 +1031,6 @@ dependencies = [
 name = "pulumi_gestalt_rust_integration"
 version = "0.0.0-DEV"
 dependencies = [
- "anyhow",
  "pulumi_gestalt_core",
  "pulumi_gestalt_grpc_connection",
  "pulumi_gestalt_proto",
