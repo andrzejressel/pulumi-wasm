@@ -104,7 +104,6 @@ extern "C" fn pulumi_create_output(
     raw
 }
 
-
 #[no_mangle]
 extern "C" fn pulumi_register_resource(
     ctx: *mut PulumiContext,
@@ -221,8 +220,11 @@ extern "C" fn pulumi_output_map(
 }
 
 #[no_mangle]
-extern "C" fn pulumi_output_combine(output: *const CustomOutputId, outputs: *const *const CustomOutputId, outputs_size: usize) -> *mut CustomOutputId {
-    
+extern "C" fn pulumi_output_combine(
+    output: *const CustomOutputId,
+    outputs: *const *const CustomOutputId,
+    outputs_size: usize,
+) -> *mut CustomOutputId {
     let output = unsafe { &*output };
 
     let mut other_outputs = Vec::new();
@@ -234,13 +236,11 @@ extern "C" fn pulumi_output_combine(output: *const CustomOutputId, outputs: *con
                 other_outputs.push(&(*field).native);
             });
     }
-    
+
     let new_output = output.native.combine(&other_outputs);
-    
-    let output = CustomOutputId {
-        native: new_output,
-    };
-    
+
+    let output = CustomOutputId { native: new_output };
+
     let raw = Box::into_raw(Box::new(output));
     raw
 }
