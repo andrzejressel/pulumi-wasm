@@ -1202,12 +1202,10 @@ pub fn run_pulumi_generator_test(
         root.join("rust-toolchain.toml"),
     )?;
 
-    if let Some(_) = std::env::var_os("REMOVE_LOCK_FILES") {
-        if root.join("Cargo.lock").exists() {
-            fs::remove_file(root.join("Cargo.lock"))?;
-        }
+    if std::env::var_os("REMOVE_LOCK_FILES").is_some() && root.join("Cargo.lock").exists() {
+        fs::remove_file(root.join("Cargo.lock"))?;
     }
-        
+
     if let Some(env) = std::env::var_os("DO_NOT_COMPILE") {
         if env == "true" {
             if !root.join("Cargo.lock").exists() {

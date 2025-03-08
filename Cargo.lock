@@ -3443,7 +3443,6 @@ dependencies = [
 name = "pulumi_gestalt"
 version = "0.0.0-DEV"
 dependencies = [
- "log",
  "prost",
  "pulumi_gestalt_core",
  "pulumi_gestalt_proto",
@@ -3451,7 +3450,6 @@ dependencies = [
  "pulumi_gestalt_wit",
  "serde",
  "serde_json",
- "wit-bindgen",
 ]
 
 [[package]]
@@ -3752,7 +3750,6 @@ dependencies = [
 name = "pulumi_gestalt_rust_integration"
 version = "0.0.0-DEV"
 dependencies = [
- "anyhow",
  "pulumi_gestalt_core",
  "pulumi_gestalt_grpc_connection",
  "pulumi_gestalt_proto",

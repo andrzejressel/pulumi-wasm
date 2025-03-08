@@ -49,6 +49,6 @@ fn pulumi_main(context: &Context) -> anyhow::Result<()> {
     add_export("logs", &cont.container_logs);
     add_export("image_id", &image.image_name);
     add_export("labels", &cont.labels.map(|f| f[0].value.clone()));
-    add_export("remote_image_id", &remote_image.repo_digest);
+    add_export("repo_digest", &remote_image.repo_digest);
     Ok(())
 }
