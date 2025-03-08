@@ -70,6 +70,12 @@ extern "C" fn pulumi_create_context(context: *const c_void) -> *mut PulumiContex
 }
 
 #[no_mangle]
+extern "C" fn pulumi_finish(ctx: *mut PulumiContext) {
+    let pulumi_context = unsafe { &mut *ctx };
+    pulumi_context.inner.borrow_mut().ctx.finish();
+}
+
+#[no_mangle]
 extern "C" fn pulumi_destroy_context(ctx: *mut PulumiContext) {
     unsafe {
         let b = Box::from_raw(ctx);
@@ -98,75 +104,6 @@ extern "C" fn pulumi_create_output(
     raw
 }
 
-#[no_mangle]
-extern "C" fn pulumi_output_add_to_export(value: *const CustomOutputId, name: *const c_char) {
-    let name = unsafe { CStr::from_ptr(name) }
-        .to_str()
-        .unwrap()
-        .to_string();
-    let value = unsafe { &*value };
-    value.native.add_export(name);
-}
-
-#[no_mangle]
-extern "C" fn pulumi_finish(ctx: *mut PulumiContext) {
-    let pulumi_context = unsafe { &mut *ctx };
-    pulumi_context.inner.borrow_mut().ctx.finish();
-}
-
-#[no_mangle]
-extern "C" fn pulumi_output_map(
-    ctx: *mut PulumiContext,
-    output: *const CustomOutputId,
-    function_context: *const c_void,
-    function: MappingFunction,
-) -> *mut CustomOutputId {
-    let output = unsafe { &*output };
-    let engine = unsafe { &mut *ctx };
-    let mut inner_engine = engine.inner.borrow_mut();
-    let context = inner_engine.context;
-
-    let f = move |value: String| {
-        let c_string = CString::new(value).unwrap();
-        let str = function(context, function_context, c_string.as_ptr());
-        let result = unsafe { CStr::from_ptr(str) }.to_str().unwrap();
-        let v = result.to_owned();
-        unsafe {
-            libc::free(str as *mut c_void);
-        }
-        v
-    };
-
-    let second_output = output.native.map(Box::new(f));
-
-    let output = CustomOutputId {
-        native: second_output,
-    };
-    let raw = Box::into_raw(Box::new(output));
-    inner_engine.outputs.push(raw);
-    raw
-}
-
-#[no_mangle]
-extern "C" fn pulumi_composite_output_get_field(
-    output: *mut CustomCompositeOutputId,
-    field_name: *const c_char,
-) -> *mut CustomOutputId {
-    let field_name = unsafe { CStr::from_ptr(field_name) }
-        .to_str()
-        .unwrap()
-        .to_string();
-    let custom_register_output_id = unsafe { &*output };
-    let output = custom_register_output_id.native.get_field(field_name);
-
-    let binding = custom_register_output_id.ctx.upgrade().unwrap();
-    let mut engine = binding.borrow_mut();
-
-    let output = CustomOutputId { native: output };
-    let raw = Box::into_raw(Box::new(output));
-    engine.outputs.push(raw);
-    raw
-}
 
 #[no_mangle]
 extern "C" fn pulumi_register_resource(
@@ -248,6 +185,95 @@ extern "C" fn pulumi_invoke_resource(
 
     // inner_engine.outputs.push(raw); //FIXME
     Box::into_raw(Box::new(output))
+}
+
+#[no_mangle]
+extern "C" fn pulumi_output_map(
+    ctx: *mut PulumiContext,
+    output: *const CustomOutputId,
+    function_context: *const c_void,
+    function: MappingFunction,
+) -> *mut CustomOutputId {
+    let output = unsafe { &*output };
+    let engine = unsafe { &mut *ctx };
+    let mut inner_engine = engine.inner.borrow_mut();
+    let context = inner_engine.context;
+
+    let f = move |value: String| {
+        let c_string = CString::new(value).unwrap();
+        let str = function(context, function_context, c_string.as_ptr());
+        let result = unsafe { CStr::from_ptr(str) }.to_str().unwrap();
+        let v = result.to_owned();
+        unsafe {
+            libc::free(str as *mut c_void);
+        }
+        v
+    };
+
+    let second_output = output.native.map(Box::new(f));
+
+    let output = CustomOutputId {
+        native: second_output,
+    };
+    let raw = Box::into_raw(Box::new(output));
+    inner_engine.outputs.push(raw);
+    raw
+}
+
+#[no_mangle]
+extern "C" fn pulumi_output_combine(output: *const CustomOutputId, outputs: *const *const CustomOutputId, outputs_size: usize) -> *mut CustomOutputId {
+    
+    let output = unsafe { &*output };
+
+    let mut other_outputs = Vec::new();
+    unsafe {
+        std::slice::from_raw_parts(outputs, outputs_size)
+            .iter()
+            .for_each(|field| {
+                let field = *field;
+                other_outputs.push(&(*field).native);
+            });
+    }
+    
+    let new_output = output.native.combine(&other_outputs);
+    
+    let output = CustomOutputId {
+        native: new_output,
+    };
+    
+    let raw = Box::into_raw(Box::new(output));
+    raw
+}
+
+#[no_mangle]
+extern "C" fn pulumi_output_add_to_export(value: *const CustomOutputId, name: *const c_char) {
+    let name = unsafe { CStr::from_ptr(name) }
+        .to_str()
+        .unwrap()
+        .to_string();
+    let value = unsafe { &*value };
+    value.native.add_export(name);
+}
+
+#[no_mangle]
+extern "C" fn pulumi_composite_output_get_field(
+    output: *mut CustomCompositeOutputId,
+    field_name: *const c_char,
+) -> *mut CustomOutputId {
+    let field_name = unsafe { CStr::from_ptr(field_name) }
+        .to_str()
+        .unwrap()
+        .to_string();
+    let custom_register_output_id = unsafe { &*output };
+    let output = custom_register_output_id.native.get_field(field_name);
+
+    let binding = custom_register_output_id.ctx.upgrade().unwrap();
+    let mut engine = binding.borrow_mut();
+
+    let output = CustomOutputId { native: output };
+    let raw = Box::into_raw(Box::new(output));
+    engine.outputs.push(raw);
+    raw
 }
 
 fn extract_field<'a>(

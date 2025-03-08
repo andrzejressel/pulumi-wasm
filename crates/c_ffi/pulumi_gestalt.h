@@ -14,13 +14,6 @@ typedef struct pulumi_output_t pulumi_output_t;
 
 typedef struct pulumi_context_t pulumi_context_t;
 
-/**
- * Arguments: Engine context, Function context, Serialized JSON value
- * Returned string must represent a JSON value;
- * Library will free the returned string
- */
-typedef char *(*pulumi_mapping_function_t)(const void*, const void*, const char*);
-
 typedef struct pulumi_object_field_t {
   const char *name;
   const struct pulumi_output_t *value;
@@ -41,11 +34,20 @@ typedef struct pulumi_invoke_resource_request_t {
   uintptr_t inputs_len;
 } pulumi_invoke_resource_request_t;
 
+/**
+ * Arguments: Engine context, Function context, Serialized JSON value
+ * Returned string must represent a JSON value;
+ * Library will free the returned string
+ */
+typedef char *(*pulumi_mapping_function_t)(const void*, const void*, const char*);
+
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
 
 struct pulumi_context_t *pulumi_create_context(const void *context);
+
+void pulumi_finish(struct pulumi_context_t *ctx);
 
 void pulumi_destroy_context(struct pulumi_context_t *ctx);
 
@@ -53,23 +55,25 @@ struct pulumi_output_t *pulumi_create_output(struct pulumi_context_t *ctx,
                                              const char *value,
                                              bool secret);
 
-void pulumi_output_add_to_export(const struct pulumi_output_t *value, const char *name);
+struct pulumi_composite_output_t *pulumi_register_resource(struct pulumi_context_t *ctx,
+                                                           const struct pulumi_register_resource_request_t *request);
 
-void pulumi_finish(struct pulumi_context_t *ctx);
+struct pulumi_composite_output_t *pulumi_invoke_resource(struct pulumi_context_t *ctx,
+                                                         const struct pulumi_invoke_resource_request_t *request);
 
 struct pulumi_output_t *pulumi_output_map(struct pulumi_context_t *ctx,
                                           const struct pulumi_output_t *output,
                                           const void *function_context,
                                           pulumi_mapping_function_t function);
 
+struct pulumi_output_t *pulumi_output_combine(const struct pulumi_output_t *output,
+                                              const struct pulumi_output_t *const *outputs,
+                                              uintptr_t outputs_size);
+
+void pulumi_output_add_to_export(const struct pulumi_output_t *value, const char *name);
+
 struct pulumi_output_t *pulumi_composite_output_get_field(struct pulumi_composite_output_t *output,
                                                           const char *field_name);
-
-struct pulumi_composite_output_t *pulumi_register_resource(struct pulumi_context_t *ctx,
-                                                           const struct pulumi_register_resource_request_t *request);
-
-struct pulumi_composite_output_t *pulumi_invoke_resource(struct pulumi_context_t *ctx,
-                                                         const struct pulumi_invoke_resource_request_t *request);
 
 #ifdef __cplusplus
 }  // extern "C"
