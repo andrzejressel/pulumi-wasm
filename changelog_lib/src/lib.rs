@@ -9,7 +9,6 @@ use gix::bstr::ByteSlice;
 use gix::reference::Category;
 use model::Version;
 use regex::Regex;
-use std::cmp::PartialEq;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
@@ -48,7 +47,10 @@ pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) 
     Ok(s)
 }
 
-pub fn generate_changelog_for_github_changelog(options: &Options, new_version: &str) -> Result<String> {
+pub fn generate_changelog_for_github_changelog(
+    options: &Options,
+    new_version: &str,
+) -> Result<String> {
     let history = generate_history(options, Some(new_version.to_string()))
         .context("Failed to generate history")?;
     let version = history

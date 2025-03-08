@@ -83,10 +83,10 @@ jobs:
       - name: Replace version
         run: just update-version "${{ github.event.inputs.version }}"
 
-#      - name: Base and e2e tests
-#        run: just base-ci-flow examples-ci-flow
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Base and e2e tests
+        run: just base-ci-flow examples-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clone Repository
         run: |
@@ -134,11 +134,11 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body_path: target/github_changelog.md
 
-#      - name: Create commit
-#        run: |
-#          git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
-#          git tag "v${{ github.event.inputs.version }}"
-#          git push origin "v${{ github.event.inputs.version }}"
-#          git revert HEAD~2 # Revert renaming
-#          git commit --amend -m "Restore version to 0.0.0-DEV"
-#          git push
+      - name: Create commit
+        run: |
+          git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
+          git tag "v${{ github.event.inputs.version }}"
+          git push origin "v${{ github.event.inputs.version }}"
+          git revert HEAD~2 # Revert renaming
+          git commit --amend -m "Restore version to 0.0.0-DEV"
+          git push

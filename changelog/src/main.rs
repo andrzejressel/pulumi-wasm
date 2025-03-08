@@ -34,7 +34,8 @@ fn main() -> Result<()> {
             fs::write("CHANGELOG.md", &s).context("Failed to write changelog")?;
             let s = changelog_lib::generate_changelog_for_github_changelog(&options, &new_version)
                 .context("Failed to generate changelog")?;
-            fs::write("target/github_changelog.md", &s).context("Failed to write GitHub changelog")?;
+            fs::write("target/github_changelog.md", &s)
+                .context("Failed to write GitHub changelog")?;
         }
         Command::GenerateForDocs {} => {
             let s = changelog_lib::generate_mkdocs_changelog(&options)
