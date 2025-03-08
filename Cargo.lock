@@ -3798,7 +3798,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
- "wasmparser 0.227.0",
+ "wasmparser 0.227.1",
  "wasmtime",
  "wasmtime-wasi",
  "wat",
@@ -5166,12 +5166,12 @@ dependencies = [
 
 [[package]]
 name = "wasm-encoder"
-version = "0.227.0"
+version = "0.227.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "829806010c17fa417fa56a42b76efadb35d70dbd972de9f07373b87d2729b698"
+checksum = "80bb72f02e7fbf07183443b27b0f3d4144abf8c114189f2e088ed95b696a7822"
 dependencies = [
  "leb128fmt",
- "wasmparser 0.227.0",
+ "wasmparser 0.227.1",
 ]
 
 [[package]]
@@ -5205,8 +5205,8 @@ dependencies = [
  "serde_json",
  "spdx",
  "url",
- "wasm-encoder 0.227.0",
- "wasmparser 0.227.0",
+ "wasm-encoder 0.227.1",
+ "wasmparser 0.227.1",
 ]
 
 [[package]]
@@ -5235,9 +5235,9 @@ dependencies = [
 
 [[package]]
 name = "wasmparser"
-version = "0.227.0"
+version = "0.227.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c15e32b1ab55e5e112f7c1dabd0d3f57c61992bfb0c4d4a6f141fe65c10ba750"
+checksum = "0f51cad774fb3c9461ab9bccc9c62dfb7388397b5deda31bf40e8108ccd678b2"
 dependencies = [
  "bitflags",
  "hashbrown 0.15.2",
@@ -5567,24 +5567,24 @@ dependencies = [
 
 [[package]]
 name = "wast"
-version = "227.0.0"
+version = "227.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f9ba0f7fe54ce2895314110aac579043d43175f66201153a0549badfa0fb04e"
+checksum = "85c14e5042b16c9d267da3b9b0f4529870455178415286312c25c34dfc1b2816"
 dependencies = [
  "bumpalo",
  "leb128fmt",
  "memchr",
  "unicode-width",
- "wasm-encoder 0.227.0",
+ "wasm-encoder 0.227.1",
 ]
 
 [[package]]
 name = "wat"
-version = "1.227.0"
+version = "1.227.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ddc4d0762d835bf25be727f4320a8b08ce4451fb1e5868940ad7708503c6a6c9"
+checksum = "b3d394d5bef7006ff63338d481ca10f1af76601e65ebdf5ed33d29302994e9cc"
 dependencies = [
- "wast 227.0.0",
+ "wast 227.0.1",
 ]
 
 [[package]]
@@ -5913,9 +5913,9 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "wasm-encoder 0.227.0",
+ "wasm-encoder 0.227.1",
  "wasm-metadata 0.227.0",
- "wasmparser 0.227.0",
+ "wasmparser 0.227.1",
  "wat",
  "wit-parser 0.227.0",
 ]
@@ -5953,7 +5953,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "unicode-xid",
- "wasmparser 0.227.0",
+ "wasmparser 0.227.1",
 ]
 
 [[package]]
