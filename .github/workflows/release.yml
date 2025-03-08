@@ -132,13 +132,13 @@ jobs:
           prerelease: true
           repository: andrzejressel/pulumi-gestalt-releases
           token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
+          body_path: target/github_changelog.md
 
-      - name: Create commit
-        run: |
-          git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
-          git tag "v${{ github.event.inputs.version }}"
-          git push origin "v${{ github.event.inputs.version }}"
-          git revert HEAD~2 # Revert renaming
-          git commit --amend -m "Restore version to 0.0.0-DEV"
-          git push
+#      - name: Create commit
+#        run: |
+#          git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
+#          git tag "v${{ github.event.inputs.version }}"
+#          git push origin "v${{ github.event.inputs.version }}"
+#          git revert HEAD~2 # Revert renaming
+#          git commit --amend -m "Restore version to 0.0.0-DEV"
+#          git push
