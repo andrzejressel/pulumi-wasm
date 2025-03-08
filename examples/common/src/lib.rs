@@ -33,7 +33,7 @@ impl Stack {
             .as_array()
             .ok_or(anyhow!("[{}] is not an array", pointer))?;
 
-        serde_json::to_string(&array).map_err(|e| anyhow::Error::new(e))
+        serde_json::to_string(&array).map_err(anyhow::Error::new)
     }
 }
 

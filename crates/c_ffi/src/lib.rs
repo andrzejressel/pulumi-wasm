@@ -5,6 +5,7 @@ use std::rc::{Rc, Weak};
 
 pub struct CustomOutputId {
     native: integration::Output,
+    ctx: Weak<RefCell<InnerPulumiContext>>,
 }
 
 pub struct CustomCompositeOutputId {
@@ -98,7 +99,10 @@ extern "C" fn pulumi_create_output(
     let pulumi_context = unsafe { &mut *ctx };
     let mut inner_engine = pulumi_context.inner.borrow_mut();
     let output_id = inner_engine.ctx.create_output(value, secret);
-    let output = CustomOutputId { native: output_id };
+    let output = CustomOutputId {
+        native: output_id,
+        ctx: Rc::downgrade(&pulumi_context.inner),
+    };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
     raw
@@ -213,6 +217,7 @@ extern "C" fn pulumi_output_map(
 
     let output = CustomOutputId {
         native: second_output,
+        ctx: Rc::downgrade(&engine.inner),
     };
     let raw = Box::into_raw(Box::new(output));
     inner_engine.outputs.push(raw);
@@ -226,6 +231,7 @@ extern "C" fn pulumi_output_combine(
     outputs_size: usize,
 ) -> *mut CustomOutputId {
     let output = unsafe { &*output };
+    // let mut inner_engine = output.native.inner.borrow_mut();
 
     let mut other_outputs = Vec::new();
     unsafe {
@@ -237,11 +243,18 @@ extern "C" fn pulumi_output_combine(
             });
     }
 
+    let binding = output.ctx.upgrade().unwrap();
+    let mut engine = binding.borrow_mut();
+
     let new_output = output.native.combine(&other_outputs);
 
-    let output = CustomOutputId { native: new_output };
+    let output = CustomOutputId {
+        native: new_output,
+        ctx: output.ctx.clone(),
+    };
 
     let raw = Box::into_raw(Box::new(output));
+    engine.outputs.push(raw);
     raw
 }
 
@@ -265,12 +278,15 @@ extern "C" fn pulumi_composite_output_get_field(
         .unwrap()
         .to_string();
     let custom_register_output_id = unsafe { &*output };
-    let output = custom_register_output_id.native.get_field(field_name);
+    let new_output = custom_register_output_id.native.get_field(field_name);
 
     let binding = custom_register_output_id.ctx.upgrade().unwrap();
     let mut engine = binding.borrow_mut();
 
-    let output = CustomOutputId { native: output };
+    let output = CustomOutputId {
+        native: new_output,
+        ctx: Rc::downgrade(&binding),
+    };
     let raw = Box::into_raw(Box::new(output));
     engine.outputs.push(raw);
     raw
