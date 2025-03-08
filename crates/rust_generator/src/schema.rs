@@ -189,9 +189,7 @@ pub(crate) struct Package {
 //TODO: Fix formatting
 fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     (match type_ {
-        Type {
-            ref_: Some(r), ..
-        } => Ok(crate::model::Type::Ref(
+        Type { ref_: Some(r), .. } => Ok(crate::model::Type::Ref(
             Ref::new(r).context(format!("Cannot convert ref fo type {type_:?}"))?,
         )),
         Type {
