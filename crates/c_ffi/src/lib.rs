@@ -56,7 +56,7 @@ pub struct InvokeResourceRequest {
 /// Library will free the returned string
 type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char) -> *mut c_char;
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_create_context(context: *const c_void) -> *mut PulumiContext {
     let engine = integration::Context::create_context();
     let t = InnerPulumiContext {
@@ -70,13 +70,13 @@ extern "C" fn pulumi_create_context(context: *const c_void) -> *mut PulumiContex
     Box::into_raw(Box::new(t))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_finish(ctx: *mut PulumiContext) {
     let pulumi_context = unsafe { &mut *ctx };
     pulumi_context.inner.borrow_mut().ctx.finish();
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_destroy_context(ctx: *mut PulumiContext) {
     unsafe {
         let b = Box::from_raw(ctx);
@@ -86,7 +86,7 @@ extern "C" fn pulumi_destroy_context(ctx: *mut PulumiContext) {
     }
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_create_output(
     ctx: *mut PulumiContext,
     value: *const c_char,
@@ -108,7 +108,7 @@ extern "C" fn pulumi_create_output(
     raw
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_register_resource(
     ctx: *mut PulumiContext,
     request: *const RegisterResourceRequest,
@@ -152,7 +152,7 @@ extern "C" fn pulumi_register_resource(
     Box::into_raw(Box::new(output))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_invoke_resource(
     ctx: *mut PulumiContext,
     request: *const InvokeResourceRequest,
@@ -190,7 +190,7 @@ extern "C" fn pulumi_invoke_resource(
     Box::into_raw(Box::new(output))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_output_map(
     ctx: *mut PulumiContext,
     output: *const CustomOutputId,
@@ -224,7 +224,7 @@ extern "C" fn pulumi_output_map(
     raw
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_output_combine(
     output: *const CustomOutputId,
     outputs: *const *const CustomOutputId,
@@ -258,7 +258,7 @@ extern "C" fn pulumi_output_combine(
     raw
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_output_add_to_export(value: *const CustomOutputId, name: *const c_char) {
     let name = unsafe { CStr::from_ptr(name) }
         .to_str()
@@ -268,7 +268,7 @@ extern "C" fn pulumi_output_add_to_export(value: *const CustomOutputId, name: *c
     value.native.add_export(name);
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "C" fn pulumi_composite_output_get_field(
     output: *mut CustomCompositeOutputId,
     field_name: *const c_char,
