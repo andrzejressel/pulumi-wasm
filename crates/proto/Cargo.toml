@@ -2,8 +2,13 @@
 name = "pulumi_gestalt_proto"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+readme.workspace = true
+description = "Generated Pulumi Protobuf bindings for Pulumi Gestalt"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[package.metadata.docs.rs]
+all-features = true
 
 [features]
 connectivity = ["dep:tonic"]

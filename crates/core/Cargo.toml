@@ -2,6 +2,10 @@
 name = "pulumi_gestalt_core"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+readme.workspace = true
+description = "Core Pulumi Gestalt implementation"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

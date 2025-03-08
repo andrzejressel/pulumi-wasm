@@ -3,6 +3,9 @@ name = "pulumi_gestalt_grpc_connection"
 version.workspace = true
 edition.workspace = true
 repository.workspace = true
+license.workspace = true
+readme.workspace = true
+description = "Abstarction layer for gRPC connections in Pulumi Gestalt"
 
 [dependencies]
 prost.workspace = true

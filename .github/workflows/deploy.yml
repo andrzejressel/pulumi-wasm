@@ -60,7 +60,7 @@ jobs:
       - name: Publish to registry
         run: just publish
         env:
-          CARGO_REGISTRIES_CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_API_KEY }}
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
           CARGO_HTTP_TIMEOUT: "3000"
 
   deploy_wasm_files:
