@@ -2,6 +2,9 @@
 name = "pulumi_gestalt_rust_common"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Common Rust utilities for Pulumi Gestalt"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

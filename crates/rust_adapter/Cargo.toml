@@ -2,6 +2,9 @@
 name = "pulumi_gestalt_rust_adapter"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Base Rust traits and types for Pulumi Gestalt"
 
 [dependencies]
 serde = { version = "1.0.217", features = ["derive"] }

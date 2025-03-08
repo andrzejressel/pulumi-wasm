@@ -2,6 +2,9 @@
 name = "pulumi_gestalt_rust_adapter_native"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Native Rust adapter for Pulumi Gestalt"
 
 [dependencies]
 anyhow.workspace = true

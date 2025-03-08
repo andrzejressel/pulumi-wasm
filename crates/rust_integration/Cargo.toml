@@ -2,6 +2,9 @@
 name = "pulumi_gestalt_rust_integration"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Rust helper functions for Pulumi Gestalt"
 
 [dependencies]
 anyhow.workspace = true

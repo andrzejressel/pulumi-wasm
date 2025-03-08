@@ -2,6 +2,9 @@
 name = "pulumi_gestalt"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Pulumi Gestalt implementation for Wasm Component Model"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

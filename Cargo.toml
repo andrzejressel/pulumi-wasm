@@ -43,7 +43,7 @@ members = [
 ]
 
 [workspace.package]
-version = "0.0.0-DEV"
+version = "0.0.0-test4"
 edition = "2021"
 repository = "https://github.com/andrzejressel/pulumi-gestalt-releases"
 
