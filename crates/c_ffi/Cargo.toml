@@ -7,8 +7,6 @@ edition.workspace = true
 crate-type = ["cdylib", "staticlib"]
 
 [dependencies]
-anyhow.workspace = true
-pulumi_gestalt_core.workspace = true
 libc.workspace = true
 pulumi_gestalt_rust_integration.workspace = true
 

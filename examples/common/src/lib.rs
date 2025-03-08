@@ -24,6 +24,17 @@ impl Stack {
             .as_i64()
             .ok_or(anyhow!("[{}] is not an i64", pointer))
     }
+
+    pub fn get_array_as_string(&self, pointer: &str) -> Result<String, anyhow::Error> {
+        let array = self
+            .value
+            .pointer(pointer)
+            .ok_or(anyhow!("Cannot find [{}] in stack export", pointer))?
+            .as_array()
+            .ok_or(anyhow!("[{}] is not an array", pointer))?;
+
+        serde_json::to_string(&array).map_err(anyhow::Error::new)
+    }
 }
 
 pub fn get_string(pointer: &str) -> &str {
