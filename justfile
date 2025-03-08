@@ -94,6 +94,9 @@ clippy-to-file:
 regenerator:
     cargo run -p regenerator
 
+recreate-lock-files-in-generator-tests $REMOVE_LOCK_FILES="true" $DO_NOT_COMPILE="true":
+    cargo nextest run -p pulumi_gestalt_generator --all-features --test '*' --profile all_cores
+
 regenerate-generator-tests $DO_NOT_COMPILE="true":
     cargo nextest run -p pulumi_gestalt_generator --all-features --test '*' --profile all_cores
 
