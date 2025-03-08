@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 repository.workspace = true
 license.workspace = true
+readme.workspace = true
 description = "Codegen module for Pulumi Gestalt"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

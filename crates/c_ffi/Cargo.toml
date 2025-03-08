@@ -3,13 +3,12 @@ name = "pulumi_native_c"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+publish = false
 
 [lib]
 crate-type = ["cdylib", "staticlib"]
 
 [dependencies]
-anyhow.workspace = true
-pulumi_gestalt_core.workspace = true
 libc.workspace = true
 pulumi_gestalt_rust_integration.workspace = true
 

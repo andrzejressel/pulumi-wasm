@@ -4,8 +4,8 @@ version.workspace = true
 edition.workspace = true
 repository.workspace = true
 license.workspace = true
+readme.workspace = true
 description = "Generated Wit bindings for Pulumi Gestalt"
-readme = "../../README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
