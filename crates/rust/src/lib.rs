@@ -52,7 +52,7 @@ pub fn add_export<T>(name: &str, output: &Output<T>) {
 /// ```
 #[macro_export]
 macro_rules! include_provider {
-    ($file:expr) => {
+    ($file:expr_2021) => {
         include!(concat!(env!("OUT_DIR"), "/pulumi/", $file, "/main.rs"));
     };
 }

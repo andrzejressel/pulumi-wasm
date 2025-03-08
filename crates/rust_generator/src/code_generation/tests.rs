@@ -23,7 +23,7 @@ macro_rules! yaml_deserialization_test {
 yaml_deserialization_test!(generate_yaml_complex_yaml, complex_yaml);
 
 macro_rules! full_pipeline_test {
-    ($test_name:ident, $package_name:expr, $test_module:ident) => {
+    ($test_name:ident, $package_name:expr_2021, $test_module:ident) => {
         #[test]
         fn $test_name() -> anyhow::Result<()> {
             let yaml_file = YamlFile::from_yaml($test_module::YAML).unwrap();
