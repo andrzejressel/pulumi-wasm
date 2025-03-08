@@ -9,24 +9,10 @@ edition.workspace = true
 crate-type = ["cdylib"]
 
 [dependencies]
-wit-bindgen.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 pulumi_gestalt_rust_common.workspace = true
-log.workspace = true
 pulumi_gestalt_core.workspace = true
 pulumi_gestalt_proto.workspace = true
 prost.workspace = true
 pulumi_gestalt_wit = { workspace = true, features = ["pulumi_gestalt"] }
-
-#pulumi_gestalt_wit = { workspace = true, features = ["pulumi_gestalt"] }
-#
-#[package.metadata.component]
-#package = "component:pulumi-gestalt"
-#
-#[package.metadata.component.target.dependencies]
-#"component:pulumi-gestalt-external" = { path = "../wit/wit/deps/pulumi-gestalt-external.wit" }
-#
-#[package.metadata.component.target]
-#path = "../wit/wit/world.wit"
-#world = "pulumi-gestalt"
