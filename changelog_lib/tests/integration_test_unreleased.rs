@@ -47,7 +47,7 @@ fn generate_changelog_for_new_version() -> Result<()> {
 }
 
 #[test]
-fn generate_github_changelog_for_0_1_0() -> Result<()> {
+fn generate_github_changelog_for_new_version() -> Result<()> {
     let repository = create_repository().context("Failed to create repository")?;
 
     let options = changelog_lib::Options {
@@ -57,32 +57,11 @@ fn generate_github_changelog_for_0_1_0() -> Result<()> {
         changelog_dir: "tests/example_unreleased/.changelog",
     };
 
-    let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.1.0")?;
+    let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.3.0")?;
 
     compare_with_file(
         &result,
-        Path::new("tests/example_unreleased/expected_github_0.1.0.md"),
-    )?;
-
-    Ok(())
-}
-
-#[test]
-fn generate_github_changelog_for_0_2_0() -> Result<()> {
-    let repository = create_repository().context("Failed to create repository")?;
-
-    let options = changelog_lib::Options {
-        repository_path: repository.dir.path(),
-        start_commit_id: INITIAL_COMMIT_ID,
-        repository: "andrzejressel/pulumi-gestalt",
-        changelog_dir: "tests/example_unreleased/.changelog",
-    };
-
-    let result = changelog_lib::generate_changelog_for_github_changelog(&options, "0.2.0")?;
-
-    compare_with_file(
-        &result,
-        Path::new("tests/example_unreleased/expected_github_0.2.0.md"),
+        Path::new("tests/example_unreleased/expected_github.md"),
     )?;
 
     Ok(())
