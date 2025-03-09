@@ -86,10 +86,10 @@ jobs:
       - name: Replace version
         run: just update-version "${{ github.event.inputs.version }}"
 
-#      - name: Base and e2e tests
-#        run: just base-ci-flow examples-ci-flow
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Base and e2e tests
+        run: just base-ci-flow examples-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup git name and email
         run: |
