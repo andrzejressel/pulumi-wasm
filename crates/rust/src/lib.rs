@@ -73,7 +73,7 @@ macro_rules! include_provider {
 macro_rules! pulumi_main {
     () => {
         #[cfg(target_arch = "wasm32")]
-        #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
+        #[unsafe(export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main")]
         unsafe extern "C" fn __exported(arg: i32) {
             let mapped = arg as u8;
 
