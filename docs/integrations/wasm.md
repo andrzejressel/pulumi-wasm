@@ -9,7 +9,7 @@ In Pulumi Gestalt, Wasm support is based on the [Component Model](https://compon
 ## Artifacts
 
 Several artifacts related to Wasm support can be found on
-the [releases](https://github.com/andrzejressel/pulumi-gestalt-releases/releases/) page:
+the [releases](https://github.com/andrzejressel/pulumi-gestalt/releases/) page:
 
 - **Wasm implementation** (`pulumi_gestalt-debug.wasm` / `pulumi_gestalt-release.wasm`)
 - **Runner** (`pulumi_gestalt_wasm_runner`)

@@ -23,7 +23,7 @@ impl WasmComponentSource for GithubWasmComponentSource {
             .join(format!("pulumi-gestalt-{version}-{profile}.wasm"));
 
         let url = format!(
-            "https://github.com/andrzejressel/pulumi-gestalt-releases/releases/download/v{version}/pulumi_gestalt-{profile}.wasm"
+            "https://github.com/andrzejressel/pulumi-gestalt/releases/download/v{version}/pulumi_gestalt-{profile}.wasm"
         );
 
         download_file_and_cache(wasm_location, &url)
@@ -87,7 +87,7 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_pulumi_gestalt() -> Result<()> {
             let source = GithubWasmComponentSource {};
-            let res = source.get("25.2.7-1354394", false).await?;
+            let res = source.get("0.0.0-test31", false).await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -95,7 +95,7 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_debug_pulumi_gestalt() -> Result<()> {
             let source = GithubWasmComponentSource {};
-            let res = source.get("25.2.7-1354394", true).await?;
+            let res = source.get("0.0.0-test31", true).await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -109,7 +109,7 @@ mod tests {
                 .expect_err("Expected error");
             assert_eq!(
                 err.to_string(),
-                "Cannot download pulumi-gestalt in version 0.0.0-NIGHTLY-nonexistent with profile release. Url: [https://github.com/andrzejressel/pulumi-gestalt-releases/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_gestalt-release.wasm]"
+                "Cannot download pulumi-gestalt in version 0.0.0-NIGHTLY-nonexistent with profile release. Url: [https://github.com/andrzejressel/pulumi-gestalt/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_gestalt-release.wasm]"
             );
             Ok(())
         }
