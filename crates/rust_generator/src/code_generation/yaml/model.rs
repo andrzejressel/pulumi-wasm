@@ -4,7 +4,7 @@ use crate::code_generation::yaml::yaml_model::{
 };
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use anyhow::Result;
-use anyhow::{anyhow, Context};
+use anyhow::{Context, anyhow};
 use std::collections::BTreeMap;
 use std::ops::Deref;
 

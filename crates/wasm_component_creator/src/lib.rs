@@ -1,5 +1,5 @@
 use crate::source::WasmComponentSource;
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use itertools::Itertools;
 use log::info;
 use regex::Regex;

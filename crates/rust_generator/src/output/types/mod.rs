@@ -1,8 +1,8 @@
 mod source_code_types_code;
 
 use crate::model::Package;
-use crate::output::types::source_code_types_code::generate_single_type_source_file;
 use crate::output::TreeNode;
+use crate::output::types::source_code_types_code::generate_single_type_source_file;
 use convert_case::{Case, Casing};
 use std::fs::{File, FileTimes};
 use std::io::Write;

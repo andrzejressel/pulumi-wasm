@@ -1,7 +1,7 @@
+use crate::pulumi::runner::Runner;
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world;
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world::Host;
 use crate::pulumi::runner::component::pulumi_gestalt_external::external_world::RegisteredResource;
-use crate::pulumi::runner::Runner;
 use anyhow::Error;
 use log::info;
 use prost::Message;
@@ -11,8 +11,8 @@ use pulumi_gestalt_proto::mini::pulumirpc::{
     ResourceInvokeRequest,
 };
 use pulumi_gestalt_wit::bindings_runner as runner;
-use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
+use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime_wasi::{IoView, WasiCtx, WasiCtxBuilder, WasiView};
 
 pub struct Pulumi {

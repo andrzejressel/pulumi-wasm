@@ -838,8 +838,8 @@ pub mod types {
 }
 #[doc(hidden)]
 pub mod constants {}
-#[link_section = "pulumi_gestalt_provider::aws"]
-#[no_mangle]
+#[unsafe(link_section = "pulumi_gestalt_provider::aws")]
+#[unsafe(no_mangle)]
 #[cfg(target_arch = "wasm32")]
 static PULUMI_WASM_PROVIDER_AWS: [u8; 45] = *b"{\"version\":\"6.66.2\",\"pluginDownloadURL\":null}";
 pub(crate) fn get_version() -> String {

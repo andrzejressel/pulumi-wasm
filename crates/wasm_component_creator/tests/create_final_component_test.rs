@@ -1,9 +1,9 @@
 use anyhow::Result;
 use async_trait::async_trait;
 use pulumi_gestalt_wasm_component_creator::source::WasmComponentSource;
-use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
-use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
+use wac_graph::types::Package;
+use wit_component::{ComponentEncoder, StringEncoding, dummy_module, embed_component_metadata};
 use wit_parser::ManglingAndAbi::Standard32;
 use wit_parser::{PackageId, Resolve};
 

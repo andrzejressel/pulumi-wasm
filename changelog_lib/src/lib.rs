@@ -2,7 +2,7 @@ use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
 use crate::model::TagName::WithVersion;
 use crate::model::TagNameWithVersion::NotYetReleasedWithVersion;
 use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
-use anyhow::{bail, format_err, Context, Result};
+use anyhow::{Context, Result, bail, format_err};
 use bon::Builder;
 use encoders::Encoder;
 use gix::bstr::ByteSlice;

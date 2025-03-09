@@ -79,9 +79,9 @@ mod tests {
 
     use crate::sync_pulumi_state::PulumiStateSync;
     use crate::test_server::{MyResourceEngineServer, MyResourceMonitorServer};
-    use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_server::ResourceMonitorServer;
-    use pulumi_gestalt_proto::full::pulumirpc::RegisterResourceRequest;
     use pulumi_gestalt_proto::IntoMini;
+    use pulumi_gestalt_proto::full::pulumirpc::RegisterResourceRequest;
+    use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_server::ResourceMonitorServer;
 
     #[test]
     fn test() -> Result<(), anyhow::Error> {

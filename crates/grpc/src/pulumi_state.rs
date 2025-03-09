@@ -2,6 +2,7 @@ use crate::output_id::OutputId;
 use anyhow::{Context, Error, Result};
 use futures::FutureExt;
 use prost::Message;
+use pulumi_gestalt_proto::IntoFull;
 use pulumi_gestalt_proto::full::pulumirpc::engine_client::EngineClient;
 use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_client::ResourceMonitorClient;
 use pulumi_gestalt_proto::mini::pulumirpc::{
@@ -10,7 +11,6 @@ use pulumi_gestalt_proto::mini::pulumirpc::{
 use pulumi_gestalt_proto::mini::pulumirpc::{
     RegisterResourceRequest, RegisterResourceResponse, SetRootResourceRequest,
 };
-use pulumi_gestalt_proto::IntoFull;
 use std::future::poll_fn;
 use tokio::task::JoinSet;
 use tonic::transport::Channel;
@@ -192,10 +192,10 @@ mod tests {
     use crate::pulumi_state::PulumiState;
     use crate::test_server::{MyResourceEngineServer, MyResourceMonitorServer};
 
+    use pulumi_gestalt_proto::IntoMini;
+    use pulumi_gestalt_proto::full::pulumirpc::RegisterResourceRequest;
     use pulumi_gestalt_proto::full::pulumirpc::engine_server::EngineServer;
     use pulumi_gestalt_proto::full::pulumirpc::resource_monitor_server::ResourceMonitorServer;
-    use pulumi_gestalt_proto::full::pulumirpc::RegisterResourceRequest;
-    use pulumi_gestalt_proto::IntoMini;
     use std::time::Instant;
     use tokio::net::TcpListener;
     use tonic::codegen::tokio_stream;

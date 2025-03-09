@@ -1,7 +1,7 @@
+use crate::code_generation::YamlFile;
 use crate::code_generation::yaml::model::Expression;
 use crate::code_generation::yaml::model::{Example, Resource};
 use crate::code_generation::yaml::yaml_model::YamlExpression;
-use crate::code_generation::YamlFile;
 use crate::model::ElementId;
 use crate::utils::reformat_code;
 use std::collections::BTreeMap;

@@ -1,6 +1,6 @@
 pub mod runner;
 
-use anyhow::{anyhow, Error, Result};
+use anyhow::{Error, Result, anyhow};
 use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
@@ -12,8 +12,8 @@ use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::types::{
     FunctionInvocationRequest, ObjectField, RegisterResourceRequest as WitRegisterResourceRequest,
     ResourceInvokeRequest as WitResourceInvokeRequest,
 };
-use serde::de::DeserializeOwned;
 use serde::Serialize;
+use serde::de::DeserializeOwned;
 use std::collections::HashMap;
 use std::marker::PhantomData;
 use std::rc::Rc;

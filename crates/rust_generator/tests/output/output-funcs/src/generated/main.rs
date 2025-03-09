@@ -39,8 +39,8 @@ pub mod constants {
         ConstStringProject, "Project"
     );
 }
-#[link_section = "pulumi_gestalt_provider::mypkg"]
-#[no_mangle]
+#[unsafe(link_section = "pulumi_gestalt_provider::mypkg")]
+#[unsafe(no_mangle)]
 #[cfg(target_arch = "wasm32")]
 static PULUMI_WASM_PROVIDER_MYPKG: [u8; 44] = *b"{\"version\":\"0.0.1\",\"pluginDownloadURL\":null}";
 pub(crate) fn get_version() -> String {

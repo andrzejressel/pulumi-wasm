@@ -4,7 +4,7 @@ use pulumi_gestalt_providers_docker::container::ContainerArgs;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
 use pulumi_gestalt_rust::Output;
-use pulumi_gestalt_rust::{add_export, Context};
+use pulumi_gestalt_rust::{Context, add_export};
 use pulumi_gestalt_rust::{GestaltContext, GestaltOutput};
 
 #[cfg(target_arch = "wasm32")]

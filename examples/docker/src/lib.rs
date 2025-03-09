@@ -3,7 +3,7 @@ use pulumi_gestalt_providers_docker::functions::get_remote_image::GetRemoteImage
 use pulumi_gestalt_providers_docker::types::{ContainerLabel, DockerBuild};
 use pulumi_gestalt_providers_docker::{container, image};
 use pulumi_gestalt_rust::GestaltOutput;
-use pulumi_gestalt_rust::{add_export, Context};
+use pulumi_gestalt_rust::{Context, add_export};
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();

@@ -1,7 +1,7 @@
 use crate::model::TagNameWithVersion::{NotYetReleasedWithVersion, RealTag};
+use TagName::{NotYetReleased, WithVersion};
 use serde::Deserialize;
 use std::path::PathBuf;
-use TagName::{NotYetReleased, WithVersion};
 
 #[derive(Debug, Deserialize)]
 pub(crate) enum ChangelogType {
