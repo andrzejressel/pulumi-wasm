@@ -134,7 +134,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          body: ""
           files: |
             target/wasm32-wasip2/release/*-release.wasm
             target/wasm32-wasip2/debug/*-debug.wasm
@@ -170,7 +169,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          body: ""
           files: |
             pulumi-language-gestalt/*.tar.gz
 
