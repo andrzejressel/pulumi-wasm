@@ -48,7 +48,9 @@ install-requirements:
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
 
 build-native-examples:
-    cargo build -p pulumi_gestalt_example_native
+    cargo build \
+     -p pulumi_gestalt_example_native \
+     -p pulumi_gestalt_example_raw_rust
 
 # Compiling everything together causes linking issues
 build-wasm-components:
@@ -141,6 +143,7 @@ test-cpp:
 test-native:
     cargo llvm-cov nextest \
         -p pulumi_gestalt_example_native \
+        -p pulumi_gestalt_example_raw_rust \
         --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:
