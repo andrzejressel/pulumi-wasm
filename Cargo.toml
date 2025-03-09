@@ -46,7 +46,7 @@ members = [
 version = "0.0.0-DEV"
 edition = "2021"
 license = "MPL-2.0"
-repository = "https://github.com/andrzejressel/pulumi-gestalt-releases"
+repository = "https://github.com/andrzejressel/pulumi-gestalt"
 readme = "README.md"
 
 [workspace.dependencies]
