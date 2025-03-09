@@ -91,19 +91,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clone Repository
-        run: |
-          git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-gestalt-releases /tmp/repo
-          cd /tmp/repo
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Create release Commit
-        run: |
-          cd /tmp/repo
-          git commit --allow-empty -m "Commit for version ${{ github.event.inputs.version }}"
-          git push origin main
-
       - name: Setup git name and email
         run: |
           git config --local user.name "GitHub Actions"
