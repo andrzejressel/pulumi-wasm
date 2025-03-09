@@ -1,8 +1,8 @@
 use anyhow::Result;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, GestaltContext};
 use pulumi_gestalt_rust::{Context, Output};
+use pulumi_gestalt_rust::{GestaltContext, add_export, pulumi_combine, pulumi_format};
 use pulumi_gestalt_rust::{GestaltOutput, ToOutput};
 
 #[cfg(target_arch = "wasm32")]

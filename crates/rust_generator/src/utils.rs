@@ -156,7 +156,10 @@ fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
                 }
             }
             fs::write("error.md", s).unwrap();
-            panic!("ElementId {:?} does not have valid replacement. Original markdown was saved to error.md", id);
+            panic!(
+                "ElementId {:?} does not have valid replacement. Original markdown was saved to error.md",
+                id
+            );
         }
     }
 

@@ -3,7 +3,7 @@ use crate::model::{
     NumberEnumElement, OutputProperty, Ref, StringEnumElement,
 };
 use crate::utils::sanitize_identifier;
-use anyhow::{anyhow, Context, Result};
+use anyhow::{Context, Result, anyhow};
 use convert_case::{Case, Casing};
 use pulumi_gestalt_rust::generate_string_const;
 use serde::Deserialize;

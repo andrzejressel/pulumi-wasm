@@ -95,7 +95,7 @@ impl ResourceMonitor for MyResourceMonitorServer {
                 return Err(Status::aborted(format!(
                     "unknown resource name: {}",
                     request.name
-                )))
+                )));
             }
         }
     }

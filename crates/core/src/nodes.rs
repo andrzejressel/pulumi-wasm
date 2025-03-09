@@ -3,7 +3,7 @@ use crate::model::NodeValue::Nothing;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
 use crate::pulumi::service::{PerformResourceRequest, RegisterResourceResponse};
 use log::error;
-use serde_json::{json, Value};
+use serde_json::{Value, json};
 use std::collections::{HashMap, HashSet};
 
 #[derive(Clone, Debug, PartialEq)]

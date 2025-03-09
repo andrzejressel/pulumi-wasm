@@ -16,9 +16,7 @@ use serde::Serialize;
 /// }
 #[macro_export]
 macro_rules! pulumi_format {
-    ($context:expr, $format:expr, $o1:expr) => {{
-        $o1.create_output(&$context).map(|a| format!($format, a))
-    }};
+    ($context:expr, $format:expr, $o1:expr) => {{ $o1.create_output(&$context).map(|a| format!($format, a)) }};
     ($context:expr, $format:expr, $o1:expr, $o2:expr) => {{
         pulumi_gestalt_rust::__private::output::combine2(
             $o1.create_output(&$context),

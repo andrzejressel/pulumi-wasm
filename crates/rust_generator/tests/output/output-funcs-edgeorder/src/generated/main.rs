@@ -35,8 +35,8 @@ pub mod constants {
         ConstStringPurchase, "Purchase"
     );
 }
-#[link_section = "pulumi_gestalt_provider::myedgeorder"]
-#[no_mangle]
+#[unsafe(link_section = "pulumi_gestalt_provider::myedgeorder")]
+#[unsafe(no_mangle)]
 #[cfg(target_arch = "wasm32")]
 static PULUMI_WASM_PROVIDER_MYEDGEORDER: [u8; 44] = *b"{\"version\":\"0.0.1\",\"pluginDownloadURL\":null}";
 pub(crate) fn get_version() -> String {

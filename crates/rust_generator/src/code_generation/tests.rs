@@ -1,7 +1,7 @@
 #![cfg(test)]
+use crate::code_generation::YamlFile;
 use crate::code_generation::yaml::model::yaml_to_model;
 use crate::code_generation::yaml::tests::*;
-use crate::code_generation::YamlFile;
 use crate::{extract_schema_from_file, schema};
 
 use crate::code_generation::rust_generation::generate_code;

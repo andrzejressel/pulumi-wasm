@@ -1,4 +1,4 @@
-use crate::common::{compare_with_file, Repository};
+use crate::common::{Repository, compare_with_file};
 use anyhow::Context;
 use anyhow::Result;
 use std::path::Path;

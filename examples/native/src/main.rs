@@ -4,7 +4,7 @@ use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
 use pulumi_gestalt_rust::GestaltContext;
 use pulumi_gestalt_rust::GestaltOutput;
 use pulumi_gestalt_rust::ToOutput;
-use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format, Context, Output};
+use pulumi_gestalt_rust::{Context, Output, add_export, pulumi_combine, pulumi_format};
 
 pulumi_gestalt_rust::pulumi_main!();
 #[allow(dead_code)]

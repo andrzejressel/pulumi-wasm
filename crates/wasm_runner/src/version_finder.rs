@@ -41,7 +41,7 @@ pub(crate) fn extract_custom_section(data: &[u8]) -> Vec<ProviderVersion> {
 
 #[cfg(test)]
 mod tests {
-    use crate::version_finder::{extract_custom_section, ProviderVersion};
+    use crate::version_finder::{ProviderVersion, extract_custom_section};
 
     static WAT: &str = include_str!("mocks/wasm.wat");
 
