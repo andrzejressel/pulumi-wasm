@@ -2,7 +2,7 @@
 panic = "warn"
 
 [workspace]
-resolver = "2"
+resolver = "3"
 members = [
     "changelog",
     "changelog_lib",
