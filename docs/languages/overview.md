@@ -8,7 +8,7 @@ actual program is run using `just` recipes.
 Pulumi Gestalt uses a custom language plugin that can be installed using Pulumi CLI:
 
 ```shell
-pulumi plugin install language gestalt "VERSION" --server github://api.github.com/andrzejressel/pulumi-gestalt-releases
+pulumi plugin install language gestalt "VERSION" --server github://api.github.com/andrzejressel/pulumi-gestalt
 ```
 
 Currently there are no configuration options for the plugin. It can be used in following way:

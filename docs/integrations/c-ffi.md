@@ -5,7 +5,7 @@
 
 ## Artifacts
 
-Shared library and header file are available on the [release page](https://github.com/andrzejressel/pulumi-gestalt-releases/releases)
+Shared library and header file are available on the [release page](https://github.com/andrzejressel/pulumi-gestalt/releases)
 
 ## Header file 
 
