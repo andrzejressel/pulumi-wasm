@@ -395,7 +395,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
           files: |
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.so
