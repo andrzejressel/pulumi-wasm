@@ -8,8 +8,8 @@ static char* mapper(const void* context_context, const void* context, const char
 	const char* function_name = (const char*) context;
 
 	if (strcmp(function_name, "double") == 0) {
-		auto i = atoi(content);
-		auto i2 = i * 2;
+		int i = atoi(content);
+		int i2 = i * 2;
 
 		char *buffer = malloc(23 * sizeof(char));
 		if (buffer == NULL) {
