@@ -13,6 +13,12 @@ Shared library and header file are available on the [release page](https://githu
 --8<-- "crates/c_ffi/pulumi_gestalt.h"
 ```
 
+## Example
+
+```cpp title="main.c"
+--8<-- "examples/c/main.c"
+```
+
 ## Cleanup
 
 `Output` and `CompositeOutput` does not need to be explicitly cleaned up. They are automatically managed by the SDK and will be destroyed when the context is destroyed. 

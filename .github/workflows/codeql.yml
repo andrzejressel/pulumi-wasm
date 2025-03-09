@@ -35,8 +35,8 @@ jobs:
         with:
           category: "/language:go"
 
-  analyze-cpp:
-    name: Analyze C/C++
+  analyze-c:
+    name: Analyze C
     runs-on: ubuntu-latest
     permissions:
       security-events: write
@@ -79,11 +79,11 @@ jobs:
       - name: Initialize CodeQL for C/C++
         uses: github/codeql-action/init@6bb031afdd8eb862ea3fc1848194185e076637e5 # v3
         with:
-          languages: c-cpp
+          languages: c
           build-mode: manual
 
       - name: Build
-        working-directory: examples/cpp
+        working-directory: examples/c
         run: |
           mkdir build
           cd build
@@ -93,4 +93,4 @@ jobs:
       - name: Perform CodeQL Analysis for C/C++
         uses: github/codeql-action/analyze@6bb031afdd8eb862ea3fc1848194185e076637e5 # v3
         with:
-          category: "/language:c-cpp"
+          category: "/language:c-c"

@@ -4,13 +4,13 @@ set windows-shell := ["pwsh.exe", "-c"]
 run $RUST_BACKTRACE="1":
     New-Item -ItemType Directory -Path build -Force
     cd build && cmake .. && cmake --build .
-    .\build\Debug\PulumiNativeCPP.exe
+    .\build\Debug\PulumiNativeC.exe
 
 [unix]
 run $RUST_BACKTRACE="1":
     mkdir -p build
     cd build && cmake .. && cmake --build .
-    ./build/PulumiNativeCPP
+    ./build/PulumiNativeC
 
 [windows]
 local-test:
