@@ -1,0 +1,14 @@
+[package]
+name = "pulumi_gestalt_example_raw_rust"
+version.workspace = true
+edition.workspace = true
+
+[features]
+example_test = []
+
+[dependencies]
+pulumi_gestalt_rust_integration.workspace = true
+
+[dev-dependencies]
+anyhow.workspace = true
+pulumi_gestalt_examples_common.workspace = true
