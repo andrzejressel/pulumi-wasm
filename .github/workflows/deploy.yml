@@ -9,6 +9,9 @@ env:
   CARGO_TERM_COLOR: always
   RUST_BACKTRACE: "full"
 
+permissions:
+  contents: write
+
 jobs:
 
   deploy_rust_registry:
@@ -131,9 +134,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
             target/wasm32-wasip2/release/*-release.wasm
@@ -170,9 +170,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
             pulumi-language-gestalt/*.tar.gz
@@ -273,10 +270,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
           files: |
             ./target/${{ matrix.rust-target }}/debug/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}-debug
             ./target/${{ matrix.rust-target }}/release/pulumi_gestalt_wasm_runner-${{ matrix.rust-target }}
@@ -379,10 +372,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
           files: |
             ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.dll
             ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.lib
@@ -407,9 +396,6 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
           files: |
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.so
@@ -431,10 +417,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
           files: |
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
             ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.dylib
@@ -458,10 +440,6 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
-          repository: andrzejressel/pulumi-gestalt-releases
-          token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
           files: |
             ./crates/c_ffi/pulumi_gestalt.h
             ./crates/wit/wit/world.wit
