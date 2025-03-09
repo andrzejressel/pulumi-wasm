@@ -4,15 +4,11 @@
     Before proceeding, make sure to read [Pulumi Gestalt integrations Overview](overview.md) page to get a better understanding of the documentation.
 
 
-Rust integration is available as `pulumi_gestalt_rust_integration` package in project's custom crate repository.
-
-You can setup this repository using
-
-and dependency can be then added using
+Rust integration is available as `pulumi_gestalt_rust_integration` crate.
 
 ```toml title="Cargo.toml"
 [dependencies]
 pulumi_gestalt_rust_integration = { version = "=<PULUMI_GESTALT_VERSION>" }
 ```
 
-rustdoc for integration is available [here](https://andrzejressel.github.io/pulumi-gestalt/rust-docs/pulumi_gestalt_rust_integration/index.html)
+rustdoc is available on [docs.rs](https://docs.rs/pulumi_gestalt_rust_integration/latest/pulumi_gestalt_rust_integration/)
