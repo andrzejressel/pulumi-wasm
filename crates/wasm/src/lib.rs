@@ -106,7 +106,7 @@ impl context::GuestContext for LocalPulumiContext {
                 let id: CustomOutputId = CustomOutputId(result.output_id, self.0.clone());
                 FunctionInvocationRequest {
                     id: Output::new(id),
-                    function_id: result.function_name.into(),
+                    function_name: result.function_name.into(),
                     value: vec,
                 }
             })

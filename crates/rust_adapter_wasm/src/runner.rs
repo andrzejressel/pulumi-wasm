@@ -53,13 +53,13 @@ fn map_functions<'a>(
         .map(
             |FunctionInvocationRequest {
                  id,
-                 function_id,
+                 function_name,
                  value,
              }| {
-                info!("Invoking function [{function_id}] with value [{value:?}]");
+                info!("Invoking function [{function_name}] with value [{value:?}]");
                 let result = context
-                    .invoke_function(function_id, value)
-                    .with_context(|| format!("Error invoking function [{function_id}]"))?;
+                    .invoke_function(function_name, value)
+                    .with_context(|| format!("Error invoking function [{function_name}]"))?;
                 Ok(FunctionInvocationResult { id, value: result })
             },
         )

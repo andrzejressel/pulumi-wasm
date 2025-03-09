@@ -46,7 +46,7 @@ interface types {
 
     record function-invocation-request {
         id: output,
-        function-id: string,
+        function-name: string,
         value: string,
     }
     record function-invocation-result {
