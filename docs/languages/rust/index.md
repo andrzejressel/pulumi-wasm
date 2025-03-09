@@ -19,27 +19,20 @@ If you don't know which one to choose, go with the native version. Currently, Wa
 - [Rust](https://www.rust-lang.org/tools/install)
 - [Just](https://github.com/casey/just)
 - Pulumi Gestalt language plugin: `pulumi plugin install language gestalt "<PULUMI_GESTALT_VERSION>" --server github://api.github.com/andrzejressel/pulumi-gestalt`
-- (Wasm only) Pulumi Gestalt Wasm Runner: `cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/" pulumi_gestalt_wasm_runner@<PULUMI_GESTALT_VERSION>`
+- (Wasm only) Pulumi Gestalt Wasm Runner: `cargo binstall -y pulumi_gestalt_wasm_runner@<PULUMI_GESTALT_VERSION>`
 
 ## Project setup
-
-### Add Repository
-
-```toml title=".cargo/config.toml"
-[registries.pulumi-gestalt]
-index = "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/"
-```
 
 ### Add dependencies
 
 ```toml title="Cargo.toml"
 [dependencies]
-pulumi_gestalt_rust = {version = "=<PULUMI_GESTALT_VERSION>", registry = "pulumi-gestalt"}
+pulumi_gestalt_rust = { version = "=<PULUMI_GESTALT_VERSION>" }
 anyhow = "1.0.95"
 bon = "3.3.1"
 
 [build-dependencies]
-pulumi_gestalt_build = { version = "=<PULUMI_GESTALT_VERSION>", registry = "pulumi-gestalt" }
+pulumi_gestalt_build = { version = "=<PULUMI_GESTALT_VERSION>" }
 ```
 
 ### Generate provider code
