@@ -132,7 +132,7 @@ jobs:
           prerelease: true
           repository: andrzejressel/pulumi-gestalt-releases
           token: ${{ secrets.RELEASE_TOKEN }}
-          body: ""
+          body_path: target/github_changelog.md
 
       - name: Create commit
         run: |

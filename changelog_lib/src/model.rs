@@ -39,13 +39,13 @@ pub(crate) struct Commit {
     pub(crate) title: String,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub(crate) enum TagName {
     NotYetReleased,
     WithVersion(TagNameWithVersion),
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub(crate) enum TagNameWithVersion {
     NotYetReleasedWithVersion(String),
     RealTag(String),
@@ -105,13 +105,6 @@ impl TagName {
         match self {
             NotYetReleased => "HEAD".into(),
             WithVersion(v) => v.get_tag(),
-        }
-    }
-
-    pub(crate) fn is_real_tag_with_version(&self, version: &str) -> bool {
-        match self {
-            WithVersion(RealTag(real_version)) => strip_v(real_version) == version,
-            _ => false,
         }
     }
 }

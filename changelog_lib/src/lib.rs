@@ -1,4 +1,6 @@
 use crate::encoders::{GithubFlavorEncoder, MkdocsEncoder};
+use crate::model::TagName::WithVersion;
+use crate::model::TagNameWithVersion::NotYetReleasedWithVersion;
 use crate::model::{ChangelogEntry, ChangelogType, Commit, GitHistory, TagName};
 use anyhow::{bail, format_err, Context, Result};
 use bon::Builder;
@@ -45,13 +47,17 @@ pub fn generate_changelog_for_new_version(options: &Options, new_version: &str) 
     Ok(s)
 }
 
-pub fn generate_changelog_for_github_changelog(options: &Options, version: &str) -> Result<String> {
-    let history = generate_history(options, None).context("Failed to generate history")?;
+pub fn generate_changelog_for_github_changelog(
+    options: &Options,
+    new_version: &str,
+) -> Result<String> {
+    let history = generate_history(options, Some(new_version.to_string()))
+        .context("Failed to generate history")?;
     let version = history
         .versions
         .into_iter()
-        .find(|v| v.tag_name.is_real_tag_with_version(version))
-        .context(format!("Failed to find version [{}]", version))?;
+        .find(|v| v.tag_name == WithVersion(NotYetReleasedWithVersion(new_version.to_string())))
+        .context(format!("Failed to find version [{}]", new_version))?;
     let new_history = GitHistory {
         versions: vec![version.clone()],
     };
