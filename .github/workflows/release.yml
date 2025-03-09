@@ -114,13 +114,6 @@ jobs:
           git add -A
           git commit -m "Update changelog for version ${{ github.event.inputs.version }}"
 
-      - name: Release
-        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
-        with:
-          name: ${{ github.event.inputs.version }}
-          tag_name: "v${{ github.event.inputs.version }}"
-          body_path: target/github_changelog.md
-
       - name: Create commit
         run: |
           git commit  --allow-empty -m "Release v${{ github.event.inputs.version }}"
@@ -129,3 +122,10 @@ jobs:
           git revert HEAD~2 # Revert renaming
           git commit --amend -m "Restore version to 0.0.0-DEV"
           git push
+
+      - name: Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
+        with:
+          name: ${{ github.event.inputs.version }}
+          tag_name: "v${{ github.event.inputs.version }}"
+          body_path: target/github_changelog.md
