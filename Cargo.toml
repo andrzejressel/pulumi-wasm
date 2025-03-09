@@ -39,7 +39,8 @@ members = [
     "crates/rust_adapter",
     "crates/rust_adapter_wasm",
     "crates/rust_adapter_native",
-    "crates/rust_integration"
+    "crates/rust_integration",
+    "examples/raw_rust"
 ]
 
 [workspace.package]
