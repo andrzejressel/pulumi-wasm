@@ -16,3 +16,7 @@ Shared library and header file are available on the [release page](https://githu
 ## Cleanup
 
 `Output` and `CompositeOutput` does not need to be explicitly cleaned up. They are automatically managed by the SDK and will be destroyed when the context is destroyed. 
+
+## Example
+
+Here is an example written in C++ that uses C FFI: https://github.com/andrzejressel/pulumi-gestalt/blob/main/examples/cpp/main.cpp
