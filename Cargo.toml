@@ -44,7 +44,7 @@ members = [
 
 [workspace.package]
 version = "0.0.0-DEV"
-edition = "2021"
+edition = "2024"
 license = "MPL-2.0"
 repository = "https://github.com/andrzejressel/pulumi-gestalt-releases"
 readme = "README.md"
