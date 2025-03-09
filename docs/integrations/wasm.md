@@ -1,9 +1,8 @@
 # Wasm
 
 !!! note "Please Read First"
-Before proceeding, make sure to read [Pulumi Gestalt integrations Overview](overview.md) page to get a better
-understanding of the
-documentation.
+    Before proceeding, make sure to read [Pulumi Gestalt integrations Overview](overview.md) page to get a better
+    understanding of the documentation.
 
 In Pulumi Gestalt, Wasm support is based on the [Component Model](https://component-model.bytecodealliance.org/).
 
