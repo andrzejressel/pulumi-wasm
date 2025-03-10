@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_gestalt_example_cpp"
+name = "pulumi_gestalt_example_c"
 version.workspace = true
 edition.workspace = true
 

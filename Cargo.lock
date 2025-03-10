@@ -3475,7 +3475,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_gestalt_example_cpp"
+name = "pulumi_gestalt_example_c"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",

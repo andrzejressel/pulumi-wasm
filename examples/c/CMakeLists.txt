@@ -2,17 +2,18 @@ cmake_minimum_required (VERSION 3.20)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project ("PulumiNativeCPP")
+project ("PulumiNativeC")
 
 include_directories(${CMAKE_SOURCE_DIR}/../../crates/c_ffi)
 
-add_executable (PulumiNativeCPP "main.cpp")
-set_property(TARGET PulumiNativeCPP PROPERTY CXX_STANDARD 20)
+add_executable (PulumiNativeC "main.c")
+set_property(TARGET PulumiNativeC PROPERTY C_STANDARD 23)
+set_property(TARGET PulumiNativeC PROPERTY COMPILE_WARNING_AS_ERROR ON)
 
 add_library(library SHARED IMPORTED)
 
 if(WIN32)
-  target_link_libraries(PulumiNativeCPP userenv wsock32 ws2_32 ntdll bcrypt)
+  target_link_libraries(PulumiNativeC userenv wsock32 ws2_32 ntdll bcrypt)
   set_target_properties(library PROPERTIES
     IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/../../target/debug/pulumi_native_c.dll"
     IMPORTED_IMPLIB "${CMAKE_SOURCE_DIR}/../../target/debug/pulumi_native_c.lib"
@@ -33,5 +34,4 @@ if(APPLE)
   )
 endif()
 
-target_link_libraries(PulumiNativeCPP library)
-
+target_link_libraries(PulumiNativeC library)
