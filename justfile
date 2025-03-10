@@ -23,7 +23,7 @@ examples-ci-flow: build-language-plugin build-wasm-components build-wasm-compone
 generator-ci-flow COMPILATION_NAME:
     just test-provider-compilation {{COMPILATION_NAME}}
 
-cpp-ci-flow: build-language-plugin build-static-library test-cpp
+c-ci-flow: build-language-plugin build-static-library test-c
 
 native-ci-flow: build-language-plugin build-native-examples test-native
 
@@ -135,9 +135,9 @@ test-examples:
         -p pulumi_gestalt_example_secret \
         --cobertura --output-path covertura.xml --features example_test
 
-test-cpp:
+test-c:
     cargo llvm-cov nextest \
-        -p pulumi_gestalt_example_cpp \
+        -p pulumi_gestalt_example_c \
         --cobertura --output-path covertura.xml --features example_test
 
 test-native:

@@ -314,7 +314,7 @@ jobs:
       - name: Ensure no files have changed
         run: git add . && git diff --quiet && git diff --cached --quiet
 
-  build-cpp:
+  build-c:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -353,7 +353,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: protoc --version
       - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
-      - run: just cpp-ci-flow
+      - run: just c-ci-flow
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: git add . && git diff
