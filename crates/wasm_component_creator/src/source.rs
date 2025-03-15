@@ -87,7 +87,7 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_pulumi_gestalt() -> Result<()> {
             let source = GithubWasmComponentSource {};
-            let res = source.get("0.0.0-test31", false).await?;
+            let res = source.get("0.0.1", false).await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -95,7 +95,7 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_debug_pulumi_gestalt() -> Result<()> {
             let source = GithubWasmComponentSource {};
-            let res = source.get("0.0.0-test31", true).await?;
+            let res = source.get("0.0.1", true).await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -104,7 +104,7 @@ mod tests {
         async fn should_fail_on_noexisting_version() -> Result<()> {
             let source = GithubWasmComponentSource {};
             let err = source
-                .get("0.0.0-NIGHTLY-nonexistent", false)
+                .get("0.0.0-nonexistent-version", false)
                 .await
                 .expect_err("Expected error");
             assert_eq!(
