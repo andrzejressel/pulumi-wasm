@@ -109,7 +109,7 @@ mod tests {
                 .expect_err("Expected error");
             assert_eq!(
                 err.to_string(),
-                "Cannot download pulumi-gestalt in version 0.0.0-nonexistent-version with profile release. Url: [https://github.com/andrzejressel/pulumi-gestalt/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_gestalt-release.wasm]"
+                "Cannot download pulumi-gestalt in version 0.0.0-nonexistent-version with profile release. Url: [https://github.com/andrzejressel/pulumi-gestalt/releases/download/v0.0.0-nonexistent-version/pulumi_gestalt-release.wasm]"
             );
             Ok(())
         }
